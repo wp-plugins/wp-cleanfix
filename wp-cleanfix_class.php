@@ -18,7 +18,7 @@ class WPCLEANFIX_CLASS {
      * @since 0.1.0
      * @var string
      */
-    var $version 						= "0.1.1";
+    var $version 						= "0.1.5";
 
     /**
      * WP-CLEANFIX release.minor.revision
