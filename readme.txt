@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9
 Tested up to: 2.9.1
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 
 WP-CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -42,6 +42,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 == Changelog ==
 
+= 0.1.1 =
+* Add localizzazion (English + generic POT file)
+
 = 0.1.0 =
 * First beta/preview release
 
@@ -62,10 +65,14 @@ Please download and support :)
 
 == Thanks ==
 
-* me
+* [Lazy79] (http://wordpress.org/support/profile/231784 "Lazy79" for beta testing
 
 == Frequently Asked Questions ==
 
-= Can I translate? =
+= Is this Plugin Dangerous? =
 
-Yes, send me a mail
+Could be. Be sure to backup all data from Wordpress database before execute any functions.
+
+= Can I translate Plgin interface? =
+
+Yes, just edit .POT file in `localizzation` folder

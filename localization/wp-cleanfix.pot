@@ -1,0 +1,213 @@
+# Translation of the WordPress plugin WP-CLEANFIX 0.1.0 by Giovambattista Fazioli.
+# Copyright (C) 2010 Giovambattista Fazioli
+# This file is distributed under the same license as the WP-CLEANFIX package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-CLEANFIX 0.1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-cleanfix\n"
+"POT-Creation-Date: 2010-03-02 15:12+0000\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: module/comments.php:21
+#, php-format
+msgid "Ci sono %s commenti ancora non approvati"
+msgstr ""
+
+#: module/comments.php:22
+msgid "Rimuovi Commenti!"
+msgstr ""
+
+#: module/comments.php:25
+msgid "Nessun commento non approvato"
+msgstr ""
+
+#: module/comments.php:27
+#, php-format
+msgid "%s - commenti non approvati eliminati"
+msgstr ""
+
+#: module/comments.php:48
+#, php-format
+msgid "Ci sono %s commenti segnati come SPAM"
+msgstr ""
+
+#: module/comments.php:49
+msgid "Rimuovi SPAM!"
+msgstr ""
+
+#: module/comments.php:52
+msgid "Nessun commento SPAM presente"
+msgstr ""
+
+#: module/comments.php:54
+#, php-format
+msgid "%s - commenti SPAM eliminati"
+msgstr ""
+
+#: module/comments_view.php:18 module/database_view.php:19
+#: module/posts_view.php:18 wp-cleanfix_admin.php:216
+msgid "Aggiorna"
+msgstr ""
+
+#: module/comments_view.php:19 module/database_view.php:20
+#: module/posts_view.php:19
+msgid "Funzione"
+msgstr ""
+
+#: module/comments_view.php:20 module/database_view.php:21
+#: module/posts_view.php:20
+msgid "Stato"
+msgstr ""
+
+#: module/comments_view.php:29
+msgid "Commenti non approvati"
+msgstr ""
+
+#: module/comments_view.php:43
+msgid "Commenti segnati come SPAM"
+msgstr ""
+
+#: module/database.php:36
+msgid "Le seguenti tabelle:"
+msgstr ""
+
+#: module/database.php:46
+msgid " se ottimizzate libererebbero:"
+msgstr ""
+
+#: module/database.php:46
+msgid "Ottimizza!"
+msgstr ""
+
+#: module/database_view.php:30
+msgid "Tabelle da ottimizzare"
+msgstr ""
+
+#: module/info.php:13
+msgid ""
+"Attenzione! Questa &egrave; una beta release che opera alcune funzioni "
+"potenzialmente pericolose sul database Wordpress. Eseguire quindi un backup "
+"del database prima di eseguire qualsiasi operazione!"
+msgstr ""
+
+#: module/posts.php:21
+#, php-format
+msgid "%s Revisioni, vuoi eliminarle?"
+msgstr ""
+
+#: module/posts.php:22
+msgid "Rimuovi Revisioni!"
+msgstr ""
+
+#: module/posts.php:25
+msgid "Nessun post in revisione"
+msgstr ""
+
+#: module/posts.php:27
+#, php-format
+msgid "%s - revisioni di post eliminate"
+msgstr ""
+
+#: module/posts.php:52 module/posts.php:76
+msgid "Rimuovi tutti"
+msgstr ""
+
+#: module/posts.php:55
+msgid "Nessun Meta Tag risulta inutilizzato"
+msgstr ""
+
+#: module/posts.php:57
+#, php-format
+msgid "%s - meta tag eliminati"
+msgstr ""
+
+#: module/posts.php:71
+#, php-format
+msgid "%s Tag non utilizzati:"
+msgstr ""
+
+#: module/posts.php:79
+msgid "Nessun Tag risulta inutilizzato"
+msgstr ""
+
+#: module/posts.php:81
+#, php-format
+msgid "%s - tag eliminati"
+msgstr ""
+
+#: module/posts_view.php:28
+msgid "Revisioni"
+msgstr ""
+
+#: module/posts_view.php:40
+msgid "Post Meta"
+msgstr ""
+
+#: module/posts_view.php:52
+msgid "Tags"
+msgstr ""
+
+#: wp-cleanfix_admin.php:72
+msgid "Attenzione!! Confermi questa operazione?"
+msgstr ""
+
+#: wp-cleanfix_admin.php:104
+msgid "Your settings have been saved."
+msgstr ""
+
+#: wp-cleanfix_admin.php:124 wp-cleanfix_admin.php:134
+#: wp-cleanfix_admin.php:160 wp-cleanfix_admin.php:170
+#: wp-cleanfix_admin.php:180 wp-cleanfix_admin.php:190
+msgid "Apri/Collassa"
+msgstr ""
+
+#: wp-cleanfix_admin.php:161
+msgid "Informazioni sul sistema"
+msgstr ""
+
+#: wp-cleanfix_admin.php:171
+msgid "Database"
+msgstr ""
+
+#: wp-cleanfix_admin.php:181
+msgid "Posts"
+msgstr ""
+
+#: wp-cleanfix_admin.php:191
+msgid "Commenti"
+msgstr ""
+
+#: wp-cleanfix_admin.php:228
+msgid "Settings"
+msgstr ""
+
+#. Plugin Name of an extension
+msgid "WP-CLEANFIX"
+msgstr ""
+
+#. Plugin URI of an extension
+msgid "http://wordpress.org/extend/plugins/wp-cleanfix/"
+msgstr ""
+
+#. Description of an extension
+msgid ""
+"WP-CLEANFIX, all in one tool for check, repair, fix and optimize your "
+"Wordpress blog.. For more info and plugins visit <a href=\"http://labs."
+"saidmade.com\">Labs Saidmade</a>."
+msgstr ""
+
+#. Author of an extension
+msgid "Giovambattista Fazioli"
+msgstr ""
+
+#. Author URI of an extension
+msgid "http://www.undolog.com"
+msgstr ""
