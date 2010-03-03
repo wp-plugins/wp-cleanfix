@@ -1,6 +1,6 @@
 <?php
 /**
- * Database management
+ * Posts management
  *
  * @package         wp-cleanfix
  * @subpackage      info

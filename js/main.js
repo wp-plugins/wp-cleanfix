@@ -63,6 +63,12 @@ jQuery(document).ready(function() {
     // Post Meta
     wp_cleanfix_ajax_command('buttonPostMetaRefresh', 'wpcleanfix_posts_show_unused_post_meta', 'posts-meta' );
 
+
+    // Category unused
+    wp_cleanfix_ajax_command('buttonCategoryRemoveUnsed', 'wpcleanfix_category_remove_unsed', 'category-unused', true );
+    wp_cleanfix_ajax_command('buttonCategoryUnusedRefresh', 'wpcleanfix_category_show_unused', 'category-unused' );
+
+
     // Unapproved Comments
     wp_cleanfix_ajax_command('buttonCommentsRemoveUnapproved', 'wpcleanfix_comments_delete_unapproved_comment', 'comments-unapproved', true );
     wp_cleanfix_ajax_command('buttonCommentUnapprovedCommentRefresh', 'wpcleanfix_comments_show_unapproved_comment', 'comments-unapproved' );

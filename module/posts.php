@@ -1,6 +1,6 @@
 <?php
 /**
- * Database management
+ * Posts management
  *
  * @package         wp-cleanfix
  * @subpackage      info
@@ -10,7 +10,7 @@
  */
 
 /**
- * Check all databse table for optimizing
+ * Check for posts revisions
  */
 function wpcleanfix_posts_show_posts_revision($mes = null) {
     global $wpdb;
@@ -47,9 +47,9 @@ function wpcleanfix_posts_show_unused_post_meta( $mes = null ) {
         <select>
     <?php
         foreach($res as $row) : ?>
-            <option><?php echo $row ?></option>
+            <option><?php //echo $row ?></option>
         <?php endforeach; ?>
-    ?></select>  <button id="buttonPostsRemoveMeta"><?php _e('Rimuovi tutti', 'wp-cleanfix') ?></button>
+    ?></select>  <button id="buttonPostsRemoveMeta"><?php _e('Rimuovi!', 'wp-cleanfix') ?></button>
     <?php else : ?>
         <?php if(is_null($mes)) : ?>
             <span class="wpcleanfix-ok"><?php _e('Nessun Meta Tag risulta inutilizzato','wp-cleanfix'); ?></span>
@@ -60,11 +60,10 @@ function wpcleanfix_posts_show_unused_post_meta( $mes = null ) {
 }
 
 
-
 function wpcleanfix_posts_show_unused_tag( $mes = null ) {
     global $wpdb;
 
-    $sql = "SELECT * From $wpdb->terms wt INNER JOIN $wpdb->term_taxonomy wtt ON wt.term_id = wtt.term_id WHERE wtt.taxonomy='post_tag' AND wtt.count=0;";
+    $sql = "SELECT * FROM $wpdb->terms wt INNER JOIN $wpdb->term_taxonomy wtt ON wt.term_id = wtt.term_id WHERE wtt.taxonomy='post_tag' AND wtt.count=0;";
     $res = $wpdb->get_results($sql);
    
     if(count($res) > 0 ) : ?>

@@ -33,7 +33,7 @@ function wpcleanfix_database_show_tables_optimize() {
             $gain       = round ($gain,3);
 
             if($gain > 0) : ?>
-                <?php if($flag) : $flag = false; ?><span class="wpcleanfix-warning"><?php _e('Le seguenti tabelle:') ?></span> <select><?php endif; ?>
+                <?php if($flag) : $flag = false; ?><span class="wpcleanfix-warning"><?php _e('Le seguenti tabelle:', 'wp-cleanfix') ?></span> <select><?php endif; ?>
                 <option><?php echo $row[0] ?> - <?php echo $gain ?> Kb</option>
             <?php endif;
         }

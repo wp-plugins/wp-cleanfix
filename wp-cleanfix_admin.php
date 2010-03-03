@@ -156,7 +156,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
             <div id="post-body-content" class="has-sidebar-content">
                 <div class="meta-box-sortables">
 
-                    <div id="sm_rebuild" class="postbox">
+                    <div class="postbox">
                         <div title="<?php  _e('Apri/Collassa', 'wp-cleanfix')?>" class="handlediv"></div>
                         <h3 class="hndle"><span><?php  _e('Informazioni sul sistema', 'wp-cleanfix')?></span></h3>
                         <div class="inside">
@@ -166,7 +166,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
                         </div>
                     </div>
 
-                    <div id="sm_rebuild" class="postbox">
+                    <div class="postbox">
                         <div title="<?php  _e('Apri/Collassa', 'wp-cleanfix')?>" class="handlediv"></div>
                         <h3 class="hndle"><span><?php  _e('Database', 'wp-cleanfix')?></span></h3>
                         <div class="inside">
@@ -176,7 +176,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
                         </div>
                     </div>
 
-                    <div id="sm_rebuild" class="postbox">
+                    <div class="postbox">
                         <div title="<?php  _e('Apri/Collassa', 'wp-cleanfix')?>" class="handlediv"></div>
                         <h3 class="hndle"><span><?php  _e('Posts', 'wp-cleanfix')?></span></h3>
                         <div class="inside">
@@ -186,7 +186,17 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
                         </div>
                     </div>
 
-                    <div id="sm_rebuild" class="postbox">
+                    <div class="postbox">
+                        <div title="<?php  _e('Apri/Collassa', 'wp-cleanfix')?>" class="handlediv"></div>
+                        <h3 class="hndle"><span><?php  _e('Categorie', 'wp-cleanfix')?></span></h3>
+                        <div class="inside">
+
+                            <?php require_once ('module/category_view.php') ?>
+
+                        </div>
+                    </div>
+
+                    <div class="postbox">
                         <div title="<?php  _e('Apri/Collassa', 'wp-cleanfix')?>" class="handlediv"></div>
                         <h3 class="hndle"><span><?php  _e('Commenti', 'wp-cleanfix')?></span></h3>
                         <div class="inside">
