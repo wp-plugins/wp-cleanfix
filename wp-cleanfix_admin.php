@@ -68,8 +68,9 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
          */
 		wp_enqueue_script ( 'wp-cleanfix-main-js' , $this->url . '/js/main.js' , array ( 'jquery' ) , '1.0.0' , true );
 		wp_localize_script ( 'wp-cleanfix-main-js' , 'wpCleanFixMainL10n' , array (
-                                                    'ajaxURL' => $this->url_ajax,
-													'messageConfirm' => __( 'Attenzione!! Confermi questa operazione?'  , 'wp-cleanfix' )
+                                                    'ajaxURL'           => $this->url_ajax,
+													'messageConfirm'    => __( 'Warning!! Are you sure to confirm this operation?', 'wp-cleanfix' ),
+                                                    'notImplement'      => __( 'Sorry! Be patient. Not yet implemented in this beta release', 'wp-cleanfix' )
 													) );
         /**
          * Update some changed options
@@ -121,7 +122,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
             <div id="side-sortables" class="meta-box-sortabless ui-sortable" style="position: relative;">
 
                 <div id="sm_pnres" class="postbox">
-                    <div title="<?php  _e('Apri/Collassa', 'wp-cleanfix')?>" class="handlediv"></div>
+                    <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
                     <h3 class="hndle"><span>Links</span></h3>
                     <div class="inside">
                        <div style="text-align:center;margin-bottom:12px"><?php include_once('adv.php') ?></div>
@@ -131,7 +132,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
                 </div>
 
                 <div id="sm_pnres" class="postbox">
-                    <div title="<?php  _e('Apri/Collassa', 'wp-cleanfix')?>" class="handlediv"></div>
+                    <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
                     <h3 class="hndle"><span>Donate</span></h3>
                     <div class="inside">
                         <p style="text-align:center;font-family:Tahoma;font-size:10px">Developed by <a target="_blank" href="http://www.saidmade.com"><img alt="Saidmade" align="absmiddle" src="http://labs.saidmade.com/images/sm-a-80x15.png" border="0" /></a>
@@ -157,8 +158,8 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
                 <div class="meta-box-sortables">
 
                     <div class="postbox">
-                        <div title="<?php  _e('Apri/Collassa', 'wp-cleanfix')?>" class="handlediv"></div>
-                        <h3 class="hndle"><span><?php  _e('Informazioni sul sistema', 'wp-cleanfix')?></span></h3>
+                        <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
+                        <h3 class="hndle"><span><?php  _e('Important informations', 'wp-cleanfix')?></span></h3>
                         <div class="inside">
                             
                             <?php require_once ('module/info.php') ?>
@@ -167,7 +168,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
                     </div>
 
                     <div class="postbox">
-                        <div title="<?php  _e('Apri/Collassa', 'wp-cleanfix')?>" class="handlediv"></div>
+                        <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
                         <h3 class="hndle"><span><?php  _e('Database', 'wp-cleanfix')?></span></h3>
                         <div class="inside">
 
@@ -177,7 +178,17 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
                     </div>
 
                     <div class="postbox">
-                        <div title="<?php  _e('Apri/Collassa', 'wp-cleanfix')?>" class="handlediv"></div>
+                        <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
+                        <h3 class="hndle"><span><?php  _e('Users', 'wp-cleanfix')?></span></h3>
+                        <div class="inside">
+
+                            <?php require_once ('module/usersmeta_view.php') ?>
+
+                        </div>
+                    </div>
+
+                    <div class="postbox">
+                        <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
                         <h3 class="hndle"><span><?php  _e('Posts', 'wp-cleanfix')?></span></h3>
                         <div class="inside">
 
@@ -187,8 +198,8 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
                     </div>
 
                     <div class="postbox">
-                        <div title="<?php  _e('Apri/Collassa', 'wp-cleanfix')?>" class="handlediv"></div>
-                        <h3 class="hndle"><span><?php  _e('Categorie', 'wp-cleanfix')?></span></h3>
+                        <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
+                        <h3 class="hndle"><span><?php  _e('Categories', 'wp-cleanfix')?></span></h3>
                         <div class="inside">
 
                             <?php require_once ('module/category_view.php') ?>
@@ -197,8 +208,8 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
                     </div>
 
                     <div class="postbox">
-                        <div title="<?php  _e('Apri/Collassa', 'wp-cleanfix')?>" class="handlediv"></div>
-                        <h3 class="hndle"><span><?php  _e('Commenti', 'wp-cleanfix')?></span></h3>
+                        <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
+                        <h3 class="hndle"><span><?php  _e('Comments', 'wp-cleanfix')?></span></h3>
                         <div class="inside">
 
                             <?php require_once ('module/comments_view.php') ?>
@@ -223,7 +234,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
      * @param string $id
      */
     function button_refresh($id) { ?>
-        <button title="<?php _e('Aggiorna', 'wp-cleanfix') ?>" id="<?php echo $id ?>" class="wp-cleanfix-refresh"><span><?php _e('Aggiorna', 'wp-cleanfix') ?></span></button>
+        <button title="<?php _e('Refresh', 'wp-cleanfix') ?>" id="<?php echo $id ?>" class="wp-cleanfix-refresh"><span><?php _e('Refresh', 'wp-cleanfix') ?></span></button>
     <?php
     }
 

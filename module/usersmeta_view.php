@@ -1,6 +1,6 @@
 <?php
 /**
- * Database management
+ * Category management
  *
  * @package         wp-cleanfix
  * @subpackage      info
@@ -9,10 +9,9 @@
  * @version         1.0.0
  */
 
-require_once 'database.php';
+require_once 'usersmeta.php';
 
 ?>
-
 <table class="widefat wp-cleanfix" width="100%" cellpadding="4" cellspacing="0">
     <thead>
         <tr>
@@ -23,17 +22,21 @@ require_once 'database.php';
     </thead>
 
     <tbody>
-        <tr scope="row">
-            <td><?php $this->button_refresh('buttonDatabaseOptimizeTableRefresh') ?></td>
-            
+
+        <tr>
+            <td><?php $this->button_refresh('buttonUserMetaUnusedRefresh') ?></td>
             <td>
-                <strong><?php _e('Tables', 'wp-cleanfix') ?></strong>
+                <strong><?php _e('User Meta', 'wp-cleanfix') ?></strong>
             </td>
             <td>
-                <div id="database-optimize">
-                    <?php wpcleanfix_database_show_tables_optimize() ?>
+                <div id="usersmeta-unused">
+                    <?php wpcleanfix_show_usersmeta_unlink() ?>
                 </div>
             </td>
         </tr>
+
     </tbody>
+
 </table>
+
+

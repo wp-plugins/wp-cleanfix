@@ -15,6 +15,7 @@
 
 require_once ('../../../wp-load.php');
 require_once ('module/database.php');
+require_once ('module/usersmeta.php');
 require_once ('module/posts.php');
 require_once ('module/category.php');
 require_once ('module/comments.php');

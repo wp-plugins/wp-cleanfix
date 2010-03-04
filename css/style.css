@@ -67,6 +67,8 @@ button.wp-cleanfix-refresh {
     background-image: url(images/refresh.png);
     padding: 12px;
     background-position: center center;
+    background-color: transparent;
+    border: none;
 }
 
 div#ajax-wait {

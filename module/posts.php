@@ -18,13 +18,13 @@ function wpcleanfix_posts_show_posts_revision($mes = null) {
     $sql = "SELECT COUNT(*) FROM $wpdb->posts WHERE post_type = 'revision'";
     $revisions = $wpdb->get_var( $sql );
     if(!$revisions == 0 || !$revisions == NULL) : ?>
-        <span class="wpcleanfix-warning"><?php printf(__('%s Revisioni, vuoi eliminarle?', 'wp-cleanfix'), $revisions ) ?></span>
-        <button id="buttonPostsRemoveRevision"><?php _e('Rimuovi Revisioni!', 'wp-cleanfix') ?></button>
+        <span class="wpcleanfix-warning"><?php printf(__('%s Revisions, Do you want erase them?', 'wp-cleanfix'), $revisions ) ?></span>
+        <button id="buttonPostsRemoveRevision"><?php _e('Erase!', 'wp-cleanfix') ?></button>
     <?php else : ?>
         <?php if(is_null($mes)) : ?>
-            <span class="wpcleanfix-ok"><?php _e('Nessun post in revisione','wp-cleanfix'); ?></span>
+            <span class="wpcleanfix-ok"><?php _e('No Post Revisions found','wp-cleanfix'); ?></span>
         <?php else : ?>
-            <span class="wpcleanfix-cleaned"><?php printf( __('%s - revisioni di post eliminate','wp-cleanfix'), $mes ); ?></span>
+            <span class="wpcleanfix-cleaned"><?php printf( __('%s - Post Revisions erased','wp-cleanfix'), $mes ); ?></span>
         <?php endif; ?>
     <?php endif;
 }
@@ -44,19 +44,27 @@ function wpcleanfix_posts_show_unused_post_meta( $mes = null ) {
     $sql = "SELECT * FROM $wpdb->postmeta pm LEFT JOIN $wpdb->posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL;";
     $res = $wpdb->get_results($sql);
     if(count($res) > 0 ) : ?>
-        <select>
+        <span class="wpcleanfix-warning"><?php printf(__('%s unused Meta Tag:', 'wp-cleanfix'), count($res) ) ?></span> <select>
     <?php
         foreach($res as $row) : ?>
-            <option><?php //echo $row ?></option>
+            <option><?php echo $row->meta_key ?> [<?php echo $row->meta_value ?>]</option>
         <?php endforeach; ?>
-    ?></select>  <button id="buttonPostsRemoveMeta"><?php _e('Rimuovi!', 'wp-cleanfix') ?></button>
+    ?></select>  <button id="buttonPostsRemoveMeta"><?php _e('Erase!', 'wp-cleanfix') ?></button>
     <?php else : ?>
         <?php if(is_null($mes)) : ?>
-            <span class="wpcleanfix-ok"><?php _e('Nessun Meta Tag risulta inutilizzato','wp-cleanfix'); ?></span>
+            <span class="wpcleanfix-ok"><?php _e('No unused Meta Tag','wp-cleanfix'); ?></span>
         <?php else : ?>
-            <span class="wpcleanfix-cleaned"><?php printf( __('%s - meta tag eliminati','wp-cleanfix'), $mes ); ?></span>
+            <span class="wpcleanfix-cleaned"><?php printf( __('%s - Meta Tag erased','wp-cleanfix'), $mes ); ?></span>
         <?php endif; ?>
     <?php endif;
+}
+
+function wpcleanfix_posts_remove_unused_post_meta() {
+    global $wpdb;
+
+    $sql = "DELETE pm FROM $wpdb->postmeta pm LEFT JOIN $wpdb->posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL";
+    $mes = $wpdb->query( $sql );
+    wpcleanfix_posts_show_unused_post_meta( $mes );
 }
 
 
@@ -67,26 +75,45 @@ function wpcleanfix_posts_show_unused_tag( $mes = null ) {
     $res = $wpdb->get_results($sql);
    
     if(count($res) > 0 ) : ?>
-       <span class="wpcleanfix-warning"><?php printf(__('%s Tag non utilizzati:', 'wp-cleanfix'), count($res) ) ?></span> <select>
+       <span class="wpcleanfix-warning"><?php printf(__('%s unused Tags:', 'wp-cleanfix'), count($res) ) ?></span> <select>
     <?php
         foreach($res as $row) : ?>
             <option><?php echo $row->name ?></option>
         <?php endforeach; ?>
-    ?></select> <button id="buttonPostsRemoveTag"><?php _e('Rimuovi tutti', 'wp-cleanfix') ?></button>
+    ?></select> <button id="buttonPostsRemoveTag"><?php _e('Erased!', 'wp-cleanfix') ?></button>
     <?php else : ?>
         <?php if(is_null($mes)) : ?>
-            <span class="wpcleanfix-ok"><?php _e('Nessun Tag risulta inutilizzato','wp-cleanfix'); ?></span>
+            <span class="wpcleanfix-ok"><?php _e('No unused Tags','wp-cleanfix'); ?></span>
         <?php else : ?>
-            <span class="wpcleanfix-cleaned"><?php printf( __('%s - tag eliminati','wp-cleanfix'), $mes ); ?></span>
+            <span class="wpcleanfix-cleaned"><?php printf( __('%s - Tags erased','wp-cleanfix'), $mes ); ?></span>
         <?php endif; ?>
     <?php endif;
 }
 
 function wpcleanfix_posts_remove_tag() {
     global $wpdb;
-    $sql = "DELETE a,b,c FROM $wpdb->terms AS a	LEFT JOIN $wpdb->term_taxonomy AS c ON a.term_id = c.term_id LEFT JOIN $wpdb->term_relationships AS b ON b.term_taxonomy_id = c.term_taxonomy_id WHERE (c.taxonomy = 'post_tag' AND	c.count = 0	)";
+    $sql = "DELETE a,b,c FROM $wpdb->terms AS a	LEFT JOIN $wpdb->term_taxonomy AS c ON a.term_id = c.term_id LEFT JOIN $wpdb->term_relationships AS b ON b.term_taxonomy_id = c.term_taxonomy_id WHERE (c.taxonomy = 'post_tag' AND	c.count = 0 )";
     $mes = $wpdb->query( $sql );
     wpcleanfix_posts_show_unused_tag( $mes );
+}
+
+
+function wpcleanfix_posts_show_postsusers_unlink($mes = null) {
+    global $wpdb;
+
+    $sql = "SELECT * FROM $wpdb->posts wpp LEFT JOIN $wpdb->users wpu ON wpu.ID = wpp.post_author WHERE wpu.ID IS NULL";
+    $usersposts = $wpdb->get_results( $sql );
+    if( count($usersposts) > 0 ) {
+        echo '<span class="wpcleanfix-warning">' . count($usersposts) . ' '. __('Posts without Author linked:', 'wp-cleanfix') . '</span> ';
+        echo '<button id="buttonPostsUsersRemoveUnlink">' . __('Erase!', 'wp-cleanfix') . '</button> ';
+        echo '<button id="buttonPostsUsersCreate">' . __('Create Virtual Authors', 'wp-cleanfix') . '</button>';
+    } else {
+        if(is_null($mes) ) {
+            echo '<span class="wpcleanfix-ok">' . __('No unlink Authors found','wp-cleanfix') . '</span>';
+        } else {
+           printf( '<span class="wpcleanfix-cleaned">' . __('%s - Posts erased','wp-cleanfix') .  '</span>', $mes );
+        }
+    }
 }
 
 

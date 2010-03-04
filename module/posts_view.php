@@ -15,9 +15,9 @@ require_once 'posts.php';
 <table class="widefat wp-cleanfix" width="100%" cellpadding="4" cellspacing="0">
     <thead>
         <tr>
-            <th scope="col" width="64"><?php _e('Aggiorna', 'wp-cleanfix') ?></th>
-            <th width="200" scope="col"><?php _e('Funzione', 'wp-cleanfix') ?></th>
-            <th scope="col"><?php _e('Stato', 'wp-cleanfix') ?></th>
+            <th scope="col" width="64"><?php _e('Refresh', 'wp-cleanfix') ?></th>
+            <th width="200" scope="col"><?php _e('Action', 'wp-cleanfix') ?></th>
+            <th scope="col"><?php _e('Status', 'wp-cleanfix') ?></th>
         </tr>
     </thead>
 
@@ -25,7 +25,7 @@ require_once 'posts.php';
         <tr>
             <td><?php $this->button_refresh('buttonPostRevisionRefresh') ?></td>
             <td>
-                <strong><?php _e('Revisioni', 'wp-cleanfix') ?></strong>
+                <strong><?php _e('Revisions', 'wp-cleanfix') ?></strong>
             </td>
             <td>
                 <div id="posts-revision">
@@ -57,6 +57,19 @@ require_once 'posts.php';
                 </div>
             </td>
         </tr>
+
+        <tr>
+            <td><?php $this->button_refresh('buttonPostsUsersRefresh') ?></td>
+            <td>
+                <strong><?php _e('Posts without author', 'wp-cleanfix') ?></strong>
+            </td>
+            <td>
+                <div id="posts-users">
+                    <?php wpcleanfix_posts_show_postsusers_unlink() ?>
+                </div>
+            </td>
+        </tr>
+
 
 
     </tbody>

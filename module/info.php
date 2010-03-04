@@ -10,4 +10,4 @@
  */
 
 ?>
-<p><strong style="color:red"><?php _e('Attenzione! Questa &egrave; una beta release che opera alcune funzioni potenzialmente pericolose sul database Wordpress. Eseguire quindi un backup del database prima di eseguire qualsiasi operazione!', 'wp-cleanfix') ?></strong></p>
+<p><strong style="color:red"><?php _e('WARNING! THIS IS A BETA RELEASE! SOME ACTION IS POTENTIALLY DANGEROUS FOR YOUR DATABASE INTEGRETY. PLEASE MAKE A DATABASE\'S BACKUP BEFORE EXECUTE ANY DELETING OR ANY ACTION. ALL DELETING OPERATIONS ARE IRREVERSIBLE!', 'wp-cleanfix') ?></strong></p>

@@ -15,9 +15,9 @@ require_once 'comments.php';
 <table class="widefat wp-cleanfix" width="100%" cellpadding="4" cellspacing="0">
     <thead>
         <tr>
-            <th scope="col" width="64"><?php _e('Aggiorna', 'wp-cleanfix') ?></th>
-            <th scope="col" width="200"><?php _e('Funzione', 'wp-cleanfix') ?></th>
-            <th scope="col"><?php _e('Stato', 'wp-cleanfix') ?></th>
+            <th scope="col" width="64"><?php _e('Refresh', 'wp-cleanfix') ?></th>
+            <th scope="col" width="200"><?php _e('Action', 'wp-cleanfix') ?></th>
+            <th scope="col"><?php _e('Status', 'wp-cleanfix') ?></th>
         </tr>
     </thead>
 
@@ -26,7 +26,7 @@ require_once 'comments.php';
             <td><?php $this->button_refresh('buttonCommentUnapprovedCommentRefresh') ?></td>
 
             <td>
-                <strong><?php _e('Commenti non approvati', 'wp-cleanfix') ?></strong>
+                <strong><?php _e('Unapproved Comments', 'wp-cleanfix') ?></strong>
             </td>
 
             <td>
@@ -40,7 +40,7 @@ require_once 'comments.php';
             <td><?php $this->button_refresh('buttonCommentSpamRefresh') ?></td>
             
             <td>
-                <strong><?php _e('Commenti segnati come SPAM', 'wp-cleanfix') ?></strong>
+                <strong><?php _e('SPAM Comments', 'wp-cleanfix') ?></strong>
             </td>
             <td>
                 <div id="comments-spam">
