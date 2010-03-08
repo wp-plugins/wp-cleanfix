@@ -20,6 +20,9 @@ require_once ('module/posts.php');
 require_once ('module/category.php');
 require_once ('module/comments.php');
 
+// @since 0.3.6 fix
+load_plugin_textdomain ( 'wp-cleanfix' , false, 'wp-cleanfix/localization'  );
+
 /**
  * Sanitize $_POST['command]
  */

@@ -52,6 +52,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 == Changelog ==
 
+= 0.3.6 =
+* Fix Ajax gateway Locallizzation
+
 = 0.3.5 =
 * Add UserMeta Unlink Remove
 * Auto Check Database Optimizzation after any action

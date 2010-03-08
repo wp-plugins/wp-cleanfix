@@ -6,7 +6,7 @@
  * @subpackage      wp-cleanfix_class
  * @author          =undo= <g.fazioli@saidmade.com>
  * @copyright       Copyright (C) 2010 Saidmade Srl
- * @version         2.2.0
+ * @version         0.3.6
  *
  */
 
@@ -18,7 +18,7 @@ class WPCLEANFIX_CLASS {
      * @since 0.1.0
      * @var string
      */
-    var $version 						= "0.3.5 beta";
+    var $version 						= "0.3.6 beta";
 
     /**
      * WP-CLEANFIX release.minor.revision
