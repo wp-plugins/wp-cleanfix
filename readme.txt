@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.1
-Stable tag: 0.3.0
+Stable tag: 0.3.5
 
 WP-CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -16,7 +16,7 @@ WP-CLEANFIX is a management tool for for check, repair, fix and optimize your Wo
 
 * Wordpress MU compatibility
 * Database tables optimization
-* Check for unsed UserMeta
+* Check/Remove for unused UserMeta
 * Check/Remove for Post Revision
 * Check/Remove for unused Post Meta
 * Check/Remove for unused Tags
@@ -30,14 +30,8 @@ WP-CLEANFIX is a management tool for for check, repair, fix and optimize your Wo
 
 **LAST IMPROVE**
 
-* Set standard localization in English
-* Add Check for unsed UserMeta
-* Add Check/Remove for unlink Categories (terms)
-* Add Check/Remove for unlink Categories Taxonomy
-* Fix minor bugs
-* Add some catch error
-* Improve code and style
-
+* Add Remove for unused UserMeta
+* Fix localizzation
 
 **HOW TO**
 
@@ -57,6 +51,11 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 
 == Changelog ==
+
+= 0.3.5 =
+* Add UserMeta Unlink Remove
+* Auto Check Database Optimizzation after any action
+* Fix spam comment localizzation refuse
 
 = 0.3.0 =
 * Set standard localization in English

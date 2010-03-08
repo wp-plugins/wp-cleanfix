@@ -48,8 +48,20 @@ jQuery(document).ready(function() {
                     },
                     function( data ) {
                         jQuery('div#' + id).html( data );
+                        wp_cleanfix_check_optimize();
                     }
                 );
+            }
+        );
+    }
+
+
+    function wp_cleanfix_check_optimize() {
+        jQuery.post( wpCleanFixMainL10n.ajaxURL, {
+                command : 'wpcleanfix_database_show_tables_optimize'
+            },
+            function( data ) {
+                jQuery('div#database-optimize').html( data );
             }
         );
     }
@@ -64,8 +76,7 @@ jQuery(document).ready(function() {
     // ------------------------------------------------------------------------------------------------------------------------------------------------------------
     //
     // UsersMeta
-    // @todo: da fare
-    wp_cleanfix_ajax_command('buttonUserMetaRemoveUnlink', '', 'usersmeta-unused', true );
+    wp_cleanfix_ajax_command('buttonUserMetaRemoveUnlink', 'wpcleanfix_remove_usermeta_unlink', 'usersmeta-unused', true );
     wp_cleanfix_ajax_command('buttonUserMetaUnusedRefresh', 'wpcleanfix_show_usersmeta_unlink', 'usersmeta-unused' );
 
 

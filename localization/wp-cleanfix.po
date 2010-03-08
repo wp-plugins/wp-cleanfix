@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-cleanfix 0.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-04 12:42+0100\n"
-"PO-Revision-Date: 2010-03-04 12:42+0100\n"
+"POT-Creation-Date: 2010-03-08 15:07+0100\n"
+"PO-Revision-Date: 2010-03-08 15:07+0100\n"
 "Last-Translator: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "Language-Team: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "MIME-Version: 1.0\n"
@@ -182,7 +182,7 @@ msgid "%s - unapproved Comments erased"
 msgstr ""
 
 #: ../module/comments.php:51
-msgid " SPAM Comments:"
+msgid "SPAM Comments:"
 msgstr ""
 
 #: ../module/comments.php:58

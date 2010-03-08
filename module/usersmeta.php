@@ -32,6 +32,14 @@ function wpcleanfix_show_usersmeta_unlink($mes = null) {
     }
 }
 
+function wpcleanfix_remove_usermeta_unlink() {
+    global $wpdb;
+
+    $sql = "DELETE wpum FROM $wpdb->usermeta wpum LEFT JOIN $wpdb->users wpu ON wpu.ID = wpum.user_id WHERE wpu.ID IS NULL";
+    $mes = $wpdb->query( $sql );
+    wpcleanfix_show_usersmeta_unlink( $mes );
+}
+
 // SELECT * FROM wp_1_posts wpp LEFT JOIN wp_users wpu ON wpu.ID = wpp.post_author WHERE wpu.ID IS NULL
 
 // SELECT * FROM wp_usermeta wpum LEFT JOIN wp_users wpu ON wpu.ID = wpum.user_id WHERE wpu.ID IS NULL

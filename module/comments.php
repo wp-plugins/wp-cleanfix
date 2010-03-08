@@ -48,7 +48,7 @@ function wpcleanfix_comments_show_spam_comment($mes = null) {
     $sql = "SELECT * FROM $wpdb->comments WHERE comment_approved = 'spam';";
     $spam = $wpdb->get_results( $sql );
     if( count($spam) > 0 ) {
-        echo '<span class="wpcleanfix-warning">' . count($spam) . __(' SPAM Comments:', 'wp-cleanfix') . '</span> (' . __('Quick View', 'wp-cleanfix') . '): <select>';
+        echo '<span class="wpcleanfix-warning">' . count($spam) . ' ' . __('SPAM Comments:', 'wp-cleanfix') . '</span> (' . __('Quick View', 'wp-cleanfix') . '): <select>';
         foreach($spam as $row) {
             echo '<option>' . $row->comment_author . ' - [' . substr(strip_tags($row->comment_content), 0, 32) . ']</option>';
         }
