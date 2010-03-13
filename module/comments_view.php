@@ -6,7 +6,7 @@
  * @subpackage      comments_view
  * @author          =undo= <g.fazioli@saidmade.com>
  * @copyright       Copyright (C) 2010 Saidmade Srl
- * @version         1.0.0
+ * 
  */
 
 require_once 'comments.php';

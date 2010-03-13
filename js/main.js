@@ -94,10 +94,22 @@ jQuery(document).ready(function() {
     wp_cleanfix_ajax_command('buttonPostsRemoveTag', 'wpcleanfix_posts_remove_tag', 'posts-tags', true );
     wp_cleanfix_ajax_command('buttonPostTagsRefresh', 'wpcleanfix_posts_show_unused_tag', 'posts-tags' );
 
-    // Post Users
+    // Posts Users
     // @todo: da fare
     wp_cleanfix_ajax_command('buttonPostsUsersRemoveUnlink', '', 'posts-users', true );
+    wp_cleanfix_ajax_command('buttonPostsUsersLinkToAuthor', '', 'posts-users', true );
     wp_cleanfix_ajax_command('buttonPostsUsersRefresh', 'wpcleanfix_posts_show_postsusers_unlink', 'posts-users' );
+
+    // Pages Users
+    // @todo: da fare
+    wp_cleanfix_ajax_command('buttonPagesUsersRemoveUnlink', '', 'pages-users', true );
+    wp_cleanfix_ajax_command('buttonPagesUsersLinkToAuthor', '', 'pages-users', true );
+    wp_cleanfix_ajax_command('buttonPagesUsersRefresh', 'wpcleanfix_posts_show_pagesusers_unlink', 'pages-users' );
+
+    // Attachment unlink to Post
+    // @todo: da fare
+    wp_cleanfix_ajax_command('buttonAttachementsRemoveUnlink', '', 'attachment-post', true );
+    wp_cleanfix_ajax_command('buttonAttachmentsRefresh', 'wpcleanfix_posts_show_attachment_unlink', 'attachment-post' );
 
 
     // ------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -3,10 +3,9 @@
  * Posts management
  *
  * @package         wp-cleanfix
- * @subpackage      info
+ * @subpackage      posts
  * @author          =undo= <g.fazioli@saidmade.com>
  * @copyright       Copyright (C) 2010 Saidmade Srl
- * @version         1.0.0
  */
 
 /**
@@ -24,7 +23,7 @@ function wpcleanfix_posts_show_posts_revision($mes = null) {
         <?php if(is_null($mes)) : ?>
             <span class="wpcleanfix-ok"><?php _e('No Post Revisions found','wp-cleanfix'); ?></span>
         <?php else : ?>
-            <span class="wpcleanfix-cleaned"><?php printf( __('%s - Post Revisions erased','wp-cleanfix'), $mes ); ?></span>
+            <span class="wpcleanfix-cleaned"><?php printf( __('%s - Rows erased','wp-cleanfix'), $mes ); ?></span>
         <?php endif; ?>
     <?php endif;
 }
@@ -54,7 +53,7 @@ function wpcleanfix_posts_show_unused_post_meta( $mes = null ) {
         <?php if(is_null($mes)) : ?>
             <span class="wpcleanfix-ok"><?php _e('No unused Meta Tag','wp-cleanfix'); ?></span>
         <?php else : ?>
-            <span class="wpcleanfix-cleaned"><?php printf( __('%s - Meta Tag erased','wp-cleanfix'), $mes ); ?></span>
+            <span class="wpcleanfix-cleaned"><?php printf( __('%s - Rows erased','wp-cleanfix'), $mes ); ?></span>
         <?php endif; ?>
     <?php endif;
 }
@@ -85,7 +84,7 @@ function wpcleanfix_posts_show_unused_tag( $mes = null ) {
         <?php if(is_null($mes)) : ?>
             <span class="wpcleanfix-ok"><?php _e('No unused Tags','wp-cleanfix'); ?></span>
         <?php else : ?>
-            <span class="wpcleanfix-cleaned"><?php printf( __('%s - Tags erased','wp-cleanfix'), $mes ); ?></span>
+            <span class="wpcleanfix-cleaned"><?php printf( __('%s - Rows erased','wp-cleanfix'), $mes ); ?></span>
         <?php endif; ?>
     <?php endif;
 }
@@ -101,17 +100,93 @@ function wpcleanfix_posts_remove_tag() {
 function wpcleanfix_posts_show_postsusers_unlink($mes = null) {
     global $wpdb;
 
-    $sql = "SELECT * FROM $wpdb->posts wpp LEFT JOIN $wpdb->users wpu ON wpu.ID = wpp.post_author WHERE wpu.ID IS NULL";
+    $sql = "SELECT * FROM $wpdb->posts wpp LEFT JOIN $wpdb->users wpu ON wpu.ID = wpp.post_author WHERE wpp.post_type = 'post' AND wpp.post_status = 'publish' AND wpu.ID IS NULL";
     $usersposts = $wpdb->get_results( $sql );
     if( count($usersposts) > 0 ) {
         echo '<span class="wpcleanfix-warning">' . count($usersposts) . ' '. __('Posts without Author linked:', 'wp-cleanfix') . '</span> ';
         echo '<button id="buttonPostsUsersRemoveUnlink">' . __('Erase!', 'wp-cleanfix') . '</button> ';
-        echo '<button id="buttonPostsUsersCreate">' . __('Create Virtual Authors', 'wp-cleanfix') . '</button>';
+
+        _e('Or link Posts to: ', 'wp-cleanfix');
+        
+        $sql = "SELECT * FROM $wpdb->users WHERE user_status = 0 ORDER BY user_login";
+        $users = $wpdb->get_results( $sql );
+        echo '<select>';
+        foreach($users as $user) : ?>
+            <option><?php echo $user->user_login . " [" . $user->display_name , "]" ?></option>
+        <?php endforeach;
+        echo '</select>';
+        echo '<button id="buttonPostsUsersLinkToAuthor">' . __('Link', 'wp-cleanfix') . '</button> ';
     } else {
         if(is_null($mes) ) {
             echo '<span class="wpcleanfix-ok">' . __('No unlink Authors found','wp-cleanfix') . '</span>';
         } else {
            printf( '<span class="wpcleanfix-cleaned">' . __('%s - Posts erased','wp-cleanfix') .  '</span>', $mes );
+        }
+    }
+}
+
+/**
+ * Pages do not link with Author
+ *
+ * @global <type> $wpdb
+ * @param <type> $mes
+ */
+function wpcleanfix_posts_show_pagesusers_unlink($mes = null) {
+    global $wpdb;
+
+    $sql = "SELECT * FROM $wpdb->posts wpp LEFT JOIN $wpdb->users wpu ON wpu.ID = wpp.post_author WHERE wpp.post_type = 'page' AND wpp.post_status = 'publish' AND wpu.ID IS NULL";
+    $usersposts = $wpdb->get_results( $sql );
+    if( count($usersposts) > 0 ) {
+        echo '<span class="wpcleanfix-warning">' . count($usersposts) . ' '. __('Posts without Author linked:', 'wp-cleanfix') . '</span> ';
+        echo '<button id="buttonPagesUsersRemoveUnlink">' . __('Erase!', 'wp-cleanfix') . '</button> ';
+
+        _e('Or link Pages to: ', 'wp-cleanfix');
+
+        $sql = "SELECT * FROM $wpdb->users WHERE user_status = 0 ORDER BY user_login";
+        $users = $wpdb->get_results( $sql );
+        echo '<select>';
+        foreach($users as $user) : ?>
+            <option><?php echo $user->user_login . " [" . $user->display_name , "]" ?></option>
+        <?php endforeach;
+        echo '</select>';
+        echo '<button id="buttonPagesUsersLinkToAuthor">' . __('Link', 'wp-cleanfix') . '</button> ';
+
+    } else {
+        if(is_null($mes) ) {
+            echo '<span class="wpcleanfix-ok">' . __('No unlink Authors found','wp-cleanfix') . '</span>';
+        } else {
+           printf( '<span class="wpcleanfix-cleaned">' . __('%s - Pages erased','wp-cleanfix') .  '</span>', $mes );
+        }
+    }
+}
+
+function wpcleanfix_pagesusers_remove() {
+    global $wpdb;
+    $sql = "DELETE FROM $wpdb->posts wpp LEFT JOIN $wpdb->users wpu ON wpu.ID = wpp.post_author WHERE wpp.post_type = 'page' AND wpp.post_status = 'publish' AND wpu.ID IS NULL";
+    $mes = $wpdb->query( $sql );
+    wpcleanfix_posts_show_pagesusers_unlink( $mes );
+}
+
+
+/**
+ * Post Attachment do not link with Post
+ *
+ * @global <type> $wpdb
+ * @param <type> $mes
+ */
+function wpcleanfix_posts_show_attachment_unlink($mes = null) {
+    global $wpdb;
+
+    $sql = "SELECT * FROM $wpdb->posts wpa LEFT JOIN $wpdb->posts wpp ON wpa.post_parent = wpp.ID WHERE wpa.post_type = 'attachment' AND wpa.post_parent > 0 AND wpp.ID IS NULL";
+    $attachments = $wpdb->get_results( $sql );
+    if( count($attachments) > 0 ) {
+        echo '<span class="wpcleanfix-warning">' . count($attachments ) . ' '. __('Attachments without valid Post/Page link:', 'wp-cleanfix') . '</span> ';
+        echo '<button id="buttonAttachementsRemoveUnlink">' . __('Erase!', 'wp-cleanfix') . '</button> ';
+    } else {
+        if(is_null($mes) ) {
+            echo '<span class="wpcleanfix-ok">' . __('No unlink attachment','wp-cleanfix') . '</span>';
+        } else {
+           printf( '<span class="wpcleanfix-cleaned">' . __('%s - attachments erased','wp-cleanfix') .  '</span>', $mes );
         }
     }
 }

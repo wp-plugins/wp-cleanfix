@@ -2,11 +2,11 @@
 /**
  * Class for Manage Admin (back-end)
  *
- * @package         wp-bannerize
- * @subpackage      wp-bannerize_client
+ * @package         wp-cleanfix
+ * @subpackage      wp-cleanfix_admin
  * @author          =undo= <g.fazioli@saidmade.com>
  * @copyright       Copyright (C) 2010 Saidmade Srl
- * @version         2.3.2
+ * 
  */
 class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 
@@ -66,7 +66,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
          *
          * @since 2.4.0
          */
-		wp_enqueue_script ( 'wp-cleanfix-main-js' , $this->url . '/js/main.js' , array ( 'jquery' ) , '1.0.0' , true );
+		wp_enqueue_script ( 'wp-cleanfix-main-js' , $this->url . '/js/main.js' , array ( 'jquery' ) , '1.4' , true );
 		wp_localize_script ( 'wp-cleanfix-main-js' , 'wpCleanFixMainL10n' , array (
                                                     'ajaxURL'           => $this->url_ajax,
 													'messageConfirm'    => __( 'Warning!! Are you sure to confirm this operation?', 'wp-cleanfix' ),

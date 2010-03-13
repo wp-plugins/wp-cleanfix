@@ -6,7 +6,6 @@
  * @subpackage      wp-cleanfix_ajax
  * @author          =undo= <g.fazioli@saidmade.com>
  * @copyright       Copyright (C) 2010 Saidmade Srl
- * @version         1.0.0
  *
  * $_POST['command'] = todo
  *

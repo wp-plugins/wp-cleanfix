@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-cleanfix 0.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-08 15:07+0100\n"
-"PO-Revision-Date: 2010-03-08 15:07+0100\n"
+"POT-Creation-Date: 2010-03-13 12:35+0100\n"
+"PO-Revision-Date: 2010-03-13 12:35+0100\n"
 "Last-Translator: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "Language-Team: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "MIME-Version: 1.0\n"
@@ -83,9 +83,11 @@ msgstr ""
 #: ../module/category.php:65
 #: ../module/comments.php:25
 #: ../module/comments.php:55
-#: ../module/posts.php:22
-#: ../module/posts.php:52
-#: ../module/posts.php:108
+#: ../module/posts.php:21
+#: ../module/posts.php:51
+#: ../module/posts.php:107
+#: ../module/posts.php:141
+#: ../module/posts.php:184
 #: ../module/usersmeta.php:25
 msgid "Erase!"
 msgstr ""
@@ -231,67 +233,88 @@ msgstr ""
 msgid "WARNING! THIS IS A BETA RELEASE! SOME ACTION IS POTENTIALLY DANGEROUS FOR YOUR DATABASE INTEGRETY. PLEASE MAKE A DATABASE'S BACKUP BEFORE EXECUTE ANY DELETING OR ANY ACTION. ALL DELETING OPERATIONS ARE IRREVERSIBLE!"
 msgstr ""
 
-#: ../module/posts.php:21
+#: ../module/posts.php:20
 #, php-format
 msgid "%s Revisions, Do you want erase them?"
 msgstr ""
 
-#: ../module/posts.php:25
+#: ../module/posts.php:24
 msgid "No Post Revisions found"
 msgstr ""
 
-#: ../module/posts.php:27
+#: ../module/posts.php:26
+#: ../module/posts.php:56
+#: ../module/posts.php:87
 #, php-format
-msgid "%s - Post Revisions erased"
+msgid "%s - Rows erased"
 msgstr ""
 
-#: ../module/posts.php:47
+#: ../module/posts.php:46
 #, php-format
 msgid "%s unused Meta Tag:"
 msgstr ""
 
-#: ../module/posts.php:55
+#: ../module/posts.php:54
 msgid "No unused Meta Tag"
 msgstr ""
 
-#: ../module/posts.php:57
-#, php-format
-msgid "%s - Meta Tag erased"
-msgstr ""
-
-#: ../module/posts.php:78
+#: ../module/posts.php:77
 #, php-format
 msgid "%s unused Tags:"
 msgstr ""
 
-#: ../module/posts.php:83
+#: ../module/posts.php:82
 msgid "Erased!"
 msgstr ""
 
-#: ../module/posts.php:86
+#: ../module/posts.php:85
 msgid "No unused Tags"
 msgstr ""
 
-#: ../module/posts.php:88
-#, php-format
-msgid "%s - Tags erased"
-msgstr ""
-
-#: ../module/posts.php:107
+#: ../module/posts.php:106
+#: ../module/posts.php:140
 msgid "Posts without Author linked:"
 msgstr ""
 
 #: ../module/posts.php:109
-msgid "Create Virtual Authors"
+msgid "Or link Posts to: "
 msgstr ""
 
-#: ../module/posts.php:112
+#: ../module/posts.php:118
+#: ../module/posts.php:152
+msgid "Link"
+msgstr ""
+
+#: ../module/posts.php:121
+#: ../module/posts.php:156
 msgid "No unlink Authors found"
 msgstr ""
 
-#: ../module/posts.php:114
+#: ../module/posts.php:123
 #, php-format
 msgid "%s - Posts erased"
+msgstr ""
+
+#: ../module/posts.php:143
+msgid "Or link Pages to: "
+msgstr ""
+
+#: ../module/posts.php:158
+#, php-format
+msgid "%s - Pages erased"
+msgstr ""
+
+#: ../module/posts.php:183
+msgid "Attachments without valid Post/Page link:"
+msgstr ""
+
+#: ../module/posts.php:187
+msgid "No unlink attachment"
+msgstr ""
+
+#: ../module/posts.php:189
+#, php-format
+msgid "%s - attachments erased"
 msgstr ""
 
 #: ../module/posts_view.php:28
@@ -308,6 +331,14 @@ msgstr ""
 
 #: ../module/posts_view.php:64
 msgid "Posts without author"
+msgstr ""
+
+#: ../module/posts_view.php:76
+msgid "Pages without author"
+msgstr ""
+
+#: ../module/posts_view.php:88
+msgid "Attachment without Post"
 msgstr ""
 
 #: ../module/usersmeta.php:21

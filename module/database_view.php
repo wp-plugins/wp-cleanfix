@@ -3,10 +3,10 @@
  * Database management
  *
  * @package         wp-cleanfix
- * @subpackage      info
+ * @subpackage      database_view
  * @author          =undo= <g.fazioli@saidmade.com>
  * @copyright       Copyright (C) 2010 Saidmade Srl
- * @version         1.0.0
+ *
  */
 
 require_once 'database.php';

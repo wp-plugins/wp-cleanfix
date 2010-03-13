@@ -3,10 +3,10 @@
  * Posts management
  *
  * @package         wp-cleanfix
- * @subpackage      info
+ * @subpackage      posts_view
  * @author          =undo= <g.fazioli@saidmade.com>
  * @copyright       Copyright (C) 2010 Saidmade Srl
- * @version         1.0.0
+ * 
  */
 
 require_once 'posts.php';
@@ -70,6 +70,29 @@ require_once 'posts.php';
             </td>
         </tr>
 
+        <tr>
+            <td><?php $this->button_refresh('buttonPagesUsersRefresh') ?></td>
+            <td>
+                <strong><?php _e('Pages without author', 'wp-cleanfix') ?></strong>
+            </td>
+            <td>
+                <div id="pages-users">
+                    <?php wpcleanfix_posts_show_pagesusers_unlink() ?>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td><?php $this->button_refresh('buttonAttachmentsRefresh') ?></td>
+            <td>
+                <strong><?php _e('Attachment without Post', 'wp-cleanfix') ?></strong>
+            </td>
+            <td>
+                <div id="attachment-post">
+                    <?php wpcleanfix_posts_show_attachment_unlink() ?>
+                </div>
+            </td>
+        </tr>
 
 
     </tbody>
