@@ -1,11 +1,11 @@
 /**
  * Javascript functions
  *
- * @package         wp-bannerize
+ * @package         wp-cleanfix
  * @subpackage      main.js
  * @author          =undo= <g.fazioli@saidmade.com>
  * @copyright       Copyright (C) 2010 Saidmade Srl
- * @version         1.0.0
+ * 
  */
 jQuery(document).ready(function() {
 

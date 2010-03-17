@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 0.4.0
+Stable tag: 0.4.2
 
 WP-CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -53,6 +53,10 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 
 == Changelog ==
+
+= 0.4.2 =
+* Add Secure Layer on Ajax Gateway
+* Fix Minor refuse on code and documentation
 
 = 0.4.0 =
 * Add Check for Pages without Authors
@@ -107,9 +111,8 @@ Please download and support :)
 
 1. Upload the entire content of plugin archive to your `/wp-content/plugins/` directory,
    so that everything will remain in a `/wp-content/plugins/wp-cleanfix/` folder
-2. Open the plugin configuration page, which is located under `Options -> wp-bannerize`
-3. Activate the plugin through the 'Plugins' menu in WordPress (deactivate and reactivate if you're upgrading).
-4. Done. Enjoy.
+2. Activate the plugin through the 'Plugins' menu in WordPress (deactivate and reactivate if you're upgrading).
+3. Done. Enjoy. See Dashboard Menu
 
 
 == Thanks ==

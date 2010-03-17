@@ -17,7 +17,7 @@ class WPCLEANFIX_CLASS {
      * @since 0.1.0
      * @var string
      */
-    var $version 						= "0.4.0";
+    var $version 						= "0.4.2";
 
     /**
      * WP-CLEANFIX release.minor.revision
@@ -108,8 +108,6 @@ class WPCLEANFIX_CLASS {
 
         if (! defined('WP_PLUGIN_URL'))
             define('WP_PLUGIN_URL', WP_CONTENT_URL . '/plugins');
-
-        
 
     }
 
