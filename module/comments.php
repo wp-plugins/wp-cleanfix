@@ -77,7 +77,7 @@ function wpcleanfix_replace_comment_content() {
     $string_find = ($_POST['wpcleanfix_find_comment_content']);
     $string_replace = ($_POST['wpcleanfix_replace_comment_content']);
 
-    if($string_find != "" && $string_replace != "") {
+    if($string_find != "") {
         $sql = "UPDATE $wpdb->comments SET comment_content = REPLACE (comment_content, '{$string_find}', '{$string_replace}')";
         $mes = $wpdb->query( $sql );
     }
@@ -88,7 +88,7 @@ function wpcleanfix_show_replace_comment_content($find = "", $replace = "", $mes
     if(!is_null($mes)) {
         printf( '<span class="wpcleanfix-cleaned">' . __('%s - found and replaced - ', 'wp-cleanfix') .  '</span>', $mes );
     }
-    echo _e('Find:', 'wp-cleanfix') ?> <input value="<?php echo $find ?>" type="text" name="wpcleanfix_find_comment_content" id="wpcleanfix_find_comment_content" /> <?php _e('and replace with:', 'wp-cleanfix') ?> <input value="<?php echo $replace ?>" type="text" name="wpcleanfix_replace_comment_content" id="wpcleanfix_replace_comment_content" /> <button style="background-image:none;padding-left:12px" id="buttonFindReplaceComment"><?php _e('Find/Replace', 'wp-cleanfix') ?></button>
+    echo _e('Find:', 'wp-cleanfix') ?> <input value="<?php echo stripslashes( sanitize_text_field( $find )) ?>" type="text" name="wpcleanfix_find_comment_content" id="wpcleanfix_find_comment_content" /> <?php _e('and replace with:', 'wp-cleanfix') ?> <input value="<?php echo stripslashes( sanitize_text_field($replace)) ?>" type="text" name="wpcleanfix_replace_comment_content" id="wpcleanfix_replace_comment_content" /> <button style="background-image:none;padding-left:12px" id="buttonFindReplaceComment"><?php _e('Find/Replace', 'wp-cleanfix') ?></button>
 <?php
 }
 

@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 0.5.0
+Stable tag: 0.5.2
 
 WP-CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -54,6 +54,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 
 == Changelog ==
+
+= 0.5.2 =
+* Fix Find & Replace on quote and slash
 
 = 0.5.0 =
 * Add Find & Replace on Comments Content
