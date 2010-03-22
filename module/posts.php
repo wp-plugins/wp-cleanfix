@@ -195,8 +195,8 @@ function wpcleanfix_posts_show_attachment_unlink($mes = null) {
 function wpcleanfix_replace_post_content() {
     global $wpdb, $_POST;
 
-    $string_find = addslashes($_POST['wpcleanfix_find_post_content']);
-    $string_replace = addslashes($_POST['wpcleanfix_replace_post_content']);
+    $string_find = ($_POST['wpcleanfix_find_post_content']);
+    $string_replace = ($_POST['wpcleanfix_replace_post_content']);
 
     if($string_find != "" && $string_replace != "") {
         $sql = "UPDATE $wpdb->posts SET post_content = REPLACE (post_content, '{$string_find}', '{$string_replace}')";
