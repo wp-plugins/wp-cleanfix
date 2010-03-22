@@ -192,4 +192,26 @@ function wpcleanfix_posts_show_attachment_unlink($mes = null) {
 }
 
 
+function wpcleanfix_replace_post_content() {
+    global $wpdb, $_POST;
+
+    $string_find = addslashes($_POST['wpcleanfix_find_post_content']);
+    $string_replace = addslashes($_POST['wpcleanfix_replace_post_content']);
+
+    if($string_find != "" && $string_replace != "") {
+        $sql = "UPDATE $wpdb->posts SET post_content = REPLACE (post_content, '{$string_find}', '{$string_replace}')";
+        $mes = $wpdb->query( $sql );
+    }
+    wpcleanfix_show_replace_post_content($string_find, $string_replace, $mes);
+}
+
+function wpcleanfix_show_replace_post_content($find = "", $replace = "", $mes = null) {
+    if(!is_null($mes)) {
+        printf( '<span class="wpcleanfix-cleaned">' . __('%s - found and replaced - ', 'wp-cleanfix') .  '</span>', $mes );
+    }
+    echo _e('Find:', 'wp-cleanfix') ?> <input value="<?php echo $find ?>" type="text" name="wpcleanfix_find_post_content" id="wpcleanfix_find_post_content" /> <?php _e('and replace with:', 'wp-cleanfix') ?> <input value="<?php echo $replace ?>" type="text" name="wpcleanfix_replace_post_content" id="wpcleanfix_replace_post_content" /> <button style="background-image:none;padding-left:12px" id="buttonFindReplace"><?php _e('Find/Replace', 'wp-cleanfix') ?></button>
+<?php
+}
+
+
 ?>

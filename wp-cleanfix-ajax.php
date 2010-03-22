@@ -12,7 +12,7 @@
  *
  */
 
-if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
+if (@isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
     // write some code and rest assured that the Javascript is enabled.
 
     require_once ('../../../wp-load.php');

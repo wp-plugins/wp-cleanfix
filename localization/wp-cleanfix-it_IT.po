@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-cleanfix 0.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-13 12:37+0100\n"
-"PO-Revision-Date: 2010-03-13 12:37+0100\n"
+"POT-Creation-Date: 2010-03-22 15:56+0100\n"
+"PO-Revision-Date: 2010-03-22 15:56+0100\n"
 "Last-Translator: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "Language-Team: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "MIME-Version: 1.0\n"
@@ -319,6 +319,23 @@ msgstr "Nessuno Allegato non collegato"
 msgid "%s - attachments erased"
 msgstr "%s - Allegati eliminati"
 
+#: ../module/posts.php:210
+#, php-format
+msgid "%s - found and replaced - "
+msgstr "%s - trovate e sostituite - "
+
+#: ../module/posts.php:212
+msgid "Find:"
+msgstr "Trova:"
+
+#: ../module/posts.php:212
+msgid "and replace with:"
+msgstr "e sostituisci con:"
+
+#: ../module/posts.php:212
+msgid "Find/Replace"
+msgstr "Trova/Sostituisci"
+
 #: ../module/posts_view.php:28
 msgid "Revisions"
 msgstr "Revisioni"
@@ -342,6 +359,10 @@ msgstr "Pagine senza Autore"
 #: ../module/posts_view.php:88
 msgid "Attachment without Post"
 msgstr "Allegati senza Post"
+
+#: ../module/posts_view.php:100
+msgid "Post Content"
+msgstr "Contenuto dei Post"
 
 #: ../module/usersmeta.php:21
 msgid "unused User Meta:"

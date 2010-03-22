@@ -94,6 +94,18 @@ require_once 'posts.php';
             </td>
         </tr>
 
+        <tr>
+            <td></td>
+            <td>
+                <strong><?php _e('Post Content', 'wp-cleanfix') ?></strong>
+            </td>
+            <td>
+                <div id="find-replace-post-content">
+                    <?php wpcleanfix_show_replace_post_content() ?>
+                </div>
+            </td>
+        </tr>
+
 
     </tbody>
 

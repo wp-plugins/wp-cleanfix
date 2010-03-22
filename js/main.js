@@ -5,7 +5,7 @@
  * @subpackage      main.js
  * @author          =undo= <g.fazioli@saidmade.com>
  * @copyright       Copyright (C) 2010 Saidmade Srl
- * 
+ *
  */
 jQuery(document).ready(function() {
 
@@ -30,6 +30,12 @@ jQuery(document).ready(function() {
     function wp_cleanfix_ajax_command(button, command, id) {
         var cc = !( arguments[3] == undefined );
         var uu = (command == '');
+        var pd = { command: command };
+        
+        if( !( arguments[4] == undefined ) ) {
+            var callBack = arguments[4];
+        }
+
         jQuery('button#' + button).live('click',
             function() {
                 // @since 0.3.0
@@ -42,10 +48,13 @@ jQuery(document).ready(function() {
                          return;
                      }
                 }
+                if(callBack != undefined) {
+                    var no = callBack();
+                    no.command = pd.command;
+                    pd = no;
+                }
                 wp_cleanfix_ajax_wait(id);
-                jQuery.post( wpCleanFixMainL10n.ajaxURL, {
-                        command : command
-                    },
+                jQuery.post( wpCleanFixMainL10n.ajaxURL, pd,
                     function( data ) {
                         jQuery('div#' + id).html( data );
                         wp_cleanfix_check_optimize();
@@ -110,6 +119,14 @@ jQuery(document).ready(function() {
     // @todo: da fare
     wp_cleanfix_ajax_command('buttonAttachementsRemoveUnlink', '', 'attachment-post', true );
     wp_cleanfix_ajax_command('buttonAttachmentsRefresh', 'wpcleanfix_posts_show_attachment_unlink', 'attachment-post' );
+
+    // Find & Replace Post Content
+    wp_cleanfix_ajax_command('buttonFindReplace', 'wpcleanfix_replace_post_content', 'find-replace-post-content', true,
+            function() {
+                return { wpcleanfix_find_post_content: jQuery('input#wpcleanfix_find_post_content').val(),
+                wpcleanfix_replace_post_content: jQuery('input#wpcleanfix_replace_post_content').val() };
+            }
+        );
 
 
     // ------------------------------------------------------------------------------------------------------------------------------------------------------------
