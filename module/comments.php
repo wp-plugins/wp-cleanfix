@@ -70,4 +70,27 @@ function wpcleanfix_comments_delete_spam_comment() {
     wpcleanfix_comments_show_spam_comment( $mes );
 }
 
+
+function wpcleanfix_replace_comment_content() {
+    global $wpdb, $_POST;
+
+    $string_find = ($_POST['wpcleanfix_find_comment_content']);
+    $string_replace = ($_POST['wpcleanfix_replace_comment_content']);
+
+    if($string_find != "" && $string_replace != "") {
+        $sql = "UPDATE $wpdb->comments SET comment_content = REPLACE (comment_content, '{$string_find}', '{$string_replace}')";
+        $mes = $wpdb->query( $sql );
+    }
+    wpcleanfix_show_replace_comment_content($string_find, $string_replace, $mes);
+}
+
+function wpcleanfix_show_replace_comment_content($find = "", $replace = "", $mes = null) {
+    if(!is_null($mes)) {
+        printf( '<span class="wpcleanfix-cleaned">' . __('%s - found and replaced - ', 'wp-cleanfix') .  '</span>', $mes );
+    }
+    echo _e('Find:', 'wp-cleanfix') ?> <input value="<?php echo $find ?>" type="text" name="wpcleanfix_find_comment_content" id="wpcleanfix_find_comment_content" /> <?php _e('and replace with:', 'wp-cleanfix') ?> <input value="<?php echo $replace ?>" type="text" name="wpcleanfix_replace_comment_content" id="wpcleanfix_replace_comment_content" /> <button style="background-image:none;padding-left:12px" id="buttonFindReplaceComment"><?php _e('Find/Replace', 'wp-cleanfix') ?></button>
+<?php
+}
+
+
 ?>

@@ -121,7 +121,7 @@ jQuery(document).ready(function() {
     wp_cleanfix_ajax_command('buttonAttachmentsRefresh', 'wpcleanfix_posts_show_attachment_unlink', 'attachment-post' );
 
     // Find & Replace Post Content
-    wp_cleanfix_ajax_command('buttonFindReplace', 'wpcleanfix_replace_post_content', 'find-replace-post-content', true,
+    wp_cleanfix_ajax_command('buttonFindReplacePost', 'wpcleanfix_replace_post_content', 'find-replace-post-content', true,
             function() {
                 return { wpcleanfix_find_post_content: jQuery('input#wpcleanfix_find_post_content').val(),
                 wpcleanfix_replace_post_content: jQuery('input#wpcleanfix_replace_post_content').val() };
@@ -153,6 +153,14 @@ jQuery(document).ready(function() {
     // Spam Comments
     wp_cleanfix_ajax_command('buttonCommentsRemoveSPAM', 'wpcleanfix_comments_delete_spam_comment', 'comments-spam', true );
     wp_cleanfix_ajax_command('buttonCommentSpamRefresh', 'wpcleanfix_comments_show_spam_comment', 'comments-spam' );
+
+    // Find & Replace Comment Content
+    wp_cleanfix_ajax_command('buttonFindReplaceComment', 'wpcleanfix_replace_comment_content', 'find-replace-comment-content', true,
+            function() {
+                return { wpcleanfix_find_comment_content: jQuery('input#wpcleanfix_find_comment_content').val(),
+                wpcleanfix_replace_comment_content: jQuery('input#wpcleanfix_replace_comment_content').val() };
+            }
+        );
 
 
 });

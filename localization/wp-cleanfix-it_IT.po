@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-cleanfix 0.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-22 15:56+0100\n"
-"PO-Revision-Date: 2010-03-22 15:56+0100\n"
+"POT-Creation-Date: 2010-03-22 22:14+0100\n"
+"PO-Revision-Date: 2010-03-22 22:14+0100\n"
 "Last-Translator: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "Language-Team: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "MIME-Version: 1.0\n"
@@ -198,6 +198,27 @@ msgstr "Nessun Commento SPAM"
 msgid "%s - SPAM Comments erased"
 msgstr "%s - Commenti SPAM eliminati"
 
+#: ../module/comments.php:89
+#: ../module/posts.php:220
+#, php-format
+msgid "%s - found and replaced - "
+msgstr "%s - trovate e sostituite - "
+
+#: ../module/comments.php:91
+#: ../module/posts.php:222
+msgid "Find:"
+msgstr "Trova:"
+
+#: ../module/comments.php:91
+#: ../module/posts.php:222
+msgid "and replace with:"
+msgstr "e sostituisci con:"
+
+#: ../module/comments.php:91
+#: ../module/posts.php:222
+msgid "Find/Replace"
+msgstr "Trova/Sostituisci"
+
 #: ../module/comments_view.php:29
 msgid "Unapproved Comments"
 msgstr "Commenti non approvati"
@@ -205,6 +226,10 @@ msgstr "Commenti non approvati"
 #: ../module/comments_view.php:43
 msgid "SPAM Comments"
 msgstr "Commenti SPAM"
+
+#: ../module/comments_view.php:56
+msgid "Comment Content"
+msgstr "Contenuto dei Commenti"
 
 #: ../module/database.php:17
 msgid "Internal Error #1: no such DB_NAME setting properly"
@@ -318,23 +343,6 @@ msgstr "Nessuno Allegato non collegato"
 #, php-format
 msgid "%s - attachments erased"
 msgstr "%s - Allegati eliminati"
-
-#: ../module/posts.php:210
-#, php-format
-msgid "%s - found and replaced - "
-msgstr "%s - trovate e sostituite - "
-
-#: ../module/posts.php:212
-msgid "Find:"
-msgstr "Trova:"
-
-#: ../module/posts.php:212
-msgid "and replace with:"
-msgstr "e sostituisci con:"
-
-#: ../module/posts.php:212
-msgid "Find/Replace"
-msgstr "Trova/Sostituisci"
 
 #: ../module/posts_view.php:28
 msgid "Revisions"

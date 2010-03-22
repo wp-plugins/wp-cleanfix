@@ -191,6 +191,16 @@ function wpcleanfix_posts_show_attachment_unlink($mes = null) {
     }
 }
 
+/**
+ *
+ * UPDATE wp_posts SET post_content = REPLACE (post_content, '[php]', '[cc_php]');
+ * UPDATE wp_posts SET post_content = REPLACE (post_content, '[/php]', '[/cc_php]');
+ * UPDATE wp_comments SET comment_content = REPLACE (comment_content, '[php]', '[cc_php]');
+ * UPDATE wp_comments SET comment_content = REPLACE (comment_content, '[/php]', '[/cc_php]');
+ *
+ * @global <type> $wpdb
+ * @global <type> $_POST
+ */
 
 function wpcleanfix_replace_post_content() {
     global $wpdb, $_POST;
@@ -209,7 +219,7 @@ function wpcleanfix_show_replace_post_content($find = "", $replace = "", $mes = 
     if(!is_null($mes)) {
         printf( '<span class="wpcleanfix-cleaned">' . __('%s - found and replaced - ', 'wp-cleanfix') .  '</span>', $mes );
     }
-    echo _e('Find:', 'wp-cleanfix') ?> <input value="<?php echo $find ?>" type="text" name="wpcleanfix_find_post_content" id="wpcleanfix_find_post_content" /> <?php _e('and replace with:', 'wp-cleanfix') ?> <input value="<?php echo $replace ?>" type="text" name="wpcleanfix_replace_post_content" id="wpcleanfix_replace_post_content" /> <button style="background-image:none;padding-left:12px" id="buttonFindReplace"><?php _e('Find/Replace', 'wp-cleanfix') ?></button>
+    echo _e('Find:', 'wp-cleanfix') ?> <input value="<?php echo $find ?>" type="text" name="wpcleanfix_find_post_content" id="wpcleanfix_find_post_content" /> <?php _e('and replace with:', 'wp-cleanfix') ?> <input value="<?php echo $replace ?>" type="text" name="wpcleanfix_replace_post_content" id="wpcleanfix_replace_post_content" /> <button style="background-image:none;padding-left:12px" id="buttonFindReplacePost"><?php _e('Find/Replace', 'wp-cleanfix') ?></button>
 <?php
 }
 

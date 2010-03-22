@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 0.4.6
+Stable tag: 0.5.0
 
 WP-CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -28,12 +28,13 @@ WP-CLEANFIX is a management tool for for check, repair, fix and optimize your Wo
 * Check/Remove for unapproved comments
 * Check/Remove for spam comments
 * Find & Replave on Posts Content
+* Find & Replave on Comments Content
 * Wordpress MU compatibility
 * English/Italian Localizzation
 
 **LAST IMPROVE**
 
-* Add Find & Replace on Posts Content
+* Add Find & Replace on Comments Content
 
 **HOW TO**
 
@@ -54,8 +55,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 == Changelog ==
 
-= 0.4.6 =
-* Rev Find & Replace
+= 0.5.0 =
+* Add Find & Replace on Comments Content
+* Fix minor bugs
 
 = 0.4.5 =
 * Add Find & Replace on Posts Content

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-cleanfix 0.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-22 15:55+0100\n"
-"PO-Revision-Date: 2010-03-22 15:55+0100\n"
+"POT-Creation-Date: 2010-03-22 22:14+0100\n"
+"PO-Revision-Date: 2010-03-22 22:14+0100\n"
 "Last-Translator: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "Language-Team: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "MIME-Version: 1.0\n"
@@ -196,12 +196,37 @@ msgstr ""
 msgid "%s - SPAM Comments erased"
 msgstr ""
 
+#: ../module/comments.php:89
+#: ../module/posts.php:220
+#, php-format
+msgid "%s - found and replaced - "
+msgstr ""
+
+#: ../module/comments.php:91
+#: ../module/posts.php:222
+msgid "Find:"
+msgstr ""
+
+#: ../module/comments.php:91
+#: ../module/posts.php:222
+msgid "and replace with:"
+msgstr ""
+
+#: ../module/comments.php:91
+#: ../module/posts.php:222
+msgid "Find/Replace"
+msgstr ""
+
 #: ../module/comments_view.php:29
 msgid "Unapproved Comments"
 msgstr ""
 
 #: ../module/comments_view.php:43
 msgid "SPAM Comments"
+msgstr ""
+
+#: ../module/comments_view.php:56
+msgid "Comment Content"
 msgstr ""
 
 #: ../module/database.php:17
@@ -315,23 +340,6 @@ msgstr ""
 #: ../module/posts.php:189
 #, php-format
 msgid "%s - attachments erased"
-msgstr ""
-
-#: ../module/posts.php:210
-#, php-format
-msgid "%s - found and replaced - "
-msgstr ""
-
-#: ../module/posts.php:212
-msgid "Find:"
-msgstr ""
-
-#: ../module/posts.php:212
-msgid "and replace with:"
-msgstr ""
-
-#: ../module/posts.php:212
-msgid "Find/Replace"
 msgstr ""
 
 #: ../module/posts_view.php:28

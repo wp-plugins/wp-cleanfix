@@ -49,6 +49,19 @@ require_once 'comments.php';
             </td>
         </tr>
 
+
+        <tr>
+            <td></td>
+            <td>
+                <strong><?php _e('Comment Content', 'wp-cleanfix') ?></strong>
+            </td>
+            <td>
+                <div id="find-replace-comment-content">
+                    <?php wpcleanfix_show_replace_comment_content() ?>
+                </div>
+            </td>
+        </tr>
+
     </tbody>
 
 </table>
