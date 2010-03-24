@@ -30,7 +30,7 @@ jQuery(document).ready(function() {
     function wp_cleanfix_ajax_command(button, command, id) {
         var cc = !( arguments[3] == undefined );
         var uu = (command == '');
-        var pd = { command: command };
+        var pd = {command: command};
         
         if( !( arguments[4] == undefined ) ) {
             var callBack = arguments[4];
@@ -57,15 +57,23 @@ jQuery(document).ready(function() {
                 jQuery.post( wpCleanFixMainL10n.ajaxURL, pd,
                     function( data ) {
                         jQuery('div#' + id).html( data );
-                        wp_cleanfix_check_optimize();
+                        // @since 0.5.3
+                        if(id != 'database-optimize') {
+                            wp_cleanfix_check_optimize();
+                        }
                     }
                 );
             }
         );
     }
 
-
+    /**
+     * Refresh only "database optimize" section
+     */
     function wp_cleanfix_check_optimize() {
+        // fix ajax loader
+        // @since 0.5.3
+        wp_cleanfix_ajax_wait('database-optimize');
         jQuery.post( wpCleanFixMainL10n.ajaxURL, {
                 command : 'wpcleanfix_database_show_tables_optimize'
             },
@@ -122,12 +130,11 @@ jQuery(document).ready(function() {
 
     // Find & Replace Post Content
     wp_cleanfix_ajax_command('buttonFindReplacePost', 'wpcleanfix_replace_post_content', 'find-replace-post-content', true,
-            function() {
-                return { wpcleanfix_find_post_content: jQuery('input#wpcleanfix_find_post_content').val(),
-                wpcleanfix_replace_post_content: jQuery('input#wpcleanfix_replace_post_content').val() };
-            }
-        );
-
+        function() {
+            return {wpcleanfix_find_post_content: jQuery('input#wpcleanfix_find_post_content').val(),
+            wpcleanfix_replace_post_content: jQuery('input#wpcleanfix_replace_post_content').val()};
+        }
+    );
 
     // ------------------------------------------------------------------------------------------------------------------------------------------------------------
     //
@@ -156,11 +163,9 @@ jQuery(document).ready(function() {
 
     // Find & Replace Comment Content
     wp_cleanfix_ajax_command('buttonFindReplaceComment', 'wpcleanfix_replace_comment_content', 'find-replace-comment-content', true,
-            function() {
-                return { wpcleanfix_find_comment_content: jQuery('input#wpcleanfix_find_comment_content').val(),
-                wpcleanfix_replace_comment_content: jQuery('input#wpcleanfix_replace_comment_content').val() };
-            }
-        );
-
-
+        function() {
+            return {wpcleanfix_find_comment_content: jQuery('input#wpcleanfix_find_comment_content').val(),
+            wpcleanfix_replace_comment_content: jQuery('input#wpcleanfix_replace_comment_content').val()};
+        }
+    );
 });

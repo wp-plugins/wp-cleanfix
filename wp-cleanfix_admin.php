@@ -126,7 +126,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
                     <h3 class="hndle"><span>Links</span></h3>
                     <div class="inside">
                        <div style="text-align:center;margin-bottom:12px"><?php include_once('adv.php') ?></div>
-                       <p style="text-align:center"><a href="http://www.saidmade.com">Saidmade Srl</a></p>
+                       <p style="text-align:center"><a href="http://labs.saidmade.com">Labs Saidmade</a></p>
                        <p style="text-align:center"><a href="http://www.undolog.com">Research &amp; Development Blog</a></p>
                     </div>
                 </div>
@@ -216,7 +216,6 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 
                         </div>
                     </div>
-
 
                 </div>
             </div>

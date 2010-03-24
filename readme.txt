@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 0.5.2
+Stable tag: 0.5.31
 
 WP-CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -43,7 +43,7 @@ Check Dashboard
 
 = Related Links =
 
-* [Saidmade](http://www.saidmade.com/ "Creazione siti Web")
+* [Labs Saidmade](http://labs.saidmade.com/ "Labs Saidmade")
 * [Undolog](http://www.undolog.com/ "Author's Web")
 
 For more information on the roadmap for future improvements please e-mail: g.fazioli@saidmade.com
@@ -54,6 +54,10 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 
 == Changelog ==
+
+= 0.5.31 =
+* Fix Ajax Loader on Database Optimize
+* Change Plugin Blog address
 
 = 0.5.2 =
 * Fix Find & Replace on quote and slash
