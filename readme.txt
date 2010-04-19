@@ -66,7 +66,6 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 1. Dashboard Summary Report
 2. Options
 
-
 == Changelog ==
 
 = 1.0.0 =
