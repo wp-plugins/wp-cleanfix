@@ -17,7 +17,7 @@ class WPCLEANFIX_CLASS {
      * @since 0.1.0
      * @var string
      */
-    var $version 						= "0.5.31";
+    var $version 						= "1.0.0";
 
     /**
      * WP-CLEANFIX release.minor.revision
@@ -37,6 +37,14 @@ class WPCLEANFIX_CLASS {
      * @var string
      */
     var $plugin_name 					= "WP CleanFix";
+
+    /**
+     * Setting from main file to __FILE__
+     * 
+     * @since 0.6.0
+     * @var string
+     */
+    var $plugin_file                    = "";
 
     /**
      * Key for database options
@@ -109,13 +117,6 @@ class WPCLEANFIX_CLASS {
         if (! defined('WP_PLUGIN_URL'))
             define('WP_PLUGIN_URL', WP_CONTENT_URL . '/plugins');
 
-    }
-
-    /**
-     * Get option from database
-     */
-    function getOptions() {
-        $this->options 						= get_option( $this->options_key );
     }
 
 } // end of class

@@ -9,15 +9,13 @@
  * 
  */
 
-require_once 'category.php';
-
 ?>
 <table class="widefat wp-cleanfix" width="100%" cellpadding="4" cellspacing="0">
     <thead>
         <tr>
-            <th scope="col" width="64"><?php _e('Refresh', 'wp-cleanfix') ?></th>
-            <th width="200" scope="col"><?php _e('Action', 'wp-cleanfix') ?></th>
-            <th scope="col"><?php _e('Status', 'wp-cleanfix') ?></th>
+            <th scope="col"><?php $this->button_refresh_all('buttonCategoryRefreshAll') ?></th>
+            <th scope="col"><?php _e('Action', 'wp-cleanfix') ?></th>
+            <th width="100%" scope="col"><?php _e('Status', 'wp-cleanfix') ?></th>
         </tr>
     </thead>
 
@@ -26,11 +24,11 @@ require_once 'category.php';
         <tr>
             <td><?php $this->button_refresh('buttonCategoryUnusedRefresh') ?></td>
             <td>
-                <strong><?php _e('Categories', 'wp-cleanfix') ?></strong>
+                <strong><?php _e('Unused Categories', 'wp-cleanfix') ?></strong>
             </td>
             <td>
                 <div id="category-unused">
-                    <?php wpcleanfix_category_show_unused() ?>
+                    <?php $WPCLEANFIX_CATEGORY->checkCategory() ?>
                 </div>
             </td>
         </tr>
@@ -38,11 +36,11 @@ require_once 'category.php';
         <tr>
             <td><?php $this->button_refresh('buttonTermsUnlinkRefresh') ?></td>
             <td>
-                <strong><?php _e('Terms', 'wp-cleanfix') ?></strong>
+                <strong><?php _e('Unlink Terms', 'wp-cleanfix') ?></strong>
             </td>
             <td>
                 <div id="terms-unlink">
-                    <?php wpcleanfix_terms_show_unlink_to_taxonomy() ?>
+                    <?php $WPCLEANFIX_CATEGORY->checkTermInTaxonomy(); ?>
                 </div>
             </td>
         </tr>
@@ -50,11 +48,11 @@ require_once 'category.php';
         <tr>
             <td><?php $this->button_refresh('buttonTermTaxonomyUnlinkRefresh') ?></td>
             <td>
-                <strong><?php _e('Taxonomy', 'wp-cleanfix') ?></strong>
+                <strong><?php _e('Unlink Taxonomy', 'wp-cleanfix') ?></strong>
             </td>
             <td>
                 <div id="termtaxonomy-unlink">
-                    <?php wpcleanfix_termtaxonomy_show_unlink_to_terms() ?>
+                    <?php $WPCLEANFIX_CATEGORY->checkTaxonomyInTerm() ?>
                 </div>
             </td>
         </tr>
@@ -62,5 +60,3 @@ require_once 'category.php';
     </tbody>
 
 </table>
-
-

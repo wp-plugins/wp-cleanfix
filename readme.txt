@@ -1,16 +1,16 @@
- === WP-CLEANFIX ===
+ === WP CLEANFIX ===
 Contributors: Giovambattista Fazioli
 Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 0.5.31
+Stable tag: 1.0.0
 
-WP-CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
+WP CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
 == Description ==
 
-WP-CLEANFIX is a management tool for for check, repair, fix and optimize your Wordpress blog.
+WP CLEANFIX is a management tool for for check, repair, fix and optimize your Wordpress blog.
 
 **FEATURES**
 
@@ -19,9 +19,9 @@ WP-CLEANFIX is a management tool for for check, repair, fix and optimize your Wo
 * Check/Remove for Post Revision
 * Check/Remove for unused Post Meta
 * Check/Remove for unused Tags
-* Check for Posts without Authors
-* Check for Pages without Authors
-* Check for Attachments without Post/Page
+* Check/Remove/Relink for Posts without Authors
+* Check/Remove/Relink for Pages without Authors
+* Check/Remove for Attachments without Post/Page
 * Check/Remove for unsed Categories
 * Check/Remove for unlink Categories (terms)
 * Check/Remove for unlink Categories Taxonomy
@@ -34,12 +34,25 @@ WP-CLEANFIX is a management tool for for check, repair, fix and optimize your Wo
 
 **LAST IMPROVE**
 
-* Add Find & Replace on Comments Content
+* Exit from beta
+* Add Dashboard Widget Report Summary
+* Add Remove/Relink to Posts without Author
+* Add Remove/Relink to Pages without Author
+* Add Remove Attachments without Post/Page
+* Add "Refresh All" on single panel UI
+* Improve styles and script loading
+* Rewrite all modules in Class Object
+* Improve User Interface
+* Improve Ajax
+* Rewrite label, message and localizzation
+* Compress Javascript and Styles
+* Fix minor bugs
+
+See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog) for full history version
 
 **HOW TO**
 
 Check Dashboard
-
 
 = Related Links =
 
@@ -50,10 +63,26 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 == Screenshots ==
 
-1. Options
+1. Dashboard Summary Report
+2. Options
 
 
 == Changelog ==
+
+= 1.0.0 =
+* Exit from beta
+* Add Dashboard Widget Report Summary
+* Add Remove/Relink to Posts without Author
+* Add Remove/Relink to Pages without Author
+* Add Remove Attachments without Post/Page
+* Add "Refresh All" on single panel UI
+* Improve styles and script loading
+* Rewrite all modules in Class Object
+* Improve User Interface
+* Improve Ajax
+* Rewrite label, message and localizzation
+* Fix minor bugs
+
 
 = 0.5.31 =
 * Fix Ajax Loader on Database Optimize

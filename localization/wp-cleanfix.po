@@ -1,389 +1,384 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: wp-cleanfix 0.3.0\n"
+"Project-Id-Version: WP CleanFix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-22 22:14+0100\n"
-"PO-Revision-Date: 2010-03-22 22:14+0100\n"
+"POT-Creation-Date: 2010-04-20 00:20+0100\n"
+"PO-Revision-Date: 2010-04-20 00:20+0100\n"
 "Last-Translator: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "Language-Team: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: _e;__;_;gettext;gettext_noop\n"
+"X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../wp-cleanfix_admin.php:72
+#: ../wp-cleanfix_admin.php:112
 msgid "Warning!! Are you sure to confirm this operation?"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:73
+#: ../wp-cleanfix_admin.php:113
 msgid "Sorry! Be patient. Not yet implemented in this beta release"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:105
-msgid "Your settings have been saved."
+#: ../wp-cleanfix_admin.php:137
+msgid "WP CleanFix - Summary Report"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:125
-#: ../wp-cleanfix_admin.php:135
-#: ../wp-cleanfix_admin.php:161
-#: ../wp-cleanfix_admin.php:171
-#: ../wp-cleanfix_admin.php:181
-#: ../wp-cleanfix_admin.php:191
-#: ../wp-cleanfix_admin.php:201
-#: ../wp-cleanfix_admin.php:211
-msgid "Open/Collapse"
+#: ../wp-cleanfix_admin.php:158
+#, php-format
+msgid "%s Kb tables gain"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:162
-msgid "Important informations"
-msgstr ""
-
-#: ../wp-cleanfix_admin.php:172
+#: ../wp-cleanfix_admin.php:164
+#: ../wp-cleanfix_admin.php:371
 msgid "Database"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:182
-msgid "Users"
+#: ../wp-cleanfix_admin.php:175
+#, php-format
+msgid "%s unused User Meta"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:181
+#: ../module/usermeta_view.php:27
+msgid "User Meta"
 msgstr ""
 
 #: ../wp-cleanfix_admin.php:192
+#, php-format
+msgid "%s Post Revisions"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:198
+#, php-format
+msgid "%s unused Post Meta"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:204
+#, php-format
+msgid "%s unused Tags"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:210
+#, php-format
+msgid "%s Posts without author"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:216
+#, php-format
+msgid "%s Pages without author"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:222
+#, php-format
+msgid "%s Attachment unlink"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:228
+#: ../wp-cleanfix_admin.php:391
 msgid "Posts"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:202
-#: ../module/category_view.php:29
+#: ../wp-cleanfix_admin.php:239
+#, php-format
+msgid "%s unused Categories"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:245
+#, php-format
+msgid "%s terms unlink in taxonomy"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:251
+#, php-format
+msgid "%s taxonomy unlink in term"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:257
+#: ../wp-cleanfix_admin.php:401
 msgid "Categories"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:212
+#: ../wp-cleanfix_admin.php:267
+msgid "Go to Repair"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:269
+msgid "Nothing to Report"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:304
+msgid "Your settings have been saved."
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:324
+#: ../wp-cleanfix_admin.php:334
+#: ../wp-cleanfix_admin.php:360
+#: ../wp-cleanfix_admin.php:370
+#: ../wp-cleanfix_admin.php:380
+#: ../wp-cleanfix_admin.php:390
+#: ../wp-cleanfix_admin.php:400
+#: ../wp-cleanfix_admin.php:410
+msgid "Open/Collapse"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:361
+msgid "Important informations"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:381
+msgid "Users"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:411
 msgid "Comments"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:237
-#: ../module/category_view.php:18
-#: ../module/comments_view.php:18
-#: ../module/database_view.php:19
-#: ../module/posts_view.php:18
-#: ../module/usersmeta_view.php:18
+#: ../wp-cleanfix_admin.php:435
+#: ../module/database_view.php:16
+#: ../module/usermeta_view.php:16
 msgid "Refresh"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:249
+#: ../wp-cleanfix_admin.php:446
+msgid "Refresh All"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:464
+msgid "For more info and plugins visit"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:476
 msgid "Settings"
 msgstr ""
 
-#: ../module/category.php:21
-msgid "unused Categories:"
-msgstr ""
-
-#: ../module/category.php:25
-#: ../module/category.php:65
-#: ../module/comments.php:25
-#: ../module/comments.php:55
-#: ../module/posts.php:21
-#: ../module/posts.php:51
-#: ../module/posts.php:107
-#: ../module/posts.php:141
-#: ../module/posts.php:184
-#: ../module/usersmeta.php:25
+#: ../module/category.php:40
+#: ../module/category.php:88
+#: ../module/category.php:124
+#: ../module/comments.php:40
+#: ../module/comments.php:80
+#: ../module/posts.php:35
+#: ../module/posts.php:77
+#: ../module/posts.php:159
+#: ../module/posts.php:225
+#: ../module/usermeta.php:32
 msgid "Erase!"
 msgstr ""
 
-#: ../module/category.php:28
-msgid "No unsed Categories"
-msgstr ""
-
-#: ../module/category.php:30
-#, php-format
-msgid "%s - unused Categories erased"
-msgstr ""
-
-#: ../module/category.php:46
-msgid "erased external links too"
-msgstr ""
-
-#: ../module/category.php:61
-msgid "unlink Terms:"
-msgstr ""
-
-#: ../module/category.php:68
-msgid "No unlink Terms"
-msgstr ""
-
-#: ../module/category.php:70
-#, php-format
-msgid "%s - unlink Terms erased"
-msgstr ""
-
-#: ../module/category.php:85
-msgid "unlink Taxonomy"
-msgstr ""
-
+#: ../module/category.php:43
 #: ../module/category.php:91
-msgid "No unlink Taxonomy"
+#: ../module/category.php:130
+#: ../module/comments.php:43
+#: ../module/comments.php:83
+#: ../module/database.php:90
+#: ../module/posts.php:38
+#: ../module/posts.php:80
+#: ../module/posts.php:124
+#: ../module/posts.php:182
+#: ../module/posts.php:228
+#: ../module/usermeta.php:35
+msgid "None"
+msgstr ""
+
+#: ../module/category.php:45
+#, php-format
+msgid "%s Categories erased"
+msgstr ""
+
+#: ../module/category.php:64
+msgid "erased external links too"
 msgstr ""
 
 #: ../module/category.php:93
 #, php-format
-msgid "%s - unlink Taxonomy erased"
+msgid "%s Terms erased"
 msgstr ""
 
-#: ../module/category_view.php:19
-#: ../module/comments_view.php:19
-#: ../module/database_view.php:20
-#: ../module/posts_view.php:19
-#: ../module/usersmeta_view.php:19
+#: ../module/category.php:132
+#, php-format
+msgid "%s Taxonomy erased"
+msgstr ""
+
+#: ../module/category_view.php:17
+#: ../module/comments_view.php:16
+#: ../module/database_view.php:17
+#: ../module/posts_view.php:17
+#: ../module/usermeta_view.php:17
 msgid "Action"
 msgstr ""
 
-#: ../module/category_view.php:20
-#: ../module/comments_view.php:20
-#: ../module/database_view.php:21
-#: ../module/posts_view.php:20
-#: ../module/usersmeta_view.php:20
+#: ../module/category_view.php:18
+#: ../module/comments_view.php:17
+#: ../module/database_view.php:18
+#: ../module/posts_view.php:18
+#: ../module/usermeta_view.php:18
 msgid "Status"
 msgstr ""
 
-#: ../module/category_view.php:41
-msgid "Terms"
+#: ../module/category_view.php:27
+msgid "Unused Categories"
 msgstr ""
 
-#: ../module/category_view.php:53
-msgid "Taxonomy"
+#: ../module/category_view.php:39
+msgid "Unlink Terms"
 msgstr ""
 
-#: ../module/comments.php:21
-msgid " unapproved comments"
+#: ../module/category_view.php:51
+msgid "Unlink Taxonomy"
 msgstr ""
 
-#: ../module/comments.php:21
-#: ../module/comments.php:51
+#: ../module/comments.php:36
+#: ../module/comments.php:76
 msgid "Quick View"
 msgstr ""
 
-#: ../module/comments.php:25
-#: ../module/comments.php:55
+#: ../module/comments.php:40
+#: ../module/comments.php:80
 msgid "Check Them"
 msgstr ""
 
-#: ../module/comments.php:25
-#: ../module/comments.php:55
+#: ../module/comments.php:40
+#: ../module/comments.php:80
 msgid ", or Do you want erase them?"
 msgstr ""
 
-#: ../module/comments.php:28
-msgid "No unapproved Comments"
-msgstr ""
-
-#: ../module/comments.php:30
+#: ../module/comments.php:45
+#: ../module/comments.php:85
 #, php-format
-msgid "%s - unapproved Comments erased"
+msgid "%s Comments erased"
 msgstr ""
 
-#: ../module/comments.php:51
-msgid "SPAM Comments:"
-msgstr ""
-
-#: ../module/comments.php:58
-msgid "No SPAM Comments"
-msgstr ""
-
-#: ../module/comments.php:60
-#, php-format
-msgid "%s - SPAM Comments erased"
-msgstr ""
-
-#: ../module/comments.php:89
-#: ../module/posts.php:220
+#: ../module/comments.php:113
+#: ../module/posts.php:258
 #, php-format
 msgid "%s - found and replaced - "
 msgstr ""
 
-#: ../module/comments.php:91
-#: ../module/posts.php:222
+#: ../module/comments.php:115
+#: ../module/posts.php:260
 msgid "Find:"
 msgstr ""
 
-#: ../module/comments.php:91
-#: ../module/posts.php:222
+#: ../module/comments.php:115
+#: ../module/posts.php:263
 msgid "and replace with:"
 msgstr ""
 
-#: ../module/comments.php:91
-#: ../module/posts.php:222
+#: ../module/comments.php:115
+#: ../module/posts.php:264
 msgid "Find/Replace"
 msgstr ""
 
-#: ../module/comments_view.php:29
+#: ../module/comments_view.php:26
 msgid "Unapproved Comments"
 msgstr ""
 
-#: ../module/comments_view.php:43
+#: ../module/comments_view.php:40
 msgid "SPAM Comments"
 msgstr ""
 
-#: ../module/comments_view.php:56
+#: ../module/comments_view.php:51
+#: ../module/posts_view.php:96
+msgid "Tools"
+msgstr ""
+
+#: ../module/comments_view.php:53
 msgid "Comment Content"
 msgstr ""
 
-#: ../module/database.php:17
+#: ../module/database.php:45
 msgid "Internal Error #1: no such DB_NAME setting properly"
 msgstr ""
 
-#: ../module/database.php:50
+#: ../module/database.php:79
 #, php-format
-msgid "%s Optimize Tables of %s: "
+msgid "%s of %s:"
 msgstr ""
 
-#: ../module/database.php:53
-msgid " if optimized them you gain: "
+#: ../module/database.php:82
+msgid " if optimized them you gain:"
 msgstr ""
 
-#: ../module/database.php:55
+#: ../module/database.php:84
 msgid "Optimizes!"
 msgstr ""
 
-#: ../module/database.php:57
-msgid "All database tables are optimized!"
-msgstr ""
-
-#: ../module/database_view.php:30
-msgid "Tables"
+#: ../module/database_view.php:27
+msgid "Tables optimize"
 msgstr ""
 
 #: ../module/info.php:13
-msgid "WARNING! THIS IS A BETA RELEASE! SOME ACTION IS POTENTIALLY DANGEROUS FOR YOUR DATABASE INTEGRETY. PLEASE MAKE A DATABASE'S BACKUP BEFORE EXECUTE ANY DELETING OR ANY ACTION. ALL DELETING OPERATIONS ARE IRREVERSIBLE!"
+msgid "WARNING! SOME ACTION IS POTENTIALLY DANGEROUS FOR YOUR DATABASE INTEGRETY. PLEASE MAKE A DATABASE'S BACKUP BEFORE EXECUTE ANY DELETING OR ANY ACTION. ALL DELETING OPERATIONS ARE IRREVERSIBLE!"
 msgstr ""
 
-#: ../module/posts.php:20
-#, php-format
-msgid "%s Revisions, Do you want erase them?"
-msgstr ""
-
-#: ../module/posts.php:24
-msgid "No Post Revisions found"
-msgstr ""
-
-#: ../module/posts.php:26
-#: ../module/posts.php:56
-#: ../module/posts.php:87
-#, php-format
-msgid "%s - Rows erased"
-msgstr ""
-
-#: ../module/posts.php:46
-#, php-format
-msgid "%s unused Meta Tag:"
-msgstr ""
-
-#: ../module/posts.php:54
-msgid "No unused Meta Tag"
-msgstr ""
-
-#: ../module/posts.php:77
-#, php-format
-msgid "%s unused Tags:"
-msgstr ""
-
+#: ../module/posts.php:40
 #: ../module/posts.php:82
-msgid "Erased!"
-msgstr ""
-
-#: ../module/posts.php:85
-msgid "No unused Tags"
-msgstr ""
-
-#: ../module/posts.php:106
-#: ../module/posts.php:140
-msgid "Posts without Author linked:"
-msgstr ""
-
-#: ../module/posts.php:109
-msgid "Or link Posts to: "
-msgstr ""
-
-#: ../module/posts.php:118
-#: ../module/posts.php:152
-msgid "Link"
+#: ../module/posts.php:126
+#, php-format
+msgid "%s Rows erased"
 msgstr ""
 
 #: ../module/posts.php:121
-#: ../module/posts.php:156
-msgid "No unlink Authors found"
+msgid "Erased!"
 msgstr ""
 
-#: ../module/posts.php:123
+#: ../module/posts.php:170
+msgid "Or link to: "
+msgstr ""
+
+#: ../module/posts.php:179
+msgid "Link"
+msgstr ""
+
+#: ../module/posts.php:198
 #, php-format
-msgid "%s - Posts erased"
+msgid "%s Posts relinked"
 msgstr ""
 
-#: ../module/posts.php:143
-msgid "Or link Pages to: "
-msgstr ""
-
-#: ../module/posts.php:158
+#: ../module/posts.php:206
 #, php-format
-msgid "%s - Pages erased"
+msgid "%s Posts erased"
 msgstr ""
 
-#: ../module/posts.php:183
-msgid "Attachments without valid Post/Page link:"
-msgstr ""
-
-#: ../module/posts.php:187
-msgid "No unlink attachment"
-msgstr ""
-
-#: ../module/posts.php:189
+#: ../module/posts.php:230
 #, php-format
-msgid "%s - attachments erased"
+msgid "%s Attachments erased"
 msgstr ""
 
-#: ../module/posts_view.php:28
+#: ../module/posts_view.php:26
 msgid "Revisions"
 msgstr ""
 
-#: ../module/posts_view.php:40
+#: ../module/posts_view.php:38
 msgid "Post Meta"
 msgstr ""
 
-#: ../module/posts_view.php:52
+#: ../module/posts_view.php:50
 msgid "Tags"
 msgstr ""
 
-#: ../module/posts_view.php:64
+#: ../module/posts_view.php:62
 msgid "Posts without author"
 msgstr ""
 
-#: ../module/posts_view.php:76
+#: ../module/posts_view.php:74
 msgid "Pages without author"
 msgstr ""
 
-#: ../module/posts_view.php:88
+#: ../module/posts_view.php:86
 msgid "Attachment without Post"
 msgstr ""
 
-#: ../module/posts_view.php:100
+#: ../module/posts_view.php:98
 msgid "Post Content"
 msgstr ""
 
-#: ../module/usersmeta.php:21
-msgid "unused User Meta:"
-msgstr ""
-
-#: ../module/usersmeta.php:28
-msgid "no unused User Meta"
-msgstr ""
-
-#: ../module/usersmeta.php:30
+#: ../module/usermeta.php:37
 #, php-format
-msgid "%s - User Meta erased"
-msgstr ""
-
-#: ../module/usersmeta_view.php:29
-msgid "User Meta"
+msgid "%s User Meta erased"
 msgstr ""
 

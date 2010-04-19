@@ -8,16 +8,13 @@
  * @copyright       Copyright (C) 2010 Saidmade Srl
  * 
  */
-
-require_once 'comments.php';
-
 ?>
 <table class="widefat wp-cleanfix" width="100%" cellpadding="4" cellspacing="0">
     <thead>
         <tr>
-            <th scope="col" width="64"><?php _e('Refresh', 'wp-cleanfix') ?></th>
-            <th scope="col" width="200"><?php _e('Action', 'wp-cleanfix') ?></th>
-            <th scope="col"><?php _e('Status', 'wp-cleanfix') ?></th>
+            <th scope="col"><?php $this->button_refresh_all('buttonCommentsRefreshAll') ?></th>
+            <th scope="col"><?php _e('Action', 'wp-cleanfix') ?></th>
+            <th width="100%" scope="col"><?php _e('Status', 'wp-cleanfix') ?></th>
         </tr>
     </thead>
 
@@ -31,7 +28,7 @@ require_once 'comments.php';
 
             <td>
                 <div id="comments-unapproved">
-                    <?php wpcleanfix_comments_show_unapproved_comment() ?>
+                    <?php $WPCLEANFIX_COMMENTS->checkComments(); ?>
                 </div>
             </td>
         </tr>
@@ -44,20 +41,20 @@ require_once 'comments.php';
             </td>
             <td>
                 <div id="comments-spam">
-                    <?php wpcleanfix_comments_show_spam_comment() ?>
+                    <?php $WPCLEANFIX_COMMENTS->checkSpam(); ?>
                 </div>
             </td>
         </tr>
 
 
-        <tr>
-            <td></td>
+        <tr class="tools">
+            <td><img src="<?php echo $this->url . "/css/images/tools.png" ?>" alt="<?php _e('Tools', 'wp-cleanfix') ?>" /></td>
             <td>
                 <strong><?php _e('Comment Content', 'wp-cleanfix') ?></strong>
             </td>
             <td>
                 <div id="find-replace-comment-content">
-                    <?php wpcleanfix_show_replace_comment_content() ?>
+                    <?php $WPCLEANFIX_COMMENTS->findAndReplaceUI() ?>
                 </div>
             </td>
         </tr>
