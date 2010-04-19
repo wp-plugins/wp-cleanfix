@@ -162,7 +162,7 @@ Please download and support :)
 
 == Thanks ==
 
-* [Lazy79] (http://wordpress.org/support/profile/231784 "Lazy79") for beta testing
+* [Lazy79](http://wordpress.org/support/profile/231784 "Lazy79") for beta testing
 
 == Frequently Asked Questions ==
 
