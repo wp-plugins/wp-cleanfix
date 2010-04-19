@@ -145,6 +145,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 == Upgrade Notice ==
 
+= 1.0.0 =
+Major "stable" release. Upgrade immediatel
+
 = 0.1.0 =
 Please download and support :)
 
@@ -154,12 +157,12 @@ Please download and support :)
 1. Upload the entire content of plugin archive to your `/wp-content/plugins/` directory,
    so that everything will remain in a `/wp-content/plugins/wp-cleanfix/` folder
 2. Activate the plugin through the 'Plugins' menu in WordPress (deactivate and reactivate if you're upgrading).
-3. Done. Enjoy. See Dashboard Menu
+3. Done. Enjoy. See Wordpress Dashboard
 
 
 == Thanks ==
 
-* [Lazy79] (http://wordpress.org/support/profile/231784 "Lazy79" for beta testing
+* [Lazy79] (http://wordpress.org/support/profile/231784 "Lazy79") for beta testing
 
 == Frequently Asked Questions ==
 
