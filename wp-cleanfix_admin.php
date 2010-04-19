@@ -161,7 +161,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         <?php if( $almost_one == 1 ) :
             $o = ob_get_contents();
             ob_end_clean(); ?>
-            <h4 class="wp-cleanfix-title-dashboard"><?php _e("Database", 'wp-cleandfix') ?></h4>
+            <h4 class="wp-cleanfix-title-dashboard"><?php _e("Database", 'wp-cleanfix') ?></h4>
             <?php echo $o ?>
         <?php endif; ?>
 
@@ -178,7 +178,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         <?php if( $almost_one == 2 ) :
             $o = ob_get_contents();
             ob_end_clean(); ?>
-            <h4 class="wp-cleanfix-title-dashboard"><?php _e("User Meta", 'wp-cleandfix') ?></h4>
+            <h4 class="wp-cleanfix-title-dashboard"><?php _e("User Meta", 'wp-cleanfix') ?></h4>
             <?php echo $o ?>
         <?php endif; ?>
 
@@ -225,7 +225,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         <?php if( $almost_one == 3 ) :
             $o = ob_get_contents();
             ob_end_clean(); ?>
-            <h4 class="wp-cleanfix-title-dashboard"><?php _e("Posts", 'wp-cleandfix') ?></h4>
+            <h4 class="wp-cleanfix-title-dashboard"><?php _e("Posts", 'wp-cleanfix') ?></h4>
             <?php echo $o ?>
         <?php endif; ?>
 
@@ -254,7 +254,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         <?php if( $almost_one == 4 ) :
             $o = ob_get_contents();
             ob_end_clean(); ?>
-            <h4 class="wp-cleanfix-title-dashboard"><?php _e("Categories", 'wp-cleandfix') ?></h4>
+            <h4 class="wp-cleanfix-title-dashboard"><?php _e("Categories", 'wp-cleanfix') ?></h4>
             <?php echo $o ?>
         <?php endif; ?>
 
@@ -269,7 +269,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
             <p><?php _e('Nothing to Report', 'wp-cleanfix')?></p>
         <?php endif;
 
-		echo '<p class="wp-cleanfix-copy" style="border-top:1px solid #aaa;padding-top:4px">Â©copyright <a href="http://www.saidmade.com">saidmade srl</a></p>';
+		echo '<p class="wp-cleanfix-copy" style="border-top:1px solid #aaa;padding-top:4px">©copyright <a href="http://www.saidmade.com">saidmade srl</a></p>';
     }
 
     /**
