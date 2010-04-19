@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 WP CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -48,7 +48,7 @@ WP CLEANFIX is a management tool for for check, repair, fix and optimize your Wo
 * Compress Javascript and Styles
 * Fix minor bugs
 
-See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog) for full history version
+See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
 **HOW TO**
 
@@ -82,7 +82,6 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 * Improve Ajax
 * Rewrite label, message and localizzation
 * Fix minor bugs
-
 
 = 0.5.31 =
 * Fix Ajax Loader on Database Optimize
@@ -169,6 +168,6 @@ Please download and support :)
 
 Could be. Be sure to backup all data from Wordpress database before execute any functions.
 
-= Can I translate Plgin interface? =
+= Can I translate Plugin interface? =
 
 Yes, just edit .POT file in `localizzation` folder
