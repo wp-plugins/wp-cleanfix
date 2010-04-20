@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 
 WP CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -34,20 +34,7 @@ WP CLEANFIX is a management tool for for check, repair, fix and optimize your Wo
 
 **LAST IMPROVE**
 
-* Check/Remove for Post Trash
-* Exit from beta
-* Add Dashboard Widget Report Summary
-* Add Remove/Relink to Posts without Author
-* Add Remove/Relink to Pages without Author
-* Add Remove Attachments without Post/Page
-* Add "Refresh All" on single panel UI
-* Improve styles and script loading
-* Rewrite all modules in Class Object
-* Improve User Interface
-* Improve Ajax
-* Rewrite label, message and localizzation
-* Compress Javascript and Styles
-* Fix minor bugs
+* Show Post/Page title in Combo Menu for Post Revision/Trash
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
@@ -68,6 +55,10 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 2. Options
 
 == Changelog ==
+
+= 1.2.0 =
+* Add Show Post/Page title in Combo Menu for Post Revision/Trash
+* Fix localization files
 
 = 1.1.1 =
 * Fix Administrator permission warning

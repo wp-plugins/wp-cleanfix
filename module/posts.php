@@ -32,6 +32,14 @@ class WPCLEANFIX_POSTS {
         if($echo) {
             if(intval($revisions) > 0) : ?>
                 <span class="wpcleanfix-warning"><?php echo $revisions ?></span>
+                <select>
+                <?php
+                    $sql = "SELECT DISTINCT( COUNT(*) ) AS numero, ID, post_title FROM $wpdb->posts WHERE post_type = 'revision' GROUP BY post_title";
+                    $res = $wpdb->get_results($sql);
+                    foreach($res as $post) : ?>
+                    <option><?php echo $post->post_title ?> (<?php echo $post->numero ?>)</option>
+                    <?php endforeach; ?>
+                </select>
                 <button id="buttonPostsRemoveRevision"><?php _e('Erase!', 'wp-cleanfix') ?></button>
             <?php else : ?>
                 <?php if(is_null($mes)) : ?>
@@ -67,6 +75,14 @@ class WPCLEANFIX_POSTS {
         if($echo) {
             if(intval($trash) > 0) : ?>
                 <span class="wpcleanfix-warning"><?php echo $trash ?></span>
+                <select>
+                <?php
+                    $sql = "SELECT post_title FROM $wpdb->posts WHERE post_status = 'trash'";
+                    $res = $wpdb->get_results($sql);
+                    foreach($res as $post) : ?>
+                    <option><?php echo $post->post_title ?></option>
+                    <?php endforeach; ?>
+                </select>
                 <button id="buttonPostsRemoveTrash"><?php _e('Erase!', 'wp-cleanfix') ?></button>
             <?php else : ?>
                 <?php if(is_null($mes)) : ?>

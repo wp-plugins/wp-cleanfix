@@ -17,7 +17,7 @@ class WPCLEANFIX_CLASS {
      * @since 0.1.0
      * @var string
      */
-    var $version 						= "1.1.1";
+    var $version 						= "1.2.0";
 
     /**
      * WP-CLEANFIX release.minor.revision
@@ -37,6 +37,14 @@ class WPCLEANFIX_CLASS {
      * @var string
      */
     var $plugin_name 					= "WP CleanFix";
+
+    /**
+     * Added for Fix Administrator Permission Warning
+     * 
+     * @since 1.2.0
+     * @var string
+     */
+    var $plugin_slug                    = "wp-cleanfix";
 
     /**
      * Setting from main file to __FILE__
