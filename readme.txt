@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 
 WP CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -22,13 +22,13 @@ WP CLEANFIX is a management tool for for check, repair, fix and optimize your Wo
 * Check/Remove/Relink for Posts without Authors
 * Check/Remove/Relink for Pages without Authors
 * Check/Remove for Attachments without Post/Page
-* Check/Remove for unsed Categories
+* Check/Remove for unused Categories
 * Check/Remove for unlink Categories (terms)
 * Check/Remove for unlink Categories Taxonomy
 * Check/Remove for unapproved comments
 * Check/Remove for spam comments
-* Find & Replave on Posts Content
-* Find & Replave on Comments Content
+* Find & Replace on Posts Content
+* Find & Replace on Comments Content
 * Wordpress MU compatibility
 * English/Italian Localizzation
 
@@ -116,7 +116,7 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 = 0.3.0 =
 * Set standard localization in English
-* Add Check for unsed UserMeta
+* Add Check for unused UserMeta
 * Add Check/Remove for unlink Categories (terms)
 * Add Check/Remove for unlink Categories Taxonomy
 * Fix minor bugs
@@ -146,7 +146,7 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 == Upgrade Notice ==
 
 = 1.0.0 =
-Major "stable" release. Upgrade immediatel
+Major "stable" release. Upgrade immediately
 
 = 0.1.0 =
 Please download and support :)
