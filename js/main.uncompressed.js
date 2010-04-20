@@ -31,7 +31,7 @@ jQuery(document).ready(function() {
         var cc = !( arguments[3] == undefined );
         var uu = (command == '');
         var pd = {command: command};
-        
+
         if( !( arguments[4] == undefined ) ) {
             var callBack = arguments[4];
         }
@@ -116,6 +116,7 @@ jQuery(document).ready(function() {
 
     wp_cleanfix_refresh_all('buttonPostsRefreshAll',
         ['buttonPostRevisionRefresh',
+          'buttonPostTrashRefresh',
           'buttonPostMetaRefresh',
           'buttonPostTagsRefresh',
           'buttonPostsUsersRefresh',
@@ -126,6 +127,10 @@ jQuery(document).ready(function() {
     // Post Revision
     wp_cleanfix_ajax_command('buttonPostsRemoveRevision', '$WPCLEANFIX_POSTS->removeRevision();', 'posts-revision', true );
     wp_cleanfix_ajax_command('buttonPostRevisionRefresh', '$WPCLEANFIX_POSTS->checkRevisions();', 'posts-revision' );
+
+    // Post Trash
+    wp_cleanfix_ajax_command('buttonPostsRemoveTrash', '$WPCLEANFIX_POSTS->removeTrash();', 'posts-trash', true );
+    wp_cleanfix_ajax_command('buttonPostTrashRefresh', '$WPCLEANFIX_POSTS->checkTrash();', 'posts-trash' );
 
     // Post Meta
     wp_cleanfix_ajax_command('buttonPostsRemoveMeta', '$WPCLEANFIX_POSTS->removePostMeta();', 'posts-meta', true );
@@ -144,7 +149,7 @@ jQuery(document).ready(function() {
                 wpcleanfix_post_author_id: jQuery('select#wpcleanfix_post_author_id option:selected').val(),
                 wpcleanfix_post_ids: jQuery('input#wpcleanfix_post_ids').val()
             };
-        }    
+        }
     );
 
     wp_cleanfix_ajax_command('buttonPostsUsersRefresh', '$WPCLEANFIX_POSTS->checkPostsUsers();', 'posts-users' );

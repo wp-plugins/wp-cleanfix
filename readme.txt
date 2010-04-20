@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.0.3
+Stable tag: 1.1.0
 
 WP CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -34,6 +34,7 @@ WP CLEANFIX is a management tool for for check, repair, fix and optimize your Wo
 
 **LAST IMPROVE**
 
+* Check/Remove for Post Trash
 * Exit from beta
 * Add Dashboard Widget Report Summary
 * Add Remove/Relink to Posts without Author
@@ -67,6 +68,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 2. Options
 
 == Changelog ==
+
+= 1.1.0 =
+* Check/Remove for Post Trash
 
 = 1.0.0 =
 * Exit from beta

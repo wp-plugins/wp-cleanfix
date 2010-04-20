@@ -33,6 +33,18 @@
         </tr>
 
         <tr>
+            <td><?php $this->button_refresh('buttonPostTrashRefresh') ?></td>
+            <td>
+                <strong><?php _e('Trash', 'wp-cleanfix') ?></strong>
+            </td>
+            <td>
+                <div id="posts-trash">
+                    <?php $WPCLEANFIX_POSTS->checkTrash(); ?>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
             <td><?php $this->button_refresh('buttonPostMetaRefresh') ?></td>
             <td>
                 <strong><?php _e('Post Meta', 'wp-cleanfix') ?></strong>

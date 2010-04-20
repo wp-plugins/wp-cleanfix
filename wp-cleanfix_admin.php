@@ -191,6 +191,12 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         if( $check > 0 ) : $almost_one = 3; ?>
             <p><span class="wpcleanfix-warning"><?php printf(__('%s Post Revisions', 'wp-cleanfix'), $check ) ?></span></p>
         <?php endif; ?>
+            
+        <?php
+        $check = $WPCLEANFIX_POSTS->checkTrash(null, false);
+        if( count($check) > 0 ) : $almost_one = 3; ?>
+            <p><span class="wpcleanfix-warning"><?php printf(__('%s Post in Trash', 'wp-cleanfix'), count($check) ) ?></span></p>
+        <?php endif; ?>
 
         <?php
         $check = $WPCLEANFIX_POSTS->checkPostMeta(null, false);
@@ -269,7 +275,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
             <p><?php _e('Nothing to Report', 'wp-cleanfix')?></p>
         <?php endif;
 
-		echo '<p class="wp-cleanfix-copy" style="border-top:1px solid #aaa;padding-top:4px">©copyright <a href="http://www.saidmade.com">saidmade srl</a></p>';
+		echo '<p class="wp-cleanfix-copy" style="border-top:1px solid #aaa;padding-top:4px">&copy;copyright <a href="http://www.saidmade.com">saidmade srl</a></p>';
     }
 
     /**

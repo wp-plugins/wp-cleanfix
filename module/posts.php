@@ -30,7 +30,7 @@ class WPCLEANFIX_POSTS {
         $sql = "SELECT COUNT(*) FROM $wpdb->posts WHERE post_type = 'revision'";
         $revisions = $wpdb->get_var( $sql );
         if($echo) {
-            if(!$revisions == 0 || !$revisions == NULL) : ?>
+            if(intval($revisions) > 0) : ?>
                 <span class="wpcleanfix-warning"><?php echo $revisions ?></span>
                 <button id="buttonPostsRemoveRevision"><?php _e('Erase!', 'wp-cleanfix') ?></button>
             <?php else : ?>
@@ -51,6 +51,41 @@ class WPCLEANFIX_POSTS {
 		$sql = "DELETE a,b,c FROM $wpdb->posts a LEFT JOIN $wpdb->term_relationships b ON (a.ID = b.object_id) LEFT JOIN $wpdb->postmeta c ON (a.ID = c.post_id) WHERE a.post_type = 'revision'";
 		$mes = $wpdb->query($sql);
 		$this->checkRevisions( $mes );
+	}
+
+	/**
+	 * Verifica se ci sono post nel cestino
+	 *
+	 * @param string $echo
+	 * @return void
+	 */
+    function checkTrash($mes = null, $echo = true) {
+        global $wpdb;
+
+        $sql = "SELECT COUNT(*) FROM $wpdb->posts WHERE post_status = 'trash'";
+        $trash = $wpdb->get_var( $sql );
+        if($echo) {
+            if(intval($trash) > 0) : ?>
+                <span class="wpcleanfix-warning"><?php echo $trash ?></span>
+                <button id="buttonPostsRemoveTrash"><?php _e('Erase!', 'wp-cleanfix') ?></button>
+            <?php else : ?>
+                <?php if(is_null($mes)) : ?>
+                    <span class="wpcleanfix-ok"><?php _e('None','wp-cleanfix'); ?></span>
+                <?php else : ?>
+                    <span class="wpcleanfix-cleaned"><?php printf( __('%s Rows erased','wp-cleanfix'), $mes ); ?></span>
+                <?php endif; ?>
+            <?php endif;
+        } else {
+			return ($trash);
+		}
+    }
+    // Remove
+	function removeTrash() {
+		global $wpdb;
+
+		$sql = "DELETE a,b,c FROM $wpdb->posts a LEFT JOIN $wpdb->term_relationships b ON (a.ID = b.object_id) LEFT JOIN $wpdb->postmeta c ON (a.ID = c.post_id) WHERE a.post_status = 'trash'";
+		$mes = $wpdb->query($sql);
+		$this->checkTrash( $mes );
 	}
 
     /**
