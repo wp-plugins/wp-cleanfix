@@ -270,7 +270,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         // Report
         // ---------------------------------------------------------------------
         if($almost_one) : ?>
-            <p style="text-align:right"><a class="button rbutton" href="/wp-admin/index.php?page=WP CleanFix"><?php _e('Go to Repair', 'wp-cleanfix')?></a></p>
+            <p style="text-align:right"><a class="button rbutton" href="/wp-admin/index.php?page=<?php echo $this->options_key ?>"><?php _e('Go to Repair', 'wp-cleanfix')?></a></p>
         <?php else : ?>
             <p><?php _e('Nothing to Report', 'wp-cleanfix')?></p>
         <?php endif;
@@ -285,7 +285,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
      *
      */
     function plugin_setup() {
-        $plugin_page = add_submenu_page("index.php", $this->plugin_name, $this->plugin_name, 10, $this->plugin_name, array(&$this, "menu"));
+        $plugin_page = add_submenu_page("index.php", $this->plugin_name, $this->plugin_name, 10, $this->options_key, array(&$this, "menu"));
         add_action( 'admin_print_scripts-'. $plugin_page, array($this, 'plugin_admin_scripts') );
 		add_action( 'admin_print_styles-'. $plugin_page, array($this, 'plugin_admin_styles') );
     }
