@@ -12,6 +12,7 @@
 /**
  * Include all Class Module
  */
+require_once "module/module.php";
 require_once "module/database.php";
 require_once "module/usermeta.php";
 require_once "module/posts.php";

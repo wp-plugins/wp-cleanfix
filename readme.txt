@@ -1,16 +1,16 @@
- === WP CLEANFIX ===
+ === WP CleanFix ===
 Contributors: Giovambattista Fazioli
 Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.2.0
+Stable tag: 1.2.4
 
-WP CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
+WP CleanFix, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
 == Description ==
 
-WP CLEANFIX is a management tool for for check, repair, fix and optimize your Wordpress blog.
+WP CleanFix is a management tool for for check, repair, fix and optimize your Wordpress blog.
 
 **FEATURES**
 
@@ -55,6 +55,12 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 2. Options
 
 == Changelog ==
+
+= 1.2.4 =
+* Introducing module class/rev some class
+* Fix "nowrap" in UI
+* Fix string length in comment/span preview
+* Fix undefined function in Wordpress 2.9 previous version
 
 = 1.2.0 =
 * Add Show Post/Page title in Combo Menu for Post Revision/Trash

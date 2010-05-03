@@ -47,6 +47,10 @@ table.wp-cleanfix tbody td {
     white-space: nowrap;
 }
 
+table.wp-cleanfix tbody td:last-child {
+    white-space: normal;
+}
+
 .wp-cleanfix button {
     background-image: url(images/clean.png);
     background-repeat: no-repeat;
@@ -57,6 +61,7 @@ table.wp-cleanfix tbody td {
     text-shadow:1px 1px 1px #fff;
     -moz-border-radius: 16px;
     -webkit-border-radius: 16px;
+	border-radius: 16px;
 }
 
 tr.tools {

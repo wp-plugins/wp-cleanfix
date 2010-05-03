@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: WP-CLEANFIX
+Plugin Name: WP CleanFix
 Plugin URI: http://wordpress.org/extend/plugins/wp-cleanfix/
-Description: WP-CLEANFIX, all in one tool for check, repair, fix and optimize your Wordpress blog.
-Version: 1.2.0
+Description: WP CleanFix, all in one tool for check, repair, fix and optimize your Wordpress blog.
+Version: 1.2.4
 Author: Giovambattista Fazioli
 Author URI: http://www.undolog.com
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.

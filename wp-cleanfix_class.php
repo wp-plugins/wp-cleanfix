@@ -17,7 +17,7 @@ class WPCLEANFIX_CLASS {
      * @since 0.1.0
      * @var string
      */
-    var $version 						= "1.2.0";
+    var $version 						= "1.2.4";
 
     /**
      * WP-CLEANFIX release.minor.revision
@@ -85,25 +85,25 @@ class WPCLEANFIX_CLASS {
      * @since 0.1.0
      * @var string
      */
-    var $url_ajax                        = "";
 
-    /**
-     * Standard PHP 4 constructor
-     *
-     * @since 0.1.0
-     * @global object $wpdb
-     */
-    function WPCLEANFIX_CLASS() {
-        global $wpdb;
+	var $url_ajax                        = "";
 
-        /**
-         * Split version for more detail
-         */
-        $split_version  = explode(".", $this->version);
-        $this->release  = $split_version[0];
-        $this->minor    = $split_version[1];
-        $this->revision = $split_version[2];
+	/**
+	 * Standard PHP 4 constructor
+	 *
+	 * @since 0.1.0
+	 * @global object $wpdb
+	 */
+	function WPCLEANFIX_CLASS() {
+		global $wpdb;
 
+		/**
+		 * Split version for more detail
+		 */
+		$split_version  = explode(".", $this->version);
+		$this->release  = $split_version[0];
+		$this->minor    = $split_version[1];
+		$this->revision = $split_version[2];
         /**
          * Build the common and usefull path
          */
