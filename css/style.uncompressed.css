@@ -1,0 +1,102 @@
+/**
+ * WP CleanFix Admim Styles
+ *
+ * @package         wp-cleanfix
+ * @subpackage      style.css
+ * @author          =undo= <g.fazioli@saidmade.com>
+ * @copyright       Copyright (C) 2010 Saidmade Srl
+
+ */
+
+ul.list-point {
+    list-style:square;
+    margin-left:22px;
+}
+table.form-table,
+table.wp-cleanfix {
+    clear:none;
+}
+div.saidmade-adv {
+    text-align: center;
+    margin: 6px auto;
+    border: 1px solid #aaa;
+    width: 250px;
+    height: 250px;
+}
+span.wpcleanfix-ok {
+    color: #0c0;
+    padding: 2px 0 0 24px;
+    background: url(images/ok.png) no-repeat;
+}
+span.wpcleanfix-warning {
+    color: #f60;
+    font-weight: bold;
+    padding: 2px 0 0 24px;
+    background: url(images/warning.png) no-repeat;
+}
+
+span.wpcleanfix-cleaned {
+    color: #09f;
+    font-weight: bold;
+    padding: 2px 0 0 24px;
+    background: url(images/cleaned.png) no-repeat;
+}
+
+table.wp-cleanfix tbody td {
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+table.wp-cleanfix tbody td:last-child {
+    white-space: normal;
+}
+
+.wp-cleanfix button {
+    background-image: url(images/clean.png);
+    background-repeat: no-repeat;
+    background-position: 6px center;
+    border:1px solid #aaa;
+    cursor:pointer;
+    padding:4px 12px 4px 24px;
+    text-shadow:1px 1px 1px #fff;
+    -moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+	border-radius: 16px;
+}
+
+tr.tools {
+    background: #fafafa;
+}
+
+tr.tools td:first-child img {
+    margin: 6px;
+}
+
+button.wp-cleanfix-refresh span {
+    display:none;
+}
+
+button.wp-cleanfix-refresh {
+    background-image: url(images/refresh.png);
+    padding: 12px;
+    background-position: center center;
+    background-color: transparent;
+    border: none;
+}
+
+div#ajax-wait {
+    background: url(images/wait.gif) no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+h4.wp-cleanfix-title-dashboard {
+    display: block;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 4px !important;
+    color:#666;
+}
+
+p.wp-cleanfix-copy {
+    text-align: center;
+}
