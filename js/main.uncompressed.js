@@ -212,12 +212,17 @@ jQuery(document).ready(function() {
 
     wp_cleanfix_refresh_all('buttonCommentsRefreshAll',
         ['buttonCommentUnapprovedCommentRefresh',
+		  'buttonCommentTrashCommentRefresh',
           'buttonCommentSpamRefresh'
         ] );
 
     // Unapproved Comments
     wp_cleanfix_ajax_command('buttonCommentsRemoveUnapproved', '$WPCLEANFIX_COMMENTS->removeComments();', 'comments-unapproved', true );
     wp_cleanfix_ajax_command('buttonCommentUnapprovedCommentRefresh', '$WPCLEANFIX_COMMENTS->checkComments();', 'comments-unapproved' );
+
+	// Comments in Trash
+	wp_cleanfix_ajax_command('buttonCommentsRemoveTrash', '$WPCLEANFIX_COMMENTS->removeTrash();', 'comments-trash', true );
+	wp_cleanfix_ajax_command('buttonCommentTrashCommentRefresh', '$WPCLEANFIX_COMMENTS->checkTrash();', 'comments-trash' );
 
     // Spam Comments
     wp_cleanfix_ajax_command('buttonCommentsRemoveSPAM', '$WPCLEANFIX_COMMENTS->removeSpam();', 'comments-spam', true );

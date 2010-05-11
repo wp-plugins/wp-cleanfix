@@ -56,19 +56,20 @@ class WPCLEANFIX_DATABASE {
         $num            = mysql_num_rows($result);
         $index_count    = 0;
         $buffer         = "";
+		$gain			= 0;
 
         if ( $num > 0 ) {
             while ($row = mysql_fetch_array($result)) {
                 $tot_data   = $row['Data_length'];
                 $tot_idx    = $row['Index_length'];
                 $total      = round( ( $tot_data + $tot_idx ) / 1024, 3 );
-                $gain       = ($row['Data_free']) / 1024;
+                $gain       = round( floatval($row['Data_free']) / 1024, 2);
                 $total_gain += $gain;
-                $gain       = round ($gain,3);
 
                 if($gain > 0) {
                     $index_count++;
-                    $buffer .=  '<option>' . $row[0] . ' - ' . $gain . ' Kb</option>';
+					$gain_str = sprintf('%6.2f', $gain);
+                    $buffer .=  '<option>' . $row[0] . ' - ' . $gain_str . ' Kb</option>';
                 }
             }
 

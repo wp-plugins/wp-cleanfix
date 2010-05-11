@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.2.5
+Stable tag: 1.3.0
 
 WP CleanFix, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -16,7 +16,7 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 
 * Database Tables optimization
 * Check/Remove for unused UserMeta
-* Check/Remove for Post Revision
+* Check/Remove for Post Revision and Trash
 * Check/Remove for unused Post Meta
 * Check/Remove for unused Tags
 * Check/Remove/Relink for Posts without Authors
@@ -25,7 +25,7 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 * Check/Remove for unused Categories
 * Check/Remove for unlink Categories (terms)
 * Check/Remove for unlink Categories Taxonomy
-* Check/Remove for unapproved comments
+* Check/Remove for unapproved and Trash comments
 * Check/Remove for spam comments
 * Find & Replace on Posts Content
 * Find & Replace on Comments Content
@@ -34,7 +34,7 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 
 **LAST IMPROVE**
 
-* Show Post/Page title in Combo Menu for Post Revision/Trash
+* Check/Remove Comments in Trash
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
@@ -55,6 +55,10 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 2. Options
 
 == Changelog ==
+
+= 1.3.0 =
+* Add Check/Remove Comments in Trash
+* Fix decimal point in Optimize Table list
 
 = 1.2.5 =
 * Fix load new class module in Ajax gateway
@@ -150,7 +154,11 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 = 0.1.0 =
 * First beta/preview release
 
+
 == Upgrade Notice ==
+
+= 1.3.0 =
+Major "stable" release. Upgrade immediately
 
 = 1.0.0 =
 Major "stable" release. Upgrade immediately

@@ -148,9 +148,7 @@ class WPCLEANFIX_POSTS {
 
     /**
      * Controlla la presenza di Tags non utilizzati
-     * @todo Ho notato che questa funzione (vedi select sql) ritorna dei tags quando questi
-     * sono inseriti in Post non pubblicati. Questo non è del tutto buono...
-     *
+	 *
      * @global <type> $wpdb
      * @param <type> $mes
      * @param <type> $echo
@@ -158,7 +156,8 @@ class WPCLEANFIX_POSTS {
      */
     function checkTags($mes = null, $echo = true) {
         global $wpdb;
-
+		// TODO Ho notato che questa funzione (vedi select sql) ritorna dei tags quando questi
+		// sono inseriti in Post non pubblicati. Questo non è del tutto buono...
         $sql = "SELECT * FROM $wpdb->terms wt INNER JOIN $wpdb->term_taxonomy wtt ON wt.term_id = wtt.term_id WHERE wtt.taxonomy='post_tag' AND wtt.count=0;";
         $res = $wpdb->get_results($sql);
 
@@ -169,7 +168,7 @@ class WPCLEANFIX_POSTS {
                 foreach($res as $row) : ?>
                     <option><?php echo $row->name ?></option>
                 <?php endforeach; ?>
-            ?></select> <button id="buttonPostsRemoveTag"><?php _e('Erased!', 'wp-cleanfix') ?></button>
+            </select> <button id="buttonPostsRemoveTag"><?php _e('Erased!', 'wp-cleanfix') ?></button>
             <?php else : ?>
                 <?php if(is_null($mes)) : ?>
                     <span class="wpcleanfix-ok"><?php _e('None','wp-cleanfix'); ?></span>
@@ -309,9 +308,9 @@ class WPCLEANFIX_POSTS {
             printf( '<span class="wpcleanfix-cleaned">' . __('%s - found and replaced - ', 'wp-cleanfix') .  '</span>', $mes );
         }
         _e('Find:', 'wp-cleanfix');
-        ?>
-        <input value="<?php echo stripslashes( sanitize_text_field($find) ) ?>" type="text" name="wpcleanfix_find_post_content" id="wpcleanfix_find_post_content" />
-        <?php _e('and replace with:', 'wp-cleanfix') ?> <input value="<?php echo stripslashes( sanitize_text_field($replace) ) ?>" type="text" name="wpcleanfix_replace_post_content" id="wpcleanfix_replace_post_content" />
+		?>
+		<input value="<?php echo stripslashes( $find ) ?>" type="text" name="wpcleanfix_find_post_content" id="wpcleanfix_find_post_content" />
+		<?php _e('and replace with:', 'wp-cleanfix') ?> <input value="<?php echo stripslashes( $replace ) ?>" type="text" name="wpcleanfix_replace_post_content" id="wpcleanfix_replace_post_content" />
         <button style="background-image:none;padding-left:12px" id="buttonFindReplacePost"><?php _e('Find/Replace', 'wp-cleanfix') ?></button>
     <?php
     }

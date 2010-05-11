@@ -15,7 +15,7 @@ if (@isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
     // write some code and rest assured that the Javascript is enabled.
 
     require_once ('../../../wp-load.php');
-    require_once ('module/module.php');
+	require_once ('module/module.php');
     require_once ('module/database.php');
     require_once ('module/usermeta.php');
     require_once ('module/posts.php');

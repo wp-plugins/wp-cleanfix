@@ -34,6 +34,20 @@
         </tr>
 
         <tr>
+            <td><?php $this->button_refresh('buttonCommentTrashCommentRefresh') ?></td>
+
+            <td>
+                <strong><?php _e('Comments in Trash', 'wp-cleanfix') ?></strong>
+            </td>
+
+            <td>
+                <div id="comments-trash">
+                    <?php $WPCLEANFIX_COMMENTS->checkTrash(); ?>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
             <td><?php $this->button_refresh('buttonCommentSpamRefresh') ?></td>
             
             <td>

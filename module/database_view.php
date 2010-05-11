@@ -20,7 +20,7 @@
     </thead>
 
     <tbody>
-        <tr scope="row">
+        <tr>
             <td><?php $this->button_refresh('buttonDatabaseOptimizeTableRefresh') ?></td>
             
             <td>

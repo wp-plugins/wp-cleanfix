@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP CleanFix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-20 12:22+0100\n"
-"PO-Revision-Date: 2010-04-20 12:22+0100\n"
+"POT-Creation-Date: 2010-05-11 14:58+0100\n"
+"PO-Revision-Date: 2010-05-11 14:58+0100\n"
 "Last-Translator: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "Language-Team: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,6 @@ msgid "%s unused User Meta"
 msgstr ""
 
 #: ../wp-cleanfix_admin.php:181
-#: ../module/usermeta_view.php:27
 msgid "User Meta"
 msgstr ""
 
@@ -145,7 +144,6 @@ msgstr ""
 
 #: ../wp-cleanfix_admin.php:441
 #: ../module/database_view.php:16
-#: ../module/usermeta_view.php:16
 msgid "Refresh"
 msgstr ""
 
@@ -166,11 +164,12 @@ msgstr ""
 #: ../module/category.php:124
 #: ../module/comments.php:40
 #: ../module/comments.php:80
-#: ../module/posts.php:35
-#: ../module/posts.php:70
-#: ../module/posts.php:112
-#: ../module/posts.php:194
-#: ../module/posts.php:260
+#: ../module/comments.php:120
+#: ../module/posts.php:43
+#: ../module/posts.php:86
+#: ../module/posts.php:128
+#: ../module/posts.php:209
+#: ../module/posts.php:275
 #: ../module/usermeta.php:32
 msgid "Erase!"
 msgstr ""
@@ -180,13 +179,14 @@ msgstr ""
 #: ../module/category.php:130
 #: ../module/comments.php:43
 #: ../module/comments.php:83
-#: ../module/database.php:90
-#: ../module/posts.php:38
-#: ../module/posts.php:73
-#: ../module/posts.php:115
-#: ../module/posts.php:159
-#: ../module/posts.php:217
-#: ../module/posts.php:263
+#: ../module/comments.php:123
+#: ../module/database.php:91
+#: ../module/posts.php:46
+#: ../module/posts.php:89
+#: ../module/posts.php:131
+#: ../module/posts.php:174
+#: ../module/posts.php:232
+#: ../module/posts.php:278
 #: ../module/usermeta.php:35
 msgid "None"
 msgstr ""
@@ -214,7 +214,6 @@ msgstr ""
 #: ../module/comments_view.php:16
 #: ../module/database_view.php:17
 #: ../module/posts_view.php:17
-#: ../module/usermeta_view.php:17
 msgid "Action"
 msgstr ""
 
@@ -222,7 +221,6 @@ msgstr ""
 #: ../module/comments_view.php:17
 #: ../module/database_view.php:18
 #: ../module/posts_view.php:18
-#: ../module/usermeta_view.php:18
 msgid "Status"
 msgstr ""
 
@@ -240,43 +238,45 @@ msgstr ""
 
 #: ../module/comments.php:36
 #: ../module/comments.php:76
+#: ../module/comments.php:116
 msgid "Quick View"
 msgstr ""
 
 #: ../module/comments.php:40
-#: ../module/comments.php:80
+#: ../module/comments.php:120
 msgid "Check Them"
 msgstr ""
 
 #: ../module/comments.php:40
-#: ../module/comments.php:80
+#: ../module/comments.php:120
 msgid ", or Do you want erase them?"
 msgstr ""
 
 #: ../module/comments.php:45
 #: ../module/comments.php:85
+#: ../module/comments.php:125
 #, php-format
 msgid "%s Comments erased"
 msgstr ""
 
-#: ../module/comments.php:113
-#: ../module/posts.php:293
+#: ../module/comments.php:153
+#: ../module/posts.php:308
 #, php-format
 msgid "%s - found and replaced - "
 msgstr ""
 
-#: ../module/comments.php:115
-#: ../module/posts.php:295
+#: ../module/comments.php:155
+#: ../module/posts.php:310
 msgid "Find:"
 msgstr ""
 
-#: ../module/comments.php:115
-#: ../module/posts.php:298
+#: ../module/comments.php:155
+#: ../module/posts.php:313
 msgid "and replace with:"
 msgstr ""
 
-#: ../module/comments.php:115
-#: ../module/posts.php:299
+#: ../module/comments.php:155
+#: ../module/posts.php:314
 msgid "Find/Replace"
 msgstr ""
 
@@ -285,15 +285,19 @@ msgid "Unapproved Comments"
 msgstr ""
 
 #: ../module/comments_view.php:40
+msgid "Comments in Trash"
+msgstr ""
+
+#: ../module/comments_view.php:54
 msgid "SPAM Comments"
 msgstr ""
 
-#: ../module/comments_view.php:51
+#: ../module/comments_view.php:65
 #: ../module/posts_view.php:108
 msgid "Tools"
 msgstr ""
 
-#: ../module/comments_view.php:53
+#: ../module/comments_view.php:67
 msgid "Comment Content"
 msgstr ""
 
@@ -301,16 +305,16 @@ msgstr ""
 msgid "Internal Error #1: no such DB_NAME setting properly"
 msgstr ""
 
-#: ../module/database.php:79
+#: ../module/database.php:80
 #, php-format
 msgid "%s of %s:"
 msgstr ""
 
-#: ../module/database.php:82
+#: ../module/database.php:83
 msgid " if optimized them you gain:"
 msgstr ""
 
-#: ../module/database.php:84
+#: ../module/database.php:85
 msgid "Optimizes!"
 msgstr ""
 
@@ -322,37 +326,37 @@ msgstr ""
 msgid "WARNING! SOME ACTION IS POTENTIALLY DANGEROUS FOR YOUR DATABASE INTEGRETY. PLEASE MAKE A DATABASE'S BACKUP BEFORE EXECUTE ANY DELETING OR ANY ACTION. ALL DELETING OPERATIONS ARE IRREVERSIBLE!"
 msgstr ""
 
-#: ../module/posts.php:40
-#: ../module/posts.php:75
-#: ../module/posts.php:117
-#: ../module/posts.php:161
+#: ../module/posts.php:48
+#: ../module/posts.php:91
+#: ../module/posts.php:133
+#: ../module/posts.php:176
 #, php-format
 msgid "%s Rows erased"
 msgstr ""
 
-#: ../module/posts.php:156
+#: ../module/posts.php:171
 msgid "Erased!"
 msgstr ""
 
-#: ../module/posts.php:205
+#: ../module/posts.php:220
 msgid "Or link to: "
 msgstr ""
 
-#: ../module/posts.php:214
+#: ../module/posts.php:229
 msgid "Link"
 msgstr ""
 
-#: ../module/posts.php:233
+#: ../module/posts.php:248
 #, php-format
 msgid "%s Posts relinked"
 msgstr ""
 
-#: ../module/posts.php:241
+#: ../module/posts.php:256
 #, php-format
 msgid "%s Posts erased"
 msgstr ""
 
-#: ../module/posts.php:265
+#: ../module/posts.php:280
 #, php-format
 msgid "%s Attachments erased"
 msgstr ""
