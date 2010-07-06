@@ -174,7 +174,7 @@ jQuery(document).ready(function() {
     wp_cleanfix_ajax_command('buttonAttachmentsRefresh', '$WPCLEANFIX_POSTS->checkAttachment();', 'attachment-post' );
 
     // Find & Replace Post Content
-    wp_cleanfix_ajax_command('buttonFindReplacePost', '$WPCLEANFIX_POSTS->fintAndReplace();', 'find-replace-post-content', true,
+    wp_cleanfix_ajax_command('buttonFindReplacePost', '$WPCLEANFIX_POSTS->findAndReplace();', 'find-replace-post-content', true,
         function() {
             return {
                 wpcleanfix_find_post_content: jQuery('input#wpcleanfix_find_post_content').val(),

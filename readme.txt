@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 
 WP CleanFix, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -55,6 +55,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 2. Options
 
 == Changelog ==
+
+= 1.3.2 =
+* Fix bugs on Find & Replace (Post and comments)
 
 = 1.3.1 =
 * Fix remove private category with ID 1
@@ -159,6 +162,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 
 == Upgrade Notice ==
+
+= 1.3.2 =
+Fix bugs. Upgrade immediately
 
 = 1.3.0 =
 Major "stable" release. Upgrade immediately

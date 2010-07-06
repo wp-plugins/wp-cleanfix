@@ -322,53 +322,19 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
     <div class="icon32" id="icon-options-general"><br/></div>
     <h2><?=$this->plugin_name?> ver. <?=$this->version?></h2>
 
-    <div id="poststuff" class="metabox-holder has-right-sidebar">
-        <div class="inner-sidebar">
-            <div id="side-sortables" class="meta-box-sortabless ui-sortable" style="position: relative;">
+    <div id="poststuff" class="metabox-holder">
 
-                <div id="sm_pnres" class="postbox">
-                    <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
-                    <h3 class="hndle"><span>Links</span></h3>
-                    <div class="inside">
-                       <div style="text-align:center;margin-bottom:12px"><?php include_once('adv.php') ?></div>
-                       <p style="text-align:center"><a href="http://labs.saidmade.com">Labs Saidmade</a></p>
-                       <p style="text-align:center"><a href="http://www.undolog.com">Research &amp; Development Blog</a></p>
-                    </div>
-                </div>
-
-                <div id="sm_pnres" class="postbox">
-                    <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
-                    <h3 class="hndle"><span>Donate</span></h3>
-                    <div class="inside">
-                        <p style="text-align:center;font-family:Tahoma;font-size:10px">Developed by <a target="_blank" href="http://www.saidmade.com"><img alt="Saidmade" align="absmiddle" src="http://labs.saidmade.com/images/sm-a-80x15.png" border="0" /></a>
-                            <br/>
-                            more Wordpress plugins on <a target="_blank" href="http://labs.saidmade.com">labs.saidmade.com</a> and <a target="_blank" href="http://www.undolog.com">Undolog.com</a>
-                            <br/>
-                        </p>
-                        <div>
-                            <form style="text-align:center;width:auto;margin:0 auto" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                                <input type="hidden" name="cmd" value="_s-xclick" />
-                                <input type="hidden" name="hosted_button_id" value="3499468" />
-                                <input type="image" src="https://www.paypal.com/it_IT/IT/i/btn/btn_donateCC_LG.gif" name="submit" alt="PayPal - Il sistema di pagamento online pi˘ facile e sicuro!" />
-                                <img alt="" border="0" src="https://www.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-       <div class="has-sidebar sm-padded">
-            <div id="post-body-content" class="has-sidebar-content">
+       <div class="sm-padded">
+            <div id="post-body-content">
                 <div class="meta-box-sortables">
 
                     <div class="postbox">
                         <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
-                        <h3 class="hndle"><span><?php  _e('Important informations', 'wp-cleanfix')?></span></h3>
+                        <h3 class="hndle" style="font-size:18px"><span><?php  _e('Important informations', 'wp-cleanfix')?></span> <span style="float:right;font-size:12px;display:inline"><?php _e('For more info and plugins visit', 'wp-cleanfix') ?> <a href="http://www.saidmade.com">Saidmade</a></span></h3>
                         <div class="inside">
                             
                             <?php require_once ('module/info.php') ?>
-
+							<p style="text-align:right">©2010 Saidmade srl.</p>
                         </div>
                     </div>
 
