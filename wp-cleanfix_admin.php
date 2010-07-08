@@ -131,10 +131,13 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
      *
      */
     function add_dashboard_widget() {
-        add_action( 'admin_print_scripts', array($this, 'plugin_admin_scripts') );
-		add_action( 'admin_print_styles', array($this, 'plugin_admin_styles') );
+		// 1.3.3 - Administrator Only
+		if(current_user_can('level_10') ) {
+			add_action( 'admin_print_scripts', array($this, 'plugin_admin_scripts') );
+			add_action( 'admin_print_styles', array($this, 'plugin_admin_styles') );
 
-        wp_add_dashboard_widget( $this->options_key, __('WP CleanFix - Summary Report', 'wp-cleanfix'), array(&$this, 'dashboard_widget_function') );
+			wp_add_dashboard_widget( $this->options_key, __('WP CleanFix - Summary Report', 'wp-cleanfix'), array(&$this, 'dashboard_widget_function') );
+		}
     }
 
     /**
@@ -145,7 +148,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         global $WPCLEANFIX_USERMETA;
         global $WPCLEANFIX_POSTS;
         global $WPCLEANFIX_CATEGORY;
-        global $WPCLEANFIX_COMMENTS;
+        //global $WPCLEANFIX_COMMENTS;
 
         $almost_one = 0;
 
@@ -299,7 +302,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         global $WPCLEANFIX_USERMETA;
 		global $WPCLEANFIX_POSTS;
         global $WPCLEANFIX_CATEGORY;
-        global $WPCLEANFIX_COMMENTS;
+        //global $WPCLEANFIX_COMMENTS;
 
         /**
          * Any error flag
