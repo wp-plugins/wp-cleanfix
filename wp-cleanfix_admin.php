@@ -302,7 +302,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         global $WPCLEANFIX_USERMETA;
 		global $WPCLEANFIX_POSTS;
         global $WPCLEANFIX_CATEGORY;
-        //global $WPCLEANFIX_COMMENTS;
+        global $WPCLEANFIX_COMMENTS;
 
         /**
          * Any error flag
