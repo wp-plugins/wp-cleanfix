@@ -1,10 +1,10 @@
  === WP CleanFix ===
-Contributors: Giovambattista Fazioli
+Contributors: Giovambattista Fazioli, Valentin B
 Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 
 WP CleanFix, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -30,11 +30,11 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 * Find & Replace on Posts Content
 * Find & Replace on Comments Content
 * Wordpress MU compatibility
-* English/Italian Localizzation
+* English/French/Italian Localizzation
 
 **LAST IMPROVE**
 
-* Check/Remove Comments in Trash
+* French translation
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
@@ -55,6 +55,10 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 2. Options
 
 == Changelog ==
+
+= 1.3.5 =
+* Add French translation
+* Fix minor bugs
 
 = 1.3.4 =
 * Fix bugs on comments
@@ -192,6 +196,7 @@ Please download and support :)
 
 == Thanks ==
 
+* [Valentin B](http://geekeries.fr/ "Valentin B") for French translation
 * [Lazy79](http://wordpress.org/support/profile/231784 "Lazy79") for beta testing
 
 == Frequently Asked Questions ==

@@ -448,7 +448,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
      * @return <type>
      */
     function plugin_settings( $links ) {
-        $settings_link = '<a href="index.php?page=WP CleanFix">' . __('Settings') . '</a>';
+        $settings_link = '<a href="index.php?page=wp-cleanfix">' . __('Settings') . '</a>';
         array_unshift( $links, $settings_link );
         return $links;
     }
