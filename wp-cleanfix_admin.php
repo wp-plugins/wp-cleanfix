@@ -320,7 +320,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 
 	function on_load_page() {
 		add_meta_box('wp_cleanfix_information', __('Important informations', 'wp-cleanfix'), array( &$this, 'boxInformation'), $this->plugin_page, 'side', 'core');
-		add_meta_box('wp_cleanfix_database', __('Database', 'wp-cleanfix'), array( &$this, 'boxDatabase'), $this->plugin_page, 'additional', 'core');
+		add_meta_box('wp_cleanfix_database', __('Database', 'wp-cleanfix'), array( &$this, 'boxDatabase'), $this->plugin_page, 'normal', 'core');
 		add_meta_box('wp_cleanfix_users', __('Users', 'wp-cleanfix'), array( &$this, 'boxUsers'), $this->plugin_page, 'normal', 'core');
 		add_meta_box('wp_cleanfix_posts', __('Posts', 'wp-cleanfix'), array( &$this, 'boxPosts'), $this->plugin_page, 'normal', 'core');
 		add_meta_box('wp_cleanfix_categories', __('Categories', 'wp-cleanfix'), array( &$this, 'boxCategories'), $this->plugin_page, 'normal', 'core');
@@ -383,7 +383,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 	
 	<div class="wp_cleanfix_box">
 		<p class="wp_cleanfix_copy_info"><?php _e('For more info and plugins visit', 'wp-cleanfix') ?> <a href="http://www.saidmade.com">Saidmade</a></p>
-		<a class="wp_cleanfix_logo" href="http://">
+		<a class="wp_cleanfix_logo" href="http://www.saidmade.com/prodotti/wordpress/wp-cleanfix/">
 			<?php echo $this->plugin_name ?> ver. <?php echo $this->version ?>
 		</a>
 	</div>

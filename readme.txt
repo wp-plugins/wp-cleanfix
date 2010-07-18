@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 
 WP CleanFix, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -48,8 +48,8 @@ Check Dashboard
 
 = Related Links =
 
-* [Saidmade](http://www.saidmade.com/ "Author's Company")
-* [Undolog](http://www.undolog.com/ "Author's Personal Blog")
+* [Author's Company](http://www.saidmade.com/ "Saidmade")
+* [Author's Personal Blog](http://www.undolog.com/ "Undolog")
 
 For more information on the roadmap for future improvements please e-mail: g.fazioli@saidmade.com
 
@@ -61,6 +61,10 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 4. One column version, with only 3 panels
 
 == Changelog ==
+
+= 1.4.1 =
+* Fix hidden Database Panel
+* Fix wrong link on WP CleanFix logo
 
 = 1.4.0 =
 * Add new WP CleanFix's Logo
@@ -187,6 +191,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 
 == Upgrade Notice ==
+
+= 1.4.1 =
+Fix bugs. Upgrade immediately
 
 = 1.3.2 =
 Fix bugs. Upgrade immediately
