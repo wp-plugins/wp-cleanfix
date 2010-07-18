@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.3.5
+Stable tag: 1.4.0
 
 WP CleanFix, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -34,7 +34,11 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 
 **LAST IMPROVE**
 
-* French translation
+* Improve User Interface
+* Add two screen column mode
+* Add checkbox in settings tab slide
+* Fix reorder panel
+* Fix open/close Panel
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
@@ -44,8 +48,8 @@ Check Dashboard
 
 = Related Links =
 
-* [Labs Saidmade](http://labs.saidmade.com/ "Labs Saidmade")
-* [Undolog](http://www.undolog.com/ "Author's Web")
+* [Saidmade](http://www.saidmade.com/ "Author's Company")
+* [Undolog](http://www.undolog.com/ "Author's Personal Blog")
 
 For more information on the roadmap for future improvements please e-mail: g.fazioli@saidmade.com
 
@@ -53,8 +57,19 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 1. Dashboard Summary Report
 2. Options
+3. New Setting Tab Slide for choose column number and show/hide panel
+4. One column version, with only 3 panels
 
 == Changelog ==
+
+= 1.4.0 =
+* Add new WP CleanFix's Logo
+* Improve User Interface
+* Add two screen column mode
+* Add checkbox in settings tab slide
+* Fix reorder panel
+* Fix open/close Panel
+* Fix minor bug
 
 = 1.3.5 =
 * Add French translation

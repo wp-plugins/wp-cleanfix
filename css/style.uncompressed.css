@@ -100,3 +100,44 @@ h4.wp-cleanfix-title-dashboard {
 p.wp-cleanfix-copy {
     text-align: center;
 }
+
+div.wp_cleanfix_box {
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+
+	margin:16px 0;
+
+	border:1px solid #aaa;
+
+	background-image: -moz-linear-gradient(top, #eee, #fff); /* FF3.6 */
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eee),color-stop(1, #fff)); /* Saf4+, Chrome */
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#eee', EndColorStr='#fff'); /* IE6,IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#eee', EndColorStr='#fff')"; /* IE8 */
+}
+div.wp_cleanfix_box a.wp_cleanfix_logo {
+	-moz-border-radius:8px 8px 0 0;
+	-webkit-border-radius:8px 8px 0 0;
+	border-radius:8px 8px 0 0;
+	background:url("images/logo.png") 8px center no-repeat;
+	display:block;
+	font-family:"trebuchet MS",sans-serif;
+	font-size:26px;
+	height:80px;
+	letter-spacing:-1px;
+	line-height:80px;
+	margin:1px;
+	padding-left:76px;
+	text-decoration:none;
+}
+div.wp_cleanfix_box p {
+	margin:0 24px;
+}
+
+div.wp_cleanfix_box p.wp_cleanfix_copy_info {
+	display:block;
+	margin-top:6px;
+	position:absolute;
+	right:1px;
+	text-align:right;
+}

@@ -52,6 +52,8 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
          */
  		add_action('admin_init', array( $this, 'plugin_init') );
         add_action('admin_menu', array( $this, 'plugin_setup') );
+		add_action('admin_post_save_wp_cleanfix', array(&$this, 'on_save_changes'));
+		add_filter('screen_layout_columns', array(&$this, 'on_screen_layout_columns'), 10, 2);
 
         /**
          * Add Dashboard Widget
@@ -68,6 +70,26 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
          */
         update_option( $this->options_key, $this->options);
     }
+
+	function on_screen_layout_columns($columns, $screen) {
+		if ($screen == $this->plugin_page) {
+			$columns[$this->plugin_page] = 2;
+		}
+		return $columns;
+	}
+
+	function on_save_changes() {
+		//user permission check
+		if ( !current_user_can('manage_options') )
+			wp_die( __('Cheatin&#8217; uh?') );
+		//cross check the given referer
+		check_admin_referer('wp-cleanfix-general');
+
+		//process here your on $_POST validation and / or option saving
+
+		//lets redirect the post request into get request (you may add additional params at the url, if you need to show save results
+		wp_redirect($_POST['_wp_http_referer']);
+	}
 
 	/**
 	 * Register style for plugin
@@ -97,9 +119,11 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
          *
          * @since 0.1.0
          */
-        wp_enqueue_script('jquery');
+        //wp_enqueue_script('jquery');
+		wp_enqueue_script('common');
         wp_enqueue_script('postbox');
-        wp_enqueue_script('dashboard');
+		wp_enqueue_script('wp-lists');
+        //wp_enqueue_script('dashboard');
 
         /**
          * Add main admin javascript
@@ -288,21 +312,55 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
      *
      */
     function plugin_setup() {
-        $plugin_page = add_submenu_page("index.php", $this->plugin_name, $this->plugin_name, 10, $this->plugin_slug, array(&$this, "menu"));
-        add_action( 'admin_print_scripts-'. $plugin_page, array($this, 'plugin_admin_scripts') );
-		add_action( 'admin_print_styles-'. $plugin_page, array($this, 'plugin_admin_styles') );
+        $this->plugin_page = add_submenu_page("index.php", $this->plugin_name, $this->plugin_name, 10, $this->plugin_slug, array(&$this, "menu"));
+        add_action( 'load-'. $this->plugin_page, array($this, 'on_load_page') );
+        add_action( 'admin_print_scripts-'. $this->plugin_page, array($this, 'plugin_admin_scripts') );
+		add_action( 'admin_print_styles-'. $this->plugin_page, array($this, 'plugin_admin_styles') );
     }
+
+	function on_load_page() {
+		add_meta_box('wp_cleanfix_information', __('Important informations', 'wp-cleanfix'), array( &$this, 'boxInformation'), $this->plugin_page, 'side', 'core');
+		add_meta_box('wp_cleanfix_database', __('Database', 'wp-cleanfix'), array( &$this, 'boxDatabase'), $this->plugin_page, 'additional', 'core');
+		add_meta_box('wp_cleanfix_users', __('Users', 'wp-cleanfix'), array( &$this, 'boxUsers'), $this->plugin_page, 'normal', 'core');
+		add_meta_box('wp_cleanfix_posts', __('Posts', 'wp-cleanfix'), array( &$this, 'boxPosts'), $this->plugin_page, 'normal', 'core');
+		add_meta_box('wp_cleanfix_categories', __('Categories', 'wp-cleanfix'), array( &$this, 'boxCategories'), $this->plugin_page, 'normal', 'core');
+		add_meta_box('wp_cleanfix_comments', __('Comments', 'wp-cleanfix'), array( &$this, 'boxComments'), $this->plugin_page, 'normal', 'core');
+	}
+
+	function boxInformation() {
+		require_once ('module/info.php');
+	}
+
+	function boxDatabase() {
+		global $WPCLEANFIX_DATABASE;
+		require_once ('module/database_view.php');
+	}
+
+	function boxUsers() {
+		global $WPCLEANFIX_USERMETA;
+		require_once ('module/usermeta_view.php');
+	}
+
+	function boxPosts() {
+		global $WPCLEANFIX_POSTS;
+		require_once ('module/posts_view.php');
+	}
+
+	function boxCategories() {
+		global $WPCLEANFIX_CATEGORY;
+		require_once ('module/category_view.php');
+	}
+
+	function boxComments() {
+		global $WPCLEANFIX_COMMENTS;
+		require_once ('module/comments_view.php');
+	}
 
     /**
      * Draw Options Panel
      */
     function menu() {
-        global $wpdb;
-        global $WPCLEANFIX_DATABASE;
-        global $WPCLEANFIX_USERMETA;
-		global $WPCLEANFIX_POSTS;
-        global $WPCLEANFIX_CATEGORY;
-        global $WPCLEANFIX_COMMENTS;
+		global $screen_layout_columns;
 
         /**
          * Any error flag
@@ -322,79 +380,44 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         ?>
 
 <div class="wrap">
-    <div class="icon32" id="icon-options-general"><br/></div>
-    <h2><?=$this->plugin_name?> ver. <?=$this->version?></h2>
+	
+	<div class="wp_cleanfix_box">
+		<p class="wp_cleanfix_copy_info"><?php _e('For more info and plugins visit', 'wp-cleanfix') ?> <a href="http://www.saidmade.com">Saidmade</a></p>
+		<a class="wp_cleanfix_logo" href="http://">
+			<?php echo $this->plugin_name ?> ver. <?php echo $this->version ?>
+		</a>
+	</div>
 
-    <div id="poststuff" class="metabox-holder">
+	<form action="admin-post.php" method="post">
+		<?php wp_nonce_field('wp-cleanfix-general'); ?>
+		<?php wp_nonce_field('closedpostboxes', 'closedpostboxesnonce', false ); ?>
+		<?php wp_nonce_field('meta-box-order', 'meta-box-order-nonce', false ); ?>
+		<input type="hidden" name="action" value="save_wp_cleanfix" />
 
-       <div class="sm-padded">
-            <div id="post-body-content">
-                <div class="meta-box-sortables">
 
-                    <div class="postbox">
-                        <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
-                        <h3 class="hndle" style="font-size:18px"><span><?php  _e('Important informations', 'wp-cleanfix')?></span> <span style="float:right;font-size:12px;display:inline"><?php _e('For more info and plugins visit', 'wp-cleanfix') ?> <a href="http://www.saidmade.com">Saidmade</a></span></h3>
-                        <div class="inside">
-                            
-                            <?php require_once ('module/info.php') ?>
-							<p style="text-align:right">©2010 Saidmade srl.</p>
-                        </div>
-                    </div>
+		<div id="poststuff" class="metabox-holder<?php echo 2 == $screen_layout_columns ? ' has-right-sidebar' : ''; ?>">
+			<div id="side-info-column" class="inner-sidebar">
+				<?php do_meta_boxes($this->plugin_page, 'side', ""); ?>
+			</div>
+			<div id="post-body" class="has-sidebar">
+				<div id="post-body-content" class="has-sidebar-content">
+					<?php do_meta_boxes($this->plugin_page, 'normal', ""); ?>
+				</div>
+			</div>
+			<br class="clear"/>
+		</div>
 
-                    <div class="postbox">
-                        <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
-                        <h3 class="hndle"><span><?php  _e('Database', 'wp-cleanfix')?></span></h3>
-                        <div class="inside">
-
-                            <?php require_once ('module/database_view.php') ?>
-
-                        </div>
-                    </div>
-
-                    <div class="postbox">
-                        <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
-                        <h3 class="hndle"><span><?php  _e('Users', 'wp-cleanfix')?></span></h3>
-                        <div class="inside">
-
-                            <?php require_once ('module/usermeta_view.php') ?>
-
-                        </div>
-                    </div>
-
-                    <div class="postbox">
-                        <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
-                        <h3 class="hndle"><span><?php  _e('Posts', 'wp-cleanfix')?></span></h3>
-                        <div class="inside">
-
-                            <?php require_once ('module/posts_view.php') ?>
-
-                        </div>
-                    </div>
-
-                    <div class="postbox">
-                        <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
-                        <h3 class="hndle"><span><?php  _e('Categories', 'wp-cleanfix')?></span></h3>
-                        <div class="inside">
-
-                            <?php require_once ('module/category_view.php') ?>
-
-                        </div>
-                    </div>
-
-                    <div class="postbox">
-                        <div title="<?php  _e('Open/Collapse', 'wp-cleanfix')?>" class="handlediv"></div>
-                        <h3 class="hndle"><span><?php  _e('Comments', 'wp-cleanfix')?></span></h3>
-                        <div class="inside">
-
-                            <?php require_once ('module/comments_view.php') ?>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
+	</form>
+	<script type="text/javascript">
+		//<![CDATA[
+		jQuery(document).ready(function() {
+			// close postboxes that should be closed
+			jQuery('.if-js-closed').removeClass('if-js-closed').addClass('closed');
+			// postboxes setup
+			postboxes.add_postbox_toggles('<?php echo $this->plugin_page; ?>');
+	});
+	//]]>
+	</script>
 </div>
 
     <?php
