@@ -4,7 +4,7 @@ Donate link: http://labs.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 
 WP CleanFix, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -61,6 +61,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 4. One column version, with only 3 panels
 
 == Changelog ==
+
+= 1.4.2 =
+* Rev styles and compress
 
 = 1.4.1 =
 * Fix hidden Database Panel
