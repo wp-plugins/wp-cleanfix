@@ -1,10 +1,10 @@
  === WP CleanFix ===
 Contributors: Giovambattista Fazioli, Valentin B
-Donate link: http://labs.saidmade.com
+Donate link: http://www.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 
 WP CleanFix, all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -30,7 +30,7 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 * Find & Replace on Posts Content
 * Find & Replace on Comments Content
 * Wordpress MU compatibility
-* English/French/Italian Localizzation
+* English/French/Italian Localization
 
 **LAST IMPROVE**
 
@@ -61,6 +61,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 4. One column version, with only 3 panels
 
 == Changelog ==
+
+= 1.4.3 =
+* Rev doc
 
 = 1.4.2 =
 * Rev styles and compress
@@ -128,7 +131,7 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 * Rewrite all modules in Class Object
 * Improve User Interface
 * Improve Ajax
-* Rewrite label, message and localizzation
+* Rewrite label, message and localization
 * Fix minor bugs
 
 = 0.5.31 =
@@ -161,7 +164,7 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 = 0.3.5 =
 * Add UserMeta Unlink Remove
 * Auto Check Database Optimizzation after any action
-* Fix spam comment localizzation refuse
+* Fix spam comment localization refuse
 
 = 0.3.0 =
 * Set standard localization in English
@@ -174,8 +177,8 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 = 0.2.0 =
 * Add Check on Categories
-* Fix localizzation file
-* Fix some localizzation wrong missing setting
+* Fix localization file
+* Fix some localization wrong missing setting
 * Fix minor bugs
 * Improve SPAM comment preview
 
@@ -187,7 +190,7 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 * Improve Javascript function
 
 = 0.1.1 =
-* Add localizzazion (English + generic POT file)
+* Add localizazion (English + generic POT file)
 
 = 0.1.0 =
 * First beta/preview release
@@ -232,4 +235,4 @@ Could be. Be sure to backup all data from Wordpress database before execute any 
 
 = Can I translate Plugin interface? =
 
-Yes, just edit .POT file in `localizzation` folder
+Yes, just edit .POT file in `localization` folder

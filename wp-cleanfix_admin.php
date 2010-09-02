@@ -45,7 +45,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         /**
          * Load all options in $this->options array
          */
-        $this->options = get_option( $this->options_key );;
+        $this->options = get_option( $this->options_key );
 
         /**
          * Add option menu in Wordpress backend
@@ -119,11 +119,9 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
          *
          * @since 0.1.0
          */
-        //wp_enqueue_script('jquery');
 		wp_enqueue_script('common');
         wp_enqueue_script('postbox');
 		wp_enqueue_script('wp-lists');
-        //wp_enqueue_script('dashboard');
 
         /**
          * Add main admin javascript
@@ -459,7 +457,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 	 */
 	function add_plugin_links($links, $file) {
         if( $file == plugin_basename( $this->plugin_file ) ) {
-            $links[] = '<strong style="color:#fa0">' . __('For more info and plugins visit', 'wp-cleanfix') . ' <a href="http://labs.saidmade.com">Labs Saidmade</a></strong>';
+            $links[] = '<strong style="color:#fa0">' . __('For more info and plugins visit', 'wp-cleanfix') . ' <a href="http://www.saidmade.com">Saidmade</a></strong>';
         }
 		return $links;
 	}
