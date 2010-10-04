@@ -156,9 +156,10 @@ class WPCLEANFIX_POSTS {
      */
     function checkTags($mes = null, $echo = true) {
         global $wpdb;
-		// TODO Ho notato che questa funzione (vedi select sql) ritorna dei tags quando questi
-		// sono inseriti in Post non pubblicati. Questo non è del tutto buono...
-        $sql = "SELECT * FROM $wpdb->terms wt INNER JOIN $wpdb->term_taxonomy wtt ON wt.term_id = wtt.term_id WHERE wtt.taxonomy='post_tag' AND wtt.count=0;";
+		// SELECT * FROM wp_terms wt INNER JOIN (wp_term_relationships wtr, wp_term_taxonomy wtt) ON wt.term_id = wtt.term_id AND wtr.term_taxonomy_id <> wt.term_id WHERE wtt.taxonomy='post_tag' AND wtt.count=0;
+        // $sql = "SELECT * FROM $wpdb->terms wt INNER JOIN $wpdb->term_taxonomy wtt ON wt.term_id = wtt.term_id WHERE wtt.taxonomy='post_tag' AND wtt.count=0;";
+		// $sql = "SELECT * FROM $wpdb->terms wt INNER JOIN $wpdb->term_taxonomy wtt ON wt.term_id = wtt.term_id WHERE wtt.taxonomy='post_tag' AND wtt.count=0 AND wt.term_id NOT IN (SELECT term_taxonomy_id FROM $wpdb->term_relationships)";
+		$sql = "SELECT * FROM $wpdb->terms AS a LEFT JOIN $wpdb->term_taxonomy AS c ON a.term_id = c.term_id LEFT JOIN $wpdb->term_relationships AS b ON b.term_taxonomy_id = c.term_taxonomy_id WHERE (c.taxonomy = 'post_tag' AND c.count = 0 AND b.term_taxonomy_id IS NULL )";
         $res = $wpdb->get_results($sql);
 
         if($echo) {
@@ -183,7 +184,7 @@ class WPCLEANFIX_POSTS {
     // Remove
     function removeTags() {
         global $wpdb;
-        $sql = "DELETE a,b,c FROM $wpdb->terms AS a	LEFT JOIN $wpdb->term_taxonomy AS c ON a.term_id = c.term_id LEFT JOIN $wpdb->term_relationships AS b ON b.term_taxonomy_id = c.term_taxonomy_id WHERE (c.taxonomy = 'post_tag' AND	c.count = 0 )";
+        $sql = "DELETE a,b,c FROM $wpdb->terms AS a	LEFT JOIN $wpdb->term_taxonomy AS c ON a.term_id = c.term_id LEFT JOIN $wpdb->term_relationships AS b ON b.term_taxonomy_id = c.term_taxonomy_id WHERE (c.taxonomy = 'post_tag' AND	c.count = 0 AND b.term_taxonomy_id IS NULL )";
         $mes = $wpdb->query( $sql );
         $this->checkTags( $mes );
     }

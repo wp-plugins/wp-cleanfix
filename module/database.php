@@ -53,7 +53,8 @@ class WPCLEANFIX_DATABASE {
         $local_query    = 'SHOW TABLE STATUS FROM '. DB_NAME;
         $result         = mysql_query($local_query);
         $flag           = true;
-        $num            = mysql_num_rows($result);
+        $num            = 0;
+		if(!is_null($result)) $num = mysql_num_rows($result);
         $index_count    = 0;
         $buffer         = "";
 		$gain			= 0;

@@ -4,13 +4,13 @@ Donate link: http://www.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.4.3
+Stable tag: 1.4.4
 
-WP CleanFix, all in one tool for check, repair, fix and optimize your Wordpress blog.
+WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
 
 == Description ==
 
-WP CleanFix is a management tool for for check, repair, fix and optimize your Wordpress blog.
+WP CleanFix is a management tool for for check, repair, fix and optimize your Wordpress blog. The Ajax interface allow to manage all status in one only page!
 
 **FEATURES**
 
@@ -61,6 +61,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 4. One column version, with only 3 panels
 
 == Changelog ==
+
+= 1.4.4 =
+* Fix/improve check and remove unused Tag
 
 = 1.4.3 =
 * Rev doc
@@ -224,8 +227,15 @@ Please download and support :)
 
 == Thanks ==
 
-* [Valentin B](http://geekeries.fr/ "Valentin B") for French translation
+**Bugs report and beta testing**
+
 * [Lazy79](http://wordpress.org/support/profile/231784 "Lazy79") for beta testing
+* [Baris Unver](http://beyn.org/ "Baris Unver")
+
+**Localization**
+
+* [Valentin B](http://geekeries.fr/ "Valentin B") (French translation)
+
 
 == Frequently Asked Questions ==
 
