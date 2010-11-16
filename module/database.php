@@ -25,10 +25,10 @@ class WPCLEANFIX_DATABASE {
     function optimize() {
         $local_query    = 'SHOW TABLE STATUS FROM '. DB_NAME;
         $result         = mysql_query($local_query);
-        if (mysql_num_rows($result)) {
+        if (@mysql_num_rows($result)) {
             while ($row = mysql_fetch_array($result)) {
                 $local_query = 'OPTIMIZE TABLE '.$row[0];
-                $resultat  = mysql_query($local_query);
+                $resulopt  = mysql_query($local_query);
             }
         }
         $this->checkTables();
@@ -54,7 +54,10 @@ class WPCLEANFIX_DATABASE {
         $result         = mysql_query($local_query);
         $flag           = true;
         $num            = 0;
-		if(!is_null($result)) $num = mysql_num_rows($result);
+		if(!is_null($result)) {
+			// Sembra che questa riga emetta un Warning su alcuni sistemi
+			$num = @mysql_num_rows($result);
+		}
         $index_count    = 0;
         $buffer         = "";
 		$gain			= 0;

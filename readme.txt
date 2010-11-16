@@ -4,7 +4,7 @@ Donate link: http://www.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.4.4
+Stable tag: 1.4.5
 
 WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -35,10 +35,10 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 **LAST IMPROVE**
 
 * Improve User Interface
-* Add two screen column mode
-* Add checkbox in settings tab slide
-* Fix reorder panel
-* Fix open/close Panel
+* Added two screen column mode
+* Added checkbox in settings tab slide
+* Fixed reorder panel
+* Fixed open/close Panel
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
@@ -63,7 +63,7 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 == Changelog ==
 
 = 1.4.4 =
-* Fix/improve check and remove unused Tag
+* Fixed/Improved check and remove unused Tag
 
 = 1.4.3 =
 * Rev doc
@@ -72,128 +72,128 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 * Rev styles and compress
 
 = 1.4.1 =
-* Fix hidden Database Panel
-* Fix wrong link on WP CleanFix logo
+* Fixed hidden Database Panel
+* Fixed wrong link on WP CleanFix logo
 
 = 1.4.0 =
-* Add new WP CleanFix's Logo
-* Improve User Interface
-* Add two screen column mode
-* Add checkbox in settings tab slide
-* Fix reorder panel
-* Fix open/close Panel
-* Fix minor bug
+* Added new WP CleanFix's Logo
+* Improved User Interface
+* Added two screen column mode
+* Added checkbox in settings tab slide
+* Fixed reorder panel
+* Fixed open/close Panel
+* Fixed minor bug
 
 = 1.3.5 =
-* Add French translation
-* Fix minor bugs
+* Added French translation
+* Fixed minor bugs
 
 = 1.3.4 =
-* Fix bugs on comments
+* Fixed bugs on comments
 
 = 1.3.3 =
-* Add Dashboard Widget for Administrator only
+* Added Dashboard Widget for Administrator only
 
 = 1.3.2 =
-* Fix bugs on Find & Replace (Post and comments)
+* Fixed bugs on Find & Replace (Post and comments)
 
 = 1.3.1 =
-* Fix remove private category with ID 1
+* Fixed remove private category with ID 1
 
 = 1.3.0 =
-* Add Check/Remove Comments in Trash
-* Fix decimal point in Optimize Table list
+* Added Check/Remove Comments in Trash
+* Fixed decimal point in Optimize Table list
 
 = 1.2.5 =
-* Fix load new class module in Ajax gateway
+* Fixed load new class module in Ajax gateway
 
 = 1.2.4 =
 * Introducing module class/rev some class
-* Fix "nowrap" in UI
-* Fix string length in comment/span preview
-* Fix undefined function in Wordpress 2.9 previous version
+* Fixed "nowrap" in UI
+* Fixed string length in comment/span preview
+* Fixed undefined function in Wordpress 2.9 previous version
 
 = 1.2.0 =
-* Add Show Post/Page title in Combo Menu for Post Revision/Trash
-* Fix localization files
+* Added Show Post/Page title in Combo Menu for Post Revision/Trash
+* Fixed localization files
 
 = 1.1.1 =
-* Fix Administrator permission warning
+* Fixed Administrator permission warning
 
 = 1.1.0 =
 * Check/Remove for Post Trash
 
 = 1.0.0 =
 * Exit from beta
-* Add Dashboard Widget Report Summary
-* Add Remove/Relink to Posts without Author
-* Add Remove/Relink to Pages without Author
-* Add Remove Attachments without Post/Page
-* Add "Refresh All" on single panel UI
-* Improve styles and script loading
+* Added Dashboard Widget Report Summary
+* Added Remove/Relink to Posts without Author
+* Added Remove/Relink to Pages without Author
+* Added Remove Attachments without Post/Page
+* Added "Refresh All" on single panel UI
+* Improved styles and script loading
 * Rewrite all modules in Class Object
-* Improve User Interface
-* Improve Ajax
+* Improved User Interface
+* Improved Ajax
 * Rewrite label, message and localization
-* Fix minor bugs
+* Fixed minor bugs
 
 = 0.5.31 =
-* Fix Ajax Loader on Database Optimize
+* Fixed Ajax Loader on Database Optimize
 * Change Plugin Blog address
 
 = 0.5.2 =
-* Fix Find & Replace on quote and slash
+* Fixed Find & Replace on quote and slash
 
 = 0.5.0 =
-* Add Find & Replace on Comments Content
-* Fix minor bugs
+* Added Find & Replace on Comments Content
+* Fixed minor bugs
 
 = 0.4.5 =
-* Add Find & Replace on Posts Content
+* Added Find & Replace on Posts Content
 
 = 0.4.2 =
-* Add Secure Layer on Ajax Gateway
-* Fix Minor refuse on code and documentation
+* Added Secure Layer on Ajax Gateway
+* Fixed Minor refuse on code and documentation
 
 = 0.4.0 =
-* Add Check for Pages without Authors
-* Add Check for Attachments without Post/Page
-* Fix comment code and minor bug fix
+* Added Check for Pages without Authors
+* Added Check for Attachments without Post/Page
+* Fixed comment code and minor bug Fixed
 * Rev code
 
 = 0.3.6 =
-* Fix Ajax gateway Locallizzation
+* Fixed Ajax gateway Locallizzation
 
 = 0.3.5 =
-* Add UserMeta Unlink Remove
+* Added UserMeta Unlink Remove
 * Auto Check Database Optimizzation after any action
-* Fix spam comment localization refuse
+* Fixed spam comment localization refuse
 
 = 0.3.0 =
 * Set standard localization in English
-* Add Check for unused UserMeta
-* Add Check/Remove for unlink Categories (terms)
-* Add Check/Remove for unlink Categories Taxonomy
-* Fix minor bugs
-* Add some catch error
-* Improve code and style
+* Added Check for unused UserMeta
+* Added Check/Remove for unlink Categories (terms)
+* Added Check/Remove for unlink Categories Taxonomy
+* Fixed minor bugs
+* Added some catch error
+* Improved code and style
 
 = 0.2.0 =
-* Add Check on Categories
-* Fix localization file
-* Fix some localization wrong missing setting
-* Fix minor bugs
-* Improve SPAM comment preview
+* Added Check on Categories
+* Fixed localization file
+* Fixed some localization wrong missing setting
+* Fixed minor bugs
+* Improved SPAM comment preview
 
 
 = 0.1.5 =
-* Fix bugs on Meta Tag checking
-* Fix bugs on jQuery click event
-* Improve Ajax gateway
-* Improve Javascript function
+* Fixed bugs on Meta Tag checking
+* Fixed bugs on jQuery click event
+* Improved Ajax gateway
+* Improved Javascript function
 
 = 0.1.1 =
-* Add localizazion (English + generic POT file)
+* Added localizazion (English + generic POT file)
 
 = 0.1.0 =
 * First beta/preview release
@@ -202,10 +202,10 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 == Upgrade Notice ==
 
 = 1.4.1 =
-Fix bugs. Upgrade immediately
+Fixed bugs. Upgrade immediately
 
 = 1.3.2 =
-Fix bugs. Upgrade immediately
+Fixed bugs. Upgrade immediately
 
 = 1.3.0 =
 Major "stable" release. Upgrade immediately
