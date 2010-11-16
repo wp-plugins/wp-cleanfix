@@ -4,7 +4,7 @@ Donate link: http://www.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 2.9.2
-Stable tag: 1.4.5
+Stable tag: 1.4.6
 
 WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
 

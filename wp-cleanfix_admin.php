@@ -295,7 +295,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         // Report
         // ---------------------------------------------------------------------
         if($almost_one) : ?>
-            <p style="text-align:right"><a class="button rbutton" href="/wp-admin/index.php?page=<?php echo $this->plugin_slug ?>"><?php _e('Go to Repair', 'wp-cleanfix')?></a></p>
+            <p style="text-align:right"><a class="button rbutton" href="index.php?page=<?php echo $this->plugin_slug ?>"><?php _e('Go to Repair', 'wp-cleanfix')?></a></p>
         <?php else : ?>
             <p><?php _e('Nothing to Report', 'wp-cleanfix')?></p>
         <?php endif;
