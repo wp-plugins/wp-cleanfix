@@ -386,7 +386,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		</a>
 	</div>
 
-	<form action="admin-post.php" method="post">
+	<!-- <form action="admin-post.php" method="post" id="wp-cleanfix-form-postbox"> -->
 		<?php wp_nonce_field('wp-cleanfix-general'); ?>
 		<?php wp_nonce_field('closedpostboxes', 'closedpostboxesnonce', false ); ?>
 		<?php wp_nonce_field('meta-box-order', 'meta-box-order-nonce', false ); ?>
@@ -405,7 +405,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 			<br class="clear"/>
 		</div>
 
-	</form>
+	<!-- </form> -->
 	<script type="text/javascript">
 		//<![CDATA[
 		jQuery(document).ready(function() {
@@ -413,6 +413,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 			jQuery('.if-js-closed').removeClass('if-js-closed').addClass('closed');
 			// postboxes setup
 			postboxes.add_postbox_toggles('<?php echo $this->plugin_page; ?>');
+
 	});
 	//]]>
 	</script>

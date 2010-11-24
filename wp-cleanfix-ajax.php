@@ -25,9 +25,7 @@ if (@isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
     // @since 0.3.6 fix
     load_plugin_textdomain ( 'wp-cleanfix' , false, 'wp-cleanfix/localization'  );
 
-    /**
-     * Sanitize $_POST['command]
-     */
+     // Sanitize $_POST['command]
     $command = strip_tags( $_POST['command'] );
     eval ( $command );
 }

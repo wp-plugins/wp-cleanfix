@@ -9,6 +9,13 @@
  */
 jQuery(document).ready(function() {
 
+	/*
+	jQuery('form#wp-cleanfix-form-postbox').submit(
+			function() {
+				return false;
+			});
+	*/
+
     /**
      * Mostra l'animazione gif per attesa ajax
      *
@@ -54,6 +61,7 @@ jQuery(document).ready(function() {
                     pd = no;
                 }
                 wp_cleanfix_ajax_wait(id);
+
                 jQuery.post( wpCleanFixMainL10n.ajaxURL, pd,
                     function( data ) {
                         jQuery('div#' + id).html( data );
@@ -89,7 +97,7 @@ jQuery(document).ready(function() {
     function wp_cleanfix_refresh_all(button_id, button_ids) {
         jQuery('button#' + button_id).click(function(){
             for(var i = 0; i < button_ids.length; i++) {
-                jQuery('button#' + button_ids[i]).click();
+                jQuery('button#' + button_ids[i]).trigger('click');
             }
         });
     }
