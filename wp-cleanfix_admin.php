@@ -79,8 +79,6 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
          * @since 0.1.0
          */
         update_option( $this->options_key, $this->options);
-
-		$this->countRepair();
     }
 
 	function on_screen_layout_columns($columns, $screen) {
@@ -116,7 +114,8 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
          * @since 0.1.0
          */
         wp_register_style('wp-cleanfix-style-css', $this->url . "/css/style.css");
-        
+		
+		$this->countRepair();
 	}
 
     /**
