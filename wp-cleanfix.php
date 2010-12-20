@@ -3,12 +3,12 @@
 Plugin Name: WP CleanFix
 Plugin URI: http://wordpress.org/extend/plugins/wp-cleanfix/
 Description: WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
-Version: 1.5.0
+Version: 1.6.0
 Author: Giovambattista Fazioli
 Author URI: http://www.saidmade.com
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
 
-	Copyright 2010 Saidmade Srl (email : g.fazioli@saidmade.com)
+	Copyright 2010-2011 Saidmade Srl (email : g.fazioli@saidmade.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by

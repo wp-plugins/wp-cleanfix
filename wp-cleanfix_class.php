@@ -5,7 +5,7 @@
  * @package         wp-cleanfix
  * @subpackage      wp-cleanfix_class
  * @author          =undo= <g.fazioli@saidmade.com>
- * @copyright       Copyright (C) 2010 Saidmade Srl
+ * @copyright       Copyright (C) 2010-2011 Saidmade Srl
  *
  */
 
@@ -17,7 +17,7 @@ class WPCLEANFIX_CLASS {
      * @since 0.1.0
      * @var string
      */
-    var $version 						= "1.5.0";
+    var $version 						= "1.6.0";
 
     /**
      * WP-CLEANFIX release.minor.revision
@@ -69,6 +69,14 @@ class WPCLEANFIX_CLASS {
      * @var string
      */
     var $options_key 					= "wp-cleanfix";
+
+	/**
+     * Backend title
+     *
+     * @since 1.5.1
+     * @var string
+     */
+    var $options_title					= "WP CleanFix";
 
     /**
      * Options array containing all options for this plugin

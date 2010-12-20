@@ -5,7 +5,7 @@
  * @package         wp-cleanfix
  * @subpackage      wp-cleanfix_admin
  * @author          =undo= <g.fazioli@saidmade.com>
- * @copyright       Copyright (C) 2010 Saidmade Srl
+ * @copyright       Copyright (C) 2010-2011 Saidmade Srl
  * 
  */
 
@@ -35,6 +35,16 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
      * @since 0.1.0
      */
     function init() {
+
+		/**
+         * Add version control in options.
+         */
+        $this->options = array(
+			'wp_cleanfix_version' 		=> $this->version,
+			'toRepair'					=> 0
+			);
+        add_option( $this->options_key, $this->options, $this->options_title );
+
 		/**
 		 * Load localizations if available
 		 *
@@ -69,6 +79,8 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
          * @since 0.1.0
          */
         update_option( $this->options_key, $this->options);
+
+		$this->countRepair();
     }
 
 	function on_screen_layout_columns($columns, $screen) {
@@ -162,6 +174,35 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		}
     }
 
+	function countRepair() {
+		global $WPCLEANFIX_USERMETA;
+		global $WPCLEANFIX_POSTS;
+		global $WPCLEANFIX_CATEGORY;
+
+		$tot = 0;
+
+		$check = $WPCLEANFIX_USERMETA->checkUserMeta(null, false);
+
+		$tot += count($check);
+
+		$tot += $WPCLEANFIX_POSTS->checkRevisions(null, false);
+        $tot += $WPCLEANFIX_POSTS->checkTrash(null, false);
+        $tot += count( $WPCLEANFIX_POSTS->checkPostMeta(null, false) );
+        $tot += count( $WPCLEANFIX_POSTS->checkTags(null, false) );
+        $tot += count( $WPCLEANFIX_POSTS->checkPostsUsers(null, false) );
+        $tot += count( $WPCLEANFIX_POSTS->checkPostsUsers(null, false, 'page') );
+        $tot += count( $WPCLEANFIX_POSTS->checkAttachment(null, false, 'page') );
+
+        $tot += count( $WPCLEANFIX_CATEGORY->checkCategory(null, false) );
+        $tot += count( $WPCLEANFIX_CATEGORY->checkTermInTaxonomy(null, false) );
+        $tot += count( $WPCLEANFIX_CATEGORY->checkTaxonomyInTerm(null, false) );
+		
+		$this->options['toRepair'] = $tot;
+		update_option( $this->options_key, $this->options);
+
+		return $tot;
+	}
+
     /**
      * Show content in Dashboard Widget
      */
@@ -173,6 +214,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         //global $WPCLEANFIX_COMMENTS;
 
         $almost_one = 0;
+		$tot = 0;
 
         // ---------------------------------------------------------------------
         // Database
@@ -196,7 +238,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         // ---------------------------------------------------------------------
         ob_start();
         $check = $WPCLEANFIX_USERMETA->checkUserMeta(null, false);
-        if( count($check) > 0 ) : $almost_one = 2 ?>
+        if( count($check) > 0 ) : $almost_one = 2; $tot += count($check) ?>
             <p><span class="wpcleanfix-warning"><?php printf(__('%s unused User Meta', 'wp-cleanfix'), count($check) ) ?></span></p>
         <?php endif; ?>
 
@@ -213,43 +255,43 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         // ---------------------------------------------------------------------
         ob_start();
         $check = $WPCLEANFIX_POSTS->checkRevisions(null, false);
-        if( $check > 0 ) : $almost_one = 3; ?>
+        if( $check > 0 ) : $almost_one = 3; $tot += $check ?>
             <p><span class="wpcleanfix-warning"><?php printf(__('%s Post Revisions', 'wp-cleanfix'), $check ) ?></span></p>
         <?php endif; ?>
             
         <?php
         $check = $WPCLEANFIX_POSTS->checkTrash(null, false);
-        if( $check > 0 ) : $almost_one = 3; ?>
+        if( $check > 0 ) : $almost_one = 3; $tot += $check ?>
             <p><span class="wpcleanfix-warning"><?php printf(__('%s Post in Trash', 'wp-cleanfix'), $check ) ?></span></p>
         <?php endif; ?>
 
         <?php
         $check = $WPCLEANFIX_POSTS->checkPostMeta(null, false);
-        if( count($check) > 0 ) : $almost_one = 3; ?>
+        if( count($check) > 0 ) : $almost_one = 3; $tot += count($check) ?>
             <p><span class="wpcleanfix-warning"><?php printf(__('%s unused Post Meta', 'wp-cleanfix'), count($check) ) ?></span></p>
         <?php endif; ?>
 
         <?php
         $check = $WPCLEANFIX_POSTS->checkTags(null, false);
-        if( count($check) > 0 ) : $almost_one = 3; ?>
+        if( count($check) > 0 ) : $almost_one = 3; $tot += count($check) ?>
             <p><span class="wpcleanfix-warning"><?php printf(__('%s unused Tags', 'wp-cleanfix'), count($check) ) ?></span></p>
         <?php endif;  ?>
 
         <?php
         $check = $WPCLEANFIX_POSTS->checkPostsUsers(null, false);
-        if( count($check) > 0 ) : $almost_one = 3; ?>
+        if( count($check) > 0 ) : $almost_one = 3; $tot += count($check) ?>
             <p><span class="wpcleanfix-warning"><?php printf(__('%s Posts without author', 'wp-cleanfix'), count($check) ) ?></span></p>
         <?php endif;  ?>
 
         <?php
         $check = $WPCLEANFIX_POSTS->checkPostsUsers(null, false, 'page');
-        if( count($check) > 0 ) : $almost_one = 3; ?>
+        if( count($check) > 0 ) : $almost_one = 3; $tot += count($check) ?>
             <p><span class="wpcleanfix-warning"><?php printf(__('%s Pages without author', 'wp-cleanfix'), count($check) ) ?></span></p>
         <?php endif;  ?>
 
         <?php
         $check = $WPCLEANFIX_POSTS->checkAttachment(null, false, 'page');
-        if( count($check) > 0 ) : $almost_one = 3; ?>
+        if( count($check) > 0 ) : $almost_one = 3; $tot += count($check) ?>
             <p><span class="wpcleanfix-warning"><?php printf(__('%s Attachment unlink', 'wp-cleanfix'), count($check) ) ?></span></p>
         <?php endif;  ?>
 
@@ -266,19 +308,19 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         // ---------------------------------------------------------------------
         ob_start();
         $check = $WPCLEANFIX_CATEGORY->checkCategory(null, false);
-        if( count($check) > 0 ) : $almost_one = 4 ?>
+        if( count($check) > 0 ) : $almost_one = 4; $tot += count($check) ?>
             <p><span class="wpcleanfix-warning"><?php printf(__('%s unused Categories', 'wp-cleanfix'), count($check) ) ?></span></p>
         <?php endif; ?>
 
         <?php
         $check = $WPCLEANFIX_CATEGORY->checkTermInTaxonomy(null, false);
-        if( count($check) > 0 ) : $almost_one = 4 ?>
+        if( count($check) > 0 ) : $almost_one = 4; $tot += count($check) ?>
             <p><span class="wpcleanfix-warning"><?php printf(__('%s terms unlink in taxonomy', 'wp-cleanfix'), count($check) ) ?></span></p>
         <?php endif; ?>
 
         <?php
         $check = $WPCLEANFIX_CATEGORY->checkTaxonomyInTerm(null, false);
-        if( count($check) > 0 ) : $almost_one = 4 ?>
+        if( count($check) > 0 ) : $almost_one = 4; $tot += count($check) ?>
             <p><span class="wpcleanfix-warning"><?php printf(__('%s taxonomy unlink in term', 'wp-cleanfix'), count($check) ) ?></span></p>
         <?php endif; ?>
 
@@ -300,6 +342,8 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
             <p><?php _e('Nothing to Report', 'wp-cleanfix')?></p>
         <?php endif;
 
+		$this->options['toRepair'] = $tot;
+		update_option( $this->options_key, $this->options);
 		echo '<p class="wp-cleanfix-copy" style="border-top:1px solid #aaa;padding-top:4px">&copy;copyright <a href="http://www.saidmade.com">saidmade srl</a></p>';
     }
 
@@ -310,7 +354,12 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
      *
      */
     function plugin_setup() {
-        $this->plugin_page = add_submenu_page("index.php", $this->plugin_name, $this->plugin_name, 10, $this->plugin_slug, array(&$this, "menu"));
+		$tot = $this->countRepair();
+		$itemTitle = $this->plugin_name;
+		if( $this->options['toRepair'] != 0 ) {
+			$itemTitle = sprintf( '%s <span class="update-plugins count-%d"><span class="update-count">%d</span></span>', $this->plugin_name, $this->options['toRepair'], $this->options['toRepair'] );
+		}
+        $this->plugin_page = add_submenu_page("index.php", $this->plugin_name, $itemTitle, 10, $this->plugin_slug, array(&$this, "menu"));
         add_action( 'load-'. $this->plugin_page, array($this, 'on_load_page') );
         add_action( 'admin_print_scripts-'. $this->plugin_page, array($this, 'plugin_admin_scripts') );
 		add_action( 'admin_print_styles-'. $this->plugin_page, array($this, 'plugin_admin_styles') );

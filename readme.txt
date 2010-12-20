@@ -3,8 +3,8 @@ Contributors: Giovambattista Fazioli, Valentin B
 Donate link: http://www.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
-Tested up to: 2.9.2
-Stable tag: 1.5.0
+Tested up to: 3.0.3
+Stable tag: 1.6.0
 
 WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -34,11 +34,7 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 
 **LAST IMPROVE**
 
-* Improve User Interface
-* Added two screen column mode
-* Added checkbox in settings tab slide
-* Fixed reorder panel
-* Fixed open/close Panel
+* Added Bubble repair count on item menu
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
@@ -61,6 +57,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 4. One column version, with only 3 panels
 
 == Changelog ==
+
+= 1.6.0 =
+* Added Bubble repair count on item menu
 
 = 1.5.0 =
 * Fixed critical Ajax call!
@@ -205,6 +204,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 
 == Upgrade Notice ==
+= 1.6.0 =
+Added Bubble repair count on item menu. Upgrade immediately
+
 = 1.5.0 =
 Fixed critical Ajax bugs. Upgrade immediately
 
