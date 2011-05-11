@@ -56,7 +56,7 @@ class WPCLEANFIX_POSTS {
 	function removeRevision() {
 		global $wpdb;
 
-		$sql = "DELETE a,b,c FROM `$wpdb->posts` a LEFT JOIN `$wpdb->term_relationships b ON (a.ID = b.object_id) LEFT JOIN `$wpdb->postmeta` c ON (a.ID = c.post_id) WHERE a.post_type = 'revision'";
+		$sql = "DELETE a,b,c FROM `$wpdb->posts` a LEFT JOIN `$wpdb->term_relationships` b ON (a.ID = b.object_id) LEFT JOIN `$wpdb->postmeta` c ON (a.ID = c.post_id) WHERE a.post_type = 'revision'";
 		$mes = $wpdb->query($sql);
 		$this->checkRevisions( $mes );
 	}
@@ -99,7 +99,7 @@ class WPCLEANFIX_POSTS {
 	function removeTrash() {
 		global $wpdb;
 
-		$sql = "DELETE a,b,c FROM `$wpdb->posts` a LEFT JOIN `$wpdb->term_relationships` b ON (a.ID = b.object_id) LEFT JOIN `$wpdb->postmeta c ON (a.ID = c.post_id) WHERE a.post_status = 'trash'";
+		$sql = "DELETE a,b,c FROM `$wpdb->posts` a LEFT JOIN `$wpdb->term_relationships` b ON (a.ID = b.object_id) LEFT JOIN `$wpdb->postmeta` c ON (a.ID = c.post_id) WHERE a.post_status = 'trash'";
 		$mes = $wpdb->query($sql);
 		$this->checkTrash( $mes );
 	}
@@ -220,7 +220,7 @@ class WPCLEANFIX_POSTS {
 
                 _e('Or link to: ', 'wp-cleanfix');
 
-                $sql = "SELECT * FROM `$wpdb->users WHERE user_status = 0 ORDER BY user_login";
+                $sql = "SELECT * FROM `$wpdb->users` WHERE user_status = 0 ORDER BY user_login";
                 $users = $wpdb->get_results( $sql );
                 echo '<select id="wpcleanfix_' . $type . '_author_id">';
                 foreach($users as $user) : ?>
@@ -252,7 +252,7 @@ class WPCLEANFIX_POSTS {
     function removePostsUsers($type = 'post') {
         global $wpdb;
 
-        $sql = "DELETE wpp FROM `$wpdb->posts wpp LEFT JOIN `$wpdb->users wpu ON wpu.ID = wpp.post_author WHERE wpp.post_type = '$type' AND wpp.post_status = 'publish' AND wpu.ID IS NULL";
+        $sql = "DELETE wpp FROM `$wpdb->posts` wpp LEFT JOIN `$wpdb->users` wpu ON wpu.ID = wpp.post_author WHERE wpp.post_type = '$type' AND wpp.post_status = 'publish' AND wpu.ID IS NULL";
         $mes = $wpdb->query( $sql );
         $this->checkPostsUsers( sprintf( __('%s Posts erased', 'wp-cleanfix'), $mes), true, $type );
     }
@@ -268,7 +268,7 @@ class WPCLEANFIX_POSTS {
     function checkAttachment($mes = null, $echo = true) {
         global $wpdb;
 
-        $sql = "SELECT * FROM `$wpdb->posts wpa LEFT JOIN `$wpdb->posts` wpp ON wpa.post_parent = wpp.ID WHERE wpa.post_type = 'attachment' AND wpa.post_parent > 0 AND wpp.ID IS NULL";
+        $sql = "SELECT * FROM `$wpdb->posts` wpa LEFT JOIN `$wpdb->posts` wpp ON wpa.post_parent = wpp.ID WHERE wpa.post_type = 'attachment' AND wpa.post_parent > 0 AND wpp.ID IS NULL";
         $attachments = $wpdb->get_results( $sql );
         if($echo) {
             if( count($attachments) > 0 ) {

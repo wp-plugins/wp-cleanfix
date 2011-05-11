@@ -93,7 +93,7 @@ class WPCLEANFIX_COMMENTS extends WPCLEANFIX_MODULE {
     function removeTrash() {
         global $wpdb;
 
-        $sql = "DELETE FROM `$wpdb->comments WHERE comment_approved = 'trash';";
+        $sql = "DELETE FROM `$wpdb->comments` WHERE comment_approved = 'trash';";
         $mes = $wpdb->query( $sql );
         $this->checkTrash( $mes );
     }

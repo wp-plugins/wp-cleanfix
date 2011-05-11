@@ -59,7 +59,7 @@ class WPCLEANFIX_CATEGORY {
         $sql = "SELECT * FROM `$wpdb->term_relationships` WHERE `term_taxonomy_id` IN(SELECT term_taxonomy_id FROM `$wpdb->terms` AS t, `$wpdb->term_taxonomy` AS x WHERE t.term_id = x.term_id AND x.count = 0 AND taxonomy = 'category' ORDER BY x.count)";
         $res = $wpdb->get_results( $sql );
         if(count($res) > 0) {
-            $sql = "DELETE FROM `$wpdb->term_relationships` WHERE `term_taxonomy_id` IN(SELECT term_taxonomy_id FROM `$wpdb->terms AS t, `$wpdb->term_taxonomy` AS x WHERE t.term_id = x.term_id AND x.count = 0 AND taxonomy = 'category' ORDER BY x.count)";
+            $sql = "DELETE FROM `$wpdb->term_relationships` WHERE `term_taxonomy_id` IN(SELECT term_taxonomy_id FROM `$wpdb->terms` AS t, `$wpdb->term_taxonomy` AS x WHERE t.term_id = x.term_id AND x.count = 0 AND taxonomy = 'category' ORDER BY x.count)";
             $res = $wpdb->query( $sql );
             $mes .= ' ' . __('erased external links too');
         }
