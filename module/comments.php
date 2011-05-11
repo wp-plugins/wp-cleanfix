@@ -29,7 +29,7 @@ class WPCLEANFIX_COMMENTS extends WPCLEANFIX_MODULE {
     function checkComments($mes = null, $echo = true) {
         global $wpdb;
 
-        $sql = "SELECT * FROM $wpdb->comments WHERE comment_approved = '0';";
+        $sql = "SELECT * FROM `$wpdb->comments` WHERE comment_approved = '0';";
         $comments = $wpdb->get_results( $sql );
         if($echo) {
             if( count($comments) > 0 ) {
@@ -53,7 +53,7 @@ class WPCLEANFIX_COMMENTS extends WPCLEANFIX_MODULE {
     function removeComments() {
         global $wpdb;
 
-        $sql = "DELETE FROM $wpdb->comments WHERE comment_approved = '0';";
+        $sql = "DELETE FROM `$wpdb->comments` WHERE comment_approved = '0';";
         $mes = $wpdb->query( $sql );
         $this->checkComments( $mes );
     }
@@ -69,7 +69,7 @@ class WPCLEANFIX_COMMENTS extends WPCLEANFIX_MODULE {
     function checkTrash($mes = null, $echo = true) {
         global $wpdb;
 
-        $sql = "SELECT * FROM $wpdb->comments WHERE comment_approved = 'trash';";
+        $sql = "SELECT * FROM `$wpdb->comments` WHERE comment_approved = 'trash';";
         $comments = $wpdb->get_results( $sql );
         if($echo) {
             if( count($comments) > 0 ) {
@@ -93,7 +93,7 @@ class WPCLEANFIX_COMMENTS extends WPCLEANFIX_MODULE {
     function removeTrash() {
         global $wpdb;
 
-        $sql = "DELETE FROM $wpdb->comments WHERE comment_approved = 'trash';";
+        $sql = "DELETE FROM `$wpdb->comments WHERE comment_approved = 'trash';";
         $mes = $wpdb->query( $sql );
         $this->checkTrash( $mes );
     }
@@ -109,7 +109,7 @@ class WPCLEANFIX_COMMENTS extends WPCLEANFIX_MODULE {
     function checkSpam($mes = null, $echo = true) {
         global $wpdb;
 
-        $sql = "SELECT * FROM $wpdb->comments WHERE comment_approved = 'spam';";
+        $sql = "SELECT * FROM `$wpdb->comments` WHERE comment_approved = 'spam';";
         $spam = $wpdb->get_results( $sql );
         if($echo) {
             if( count($spam) > 0 ) {
@@ -133,7 +133,7 @@ class WPCLEANFIX_COMMENTS extends WPCLEANFIX_MODULE {
     function removeSpam() {
         global $wpdb;
 
-        $sql = "DELETE FROM $wpdb->comments WHERE comment_approved = 'spam';";
+        $sql = "DELETE FROM `$wpdb->comments` WHERE comment_approved = 'spam';";
         $mes = $wpdb->query( $sql );
         $this->checkSpam( $mes );
     }
@@ -168,7 +168,7 @@ class WPCLEANFIX_COMMENTS extends WPCLEANFIX_MODULE {
         $string_replace = ($_POST['wpcleanfix_replace_comment_content']);
 
         if($string_find != "") {
-            $sql = "UPDATE $wpdb->comments SET comment_content = REPLACE (comment_content, '{$string_find}', '{$string_replace}')";
+            $sql = "UPDATE `$wpdb->comments` SET comment_content = REPLACE (comment_content, '{$string_find}', '{$string_replace}')";
             $mes = $wpdb->query( $sql );
         }
         $this->findAndReplaceUI($string_find, $string_replace, $mes);

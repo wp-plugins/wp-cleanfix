@@ -23,11 +23,11 @@ class WPCLEANFIX_DATABASE {
      *
      */
     function optimize() {
-        $local_query    = 'SHOW TABLE STATUS FROM '. DB_NAME;
+        $local_query    = sprintf('SHOW TABLE STATUS FROM `%s`', DB_NAME);
         $result         = mysql_query($local_query);
         if (@mysql_num_rows($result)) {
             while ($row = mysql_fetch_array($result)) {
-                $local_query = 'OPTIMIZE TABLE '.$row[0];
+                $local_query = sprintf('OPTIMIZE TABLE `%s`', $row[0] );
                 $resulopt  = mysql_query($local_query);
             }
         }
@@ -50,7 +50,7 @@ class WPCLEANFIX_DATABASE {
         $total_gain     = 0;
         $tot_idx        = 0;
         $tot_all        = 0;
-        $local_query    = 'SHOW TABLE STATUS FROM '. DB_NAME;
+        $local_query    = sprintf('SHOW TABLE STATUS FROM `%s`', DB_NAME);
         $result         = mysql_query($local_query);
         $flag           = true;
         $num            = 0;

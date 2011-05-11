@@ -27,14 +27,14 @@ class WPCLEANFIX_POSTS {
     function checkRevisions($mes = null, $echo = true) {
         global $wpdb;
 
-        $sql = "SELECT COUNT(*) FROM $wpdb->posts WHERE post_type = 'revision'";
+        $sql = "SELECT COUNT(*) FROM `$wpdb->posts` WHERE post_type = 'revision'";
         $revisions = $wpdb->get_var( $sql );
         if($echo) {
             if(intval($revisions) > 0) : ?>
                 <span class="wpcleanfix-warning"><?php echo $revisions ?></span>
                 <select>
                 <?php
-                    $sql = "SELECT DISTINCT( COUNT(*) ) AS numero, ID, post_title FROM $wpdb->posts WHERE post_type = 'revision' GROUP BY post_title";
+                    $sql = "SELECT DISTINCT( COUNT(*) ) AS numero, ID, post_title FROM `$wpdb->posts` WHERE post_type = 'revision' GROUP BY post_title";
                     $res = $wpdb->get_results($sql);
                     foreach($res as $post) : ?>
                     <option><?php echo $post->post_title ?> (<?php echo $post->numero ?>)</option>
@@ -56,7 +56,7 @@ class WPCLEANFIX_POSTS {
 	function removeRevision() {
 		global $wpdb;
 
-		$sql = "DELETE a,b,c FROM $wpdb->posts a LEFT JOIN $wpdb->term_relationships b ON (a.ID = b.object_id) LEFT JOIN $wpdb->postmeta c ON (a.ID = c.post_id) WHERE a.post_type = 'revision'";
+		$sql = "DELETE a,b,c FROM `$wpdb->posts` a LEFT JOIN `$wpdb->term_relationships b ON (a.ID = b.object_id) LEFT JOIN `$wpdb->postmeta` c ON (a.ID = c.post_id) WHERE a.post_type = 'revision'";
 		$mes = $wpdb->query($sql);
 		$this->checkRevisions( $mes );
 	}
@@ -70,14 +70,14 @@ class WPCLEANFIX_POSTS {
     function checkTrash($mes = null, $echo = true) {
         global $wpdb;
 
-        $sql = "SELECT COUNT(*) FROM $wpdb->posts WHERE post_status = 'trash'";
+        $sql = "SELECT COUNT(*) FROM `$wpdb->posts` WHERE post_status = 'trash'";
         $trash = $wpdb->get_var( $sql );
         if($echo) {
             if(intval($trash) > 0) : ?>
                 <span class="wpcleanfix-warning"><?php echo $trash ?></span>
                 <select>
                 <?php
-                    $sql = "SELECT post_title FROM $wpdb->posts WHERE post_status = 'trash'";
+                    $sql = "SELECT post_title FROM `$wpdb->posts` WHERE post_status = 'trash'";
                     $res = $wpdb->get_results($sql);
                     foreach($res as $post) : ?>
                     <option><?php echo $post->post_title ?></option>
@@ -99,7 +99,7 @@ class WPCLEANFIX_POSTS {
 	function removeTrash() {
 		global $wpdb;
 
-		$sql = "DELETE a,b,c FROM $wpdb->posts a LEFT JOIN $wpdb->term_relationships b ON (a.ID = b.object_id) LEFT JOIN $wpdb->postmeta c ON (a.ID = c.post_id) WHERE a.post_status = 'trash'";
+		$sql = "DELETE a,b,c FROM `$wpdb->posts` a LEFT JOIN `$wpdb->term_relationships` b ON (a.ID = b.object_id) LEFT JOIN `$wpdb->postmeta c ON (a.ID = c.post_id) WHERE a.post_status = 'trash'";
 		$mes = $wpdb->query($sql);
 		$this->checkTrash( $mes );
 	}
@@ -115,7 +115,7 @@ class WPCLEANFIX_POSTS {
     function checkPostMeta($mes = null, $echo = true) {
         global $wpdb;
 
-        $sql = "SELECT * FROM $wpdb->postmeta pm LEFT JOIN $wpdb->posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL;";
+        $sql = "SELECT * FROM `$wpdb->postmeta` pm LEFT JOIN `$wpdb->posts` wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL;";
         $res = $wpdb->get_results($sql);
 
         if($echo) {
@@ -141,7 +141,7 @@ class WPCLEANFIX_POSTS {
     function removePostMeta() {
         global $wpdb;
 
-        $sql = "DELETE pm FROM $wpdb->postmeta pm LEFT JOIN $wpdb->posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL";
+        $sql = "DELETE pm FROM `$wpdb->postmeta` pm LEFT JOIN `$wpdb->posts` wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL";
         $mes = $wpdb->query( $sql );
         $this->checkPostMeta( $mes );
     }
@@ -159,7 +159,7 @@ class WPCLEANFIX_POSTS {
 		// SELECT * FROM wp_terms wt INNER JOIN (wp_term_relationships wtr, wp_term_taxonomy wtt) ON wt.term_id = wtt.term_id AND wtr.term_taxonomy_id <> wt.term_id WHERE wtt.taxonomy='post_tag' AND wtt.count=0;
         // $sql = "SELECT * FROM $wpdb->terms wt INNER JOIN $wpdb->term_taxonomy wtt ON wt.term_id = wtt.term_id WHERE wtt.taxonomy='post_tag' AND wtt.count=0;";
 		// $sql = "SELECT * FROM $wpdb->terms wt INNER JOIN $wpdb->term_taxonomy wtt ON wt.term_id = wtt.term_id WHERE wtt.taxonomy='post_tag' AND wtt.count=0 AND wt.term_id NOT IN (SELECT term_taxonomy_id FROM $wpdb->term_relationships)";
-		$sql = "SELECT * FROM $wpdb->terms AS a LEFT JOIN $wpdb->term_taxonomy AS c ON a.term_id = c.term_id LEFT JOIN $wpdb->term_relationships AS b ON b.term_taxonomy_id = c.term_taxonomy_id WHERE (c.taxonomy = 'post_tag' AND c.count = 0 AND b.term_taxonomy_id IS NULL )";
+		$sql = "SELECT * FROM `$wpdb->terms` AS a LEFT JOIN `$wpdb->term_taxonomy` AS c ON a.term_id = c.term_id LEFT JOIN `$wpdb->term_relationships` AS b ON b.term_taxonomy_id = c.term_taxonomy_id WHERE (c.taxonomy = 'post_tag' AND c.count = 0 AND b.term_taxonomy_id IS NULL )";
         $res = $wpdb->get_results($sql);
 
         if($echo) {
@@ -184,7 +184,7 @@ class WPCLEANFIX_POSTS {
     // Remove
     function removeTags() {
         global $wpdb;
-        $sql = "DELETE a,b,c FROM $wpdb->terms AS a	LEFT JOIN $wpdb->term_taxonomy AS c ON a.term_id = c.term_id LEFT JOIN $wpdb->term_relationships AS b ON b.term_taxonomy_id = c.term_taxonomy_id WHERE (c.taxonomy = 'post_tag' AND	c.count = 0 AND b.term_taxonomy_id IS NULL )";
+        $sql = "DELETE a,b,c FROM `$wpdb->terms` AS a LEFT JOIN `$wpdb->term_taxonomy` AS c ON a.term_id = c.term_id LEFT JOIN `$wpdb->term_relationships` AS b ON b.term_taxonomy_id = c.term_taxonomy_id WHERE (c.taxonomy = 'post_tag' AND c.count = 0 AND b.term_taxonomy_id IS NULL )";
         $mes = $wpdb->query( $sql );
         $this->checkTags( $mes );
     }
@@ -201,7 +201,7 @@ class WPCLEANFIX_POSTS {
 	function checkPostsUsers($mes = null, $echo = true, $type = 'post') {
 		global $wpdb;
 
-		$sql = "SELECT wpp.ID as postID FROM $wpdb->posts wpp LEFT JOIN $wpdb->users wpu ON wpu.ID = wpp.post_author WHERE wpp.post_type = '$type' AND wpp.post_status = 'publish' AND wpu.ID IS NULL";
+		$sql = "SELECT wpp.ID as postID FROM `$wpdb->posts` wpp LEFT JOIN `$wpdb->users` wpu ON wpu.ID = wpp.post_author WHERE wpp.post_type = '$type' AND wpp.post_status = 'publish' AND wpu.ID IS NULL";
 		$usersposts = $wpdb->get_results( $sql );
 
         if($echo) {
@@ -220,7 +220,7 @@ class WPCLEANFIX_POSTS {
 
                 _e('Or link to: ', 'wp-cleanfix');
 
-                $sql = "SELECT * FROM $wpdb->users WHERE user_status = 0 ORDER BY user_login";
+                $sql = "SELECT * FROM `$wpdb->users WHERE user_status = 0 ORDER BY user_login";
                 $users = $wpdb->get_results( $sql );
                 echo '<select id="wpcleanfix_' . $type . '_author_id">';
                 foreach($users as $user) : ?>
@@ -244,7 +244,7 @@ class WPCLEANFIX_POSTS {
     function relinkPostsUsers($type = 'post') {
         global $wpdb;
 
-        $sql = "UPDATE $wpdb->posts SET post_author = " . $_POST['wpcleanfix_' . $type . '_author_id'] . " WHERE ID IN " . $_POST['wpcleanfix_' . $type . '_ids'];
+        $sql = "UPDATE `$wpdb->posts` SET post_author = " . $_POST['wpcleanfix_' . $type . '_author_id'] . " WHERE ID IN " . $_POST['wpcleanfix_' . $type . '_ids'];
         $mes = $wpdb->query( $sql );
         $this->checkPostsUsers( sprintf( __('%s Posts relinked', 'wp-cleanfix'), $mes), true, $type );
     }
@@ -252,7 +252,7 @@ class WPCLEANFIX_POSTS {
     function removePostsUsers($type = 'post') {
         global $wpdb;
 
-        $sql = "DELETE wpp FROM $wpdb->posts wpp LEFT JOIN $wpdb->users wpu ON wpu.ID = wpp.post_author WHERE wpp.post_type = '$type' AND wpp.post_status = 'publish' AND wpu.ID IS NULL";
+        $sql = "DELETE wpp FROM `$wpdb->posts wpp LEFT JOIN `$wpdb->users wpu ON wpu.ID = wpp.post_author WHERE wpp.post_type = '$type' AND wpp.post_status = 'publish' AND wpu.ID IS NULL";
         $mes = $wpdb->query( $sql );
         $this->checkPostsUsers( sprintf( __('%s Posts erased', 'wp-cleanfix'), $mes), true, $type );
     }
@@ -268,7 +268,7 @@ class WPCLEANFIX_POSTS {
     function checkAttachment($mes = null, $echo = true) {
         global $wpdb;
 
-        $sql = "SELECT * FROM $wpdb->posts wpa LEFT JOIN $wpdb->posts wpp ON wpa.post_parent = wpp.ID WHERE wpa.post_type = 'attachment' AND wpa.post_parent > 0 AND wpp.ID IS NULL";
+        $sql = "SELECT * FROM `$wpdb->posts wpa LEFT JOIN `$wpdb->posts` wpp ON wpa.post_parent = wpp.ID WHERE wpa.post_type = 'attachment' AND wpa.post_parent > 0 AND wpp.ID IS NULL";
         $attachments = $wpdb->get_results( $sql );
         if($echo) {
             if( count($attachments) > 0 ) {
@@ -288,7 +288,7 @@ class WPCLEANFIX_POSTS {
     // Remove
     function removeAttachment() {
         global $wpdb;
-        $sql = "DELETE wpa FROM $wpdb->posts wpa LEFT JOIN $wpdb->posts wpp ON wpa.post_parent = wpp.ID WHERE wpa.post_type = 'attachment' AND wpa.post_parent > 0 AND wpp.ID IS NULL";
+        $sql = "DELETE wpa FROM `$wpdb->posts` wpa LEFT JOIN `$wpdb->posts` wpp ON wpa.post_parent = wpp.ID WHERE wpa.post_type = 'attachment' AND wpa.post_parent > 0 AND wpp.ID IS NULL";
         $mes = $wpdb->query( $sql );
         $this->checkAttachment($mes);
     }
@@ -328,7 +328,7 @@ class WPCLEANFIX_POSTS {
         $string_replace = ($_POST['wpcleanfix_replace_post_content']);
 
         if($string_find != "") {
-            $sql = "UPDATE $wpdb->posts SET post_content = REPLACE (post_content, '{$string_find}', '{$string_replace}')";
+            $sql = "UPDATE `$wpdb->posts` SET post_content = REPLACE (post_content, '{$string_find}', '{$string_replace}')";
             $mes = $wpdb->query( $sql );
         }
         $this->findAndReplaceUI($string_find, $string_replace, $mes);

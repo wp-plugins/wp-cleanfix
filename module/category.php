@@ -29,7 +29,7 @@ class WPCLEANFIX_CATEGORY {
     function checkCategory($mes = null, $echo = true) {
         global $wpdb;
 
-        $sql = "SELECT x.count AS howmany, t.name AS name FROM $wpdb->terms AS t, $wpdb->term_taxonomy AS x WHERE t.term_id = x.term_id AND t.term_id <> 1 AND x.taxonomy='category' AND x.count = 0 ORDER BY x.count";
+        $sql = "SELECT x.count AS howmany, t.name AS name FROM `$wpdb->terms` AS t, `$wpdb->term_taxonomy AS x WHERE t.term_id = x.term_id AND t.term_id <> 1 AND x.taxonomy='category' AND x.count = 0 ORDER BY x.count";
         $categories = $wpdb->get_results( $sql );
         if($echo) {
             if( count($categories) > 0 ) {
@@ -53,13 +53,13 @@ class WPCLEANFIX_CATEGORY {
     function removeCategory() {
         global $wpdb;
 
-        $sql = "DELETE t, x FROM $wpdb->terms AS t, $wpdb->term_taxonomy AS x WHERE t.term_id = x.term_id AND t.term_id <> 1 AND x.taxonomy='category' AND x.count = 0";
+        $sql = "DELETE t, x FROM `$wpdb->terms` AS t, `$wpdb->term_taxonomy AS x WHERE t.term_id = x.term_id AND t.term_id <> 1 AND x.taxonomy='category' AND x.count = 0";
         $mes = $wpdb->query( $sql );
 
-        $sql = "SELECT * FROM `$wpdb->term_relationships` WHERE `term_taxonomy_id` IN(SELECT term_taxonomy_id FROM $wpdb->terms AS t, $wpdb->term_taxonomy AS x WHERE t.term_id = x.term_id AND x.count = 0 AND taxonomy = 'category' ORDER BY x.count)";
+        $sql = "SELECT * FROM `$wpdb->term_relationships` WHERE `term_taxonomy_id` IN(SELECT term_taxonomy_id FROM `$wpdb->terms` AS t, `$wpdb->term_taxonomy` AS x WHERE t.term_id = x.term_id AND x.count = 0 AND taxonomy = 'category' ORDER BY x.count)";
         $res = $wpdb->get_results( $sql );
         if(count($res) > 0) {
-            $sql = "DELETE FROM `$wpdb->term_relationships` WHERE `term_taxonomy_id` IN(SELECT term_taxonomy_id FROM $wpdb->terms AS t, $wpdb->term_taxonomy AS x WHERE t.term_id = x.term_id AND x.count = 0 AND taxonomy = 'category' ORDER BY x.count)";
+            $sql = "DELETE FROM `$wpdb->term_relationships` WHERE `term_taxonomy_id` IN(SELECT term_taxonomy_id FROM `$wpdb->terms AS t, `$wpdb->term_taxonomy` AS x WHERE t.term_id = x.term_id AND x.count = 0 AND taxonomy = 'category' ORDER BY x.count)";
             $res = $wpdb->query( $sql );
             $mes .= ' ' . __('erased external links too');
         }
@@ -148,6 +148,5 @@ class WPCLEANFIX_CATEGORY {
 }
 
 $WPCLEANFIX_CATEGORY = new WPCLEANFIX_CATEGORY();
-
 
 ?>

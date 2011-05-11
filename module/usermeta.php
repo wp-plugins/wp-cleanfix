@@ -21,7 +21,7 @@ class WPCLEANFIX_USERMETA {
     function checkUserMeta($mes = null, $echo = true) {
         global $wpdb;
 
-        $sql = "SELECT * FROM $wpdb->usermeta wpum LEFT JOIN $wpdb->users wpu ON wpu.ID = wpum.user_id WHERE wpu.ID IS NULL";
+        $sql = "SELECT * FROM `$wpdb->usermeta` wpum LEFT JOIN `$wpdb->users` wpu ON wpu.ID = wpum.user_id WHERE wpu.ID IS NULL";
         $usersmeta = $wpdb->get_results( $sql );
         if($echo) {
             if( count($usersmeta) > 0 ) {
@@ -45,7 +45,7 @@ class WPCLEANFIX_USERMETA {
     function removeUserMeta() {
         global $wpdb;
 
-        $sql = "DELETE wpum FROM $wpdb->usermeta wpum LEFT JOIN $wpdb->users wpu ON wpu.ID = wpum.user_id WHERE wpu.ID IS NULL";
+        $sql = "DELETE wpum FROM `$wpdb->usermeta` wpum LEFT JOIN `$wpdb->users` wpu ON wpu.ID = wpum.user_id WHERE wpu.ID IS NULL";
         $mes = $wpdb->query( $sql );
         $this->checkUserMeta( $mes );
     }
