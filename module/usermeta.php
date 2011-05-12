@@ -38,7 +38,7 @@ class WPCLEANFIX_USERMETA {
                 }
             }
         } else {
-            return $usermeta;
+            return $usersmeta;
         }
     }
     // Remove
