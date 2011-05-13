@@ -4,7 +4,7 @@ Donate link: http://www.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 3.1.2
-Stable tag: 1.7.2
+Stable tag: 1.7.4
 
 WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -34,7 +34,8 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 
 **LAST IMPROVE**
 
-* Added Bubble repair count on item menu
+* Added Turkish localization (Baris Unver <baris.unver@beyn.org>)
+* Added German localization (rauchmelder <team@fakten-fiktionen.de>)
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
