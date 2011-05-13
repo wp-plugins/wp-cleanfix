@@ -30,7 +30,7 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 * Find & Replace on Posts Content
 * Find & Replace on Comments Content
 * Wordpress MU compatibility
-* English/French/Italian Localization
+* English, French, German, Turkish and Italian Localization
 
 **LAST IMPROVE**
 
@@ -57,6 +57,10 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 4. One column version, with only 3 panels
 
 == Changelog ==
+
+= 1.7.4 =
+* Added Turkish localization (Baris Unver <baris.unver@beyn.org>)
+* Added German localization (rauchmelder <team@fakten-fiktionen.de>)
 
 = 1.7.2 =
 * Fixed several "notice" in Wordpress debug mode
@@ -260,7 +264,8 @@ Please download and support :)
 **Localization**
 
 * [Valentin B](http://geekeries.fr/ "Valentin B") (French translation)
-
+* [rauchmelder](mailto:team@fakten-fiktionen.de "rauchmelder") (German translation)
+* [Baris Unver](mailto:baris.unver@beyn.org "Baris Unver") (Turkish translation)
 
 == Frequently Asked Questions ==
 
