@@ -86,7 +86,7 @@ class WPCLEANFIX_DATABASE {
                     echo '<select>' . $buffer . '</select> ';
                     _e(' if optimized them you gain:', 'wp-cleanfix');
                     echo ' <span style="color:green;font-weight:bold">' . $total_gain . ' Kb</span>';
-                    echo ' <button id="buttonDatabaseOptimize">' . __('Optimizes!', 'wp-cleanfix'). '</button>';
+                    echo ' <button id="buttonDatabaseOptimize">' . __('Optimize!', 'wp-cleanfix'). '</button>';
                 } else {
                     return $total_gain;
                 }

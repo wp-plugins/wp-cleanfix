@@ -43,7 +43,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 			'wp_cleanfix_version' 		=> $this->version,
 			'toRepair'					=> 0
 			);
-        add_option( $this->options_key, $this->options );
+        add_option ($this->options_key, $this->options);
 
 		/**
 		 * Load localizations if available
