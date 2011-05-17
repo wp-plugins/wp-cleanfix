@@ -21,6 +21,7 @@ if (@isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
     require_once ('module/posts.php');
     require_once ('module/category.php');
     require_once ('module/comments.php');
+    require_once ('module/badge.php');
 
     // @since 0.3.6 fix
     load_plugin_textdomain ( 'wp-cleanfix' , false, 'wp-cleanfix/localization'  );

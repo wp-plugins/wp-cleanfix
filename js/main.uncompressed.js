@@ -4,7 +4,7 @@
  * @package         wp-cleanfix
  * @subpackage      main.js
  * @author          =undo= <g.fazioli@saidmade.com>
- * @copyright       Copyright (C) 2010 Saidmade Srl
+ * @copyright       Copyright (C) 2011 Saidmade Srl
  *
  */
 jQuery(document).ready(function() {
@@ -89,6 +89,16 @@ jQuery(document).ready(function() {
                 jQuery('div#database-optimize').html( data );
             }
         );
+		var badge = {command: 'WPCLEANFIX_BADGE::countRepair();' };
+		jQuery.post( wpCleanFixMainL10n.ajaxURL, badge,
+			function( data ) {
+				if(data > 0 || data != '0') {
+					jQuery('span#wpcleanfix_badge').html('<span class="update-plugins count-%d"><span class="update-count">'+data+'</span></span>');
+				} else {
+					jQuery('span#wpcleanfix_badge').html('');
+				}
+			}
+		);
     }
 
     /**
@@ -102,26 +112,22 @@ jQuery(document).ready(function() {
         });
     }
 
-    // ------------------------------------------------------------------------------------------------------------------------------------------------------------
-    //
-    // Database
-    wp_cleanfix_ajax_command('buttonDatabaseOptimize', '$WPCLEANFIX_DATABASE->optimize();', 'database-optimize', true );
-    wp_cleanfix_ajax_command('buttonDatabaseOptimizeTableRefresh', '$WPCLEANFIX_DATABASE->checkTables();', 'database-optimize' );
-
-
-    // -------------------------------------------------------------------------
-    // UserMeta
+    // -----------------------------------------------------------------------------------------------------------------
+	// Database
+	// -----------------------------------------------------------------------------------------------------------------
+	wp_cleanfix_ajax_command('buttonDatabaseOptimize', '$WPCLEANFIX_DATABASE->optimize();', 'database-optimize', true );
+	wp_cleanfix_ajax_command('buttonDatabaseOptimizeTableRefresh', '$WPCLEANFIX_DATABASE->checkTables();', 'database-optimize' );
     // -------------------------------------------------------------------------
 
-    // User Meta
+	// -----------------------------------------------------------------------------------------------------------------
+	// UserMeta
+	// -----------------------------------------------------------------------------------------------------------------
     wp_cleanfix_ajax_command('buttonUserMetaRemoveUnlink', '$WPCLEANFIX_USERMETA->removeUserMeta();', 'usersmeta-unused', true );
     wp_cleanfix_ajax_command('buttonUserMetaUnusedRefresh', '$WPCLEANFIX_USERMETA->checkUserMeta();', 'usersmeta-unused' );
 
-
-    // -------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------------------------------------------
     // Posts
-    // -------------------------------------------------------------------------
-
+	// -----------------------------------------------------------------------------------------------------------------
     wp_cleanfix_refresh_all('buttonPostsRefreshAll',
         ['buttonPostRevisionRefresh',
           'buttonPostTrashRefresh',
@@ -132,22 +138,31 @@ jQuery(document).ready(function() {
           'buttonAttachmentsRefresh'
         ] );
 
+	// -----------------------------------------------------------------------------------------------------------------
     // Post Revision
+	// -----------------------------------------------------------------------------------------------------------------
     wp_cleanfix_ajax_command('buttonPostsRemoveRevision', '$WPCLEANFIX_POSTS->removeRevision();', 'posts-revision', true );
     wp_cleanfix_ajax_command('buttonPostRevisionRefresh', '$WPCLEANFIX_POSTS->checkRevisions();', 'posts-revision' );
 
+	// -----------------------------------------------------------------------------------------------------------------
     // Post Trash
+	// -----------------------------------------------------------------------------------------------------------------
     wp_cleanfix_ajax_command('buttonPostsRemoveTrash', '$WPCLEANFIX_POSTS->removeTrash();', 'posts-trash', true );
     wp_cleanfix_ajax_command('buttonPostTrashRefresh', '$WPCLEANFIX_POSTS->checkTrash();', 'posts-trash' );
 
+	// -----------------------------------------------------------------------------------------------------------------
     // Post Meta
+	// -----------------------------------------------------------------------------------------------------------------
     wp_cleanfix_ajax_command('buttonPostsRemoveMeta', '$WPCLEANFIX_POSTS->removePostMeta();', 'posts-meta', true );
     wp_cleanfix_ajax_command('buttonPostMetaRefresh', '$WPCLEANFIX_POSTS->checkPostMeta();', 'posts-meta' );
 
+	// -----------------------------------------------------------------------------------------------------------------
     // Post Tags
+	// -----------------------------------------------------------------------------------------------------------------
     wp_cleanfix_ajax_command('buttonPostsRemoveTag', '$WPCLEANFIX_POSTS->removeTags();', 'posts-tags', true );
     wp_cleanfix_ajax_command('buttonPostTagsRefresh', '$WPCLEANFIX_POSTS->checkTags();', 'posts-tags' );
 
+	// -----------------------------------------------------------------------------------------------------------------
     // Posts Users
     // @todo: da fare
     wp_cleanfix_ajax_command('buttonpostUsersRemoveUnlink', '$WPCLEANFIX_POSTS->removePostsUsers();', 'posts-users', true );
@@ -162,6 +177,7 @@ jQuery(document).ready(function() {
 
     wp_cleanfix_ajax_command('buttonPostsUsersRefresh', '$WPCLEANFIX_POSTS->checkPostsUsers();', 'posts-users' );
 
+	// -----------------------------------------------------------------------------------------------------------------
     // Pages Users
     // @todo: da fare
     wp_cleanfix_ajax_command('buttonpageUsersRemoveUnlink', '$WPCLEANFIX_POSTS->removePostsUsers(page);', 'pages-users', true );
@@ -176,11 +192,13 @@ jQuery(document).ready(function() {
 
     wp_cleanfix_ajax_command('buttonPagesUsersRefresh', "$WPCLEANFIX_POSTS->checkPostsUsers(null, true, page);", 'pages-users' );
 
+	// -----------------------------------------------------------------------------------------------------------------
     // Attachment unlink to Post
     // @todo: da fare
     wp_cleanfix_ajax_command('buttonAttachementsRemoveUnlink', '$WPCLEANFIX_POSTS->removeAttachment();', 'attachment-post', true );
     wp_cleanfix_ajax_command('buttonAttachmentsRefresh', '$WPCLEANFIX_POSTS->checkAttachment();', 'attachment-post' );
 
+	// -----------------------------------------------------------------------------------------------------------------
     // Find & Replace Post Content
     wp_cleanfix_ajax_command('buttonFindReplacePost', '$WPCLEANFIX_POSTS->findAndReplace();', 'find-replace-post-content', true,
         function() {
@@ -191,16 +209,16 @@ jQuery(document).ready(function() {
         }
     );
 
-    // -------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------------------------------------------
     // Categories
-    // -------------------------------------------------------------------------
-
+	// -----------------------------------------------------------------------------------------------------------------
     wp_cleanfix_refresh_all('buttonCategoryRefreshAll',
         ['buttonCategoryUnusedRefresh',
           'buttonTermsUnlinkRefresh',
           'buttonTermTaxonomyUnlinkRefresh'
         ] );
 
+	// -----------------------------------------------------------------------------------------------------------------
     // Category unused
     wp_cleanfix_ajax_command('buttonCategoryRemoveUnsed', '$WPCLEANFIX_CATEGORY->removeCategory();', 'category-unused', true );
     wp_cleanfix_ajax_command('buttonCategoryUnusedRefresh', '$WPCLEANFIX_CATEGORY->checkCategory();', 'category-unused' );
@@ -214,9 +232,9 @@ jQuery(document).ready(function() {
     wp_cleanfix_ajax_command('buttonTermTaxonomyUnlinkRefresh', '$WPCLEANFIX_CATEGORY->checkTaxonomyInTerm();', 'termtaxonomy-unlink' );
 
 
-    // -------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------------------------------------------
     // Comments
-    // -------------------------------------------------------------------------
+	// -----------------------------------------------------------------------------------------------------------------
 
     wp_cleanfix_refresh_all('buttonCommentsRefreshAll',
         ['buttonCommentUnapprovedCommentRefresh',

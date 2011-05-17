@@ -356,7 +356,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		$tot = $this->countRepair();
 		$itemTitle = $this->plugin_name;
 		if( $this->options['toRepair'] != 0 ) {
-			$itemTitle = sprintf( '%s <span class="update-plugins count-%d"><span class="update-count">%d</span></span>', $this->plugin_name, $this->options['toRepair'], $this->options['toRepair'] );
+			$itemTitle = sprintf( '%s <span id="wpcleanfix_badge"><span class="update-plugins count-%d"><span class="update-count">%d</span></span></span>', $this->plugin_name, $this->options['toRepair'], $this->options['toRepair'] );
 		}
         $this->plugin_page = add_submenu_page("index.php", $this->plugin_name, $itemTitle, 10, $this->plugin_slug, array(&$this, "menu"));
         add_action( 'load-'. $this->plugin_page, array($this, 'on_load_page') );
