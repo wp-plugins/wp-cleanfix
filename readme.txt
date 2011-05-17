@@ -34,8 +34,7 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 
 **LAST IMPROVE**
 
-* Added Turkish localization (Baris Unver <baris.unver@beyn.org>)
-* Added German localization (rauchmelder <team@fakten-fiktionen.de>)
+* Added real-time refresh badge
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
