@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP CleanFix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-11 14:57+0100\n"
-"PO-Revision-Date: 2010-05-11 15:00+0100\n"
+"POT-Creation-Date: 2011-06-22 23:10+0100\n"
+"PO-Revision-Date: 2011-06-22 23:14+0100\n"
 "Last-Translator: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "Language-Team: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "MIME-Version: 1.0\n"
@@ -21,146 +21,163 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../wp-cleanfix_admin.php:112
+#: ../wp-cleanfix_admin.php:118
+msgid "Cheatin&#8217; uh?"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:170
 msgid "Warning!! Are you sure to confirm this operation?"
 msgstr "Attenzione! Sei sicuro di voler eseguire questa operazione?"
 
-#: ../wp-cleanfix_admin.php:113
+#: ../wp-cleanfix_admin.php:171
 msgid "Sorry! Be patient. Not yet implemented in this beta release"
 msgstr "Spiacente! Si paziente. Non implementata in questa beta release"
 
-#: ../wp-cleanfix_admin.php:137
+#: ../wp-cleanfix_admin.php:219
 msgid "WP CleanFix - Summary Report"
 msgstr "WP CleanFix - Relazione di sintesi"
 
-#: ../wp-cleanfix_admin.php:158
+#: ../wp-cleanfix_admin.php:271
 #, php-format
 msgid "%s Kb tables gain"
 msgstr "%s Kb in eccesso"
 
-#: ../wp-cleanfix_admin.php:164
-#: ../wp-cleanfix_admin.php:377
+#: ../wp-cleanfix_admin.php:277
+#: ../wp-cleanfix_admin.php:447
 msgid "Database"
 msgstr "Database"
 
-#: ../wp-cleanfix_admin.php:175
+#: ../wp-cleanfix_admin.php:288
 #, php-format
 msgid "%s unused User Meta"
 msgstr "%s User Meta non utilizzati"
 
-#: ../wp-cleanfix_admin.php:181
+#: ../wp-cleanfix_admin.php:294
 msgid "User Meta"
 msgstr "User Meta"
 
-#: ../wp-cleanfix_admin.php:192
+#: ../wp-cleanfix_admin.php:305
 #, php-format
 msgid "%s Post Revisions"
 msgstr "%s Revisioni Articoli"
 
-#: ../wp-cleanfix_admin.php:198
+#: ../wp-cleanfix_admin.php:311
 #, php-format
 msgid "%s Post in Trash"
 msgstr "%s Articoli nel Cestino"
 
-#: ../wp-cleanfix_admin.php:204
+#: ../wp-cleanfix_admin.php:317
 #, php-format
 msgid "%s unused Post Meta"
 msgstr "%s Articoli Meta non utilizzati"
 
-#: ../wp-cleanfix_admin.php:210
+#: ../wp-cleanfix_admin.php:323
 #, php-format
 msgid "%s unused Tags"
 msgstr "%s Tags non utilizzati"
 
-#: ../wp-cleanfix_admin.php:216
+#: ../wp-cleanfix_admin.php:329
 #, php-format
 msgid "%s Posts without author"
 msgstr "%s Articoli senza Autore"
 
-#: ../wp-cleanfix_admin.php:222
+#: ../wp-cleanfix_admin.php:335
 #, php-format
 msgid "%s Pages without author"
 msgstr "%s Pagine senza Autore"
 
-#: ../wp-cleanfix_admin.php:228
+#: ../wp-cleanfix_admin.php:341
 #, php-format
 msgid "%s Attachment unlink"
 msgstr "%s Allegati non collegati"
 
-#: ../wp-cleanfix_admin.php:234
-#: ../wp-cleanfix_admin.php:397
+#: ../wp-cleanfix_admin.php:347
+#: ../wp-cleanfix_admin.php:449
 msgid "Posts"
 msgstr "Articoli"
 
-#: ../wp-cleanfix_admin.php:245
+#: ../wp-cleanfix_admin.php:358
 #, php-format
 msgid "%s unused Categories"
 msgstr "%s Categorie non utilizzate"
 
-#: ../wp-cleanfix_admin.php:251
+#: ../wp-cleanfix_admin.php:364
 #, php-format
 msgid "%s terms unlink in taxonomy"
 msgstr "%s Termini non collegati a nessuna Taxonomia"
 
-#: ../wp-cleanfix_admin.php:257
+#: ../wp-cleanfix_admin.php:370
 #, php-format
 msgid "%s taxonomy unlink in term"
 msgstr "%s Taxonomie non collegate a nessun Termine"
 
-#: ../wp-cleanfix_admin.php:263
-#: ../wp-cleanfix_admin.php:407
+#: ../wp-cleanfix_admin.php:376
+#: ../wp-cleanfix_admin.php:450
 msgid "Categories"
 msgstr "Categorie"
 
-#: ../wp-cleanfix_admin.php:273
+#: ../wp-cleanfix_admin.php:386
 msgid "Go to Repair"
 msgstr "Ripara"
 
-#: ../wp-cleanfix_admin.php:275
+#: ../wp-cleanfix_admin.php:388
 msgid "Nothing to Report"
 msgstr "Nulla da segnalare"
 
-#: ../wp-cleanfix_admin.php:310
-msgid "Your settings have been saved."
-msgstr "Le tue impostazioni sono state salvate"
+#: ../wp-cleanfix_admin.php:395
+#: ../wp-cleanfix_admin.php:583
+msgid "Look the new \"CleanFix Tools\" panel for to extend Wordpress features: utility, comodity and tools "
+msgstr "Visita il nuovo pannello \"CleanFix Tools\" per estendere le funzionalità di Wordpress"
 
-#: ../wp-cleanfix_admin.php:330
-#: ../wp-cleanfix_admin.php:340
-#: ../wp-cleanfix_admin.php:366
-#: ../wp-cleanfix_admin.php:376
-#: ../wp-cleanfix_admin.php:386
-#: ../wp-cleanfix_admin.php:396
-#: ../wp-cleanfix_admin.php:406
-#: ../wp-cleanfix_admin.php:416
-msgid "Open/Collapse"
-msgstr "Apri/Collassa"
+#: ../wp-cleanfix_admin.php:418
+msgid "CleanFix Tools"
+msgstr ""
 
-#: ../wp-cleanfix_admin.php:367
+#: ../wp-cleanfix_admin.php:426
+msgid "Comodity"
+msgstr "Comodità"
+
+#: ../wp-cleanfix_admin.php:427
+msgid "Extends Editor"
+msgstr "Estensioni Editor"
+
+#: ../wp-cleanfix_admin.php:428
+msgid "Extends Posts"
+msgstr "Estensioni Post"
+
+#: ../wp-cleanfix_admin.php:446
 msgid "Important informations"
 msgstr "Informazioni importanti"
 
-#: ../wp-cleanfix_admin.php:387
+#: ../wp-cleanfix_admin.php:448
 msgid "Users"
 msgstr "Utenti"
 
-#: ../wp-cleanfix_admin.php:417
+#: ../wp-cleanfix_admin.php:451
 msgid "Comments"
 msgstr "Commenti"
 
-#: ../wp-cleanfix_admin.php:441
+#: ../wp-cleanfix_admin.php:495
+#: ../wp-cleanfix_admin.php:565
+msgid "Your settings have been saved."
+msgstr "Le tue impostazioni sono state salvate"
+
+#: ../wp-cleanfix_admin.php:509
+#: ../wp-cleanfix_admin.php:579
+#: ../wp-cleanfix_admin.php:659
+msgid "For more info and plugins visit"
+msgstr "Per maggiori informazioni e Plugin visita"
+
+#: ../wp-cleanfix_admin.php:630
 #: ../module/database_view.php:16
 msgid "Refresh"
 msgstr "Aggiorna"
 
-#: ../wp-cleanfix_admin.php:452
+#: ../wp-cleanfix_admin.php:641
 msgid "Refresh All"
 msgstr "Aggiorna tutto"
 
-#: ../wp-cleanfix_admin.php:470
-msgid "For more info and plugins visit"
-msgstr "Per maggiori informazioni e Plugin visita"
-
-#: ../wp-cleanfix_admin.php:482
+#: ../wp-cleanfix_admin.php:671
 msgid "Settings"
 msgstr "Impostazioni"
 
@@ -173,9 +190,8 @@ msgstr "Impostazioni"
 #: ../module/posts.php:43
 #: ../module/posts.php:86
 #: ../module/posts.php:128
-#: ../module/posts.php:209
-#: ../module/posts.php:275
-#: ../module/usermeta.php:32
+#: ../module/posts.php:210
+#: ../module/posts.php:276
 msgid "Erase!"
 msgstr "Elimina!"
 
@@ -185,14 +201,13 @@ msgstr "Elimina!"
 #: ../module/comments.php:43
 #: ../module/comments.php:83
 #: ../module/comments.php:123
-#: ../module/database.php:91
+#: ../module/database.php:95
 #: ../module/posts.php:46
 #: ../module/posts.php:89
 #: ../module/posts.php:131
-#: ../module/posts.php:174
-#: ../module/posts.php:232
-#: ../module/posts.php:278
-#: ../module/usermeta.php:35
+#: ../module/posts.php:175
+#: ../module/posts.php:233
+#: ../module/posts.php:279
 msgid "None"
 msgstr "Nessuno"
 
@@ -265,23 +280,23 @@ msgid "%s Comments erased"
 msgstr "%s Commenti eliminati"
 
 #: ../module/comments.php:153
-#: ../module/posts.php:308
+#: ../module/posts.php:309
 #, php-format
 msgid "%s - found and replaced - "
 msgstr "%s - trovati e sostituiti -"
 
 #: ../module/comments.php:155
-#: ../module/posts.php:310
+#: ../module/posts.php:311
 msgid "Find:"
 msgstr "Trova:"
 
 #: ../module/comments.php:155
-#: ../module/posts.php:313
+#: ../module/posts.php:314
 msgid "and replace with:"
 msgstr "e sostituisci con:"
 
 #: ../module/comments.php:155
-#: ../module/posts.php:314
+#: ../module/posts.php:315
 msgid "Find/Replace"
 msgstr "Trova/Sostituisci"
 
@@ -310,58 +325,59 @@ msgstr "Contenuto Commenti"
 msgid "Internal Error #1: no such DB_NAME setting properly"
 msgstr "Errore Interno #1: manca la definizione di DB_NAME"
 
-#: ../module/database.php:80
+#: ../module/database.php:84
 #, php-format
 msgid "%s of %s:"
 msgstr "%s di %s:"
 
-#: ../module/database.php:83
+#: ../module/database.php:87
 msgid " if optimized them you gain:"
 msgstr "se le ottimizzi guadagneresti:"
 
-#: ../module/database.php:85
-msgid "Optimizes!"
-msgstr "Ottimizzate!"
+#: ../module/database.php:89
+msgid "Optimize!"
+msgstr "Ottimizza!"
 
 #: ../module/database_view.php:27
 msgid "Tables optimize"
 msgstr "Tabelle da ottimizzare"
 
 #: ../module/info.php:13
-msgid "WARNING! SOME ACTION IS POTENTIALLY DANGEROUS FOR YOUR DATABASE INTEGRETY. PLEASE MAKE A DATABASE'S BACKUP BEFORE EXECUTE ANY DELETING OR ANY ACTION. ALL DELETING OPERATIONS ARE IRREVERSIBLE!"
+#, fuzzy
+msgid "WARNING! SOME ACTIONS CAN POTENTIALLY COMPROMISE THE INTEGRITY OF YOUR DATABASE. PLEASE BACKUP YOUR DATABASE BEFORE EXECUTING ANY ACTIONS. ALL DELETIONS ARE IRREVERSIBLE!"
 msgstr "ATTENZIONE!! QUALCHE AZIONE POTREBBE ESSERE POTENZIALMENTE PERICOLOSA PER L'INTEGRITA' DEL DATABASE. ASSICURATI DI ESEGUIRE UNA COPIA DI BACKUP DEL DATABASE PRIMA DI EFFETTUARE QUALSIASI AZIONE. TUTTE LE FUNZIONI DI RIMOZIONE SONO IRREVERSIBILI!"
 
 #: ../module/posts.php:48
 #: ../module/posts.php:91
 #: ../module/posts.php:133
-#: ../module/posts.php:176
+#: ../module/posts.php:177
 #, php-format
 msgid "%s Rows erased"
 msgstr "%s righe eliminate"
 
-#: ../module/posts.php:171
+#: ../module/posts.php:172
 msgid "Erased!"
 msgstr "Eliminate!"
 
-#: ../module/posts.php:220
+#: ../module/posts.php:221
 msgid "Or link to: "
 msgstr "O collegali a:"
 
-#: ../module/posts.php:229
+#: ../module/posts.php:230
 msgid "Link"
 msgstr "Collega"
 
-#: ../module/posts.php:248
+#: ../module/posts.php:249
 #, php-format
 msgid "%s Posts relinked"
 msgstr "%s Articoli ricollegati"
 
-#: ../module/posts.php:256
+#: ../module/posts.php:257
 #, php-format
 msgid "%s Posts erased"
 msgstr "%s Articoli eliminati"
 
-#: ../module/posts.php:280
+#: ../module/posts.php:281
 #, php-format
 msgid "%s Attachments erased"
 msgstr "%s Allegati eliminati"
@@ -398,6 +414,69 @@ msgstr "Allegati senza Autore"
 msgid "Post Content"
 msgstr "Contenuto articolo"
 
+#: ../module/tools_comodity_view.php:23
+msgid "Remove Frontend Admin Bar"
+msgstr "Rimuove la barra di amministrazione dal Frontend"
+
+#: ../module/tools_comodity_view.php:26
+msgid "Add to header:"
+msgstr "Aggiungi all'header:"
+
+#: ../module/tools_comodity_view.php:27
+#: ../module/tools_comodity_view.php:35
+msgid "Clear"
+msgstr "Pulisci"
+
+#: ../module/tools_comodity_view.php:34
+msgid "Add to footer:"
+msgstr "Aggiungi al footer:"
+
+#: ../module/tools_comodity_view.php:43
+#: ../module/tools_editor_view.php:74
+#: ../module/tools_posts_view.php:31
+msgid "Save"
+msgstr "Salva"
+
+#: ../module/tools_editor_view.php:23
+msgid "Fix HTML editor"
+msgstr "Fissa l'editor HTML"
+
+#: ../module/tools_editor_view.php:25
+msgid "Font name:"
+msgstr "Nome del font:"
+
+#: ../module/tools_editor_view.php:28
+msgid "(Ex. Monaco, Curier)"
+msgstr "(Es. Monaco, Courier)"
+
+#: ../module/tools_editor_view.php:31
+msgid "Editor's height:"
+msgstr "Altezza Editor:"
+
+#: ../module/tools_editor_view.php:38
+msgid "Text size:"
+msgstr "Dimensione testo;"
+
+#: ../module/tools_editor_view.php:45
+msgid "Background color:"
+msgstr "Colore di sfondo:"
+
+#: ../module/tools_editor_view.php:56
+msgid "Text color:"
+msgstr "Colore del testo:"
+
+#: ../module/tools_editor_view.php:67
+msgid "Extra HTML tags allowed:"
+msgstr "Altri tag permessi:"
+
+#: ../module/tools_posts_view.php:23
+msgid "Limit Excerpt Length"
+msgstr "Lunghezza del riassunto"
+
+#: ../module/tools_posts_view.php:27
+msgid "Characters"
+msgstr "Caratteri"
+
 #: ../module/usermeta.php:37
 #, php-format
 msgid "%s User Meta erased"
@@ -416,3 +495,5 @@ msgstr "Nessuno User Meta non utilizzati"
 msgid "%s - User Meta erased"
 msgstr "%s User Meta eliminati"
 
+#~ msgid "Open/Collapse"
+#~ msgstr "Apri/Collassa"

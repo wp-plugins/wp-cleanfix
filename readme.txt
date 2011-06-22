@@ -4,7 +4,7 @@ Donate link: http://www.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 3.1.2
-Stable tag: 1.7.6
+Stable tag: 2.0
 
 WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -13,6 +13,12 @@ WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordp
 WP CleanFix is a management tool for for check, repair, fix and optimize your Wordpress blog. The Ajax interface allow to manage all status in one only page!
 
 **FEATURES**
+
+*NEW*
+
+* CleanFix Tools
+* Extends HTML Editor: fontname, size, color, extra tags
+* Remove Frontend admin bar
 
 * Database Tables optimization
 * Check/Remove for unused UserMeta
@@ -34,7 +40,7 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 
 **LAST IMPROVE**
 
-* Added real-time refresh badge
+* Added WP CleanFix Tools panel
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
@@ -57,6 +63,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 4. One column version, with only 3 panels
 
 == Changelog ==
+
+= 2.0 =
+* Added WP CleanFix Tools
 
 = 1.7.6 =
 * Added real-time refresh badge
@@ -226,6 +235,9 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 
 
 == Upgrade Notice ==
+
+= 2.0 =
+Added WP CleanFix Tools. Upgrade immediately
 
 = 1.6.1 =
 Fixed init bubble. Upgrade immediately

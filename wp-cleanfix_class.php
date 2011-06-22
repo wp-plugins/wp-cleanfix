@@ -17,7 +17,7 @@ class WPCLEANFIX_CLASS {
      * @since 0.1.0
      * @var string
      */
-    var $version 						= "1.7.6";
+    var $version 						= "2.0.0";
 
     /**
      * WP-CLEANFIX release.minor.revision
@@ -61,6 +61,14 @@ class WPCLEANFIX_CLASS {
 	 * @var handle
 	 */
 	var $plugin_page;
+
+	/**
+	 * Handle Tools page
+	 *
+	 * @since 2.0
+	 * @var handle
+	 */
+	var $tools_page;
 
     /**
      * Key for database options

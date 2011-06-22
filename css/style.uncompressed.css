@@ -4,7 +4,7 @@
  * @package         wp-cleanfix
  * @subpackage      style.css
  * @author          =undo= <g.fazioli@saidmade.com>
- * @copyright       Copyright (C) 2010 Saidmade Srl
+ * @copyright       Copyright (C) 2011 Saidmade Srl
 
  */
 
@@ -52,10 +52,8 @@ table.wp-cleanfix tbody td:last-child {
 }
 
 .wp-cleanfix button {
-    background-image: url(images/clean.png);
-    background-repeat: no-repeat;
-    background-position: 6px center;
-    border:1px solid #aaa;
+	background:url(images/clean.png) no-repeat 6px center;
+	border:1px solid #aaa;
     cursor:pointer;
     padding:4px 12px 4px 24px;
     text-shadow:1px 1px 1px #fff;
@@ -77,11 +75,9 @@ button.wp-cleanfix-refresh span {
 }
 
 button.wp-cleanfix-refresh {
-    background-image: url(images/refresh.png);
-    padding: 12px;
-    background-position: center center;
-    background-color: transparent;
-    border: none;
+	background:transparent url(images/refresh.png) center center no-repeat;
+	padding: 12px;
+	border: none;
 }
 
 div#ajax-wait {
@@ -110,15 +106,22 @@ div.wp_cleanfix_box {
 
 	border:1px solid #aaa;
 
-	background-image: -moz-linear-gradient(top, #eee, #fff); /* FF3.6 */
-	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eee),color-stop(1, #fff)); /* Saf4+, Chrome */
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#eee', EndColorStr='#fff'); /* IE6,IE7 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#eee', EndColorStr='#fff')"; /* IE8 */
+  background-color: #0096ff;
+  background-image: -webkit-gradient(linear, left left, left right, from(#0096ff), to(#ffffff)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(left, #0096ff, #ffffff); /* Chrome 10+, Saf5.1+ */
+  background-image:    -moz-linear-gradient(left, #0096ff, #ffffff); /* FF3.6 */
+  background-image:     -ms-linear-gradient(left, #0096ff, #ffffff); /* IE10 */
+  background-image:      -o-linear-gradient(left, #0096ff, #ffffff); /* Opera 11.10+ */
+  background-image:         linear-gradient(left, #0096ff, #ffffff);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#0096ff', EndColorStr='#ffffff'); /* IE6–IE9 */
+
+	height:120px;
 }
 div.wp_cleanfix_box a.wp_cleanfix_logo {
 	-moz-border-radius:8px 8px 0 0;
 	-webkit-border-radius:8px 8px 0 0;
 	border-radius:8px 8px 0 0;
+
 	background:url("images/logo.png") 8px center no-repeat;
 	display:block;
 	font-family:"trebuchet MS",sans-serif;
@@ -129,15 +132,51 @@ div.wp_cleanfix_box a.wp_cleanfix_logo {
 	margin:1px;
 	padding-left:76px;
 	text-decoration:none;
+	color:#fff;
+	text-shadow:1px 1px 1px #000;
 }
 div.wp_cleanfix_box p {
-	margin:0 24px;
+	color: #FFFFFF;
+    font-weight: bold;
+    margin: 0 24px;
+    text-shadow: 1px 1px 2px #444444;
 }
 
 div.wp_cleanfix_box p.wp_cleanfix_copy_info {
 	display:block;
-	margin-top:6px;
+	margin-top:82px;
 	position:absolute;
-	right:1px;
+	right:6px;
 	text-align:right;
+	color:#666;
+	font-weight:bold;
+	text-shadow:none;
+}
+
+div.wp_cleanfix_box p.wp_cleanfix_copy_info a {
+	color:#0a0;
+	text-decoration:none;
+	text-shadow:0 0 5px #fff;
+}
+
+textarea.wpCleanFixCode {
+	width:99%;
+	font-family:Monaco, "Courier New", Courier, monospace;
+	font-size:11px;
+	background:#fafafa;
+	margin:8px 0;
+}
+
+span.wpCleanFixColorPreview {
+	border:1px solid #333;
+	padding:2px 12px;
+	margin:0 0 0 4px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+}
+
+a.wpCleanFixClearNextTextarea {
+	margin:0;
+	padding:0 24px;
 }

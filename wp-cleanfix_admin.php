@@ -39,11 +39,28 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		/**
          * Add version control in options.
          */
-        $this->options = array(
-			'wp_cleanfix_version' 		=> $this->version,
-			'toRepair'					=> 0
+        $this->options = $tempOptions = array(
+			'wp_cleanfix_version' 				=> $this->version,
+			'toRepair'							=> 0,
+
+			'wpCleanFixEditor'					=> '0',
+			'wpCleanFixReplaceFontsEditor'		=> '0',
+			'wpCleanFixFontEditorName'			=> 'Monaco',
+			'wpCleanFixEditorHeight'			=> '500',
+			'wpCleanFixTextSize'				=> '14',
+			'wpCleanFixTextColor'				=> '888',
+			'wpCleanFixAllowTags'				=> 'pre[id|name|class|style],iframe[align|longdesc|name|width|height|frameborder|scrolling|marginheight|marginwidth|src]',
+
+			'wpCleanFixRemoveFrontendAdminBar'	=> '0',
+			'wpCleanFixToolsComodityAddHeader'	=> '',
+			'wpCleanFixToolsComodityAddFooter'	=> '',
+
+			'wpCleanFixToolsPostsLimitExcerptLength' => '0',
+			'wpCleanFixToolsPostsExcerptLength'	=> '40'
+
 			);
-        add_option ($this->options_key, $this->options);
+        add_option($this->options_key, $this->options);
+
 
 		/**
 		 * Load localizations if available
@@ -56,6 +73,11 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
          * Load all options in $this->options array
          */
         $this->options = get_option( $this->options_key );
+
+		if( !isset($this->options['wpCleanFixToolsComodityAddFooter']) ) {
+			update_option($this->options_key, $tempOptions);
+			$this->options = get_option( $this->options_key );
+		}
 
         /**
          * Add option menu in Wordpress backend
@@ -84,20 +106,23 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 	function on_screen_layout_columns($columns, $screen) {
 		if ($screen == $this->plugin_page) {
 			$columns[$this->plugin_page] = 2;
+		} else if ($screen == $this->tools_page) {
+			$columns[$this->tools_page] = 2;
 		}
 		return $columns;
 	}
 
 	function on_save_changes() {
-		//user permission check
-		if ( !current_user_can('manage_options') )
-			wp_die( __('Cheatin&#8217; uh?') );
-		//cross check the given referer
+		// user permission check
+		if ( !current_user_can('manage_options') ) {
+			wp_die(__('Cheatin&#8217; uh?'));
+		}
+		// cross check the given referer
 		check_admin_referer('wp-cleanfix-general');
 
-		//process here your on $_POST validation and / or option saving
+		// process here your on $_POST validation and / or option saving
 
-		//lets redirect the post request into get request (you may add additional params at the url, if you need to show save results
+		// lets redirect the post request into get request (you may add additional params at the url, if you need to show save results
 		wp_redirect($_POST['_wp_http_referer']);
 	}
 
@@ -145,6 +170,28 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 													'messageConfirm'    => __( 'Warning!! Are you sure to confirm this operation?', 'wp-cleanfix' ),
                                                     'notImplement'      => __( 'Sorry! Be patient. Not yet implemented in this beta release', 'wp-cleanfix' )
 													) );
+    }
+
+    /**
+	 * Execute when plugin is showing on backend
+	 *
+	 * @since 2.0
+	 * @return void
+	 */
+    function plugin_tools_scripts() {
+        /**
+         * Add wp_enqueue_script for jQuery library
+         */
+		wp_enqueue_script('common');
+        wp_enqueue_script('postbox');
+		wp_enqueue_script('wp-lists');
+
+        /**
+         * Add main Tools Javascript
+         *
+         * @since 2.0
+         */
+		wp_enqueue_script ( 'wp-cleanfix-tools-js' , $this->url . '/js/tools.js' , array ( 'jquery' ) , '1.4' , true );
     }
 
 	/**
@@ -343,7 +390,11 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 
 		$this->options['toRepair'] = $tot;
 		update_option( $this->options_key, $this->options);
-		echo '<p class="wp-cleanfix-copy" style="border-top:1px solid #aaa;padding-top:4px">&copy;copyright <a href="http://www.saidmade.com">saidmade srl</a></p>';
+		?>
+		<p class="wp-cleanfix-copy" style="border-top:1px solid #aaa;padding-top:4px">&copy;copyright <a href="http://www.saidmade.com">saidmade srl</a></p>
+		<p style="border-top:1px solid #aaa;padding-top:4px;line-height:22px;font-size:12px;font-weight:bold"><?php _e('Look the new "CleanFix Tools" panel for to extend Wordpress features: utility, comodity and tools ','wp-cleanfix') ?>
+		<a class="button-primary" href="<?php bloginfo('wpurl') ?>/wp-admin/index.php?page=wp-cleanfixtools">CleanFix Tools</a></p>
+		<?php
     }
 
     /**
@@ -362,7 +413,34 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
         add_action( 'load-'. $this->plugin_page, array($this, 'on_load_page') );
         add_action( 'admin_print_scripts-'. $this->plugin_page, array($this, 'plugin_admin_scripts') );
 		add_action( 'admin_print_styles-'. $this->plugin_page, array($this, 'plugin_admin_styles') );
+
+		//$this->tools_page = add_submenu_page("index.php", $this->plugin_name, '<img style="display:inline;float:left" src="'.$this->url . "/css/images/wp-cleanfix-16x16.png" .'" /> ' . __('CleanFix Tools', 'wp-cleanfix'), 10, $this->plugin_slug . 'tools', array(&$this, "tools"));
+		$this->tools_page = add_submenu_page("index.php", $this->plugin_name,  __('CleanFix Tools', 'wp-cleanfix'), 10, $this->plugin_slug . 'tools', array(&$this, "tools"));
+		add_action( 'load-'. $this->tools_page, array($this, 'on_tools_load_page') );
+		add_action( 'admin_print_scripts-'. $this->tools_page, array($this, 'plugin_tools_scripts') );
+		add_action( 'admin_print_styles-'. $this->tools_page, array($this, 'plugin_admin_styles') );
     }
+
+	function on_tools_load_page() {
+		// =undo= 2.0 beta
+		add_meta_box('wp_cleanfix_tools_comodity', __('Comodity', 'wp-cleanfix'), array( &$this, 'boxToolsComodity'), $this->tools_page, 'side', 'core');
+		add_meta_box('wp_cleanfix_tools_editor', __('Extends Editor', 'wp-cleanfix'), array( &$this, 'boxToolsEditor'), $this->tools_page, 'normal', 'core');
+		add_meta_box('wp_cleanfix_tools_posts', __('Extends Posts', 'wp-cleanfix'), array( &$this, 'boxToolsPosts'), $this->tools_page, 'normal', 'core');
+	}
+
+	function boxToolsComodity() {
+		require_once ('module/tools_comodity_view.php');
+	}
+
+	function boxToolsEditor() {
+		require_once ('module/tools_editor_view.php');
+	}
+
+	function boxToolsPosts() {
+		require_once ('module/tools_posts_view.php');
+	}
+
+	// -----------------------------------------------------------------------------------------------------------------
 
 	function on_load_page() {
 		add_meta_box('wp_cleanfix_information', __('Important informations', 'wp-cleanfix'), array( &$this, 'boxInformation'), $this->plugin_page, 'side', 'core');
@@ -402,6 +480,76 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		require_once ('module/comments_view.php');
 	}
 
+	/**
+	 * Draw Tools Panel
+	 */
+	function tools() {
+		global $screen_layout_columns;
+
+		/**
+		 * Any error flag
+		 */
+		$any_error = "";
+
+		if( isset( $_POST['command_action'] ) ) {
+			$any_error = __('Your settings have been saved.', 'wp-cleanfix');
+		}
+
+		/**
+		 * Show error or OK
+		 */
+		if( $any_error != '') {
+			echo '<div id="message" class="updated fade"><p>' . $any_error . '</p></div>';
+		}
+		?>
+
+<div class="wrap">
+
+	<div class="wp_cleanfix_box">
+		<p class="wp_cleanfix_copy_info"><?php _e('For more info and plugins visit', 'wp-cleanfix') ?> <a href="http://www.saidmade.com">Saidmade</a></p>
+		<a class="wp_cleanfix_logo" href="http://www.saidmade.com/prodotti/wordpress/wp-cleanfix/">
+			<?php echo $this->plugin_name ?> ver. <?php echo $this->version ?>
+		</a>
+	</div>
+
+	<!-- <form action="admin-post.php" method="post" id="wp-cleanfix-form-postbox"> -->
+		<?php wp_nonce_field('wp-cleanfix-tools'); ?>
+		<?php wp_nonce_field('closedpostboxes', 'closedpostboxesnonce', false ); ?>
+		<?php wp_nonce_field('meta-box-order', 'meta-box-order-nonce', false ); ?>
+		<input type="hidden" name="action" value="save_wp_cleanfix_tools" />
+
+
+		<div id="poststuff" class="metabox-holder<?php echo 2 == $screen_layout_columns ? ' has-right-sidebar' : ''; ?>">
+			<div id="side-info-column" class="inner-sidebar">
+				<?php do_meta_boxes($this->tools_page, 'side', ""); ?>
+			</div>
+			<div id="post-body" class="has-sidebar">
+				<div id="post-body-content" class="has-sidebar-content">
+					<?php do_meta_boxes($this->tools_page, 'normal', ""); ?>
+				</div>
+			</div>
+			<br class="clear"/>
+		</div>
+
+	<!-- </form> -->
+	<script type="text/javascript">
+		//<![CDATA[
+		jQuery(document).ready(function() {
+			// close postboxes that should be closed
+			jQuery('.if-js-closed').removeClass('if-js-closed').addClass('closed');
+			// postboxes setup
+			postboxes.add_postbox_toggles('<?php echo $this->tools_page; ?>');
+
+	});
+	//]]>
+	</script>
+</div>
+
+	<?php
+	}
+
+
+
     /**
      * Draw Options Panel
      */
@@ -432,6 +580,8 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		<a class="wp_cleanfix_logo" href="http://www.saidmade.com/prodotti/wordpress/wp-cleanfix/">
 			<?php echo $this->plugin_name ?> ver. <?php echo $this->version ?>
 		</a>
+		<p><?php _e('Look the new "CleanFix Tools" panel for to extend Wordpress features: utility, comodity and tools ','wp-cleanfix') ?>
+		<a class="button-primary" href="<?php bloginfo('wpurl') ?>/wp-admin/index.php?page=wp-cleanfixtools">CleanFix Tools</a></p>
 	</div>
 
 	<!-- <form action="admin-post.php" method="post" id="wp-cleanfix-form-postbox"> -->
