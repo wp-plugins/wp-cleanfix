@@ -14,7 +14,7 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 
 **FEATURES**
 
-*NEW*
+*NEWS*
 
 * CleanFix Tools
 * Extends HTML Editor: fontname, size, color, extra tags
