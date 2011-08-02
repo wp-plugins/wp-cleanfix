@@ -29,12 +29,12 @@ class WPCLEANFIX_TOOLS_COMODITY {
 		global $wp_cleanfix_admin;
 
 		if (isset($_POST['wpCleanFixComodityForm'])) {
-			$wp_cleanfix_admin->options['wpCleanFixRemoveFrontendAdminBar'] = (isset($_POST['wpCleanFixRemoveFrontendAdminBar'])
-					? "1" : "0");
+			$wp_cleanfix_admin->options['wpCleanFixAdminBar'] = $_POST['wpCleanFixAdminBar'];
 			$wp_cleanfix_admin->options['wpCleanFixToolsComodityAddHeader'] = $_POST['wpCleanFixToolsComodityAddHeader'];
 			$wp_cleanfix_admin->options['wpCleanFixToolsComodityAddFooter'] = $_POST['wpCleanFixToolsComodityAddFooter'];
 		}
 		update_option($wp_cleanfix_admin->options_key, $wp_cleanfix_admin->options);
 	}
 }
+
 ?>

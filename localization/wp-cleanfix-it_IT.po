@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP CleanFix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-22 23:10+0100\n"
-"PO-Revision-Date: 2011-06-22 23:14+0100\n"
+"POT-Creation-Date: 2011-08-03 00:14+0100\n"
+"PO-Revision-Date: 2011-08-03 00:14+0100\n"
 "Last-Translator: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "Language-Team: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "MIME-Version: 1.0\n"
@@ -21,163 +21,163 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../wp-cleanfix_admin.php:118
+#: ../wp-cleanfix_admin.php:117
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:170
+#: ../wp-cleanfix_admin.php:169
 msgid "Warning!! Are you sure to confirm this operation?"
 msgstr "Attenzione! Sei sicuro di voler eseguire questa operazione?"
 
-#: ../wp-cleanfix_admin.php:171
+#: ../wp-cleanfix_admin.php:170
 msgid "Sorry! Be patient. Not yet implemented in this beta release"
 msgstr "Spiacente! Si paziente. Non implementata in questa beta release"
 
-#: ../wp-cleanfix_admin.php:219
+#: ../wp-cleanfix_admin.php:218
 msgid "WP CleanFix - Summary Report"
 msgstr "WP CleanFix - Relazione di sintesi"
 
-#: ../wp-cleanfix_admin.php:271
+#: ../wp-cleanfix_admin.php:270
 #, php-format
 msgid "%s Kb tables gain"
 msgstr "%s Kb in eccesso"
 
-#: ../wp-cleanfix_admin.php:277
-#: ../wp-cleanfix_admin.php:447
+#: ../wp-cleanfix_admin.php:276
+#: ../wp-cleanfix_admin.php:446
 msgid "Database"
 msgstr "Database"
 
-#: ../wp-cleanfix_admin.php:288
+#: ../wp-cleanfix_admin.php:287
 #, php-format
 msgid "%s unused User Meta"
 msgstr "%s User Meta non utilizzati"
 
-#: ../wp-cleanfix_admin.php:294
+#: ../wp-cleanfix_admin.php:293
 msgid "User Meta"
 msgstr "User Meta"
 
-#: ../wp-cleanfix_admin.php:305
+#: ../wp-cleanfix_admin.php:304
 #, php-format
 msgid "%s Post Revisions"
 msgstr "%s Revisioni Articoli"
 
-#: ../wp-cleanfix_admin.php:311
+#: ../wp-cleanfix_admin.php:310
 #, php-format
 msgid "%s Post in Trash"
 msgstr "%s Articoli nel Cestino"
 
-#: ../wp-cleanfix_admin.php:317
+#: ../wp-cleanfix_admin.php:316
 #, php-format
 msgid "%s unused Post Meta"
 msgstr "%s Articoli Meta non utilizzati"
 
-#: ../wp-cleanfix_admin.php:323
+#: ../wp-cleanfix_admin.php:322
 #, php-format
 msgid "%s unused Tags"
 msgstr "%s Tags non utilizzati"
 
-#: ../wp-cleanfix_admin.php:329
+#: ../wp-cleanfix_admin.php:328
 #, php-format
 msgid "%s Posts without author"
 msgstr "%s Articoli senza Autore"
 
-#: ../wp-cleanfix_admin.php:335
+#: ../wp-cleanfix_admin.php:334
 #, php-format
 msgid "%s Pages without author"
 msgstr "%s Pagine senza Autore"
 
-#: ../wp-cleanfix_admin.php:341
+#: ../wp-cleanfix_admin.php:340
 #, php-format
 msgid "%s Attachment unlink"
 msgstr "%s Allegati non collegati"
 
-#: ../wp-cleanfix_admin.php:347
-#: ../wp-cleanfix_admin.php:449
+#: ../wp-cleanfix_admin.php:346
+#: ../wp-cleanfix_admin.php:448
 msgid "Posts"
 msgstr "Articoli"
 
-#: ../wp-cleanfix_admin.php:358
+#: ../wp-cleanfix_admin.php:357
 #, php-format
 msgid "%s unused Categories"
 msgstr "%s Categorie non utilizzate"
 
-#: ../wp-cleanfix_admin.php:364
+#: ../wp-cleanfix_admin.php:363
 #, php-format
 msgid "%s terms unlink in taxonomy"
 msgstr "%s Termini non collegati a nessuna Taxonomia"
 
-#: ../wp-cleanfix_admin.php:370
+#: ../wp-cleanfix_admin.php:369
 #, php-format
 msgid "%s taxonomy unlink in term"
 msgstr "%s Taxonomie non collegate a nessun Termine"
 
-#: ../wp-cleanfix_admin.php:376
-#: ../wp-cleanfix_admin.php:450
+#: ../wp-cleanfix_admin.php:375
+#: ../wp-cleanfix_admin.php:449
 msgid "Categories"
 msgstr "Categorie"
 
-#: ../wp-cleanfix_admin.php:386
+#: ../wp-cleanfix_admin.php:385
 msgid "Go to Repair"
 msgstr "Ripara"
 
-#: ../wp-cleanfix_admin.php:388
+#: ../wp-cleanfix_admin.php:387
 msgid "Nothing to Report"
 msgstr "Nulla da segnalare"
 
-#: ../wp-cleanfix_admin.php:395
-#: ../wp-cleanfix_admin.php:583
+#: ../wp-cleanfix_admin.php:394
+#: ../wp-cleanfix_admin.php:582
 msgid "Look the new \"CleanFix Tools\" panel for to extend Wordpress features: utility, comodity and tools "
 msgstr "Visita il nuovo pannello \"CleanFix Tools\" per estendere le funzionalità di Wordpress"
 
-#: ../wp-cleanfix_admin.php:418
+#: ../wp-cleanfix_admin.php:417
 msgid "CleanFix Tools"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:426
+#: ../wp-cleanfix_admin.php:425
 msgid "Comodity"
 msgstr "Comodità"
 
-#: ../wp-cleanfix_admin.php:427
+#: ../wp-cleanfix_admin.php:426
 msgid "Extends Editor"
 msgstr "Estensioni Editor"
 
-#: ../wp-cleanfix_admin.php:428
+#: ../wp-cleanfix_admin.php:427
 msgid "Extends Posts"
 msgstr "Estensioni Post"
 
-#: ../wp-cleanfix_admin.php:446
+#: ../wp-cleanfix_admin.php:445
 msgid "Important informations"
 msgstr "Informazioni importanti"
 
-#: ../wp-cleanfix_admin.php:448
+#: ../wp-cleanfix_admin.php:447
 msgid "Users"
 msgstr "Utenti"
 
-#: ../wp-cleanfix_admin.php:451
+#: ../wp-cleanfix_admin.php:450
 msgid "Comments"
 msgstr "Commenti"
 
-#: ../wp-cleanfix_admin.php:495
-#: ../wp-cleanfix_admin.php:565
+#: ../wp-cleanfix_admin.php:494
+#: ../wp-cleanfix_admin.php:564
 msgid "Your settings have been saved."
 msgstr "Le tue impostazioni sono state salvate"
 
-#: ../wp-cleanfix_admin.php:509
-#: ../wp-cleanfix_admin.php:579
-#: ../wp-cleanfix_admin.php:659
+#: ../wp-cleanfix_admin.php:508
+#: ../wp-cleanfix_admin.php:578
+#: ../wp-cleanfix_admin.php:658
 msgid "For more info and plugins visit"
 msgstr "Per maggiori informazioni e Plugin visita"
 
-#: ../wp-cleanfix_admin.php:630
+#: ../wp-cleanfix_admin.php:629
 #: ../module/database_view.php:16
 msgid "Refresh"
 msgstr "Aggiorna"
 
-#: ../wp-cleanfix_admin.php:641
+#: ../wp-cleanfix_admin.php:640
 msgid "Refresh All"
 msgstr "Aggiorna tutto"
 
-#: ../wp-cleanfix_admin.php:671
+#: ../wp-cleanfix_admin.php:670
 msgid "Settings"
 msgstr "Impostazioni"
 
@@ -414,24 +414,36 @@ msgstr "Allegati senza Autore"
 msgid "Post Content"
 msgstr "Contenuto articolo"
 
-#: ../module/tools_comodity_view.php:23
-msgid "Remove Frontend Admin Bar"
-msgstr "Rimuove la barra di amministrazione dal Frontend"
+#: ../module/tools_comodity_view.php:22
+msgid "Admin Bar"
+msgstr "Barra di amministrazione"
 
-#: ../module/tools_comodity_view.php:26
+#: ../module/tools_comodity_view.php:25
+msgid "Show"
+msgstr "Mostra"
+
+#: ../module/tools_comodity_view.php:29
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: ../module/tools_comodity_view.php:33
+msgid "Display bottom"
+msgstr "Mostra in basso"
+
+#: ../module/tools_comodity_view.php:37
 msgid "Add to header:"
 msgstr "Aggiungi all'header:"
 
-#: ../module/tools_comodity_view.php:27
-#: ../module/tools_comodity_view.php:35
+#: ../module/tools_comodity_view.php:38
+#: ../module/tools_comodity_view.php:46
 msgid "Clear"
 msgstr "Pulisci"
 
-#: ../module/tools_comodity_view.php:34
+#: ../module/tools_comodity_view.php:45
 msgid "Add to footer:"
 msgstr "Aggiungi al footer:"
 
-#: ../module/tools_comodity_view.php:43
+#: ../module/tools_comodity_view.php:54
 #: ../module/tools_editor_view.php:74
 #: ../module/tools_posts_view.php:31
 msgid "Save"
@@ -494,6 +506,9 @@ msgstr "Nessuno User Meta non utilizzati"
 #, php-format
 msgid "%s - User Meta erased"
 msgstr "%s User Meta eliminati"
+
+#~ msgid "Remove Frontend Admin Bar"
+#~ msgstr "Rimuove la barra di amministrazione dal Frontend"
 
 #~ msgid "Open/Collapse"
 #~ msgstr "Apri/Collassa"

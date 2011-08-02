@@ -18,9 +18,20 @@ WPCLEANFIX_TOOLS_COMODITY::update();
 <form action="" method="post" id="wpCleanFixComodityForm">
 	<input type="hidden" value="1" name="wpCleanFixComodityForm"/>
 
-	<p><input type="checkbox" name="wpCleanFixRemoveFrontendAdminBar" id="wpCleanFixRemoveFrontendAdminBar"
-			  value="1" <?php checked(WPCLEANFIX_TOOLS_COMODITY::options('wpCleanFixRemoveFrontendAdminBar'), 1) ?>/>
-		<label><?php _e('Remove Frontend Admin Bar', 'wp-cleanfix') ?></label></p>
+	<fieldset>
+		<legend><?php _e('Admin Bar', 'wp-cleanfix') ?></legend>
+		<p><input type="radio" name="wpCleanFixAdminBar"
+				  value="0" <?php checked(WPCLEANFIX_TOOLS_COMODITY::options('wpCleanFixAdminBar'), 0) ?>/>
+			<label><?php _e('Show', 'wp-cleanfix') ?></label></p>
+
+		<p><input type="radio" name="wpCleanFixAdminBar"
+				  value="1" <?php checked(WPCLEANFIX_TOOLS_COMODITY::options('wpCleanFixAdminBar'), 1) ?>/>
+			<label><?php _e('Remove', 'wp-cleanfix') ?></label></p>
+
+		<p><input type="radio" name="wpCleanFixAdminBar"
+				  value="2" <?php checked(WPCLEANFIX_TOOLS_COMODITY::options('wpCleanFixAdminBar'), 2) ?>/>
+			<label><?php _e('Display bottom', 'wp-cleanfix') ?></label></p>
+	</fieldset>
 
 	<p>
 		<label><?php _e('Add to header:', 'wp-cleanfix') ?></label><a

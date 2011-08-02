@@ -4,7 +4,7 @@ Donate link: http://www.saidmade.com
 Tags: Manage, Clean, Repair, Optimize, Fix
 Requires at least: 2.9.1
 Tested up to: 3.1.2
-Stable tag: 2.0
+Stable tag: 2.1
 
 WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
 
@@ -40,7 +40,9 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 
 **LAST IMPROVE**
 
-* Added WP CleanFix Tools panel
+* Improved CleanFix Tools
+* Added custom css rules in full screen editor
+* Added radio choice for Admin Bar
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
@@ -63,6 +65,11 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 4. One column version, with only 3 panels
 
 == Changelog ==
+
+= 2.1 =
+* Improved CleanFix Tools
+* Added custom css rules in full screen editor
+* Added radio choice for Admin Bar
 
 = 2.0 =
 * Added WP CleanFix Tools

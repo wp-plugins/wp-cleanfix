@@ -51,7 +51,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 			'wpCleanFixTextColor'				=> '888',
 			'wpCleanFixAllowTags'				=> 'pre[id|name|class|style],iframe[align|longdesc|name|width|height|frameborder|scrolling|marginheight|marginwidth|src]',
 
-			'wpCleanFixRemoveFrontendAdminBar'	=> '0',
+			'wpCleanFixAdminBar'				=> '0',
 			'wpCleanFixToolsComodityAddHeader'	=> '',
 			'wpCleanFixToolsComodityAddFooter'	=> '',
 
@@ -60,7 +60,6 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 
 			);
         add_option($this->options_key, $this->options);
-
 
 		/**
 		 * Load localizations if available
