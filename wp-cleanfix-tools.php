@@ -112,6 +112,7 @@ function wp_cleanfix_move_admin_bar() {
 	}
 </style>
 <?php
+
 }
 
 if ($wp_cleanfix_options['wpCleanFixAdminBar'] == "1") {

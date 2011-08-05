@@ -102,55 +102,56 @@ p.wp-cleanfix-copy {
 }
 
 div.wp_cleanfix_box {
-	-moz-border-radius:8px;
-	-webkit-border-radius:8px;
-	border-radius:8px;
+	margin:40px 4px 0;
+	padding:8px 8px 16px 8px;
 
-	margin:16px 0;
+	-moz-border-radius:12px 12px 0 0;
+	-webkit-border-radius:12px 12px 0 0;
+	border-radius:12px 12px 0 0;
 
-	border:1px solid #aaa;
+	-moz-box-shadow:0 -5px 4px #444;
+	-webkit-box-shadow:0 -5px 4px #444;
+	box-shadow:0 -5px 4px #444;
 
-	background-color:#0096ff;
-	background-image:-webkit-gradient(linear, left left, left right, from(#0096ff), to(#ffffff)); /* Saf4+, Chrome */
-	background-image:-webkit-linear-gradient(left, #0096ff, #ffffff); /* Chrome 10+, Saf5.1+ */
-	background-image:-moz-linear-gradient(left, #0096ff, #ffffff); /* FF3.6 */
-	background-image:-ms-linear-gradient(left, #0096ff, #ffffff); /* IE10 */
-	background-image:-o-linear-gradient(left, #0096ff, #ffffff); /* Opera 11.10+ */
-	background-image:linear-gradient(left, #0096ff, #ffffff);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorStr = '#0096ff', EndColorStr = '#ffffff'); /* IE6–IE9 */
-
-	height:120px;
+	background-color:#dddddd;
+	background-image:-webkit-gradient(linear, left top, left bottom, from(#dddddd), to(#ffffff)); /* Saf4+, Chrome */
+	background-image:-webkit-linear-gradient(top, #dddddd, #ffffff); /* Chrome 10+, Saf5.1+ */
+	background-image:-moz-linear-gradient(top, #dddddd, #ffffff); /* FF3.6 */
+	background-image:-ms-linear-gradient(top, #dddddd, #ffffff); /* IE10 */
+	background-image:-o-linear-gradient(top, #dddddd, #ffffff); /* Opera 11.10+ */
+	background-image:linear-gradient(top, #dddddd, #ffffff);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorStr = '#dddddd', EndColorStr = '#ffffff'); /* IE6–IE9 */
 }
 
 div.wp_cleanfix_box a.wp_cleanfix_logo {
-	-moz-border-radius:8px 8px 0 0;
-	-webkit-border-radius:8px 8px 0 0;
-	border-radius:8px 8px 0 0;
-
 	background:url("images/logo.png") 8px center no-repeat;
 	display:block;
 	font-family:"trebuchet MS", sans-serif;
 	font-size:26px;
+	font-style:italic;
 	height:80px;
 	letter-spacing:-1px;
 	line-height:80px;
 	margin:1px;
 	padding-left:76px;
 	text-decoration:none;
-	color:#fff;
-	text-shadow:1px 1px 1px #000;
+	text-shadow:1px 1px 0 #fff;
+
+	-moz-border-radius:8px 8px 0 0;
+	-webkit-border-radius:8px 8px 0 0;
+	border-radius:8px 8px 0 0;
 }
 
 div.wp_cleanfix_box p {
-	color:#FFFFFF;
+	color:#21759B;
 	font-weight:bold;
 	margin:0 24px;
-	text-shadow:1px 1px 2px #444444;
+	text-shadow:1px 1px 0 #fff;
 }
 
 div.wp_cleanfix_box p.wp_cleanfix_copy_info {
 	display:block;
-	margin-top:82px;
+	margin-top:12px;
 	position:absolute;
 	right:6px;
 	text-align:right;

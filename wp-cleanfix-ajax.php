@@ -1,11 +1,11 @@
 <?php
 /**
- * Ajax modulo for POST request
+ * Ajax module for POST request
  *
  * @package         wp-cleanfix
  * @subpackage      wp-cleanfix_ajax
  * @author          =undo= <g.fazioli@saidmade.com>
- * @copyright       Copyright (C) 2010 Saidmade Srl
+ * @copyright       Copyright (C) 2010-2011 Saidmade Srl
  *
  * $_POST['command'] = todo
  *
