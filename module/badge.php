@@ -9,10 +9,10 @@
  *
  */
 
-require_once "module/module.php";
-require_once "module/usermeta.php";
-require_once "module/posts.php";
-require_once "module/category.php";
+require_once "module.php";
+require_once "usermeta.php";
+require_once "posts.php";
+require_once "category.php";
 
 class WPCLEANFIX_BADGE {
 

@@ -129,12 +129,14 @@ class WPCLEANFIX_CLASS {
 		$split_version = explode(".", $this->version);
 		$this->release = $split_version[0];
 		$this->minor = $split_version[1];
-		$this->revision = $split_version[2];
+		$this->revision = isset($split_version[2]) ? $split_version[2] : '0';
 		/**
 		 * Build the common and usefull path
 		 */
 		$this->url = plugins_url("", __FILE__);
-		$this->url_ajax = $this->url . '/wp-cleanfix-ajax.php';
+		//$this->url_ajax = $this->url . '/wp-cleanfix-ajax.php';
+		$protocol = isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://';
+		$this->url_ajax = admin_url( 'admin-ajax.php', $protocol );
 
 		if (!defined('WP_CONTENT_DIR'))
 			define('WP_CONTENT_DIR', ABSPATH . 'wp-content');

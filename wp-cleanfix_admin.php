@@ -154,7 +154,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		 * @since 2.4.0
 		 */
 		wp_enqueue_script('wp-cleanfix-main-js', $this->url . '/js/main.js', array('jquery'), '1.4', true);
-		wp_localize_script('wp-cleanfix-main-js', 'wpCleanFixMainL10n', array(
+		wp_localize_script('wp-cleanfix-main-js', 'wpCleanFixJavascriptLocalization', array(
 																			 'ajaxURL' => $this->url_ajax,
 																			 'messageConfirm' => __('Warning!! Are you sure to confirm this operation?', 'wp-cleanfix'),
 																			 'notImplement' => __('Sorry! Be patient. Not yet implemented in this beta release', 'wp-cleanfix')));

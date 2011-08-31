@@ -37,7 +37,7 @@ jQuery(document).ready(function() {
     function wp_cleanfix_ajax_command(button, command, id) {
         var cc = !( arguments[3] == undefined );
         var uu = (command == '');
-        var pd = {command: command};
+        var pd = {action : 'wpCleanFixAjax', command: command};
 
         if( !( arguments[4] == undefined ) ) {
             var callBack = arguments[4];
@@ -47,22 +47,23 @@ jQuery(document).ready(function() {
             function() {
                 // @since 0.3.0
                 if(uu) {
-                    alert(wpCleanFixMainL10n.notImplement);
+                    alert(wpCleanFixJavascriptLocalization.notImplement);
                     return;
                 }
                 if(cc && id != 'database-optimize') {
-                     if(!confirm(wpCleanFixMainL10n.messageConfirm)) {
+                     if(!confirm(wpCleanFixJavascriptLocalization.messageConfirm)) {
                          return;
                      }
                 }
                 if(callBack != undefined) {
                     var no = callBack();
+					no.action = 'wpCleanFixAjax';
                     no.command = pd.command;
                     pd = no;
                 }
                 wp_cleanfix_ajax_wait(id);
 
-                jQuery.post( wpCleanFixMainL10n.ajaxURL, pd,
+                jQuery.post( wpCleanFixJavascriptLocalization.ajaxURL, pd,
                     function( data ) {
                         jQuery('div#' + id).html( data );
                         // @since 0.5.3
@@ -82,15 +83,16 @@ jQuery(document).ready(function() {
         // fix ajax loader
         // @since 0.5.3
         wp_cleanfix_ajax_wait('database-optimize');
-        jQuery.post( wpCleanFixMainL10n.ajaxURL, {
-                command : '$WPCLEANFIX_DATABASE->checkTables();'
+        jQuery.post( wpCleanFixJavascriptLocalization.ajaxURL, {
+				action: 'wpCleanFixAjax',
+                command: '$WPCLEANFIX_DATABASE->checkTables();'
             },
             function( data ) {
                 jQuery('div#database-optimize').html( data );
             }
         );
-		var badge = {command: 'WPCLEANFIX_BADGE::countRepair();' };
-		jQuery.post( wpCleanFixMainL10n.ajaxURL, badge,
+		var badge = {action: 'wpCleanFixAjax', command: 'WPCLEANFIX_BADGE::countRepair();' };
+		jQuery.post( wpCleanFixJavascriptLocalization.ajaxURL, badge,
 			function( data ) {
 				if(data > 0 || data != '0') {
 					jQuery('span#wpcleanfix_badge').html('<span class="update-plugins count-%d"><span class="update-count">'+data+'</span></span>');

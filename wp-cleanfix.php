@@ -28,13 +28,36 @@ Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
 
 require_once('wp-cleanfix_class.php');
 
-if (is_admin()) {
-	require_once('wp-cleanfix_admin.php');
-	//
-	$wp_cleanfix_admin = new WPCLEANFIX_ADMIN();
-	$wp_cleanfix_admin->register_plugin_settings(__FILE__);
-}
+if (@isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
+	require_once ('module/module.php');
+    require_once ('module/database.php');
+    require_once ('module/usermeta.php');
+    require_once ('module/posts.php');
+    require_once ('module/category.php');
+    require_once ('module/comments.php');
+    require_once ('module/badge.php');
 
-include_once('wp-cleanfix-tools.php');
+	function wpCleanFixAjax() {
+		global $WPCLEANFIX_DATABASE;
+		global $WPCLEANFIX_USERMETA;
+		global $WPCLEANFIX_POSTS;
+		global $WPCLEANFIX_CATEGORY;
+		 // Sanitize $_POST['command]
+		$command = strip_tags( $_POST['command'] );
+		eval ( $command );
+		die();
+	}
+
+	add_action('wp_ajax_wpCleanFixAjax', 'wpCleanFixAjax' );
+
+} else {
+	if (is_admin()) {
+		require_once('wp-cleanfix_admin.php');
+		//
+		$wp_cleanfix_admin = new WPCLEANFIX_ADMIN();
+		$wp_cleanfix_admin->register_plugin_settings(__FILE__);
+	}
+	include_once('wp-cleanfix-tools.php');
+}
 
 ?>
