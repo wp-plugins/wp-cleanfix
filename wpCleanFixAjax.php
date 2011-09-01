@@ -27,6 +27,7 @@ if (@isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
 		global $WPCLEANFIX_USERMETA;
 		global $WPCLEANFIX_POSTS;
 		global $WPCLEANFIX_CATEGORY;
+		global $WPCLEANFIX_COMMENTS;
 		 // Sanitize $_POST['command]
 		$command = strip_tags( $_POST['command'] );
 		eval ( $command );
