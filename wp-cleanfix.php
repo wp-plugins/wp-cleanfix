@@ -3,7 +3,7 @@
 Plugin Name: WP CleanFix
 Plugin URI: http://wordpress.org/extend/plugins/wp-cleanfix/
 Description: WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
-Version: 2.2
+Version: 2.2.1
 Author: Giovambattista Fazioli
 Author URI: http://www.saidmade.com
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
@@ -29,27 +29,7 @@ Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
 require_once('wp-cleanfix_class.php');
 
 if (@isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
-	require_once ('module/module.php');
-    require_once ('module/database.php');
-    require_once ('module/usermeta.php');
-    require_once ('module/posts.php');
-    require_once ('module/category.php');
-    require_once ('module/comments.php');
-    require_once ('module/badge.php');
-
-	function wpCleanFixAjax() {
-		global $WPCLEANFIX_DATABASE;
-		global $WPCLEANFIX_USERMETA;
-		global $WPCLEANFIX_POSTS;
-		global $WPCLEANFIX_CATEGORY;
-		 // Sanitize $_POST['command]
-		$command = strip_tags( $_POST['command'] );
-		eval ( $command );
-		die();
-	}
-
-	add_action('wp_ajax_wpCleanFixAjax', 'wpCleanFixAjax' );
-
+	require_once('wpCleanFixAjax.php');
 } else {
 	if (is_admin()) {
 		require_once('wp-cleanfix_admin.php');

@@ -12,9 +12,6 @@
  */
 
 if (@isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
-    // write some code and rest assured that the Javascript is enabled.
-
-    require_once ('../../../wp-load.php');
 	require_once ('module/module.php');
     require_once ('module/database.php');
     require_once ('module/usermeta.php');
@@ -23,12 +20,20 @@ if (@isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
     require_once ('module/comments.php');
     require_once ('module/badge.php');
 
-    // @since 0.3.6 fix
-    load_plugin_textdomain ( 'wp-cleanfix' , false, 'wp-cleanfix/localization'  );
+	load_plugin_textdomain ( 'wp-cleanfix' , false, 'wp-cleanfix/localization'  );
 
-     // Sanitize $_POST['command]
-    $command = strip_tags( $_POST['command'] );
-    eval ( $command );
+	function wpCleanFixAjax() {
+		global $WPCLEANFIX_DATABASE;
+		global $WPCLEANFIX_USERMETA;
+		global $WPCLEANFIX_POSTS;
+		global $WPCLEANFIX_CATEGORY;
+		 // Sanitize $_POST['command]
+		$command = strip_tags( $_POST['command'] );
+		eval ( $command );
+		die();
+	}
+
+	add_action('wp_ajax_wpCleanFixAjax', 'wpCleanFixAjax' );
 }
 
 ?>
