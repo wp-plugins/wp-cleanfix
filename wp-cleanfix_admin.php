@@ -2,10 +2,10 @@
 /**
  * Class for Manage Admin (back-end)
  *
- * @package		 wp-cleanfix
- * @subpackage	  wp-cleanfix_admin
- * @author		  =undo= <g.fazioli@saidmade.com>
- * @copyright	   Copyright (C) 2010-2011 Saidmade Srl
+ * @package			wp-cleanfix
+ * @subpackage		wp-cleanfix_admin
+ * @author			=undo= <g.fazioli@undolog.com>, <g.fazioli@saidmade.com>
+ * @copyright		Copyright (C) 2010-2011 Saidmade Srl
  *
  */
 
@@ -200,7 +200,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 	 */
 	function add_dashboard_widget() {
 		// 1.3.3 - Administrator Only
-		if (current_user_can('level_10')) {
+		if (current_user_can(kkWPCleanFixUserCapabilitiy)) {
 			add_action('admin_print_scripts', array($this, 'plugin_admin_scripts'));
 			add_action('admin_print_styles', array($this, 'plugin_admin_styles'));
 
@@ -431,14 +431,13 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		if ($this->options['toRepair'] != 0) {
 			$itemTitle = sprintf('%s <span id="wpcleanfix_badge"><span class="update-plugins count-%d"><span class="update-count">%d</span></span></span>', $this->plugin_name, $this->options['toRepair'], $this->options['toRepair']);
 		}
-		$this->plugin_page = add_submenu_page("index.php", $this->plugin_name, $itemTitle, 10, $this->plugin_slug,
+		$this->plugin_page = add_submenu_page("index.php", $this->plugin_name, $itemTitle, kkWPCleanFixUserCapabilitiy, $this->plugin_slug,
 											  array(&$this, "menu"));
 		add_action('load-' . $this->plugin_page, array($this, 'on_load_page'));
 		add_action('admin_print_scripts-' . $this->plugin_page, array($this, 'plugin_admin_scripts'));
 		add_action('admin_print_styles-' . $this->plugin_page, array($this, 'plugin_admin_styles'));
 
-		//$this->tools_page = add_submenu_page("index.php", $this->plugin_name, '<img style="display:inline;float:left" src="'.$this->url . "/css/images/wp-cleanfix-16x16.png" .'" /> ' . __('CleanFix Tools', 'wp-cleanfix'), 10, $this->plugin_slug . 'tools', array(&$this, "tools"));
-		$this->tools_page = add_submenu_page("index.php", $this->plugin_name, __('CleanFix Tools', 'wp-cleanfix'), 10,
+		$this->tools_page = add_submenu_page("index.php", $this->plugin_name, __('CleanFix Tools', 'wp-cleanfix'), kkWPCleanFixUserCapabilitiy,
 											 $this->plugin_slug . 'tools', array(&$this, "tools"));
 		add_action('load-' . $this->tools_page, array($this, 'on_tools_load_page'));
 		add_action('admin_print_scripts-' . $this->tools_page, array($this, 'plugin_tools_scripts'));
@@ -538,13 +537,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 
 	<div class="wrap">
 
-		<div class="wp_cleanfix_box">
-			<p class="wp_cleanfix_copy_info"><?php _e('For more info and plugins visit', 'wp-cleanfix') ?> <a
-					href="http://www.saidmade.com">Saidmade</a></p>
-			<a class="wp_cleanfix_logo" href="http://www.saidmade.com/prodotti/wordpress/wp-cleanfix/">
-				<?php echo $this->plugin_name ?> ver. <?php echo $this->version ?>
-			</a>
-		</div>
+		<?php $this->saidmadeHeader() ?>
 
 		<!-- <form action="admin-post.php" method="post" id="wp-cleanfix-form-postbox"> -->
 		<?php wp_nonce_field('wp-cleanfix-tools'); ?>
@@ -610,17 +603,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 
 	<div class="wrap">
 
-		<div class="wp_cleanfix_box">
-			<p class="wp_cleanfix_copy_info"><?php _e('For more info and plugins visit', 'wp-cleanfix') ?> <a
-					href="http://www.saidmade.com">Saidmade</a></p>
-			<a class="wp_cleanfix_logo" href="http://www.saidmade.com/prodotti/wordpress/wp-cleanfix/">
-				<?php echo $this->plugin_name ?> ver. <?php echo $this->version ?>
-			</a>
-
-			<p><?php _e('Look the new "CleanFix Tools" panel for to extend Wordpress features: utility, comodity and tools ', 'wp-cleanfix') ?>
-				<a class="button-primary" href="<?php bloginfo('wpurl') ?>/wp-admin/index.php?page=wp-cleanfixtools">CleanFix
-					Tools</a></p>
-		</div>
+		<?php $this->saidmadeHeader(true) ?>
 
 		<!-- <form action="admin-post.php" method="post" id="wp-cleanfix-form-postbox"> -->
 		<?php wp_nonce_field('wp-cleanfix-general'); ?>
@@ -719,6 +702,26 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		$settings_link = '<a href="index.php?page=wp-cleanfix">' . __('Settings') . '</a>';
 		array_unshift($links, $settings_link);
 		return $links;
+	}
+
+		/**
+	 * Comodity: echo saidmade WP Bannerize header
+	 *
+	 * @return void
+	 */
+	function saidmadeHeader($bottom = false) {
+		?><div class="wp_cleanfix_box">
+			<p class="wp_cleanfix_copy_info"><strong><?php _e('This software is free. You don\'t need to donate money to supporting it. Just talk about it.', 'wp-cleanfix') ?></strong><br/><?php _e('For more info and plugins visit', 'wp-cleanfix') ?> <a
+					href="http://en.saidmade.com">Saidmade</a></p>
+			<a class="wp_cleanfix_logo" href="http://en.saidmade.com/products/wordpress/wp-cleanfix/">
+				<?php echo $this->plugin_name ?> ver. <?php echo $this->version ?>
+			</a>
+			<?php if($bottom) : ?>
+			<p><?php _e('Look the new "CleanFix Tools" panel for to extend Wordpress features: utility, comodity and tools ', 'wp-cleanfix') ?>
+				<a class="button-primary" href="<?php bloginfo('wpurl') ?>/wp-admin/index.php?page=wp-cleanfixtools">CleanFix
+					Tools</a></p>
+			<?php endif; ?>
+		</div><?php
 	}
 
 } // end of class

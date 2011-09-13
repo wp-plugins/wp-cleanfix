@@ -1,16 +1,16 @@
- === WP CleanFix ===
-Contributors: Giovambattista Fazioli, Valentin B
-Donate link: http://www.saidmade.com
-Tags: Manage, Clean, Repair, Optimize, Fix
+=== WP CleanFix ===
+Contributors: gfazioli
+Donate link: http://en.saidmade.com/products/wordpress/wp-cleanfix/
+Tags: Database, Post, Page, Categories, Post Meta, Revision, Comments, Compress, Improvements, Manage, Clean, Repair, Optimize, Fix, Tools, Utility
 Requires at least: 2.9.1
 Tested up to: 3.1.2
-Stable tag: 2.2.1
+Stable tag: 2.2.2
 
 WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
 
 == Description ==
 
-WP CleanFix is a management tool for for check, repair, fix and optimize your Wordpress blog. The Ajax interface allow to manage all status in one only page!
+WP CleanFix is a management tool for for check, repair, fix and optimize your Wordpress blog. The Ajax interface allow to manage all status in one only page! Remember: This software is free. You don't need to donate money to supporting it. Just talk about it.
 
 **FEATURES**
 
@@ -37,9 +37,7 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 
 **RELEASE NOTE**
 
-* Improved CleanFix Tools
-* Added custom css rules in full screen editor
-* Added radio choice for Admin Bar
+* Optimized css rules
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
@@ -50,6 +48,7 @@ Check Dashboard
 = Related Links =
 
 * [Author's Company](http://www.saidmade.com/ "Saidmade")
+* [Author's Company - english version](http://en.saidmade.com/ "Saidmade")
 * [Author's Personal Blog](http://www.undolog.com/ "Undolog")
 
 For more information on the roadmap for future improvements please e-mail: g.fazioli@saidmade.com
@@ -62,6 +61,10 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 4. One column version, with only 3 panels
 
 == Changelog ==
+
+= 2.2.2 =
+* Optimized css rules
+* Several minor fixing
 
 = 2.2.1 =
 * Fixed localization in Ajax Engine
@@ -311,3 +314,12 @@ Could be. Be sure to backup all data from Wordpress database before execute any 
 = Can I translate Plugin interface? =
 
 Yes, just edit .POT file in `localization` folder
+
+== Who's using WP CleanFix? ==
+
+ * [Elio e le Storie Tese](http://www.elioelestorietese.it "Elio e le Storie Tese")
+ * [Artribune](http://www.artribune.com/ "Artribune")
+ * [Undolog](http://www.undolog.com "Undolog")
+ * [Saidmade](http://en.saidmade.com "Saidmade")
+
+Aren't you in this list? Please, [let me know your Wordpress site url](mailto:g.fazioli@saidmade.com "let me know your Wordpress site url")

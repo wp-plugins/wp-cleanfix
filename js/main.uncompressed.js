@@ -3,11 +3,11 @@
  *
  * @package         wp-cleanfix
  * @subpackage      main.js
- * @author          =undo= <g.fazioli@saidmade.com>
+ * @author          =undo= <g.fazioli@undolog.com>, <g.fazioli@saidmade.com>
  * @copyright       Copyright (C) 2011 Saidmade Srl
  *
  */
-jQuery(document).ready(function() {
+jQuery(document).ready(function($) {
 
 	/*
 	jQuery('form#wp-cleanfix-form-postbox').submit(
@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
      * @var string id del contenitore
      */
     function wp_cleanfix_ajax_wait(id) {
-        jQuery('div#' + id).html( '<div id="ajax-wait"></div>' );
+        $('div#' + id).html( '<div id="ajax-wait"></div>' );
     }
 
     /**
@@ -43,7 +43,7 @@ jQuery(document).ready(function() {
             var callBack = arguments[4];
         }
 
-        jQuery('button#' + button).live('click',
+        $('button#' + button).live('click',
             function() {
                 // @since 0.3.0
                 if(uu) {
@@ -63,9 +63,9 @@ jQuery(document).ready(function() {
                 }
                 wp_cleanfix_ajax_wait(id);
 
-                jQuery.post( wpCleanFixJavascriptLocalization.ajaxURL, pd,
+                $.post( wpCleanFixJavascriptLocalization.ajaxURL, pd,
                     function( data ) {
-                        jQuery('div#' + id).html( data );
+                        $('div#' + id).html( data );
                         // @since 0.5.3
                         if(id != 'database-optimize' && cc) {
                             wp_cleanfix_check_optimize();
@@ -83,21 +83,21 @@ jQuery(document).ready(function() {
         // fix ajax loader
         // @since 0.5.3
         wp_cleanfix_ajax_wait('database-optimize');
-        jQuery.post( wpCleanFixJavascriptLocalization.ajaxURL, {
+        $.post( wpCleanFixJavascriptLocalization.ajaxURL, {
 				action: 'wpCleanFixAjax',
                 command: '$WPCLEANFIX_DATABASE->checkTables();'
             },
             function( data ) {
-                jQuery('div#database-optimize').html( data );
+                $('div#database-optimize').html( data );
             }
         );
 		var badge = {action: 'wpCleanFixAjax', command: 'WPCLEANFIX_BADGE::countRepair();' };
-		jQuery.post( wpCleanFixJavascriptLocalization.ajaxURL, badge,
+		$.post( wpCleanFixJavascriptLocalization.ajaxURL, badge,
 			function( data ) {
 				if(data > 0 || data != '0') {
-					jQuery('span#wpcleanfix_badge').html('<span class="update-plugins count-%d"><span class="update-count">'+data+'</span></span>');
+					$('span#wpcleanfix_badge').html('<span class="update-plugins count-%d"><span class="update-count">'+data+'</span></span>');
 				} else {
-					jQuery('span#wpcleanfix_badge').html('');
+					$('span#wpcleanfix_badge').html('');
 				}
 			}
 		);
@@ -107,9 +107,9 @@ jQuery(document).ready(function() {
      * Register refresh button id for refresh all
      */
     function wp_cleanfix_refresh_all(button_id, button_ids) {
-        jQuery('button#' + button_id).click(function(){
+        $('button#' + button_id).click(function(){
             for(var i = 0; i < button_ids.length; i++) {
-                jQuery('button#' + button_ids[i]).trigger('click');
+                $('button#' + button_ids[i]).trigger('click');
             }
         });
     }
@@ -171,8 +171,8 @@ jQuery(document).ready(function() {
     wp_cleanfix_ajax_command('buttonpostUsersLinkToAuthor', '$WPCLEANFIX_POSTS->relinkPostsUsers();', 'posts-users', true,
         function() {
             return {
-                wpcleanfix_post_author_id: jQuery('select#wpcleanfix_post_author_id option:selected').val(),
-                wpcleanfix_post_ids: jQuery('input#wpcleanfix_post_ids').val()
+                wpcleanfix_post_author_id: $('select#wpcleanfix_post_author_id option:selected').val(),
+                wpcleanfix_post_ids: $('input#wpcleanfix_post_ids').val()
             };
         }
     );
@@ -186,8 +186,8 @@ jQuery(document).ready(function() {
     wp_cleanfix_ajax_command('buttonpageUsersLinkToAuthor', '$WPCLEANFIX_POSTS->relinkPostsUsers(page);', 'pages-users', true,
         function() {
             return {
-                wpcleanfix_page_author_id: jQuery('select#wpcleanfix_page_author_id option:selected').val(),
-                wpcleanfix_page_ids: jQuery('input#wpcleanfix_page_ids').val()
+                wpcleanfix_page_author_id: $('select#wpcleanfix_page_author_id option:selected').val(),
+                wpcleanfix_page_ids: $('input#wpcleanfix_page_ids').val()
             };
         }
     );
@@ -205,8 +205,8 @@ jQuery(document).ready(function() {
     wp_cleanfix_ajax_command('buttonFindReplacePost', '$WPCLEANFIX_POSTS->findAndReplace();', 'find-replace-post-content', true,
         function() {
             return {
-                wpcleanfix_find_post_content: jQuery('input#wpcleanfix_find_post_content').val(),
-                wpcleanfix_replace_post_content: jQuery('input#wpcleanfix_replace_post_content').val()
+                wpcleanfix_find_post_content: $('input#wpcleanfix_find_post_content').val(),
+                wpcleanfix_replace_post_content: $('input#wpcleanfix_replace_post_content').val()
             };
         }
     );
@@ -259,8 +259,8 @@ jQuery(document).ready(function() {
     // Find & Replace Comment Content
     wp_cleanfix_ajax_command('buttonFindReplaceComment', '$WPCLEANFIX_COMMENTS->findAndReplace();', 'find-replace-comment-content', true,
         function() {
-            return {wpcleanfix_find_comment_content: jQuery('input#wpcleanfix_find_comment_content').val(),
-            wpcleanfix_replace_comment_content: jQuery('input#wpcleanfix_replace_comment_content').val()};
+            return {wpcleanfix_find_comment_content: $('input#wpcleanfix_find_comment_content').val(),
+            wpcleanfix_replace_comment_content: $('input#wpcleanfix_replace_comment_content').val()};
         }
     );
 });

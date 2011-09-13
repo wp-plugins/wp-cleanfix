@@ -65,7 +65,7 @@ WPCLEANFIX_TOOLS_EDITOR::update();
 				class="wpCleanFixColorPreview"></span></p>
 
 	<p><label><?php _e('Extra HTML tags allowed:', 'wp-cleanfix') ?></label>
-		<input <?php disabled(WPCLEANFIX_TOOLS_EDITOR::options('wpCleanFixEditor'), "0") ?> size="32" type="text"
+		<input <?php disabled(WPCLEANFIX_TOOLS_EDITOR::options('wpCleanFixEditor'), "0") ?> size="64" type="text"
 																							name="wpCleanFixAllowTags"
 																							value="<?php echo WPCLEANFIX_TOOLS_EDITOR::options('wpCleanFixAllowTags') ?>"/>
 	</p>

@@ -3,35 +3,35 @@
  *
  * @package		 wp-cleanfix
  * @subpackage	 tools.js
- * @author		 =undo= <g.fazioli@saidmade.com>
+ * @author		 =undo= <g.fazioli@undolog.com>, <g.fazioli@saidmade.com>
  * @copyright	 Copyright (C) 2011 Saidmade Srl
  *
  */
-jQuery(document).ready(function() {
+jQuery(document).ready(function($) {
 
-	jQuery('input#wpCleanFixEditor').change(function() {
-		if (jQuery(this).is(':checked')) {
-			jQuery('form#wpCleanFixEditorForm input[type=text]').removeAttr('disabled');
+	$('input#wpCleanFixEditor').change(function() {
+		if ($(this).is(':checked')) {
+			$('form#wpCleanFixEditorForm input[type=text]').removeAttr('disabled');
 		} else {
-			jQuery('form#wpCleanFixEditorForm input[type=text]').attr('disabled', 'disabled');
+			$('form#wpCleanFixEditorForm input[type=text]').attr('disabled', 'disabled');
 		}
 	});
 
-	jQuery('input#wpCleanFixToolsPostsLimitExcerptLength').change(function() {
-		if (jQuery(this).is(':checked')) {
-			jQuery('input#wpCleanFixToolsPostsExcerptLength').removeAttr('disabled');
+	$('input#wpCleanFixToolsPostsLimitExcerptLength').change(function() {
+		if ($(this).is(':checked')) {
+			$('input#wpCleanFixToolsPostsExcerptLength').removeAttr('disabled');
 		} else {
-			jQuery('input#wpCleanFixToolsPostsExcerptLength').attr('disabled', 'disabled');
+			$('input#wpCleanFixToolsPostsExcerptLength').attr('disabled', 'disabled');
 		}
 	});
 
-	jQuery('input.wpCleanFixColorSelect').blur(function() {
-		jQuery(this).next().css({background: '#' + jQuery(this).val()
+	$('input.wpCleanFixColorSelect').blur(function() {
+		$(this).next().css({background: '#' + $(this).val()
 		});
 	});
 
-	jQuery('a.wpCleanFixClearNextTextarea').click(function() {
-		jQuery(this).parent().children("textarea").text('');
+	$('a.wpCleanFixClearNextTextarea').click(function() {
+		$(this).parent().children("textarea").text('');
 		return false;
 	});
 

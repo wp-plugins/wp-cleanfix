@@ -2,10 +2,10 @@
 /**
  * Main class for subclassing backend and frontend class
  *
- * @package		 wp-cleanfix
- * @subpackage	  wp-cleanfix_class
- * @author		  =undo= <g.fazioli@saidmade.com>
- * @copyright	   Copyright (C) 2010-2011 Saidmade Srl
+ * @package			wp-cleanfix
+ * @subpackage		wp-cleanfix_class
+ * @author			=undo= <g.fazioli@undolog.com>, <g.fazioli@saidmade.com>
+ * @copyright		Copyright (C) 2010-2011 Saidmade Srl
  *
  */
 

@@ -1,11 +1,11 @@
 <?php
 /**
- * wp-cleanfix-tools
+ * Global defines and constant
  *
- * @author =undo=
- * @date 22/06/11
- *
- * (C)2011 Saidmade Srl. All rights reserved
+ * @package         wpCleanFix
+ * @subpackage      wp-cleanfix-tools
+ * @author          =undo= <g.fazioli@undolog.com>, <g.fazioli@saidmade.com>
+ * @copyright       Copyright © 2010-2011 Saidmade Srl
  *
  */
 

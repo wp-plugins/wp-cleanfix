@@ -4,7 +4,7 @@
  *
  * @package         wp-cleanfix
  * @subpackage      wp-cleanfix_ajax
- * @author          =undo= <g.fazioli@saidmade.com>
+ * @author          =undo= <g.fazioli@undolog.com>, <g.fazioli@saidmade.com>
  * @copyright       Copyright (C) 2010-2011 Saidmade Srl
  *
  * $_POST['command'] = todo
