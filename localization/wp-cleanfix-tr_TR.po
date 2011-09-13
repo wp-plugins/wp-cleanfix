@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP CleanFix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-03 00:12+0100\n"
-"PO-Revision-Date: 2011-08-03 00:12+0100\n"
+"POT-Creation-Date: 2011-09-13 22:35+0100\n"
+"PO-Revision-Date: 2011-09-13 22:35+0100\n"
 "Last-Translator: Baris Unver <baris.unver@beyn.org>\n"
 "Language-Team: Baris Unver <baris.unver@beyn.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,165 +16,170 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../wp-cleanfix_admin.php:117
+#: ../wp-cleanfix_admin.php:107
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:169
+#: ../wp-cleanfix_admin.php:159
 msgid "Warning!! Are you sure to confirm this operation?"
 msgstr "Dikkat!! Bu eylemi onaylıyor musunuz?"
 
-#: ../wp-cleanfix_admin.php:170
+#: ../wp-cleanfix_admin.php:160
 msgid "Sorry! Be patient. Not yet implemented in this beta release"
 msgstr "Üzgünüm! Sabırlı olun; bu özellik bu BETA sürümünde mevcut değil"
 
-#: ../wp-cleanfix_admin.php:218
+#: ../wp-cleanfix_admin.php:207
 msgid "WP CleanFix - Summary Report"
 msgstr "WP CleanFix - Özet Rapor"
 
-#: ../wp-cleanfix_admin.php:270
+#: ../wp-cleanfix_admin.php:260
 #, php-format
 msgid "%s Kb tables gain"
 msgstr "%s KB tablo artığı"
 
-#: ../wp-cleanfix_admin.php:276
-#: ../wp-cleanfix_admin.php:446
+#: ../wp-cleanfix_admin.php:266
+#: ../wp-cleanfix_admin.php:474
 msgid "Database"
 msgstr "Veritabanı"
 
-#: ../wp-cleanfix_admin.php:287
+#: ../wp-cleanfix_admin.php:279
 #, php-format
 msgid "%s unused User Meta"
 msgstr "%s kullanılmayan kullanıcı Meta Bilgisi var."
 
-#: ../wp-cleanfix_admin.php:293
+#: ../wp-cleanfix_admin.php:286
 msgid "User Meta"
 msgstr "Kullanıcı Meta Bilgisi"
 
-#: ../wp-cleanfix_admin.php:304
+#: ../wp-cleanfix_admin.php:298
 #, php-format
 msgid "%s Post Revisions"
 msgstr "%s yazı sürümü var."
 
-#: ../wp-cleanfix_admin.php:310
+#: ../wp-cleanfix_admin.php:305
 #, php-format
 msgid "%s Post in Trash"
 msgstr "%s yazı çöpte."
 
-#: ../wp-cleanfix_admin.php:316
+#: ../wp-cleanfix_admin.php:313
 #, php-format
 msgid "%s unused Post Meta"
 msgstr "%s kullanılmayan yazı Meta bilgisi var."
 
-#: ../wp-cleanfix_admin.php:322
+#: ../wp-cleanfix_admin.php:321
 #, php-format
 msgid "%s unused Tags"
 msgstr "%s kullanılmayan etiket var."
 
-#: ../wp-cleanfix_admin.php:328
+#: ../wp-cleanfix_admin.php:330
 #, php-format
 msgid "%s Posts without author"
 msgstr "%s yazının yazarı yok."
 
-#: ../wp-cleanfix_admin.php:334
+#: ../wp-cleanfix_admin.php:339
 #, php-format
 msgid "%s Pages without author"
 msgstr "%s sayfanın yazarı yok."
 
-#: ../wp-cleanfix_admin.php:340
+#: ../wp-cleanfix_admin.php:348
 #, php-format
 msgid "%s Attachment unlink"
 msgstr "%s bağlantısız ek dosyası (attachment) var."
 
-#: ../wp-cleanfix_admin.php:346
-#: ../wp-cleanfix_admin.php:448
+#: ../wp-cleanfix_admin.php:355
+#: ../wp-cleanfix_admin.php:478
 msgid "Posts"
 msgstr "Yazılar"
 
-#: ../wp-cleanfix_admin.php:357
+#: ../wp-cleanfix_admin.php:368
 #, php-format
 msgid "%s unused Categories"
 msgstr "%s kullanılmayan kategori var."
 
-#: ../wp-cleanfix_admin.php:363
+#: ../wp-cleanfix_admin.php:377
 #, php-format
 msgid "%s terms unlink in taxonomy"
 msgstr "%s terimin bağlantısı bozuk."
 
-#: ../wp-cleanfix_admin.php:369
+#: ../wp-cleanfix_admin.php:386
 #, php-format
 msgid "%s taxonomy unlink in term"
 msgstr "%s sınıflandırmanın bağlantısı bozuk."
 
-#: ../wp-cleanfix_admin.php:375
-#: ../wp-cleanfix_admin.php:449
+#: ../wp-cleanfix_admin.php:393
+#: ../wp-cleanfix_admin.php:480
 msgid "Categories"
 msgstr "Kategoriler"
 
-#: ../wp-cleanfix_admin.php:385
+#: ../wp-cleanfix_admin.php:404
 msgid "Go to Repair"
 msgstr "Tamir Et"
 
-#: ../wp-cleanfix_admin.php:387
+#: ../wp-cleanfix_admin.php:407
 msgid "Nothing to Report"
 msgstr "Rapor edilecek bir şey yok."
 
-#: ../wp-cleanfix_admin.php:394
-#: ../wp-cleanfix_admin.php:582
+#: ../wp-cleanfix_admin.php:415
+#: ../wp-cleanfix_admin.php:720
 msgid "Look the new \"CleanFix Tools\" panel for to extend Wordpress features: utility, comodity and tools "
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:417
+#: ../wp-cleanfix_admin.php:440
 msgid "CleanFix Tools"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:425
+#: ../wp-cleanfix_admin.php:449
 msgid "Comodity"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:426
+#: ../wp-cleanfix_admin.php:451
 msgid "Extends Editor"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:427
+#: ../wp-cleanfix_admin.php:453
 msgid "Extends Posts"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:445
+#: ../wp-cleanfix_admin.php:472
 msgid "Important informations"
 msgstr "Önemli Bilgiler"
 
-#: ../wp-cleanfix_admin.php:447
+#: ../wp-cleanfix_admin.php:476
 msgid "Users"
 msgstr "Kullanıcılar"
 
-#: ../wp-cleanfix_admin.php:450
+#: ../wp-cleanfix_admin.php:482
 msgid "Comments"
 msgstr "Yorumlar"
 
-#: ../wp-cleanfix_admin.php:494
-#: ../wp-cleanfix_admin.php:564
+#: ../wp-cleanfix_admin.php:527
+#: ../wp-cleanfix_admin.php:593
 msgid "Your settings have been saved."
 msgstr "Seçenekleriniz kaydedildi."
 
-#: ../wp-cleanfix_admin.php:508
-#: ../wp-cleanfix_admin.php:578
-#: ../wp-cleanfix_admin.php:658
-msgid "For more info and plugins visit"
-msgstr "Ayrıntılı bilgi ve başka eklentiler için:"
-
-#: ../wp-cleanfix_admin.php:629
+#: ../wp-cleanfix_admin.php:654
+#: ../wp-cleanfix_admin.php:655
 #: ../module/database_view.php:16
 msgid "Refresh"
 msgstr "Yenile"
 
-#: ../wp-cleanfix_admin.php:640
+#: ../wp-cleanfix_admin.php:668
+#: ../wp-cleanfix_admin.php:669
 msgid "Refresh All"
 msgstr "Tümünü Yenile"
 
-#: ../wp-cleanfix_admin.php:670
+#: ../wp-cleanfix_admin.php:689
+#: ../wp-cleanfix_admin.php:714
+msgid "For more info and plugins visit"
+msgstr "Ayrıntılı bilgi ve başka eklentiler için:"
+
+#: ../wp-cleanfix_admin.php:702
 msgid "Settings"
 msgstr "Ayarlar"
+
+#: ../wp-cleanfix_admin.php:714
+msgid "This software is free. You don't need to donate money to supporting it. Just talk about it."
+msgstr ""
 
 #: ../module/category.php:40
 #: ../module/category.php:88
@@ -228,14 +233,12 @@ msgstr "%s sınıflandırma silindi."
 #: ../module/category_view.php:17
 #: ../module/comments_view.php:16
 #: ../module/database_view.php:17
-#: ../module/posts_view.php:17
 msgid "Action"
 msgstr "Eylem"
 
 #: ../module/category_view.php:18
 #: ../module/comments_view.php:17
 #: ../module/database_view.php:18
-#: ../module/posts_view.php:18
 msgid "Status"
 msgstr "Durum"
 
@@ -308,7 +311,6 @@ msgid "SPAM Comments"
 msgstr "SPAM Yorumlar"
 
 #: ../module/comments_view.php:65
-#: ../module/posts_view.php:108
 msgid "Tools"
 msgstr "Araçlar"
 
@@ -409,6 +411,10 @@ msgstr "Yazısız ek dosyaları (attachment)"
 #: ../module/posts_view.php:110
 msgid "Post Content"
 msgstr "Yazı İçeriği"
+
+#: ../module/tools_comodity_view.php:22
+msgid "Admin Bar"
+msgstr ""
 
 #: ../module/tools_comodity_view.php:25
 msgid "Show"
