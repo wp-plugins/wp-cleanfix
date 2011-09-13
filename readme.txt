@@ -317,9 +317,9 @@ Yes, just edit .POT file in `localization` folder
 
 == Who's using WP CleanFix? ==
 
- * [Elio e le Storie Tese](http://www.elioelestorietese.it "Elio e le Storie Tese")
- * [Artribune](http://www.artribune.com/ "Artribune")
- * [Undolog](http://www.undolog.com "Undolog")
- * [Saidmade](http://en.saidmade.com "Saidmade")
+* [Elio e le Storie Tese](http://www.elioelestorietese.it "Elio e le Storie Tese")
+* [Artribune](http://www.artribune.com/ "Artribune")
+* [Undolog](http://www.undolog.com "Undolog")
+* [Saidmade](http://en.saidmade.com "Saidmade")
 
 Aren't you in this list? Please, [let me know your Wordpress site url](mailto:g.fazioli@saidmade.com "let me know your Wordpress site url")
