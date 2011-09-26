@@ -49,7 +49,7 @@ class WPCLEANFIX_POSTS {
                 <?php endif; ?>
             <?php endif;
         } else {
-			return ($revisions);
+			return intval($revisions);
 		}
     }
     // Remove
@@ -59,6 +59,50 @@ class WPCLEANFIX_POSTS {
 		$sql = "DELETE a,b,c FROM `$wpdb->posts` a LEFT JOIN `$wpdb->term_relationships` b ON (a.ID = b.object_id) LEFT JOIN `$wpdb->postmeta` c ON (a.ID = c.post_id) WHERE a.post_type = 'revision'";
 		$mes = $wpdb->query($sql);
 		$this->checkRevisions( $mes );
+	}
+
+	/**
+	 * Check Auto Draft
+	 * 
+	 * @param null $mes
+	 * @param bool $echo
+	 * @return
+	 */
+	function checkAutodraft($mes = null, $echo = true) {
+		global $wpdb;
+
+		$sql = "SELECT COUNT(*) FROM `$wpdb->posts` WHERE post_status = 'auto-draft'";
+        $autodraft = $wpdb->get_var( $sql );
+        if($echo) {
+            if(intval($autodraft) > 0) : ?>
+                <span class="wpcleanfix-warning"><?php echo $autodraft ?></span>
+                <select>
+                <?php
+                    $sql = "SELECT DISTINCT( COUNT(*) ) AS numero, ID, post_title FROM `$wpdb->posts` WHERE post_status = 'auto-draft' GROUP BY post_title";
+                    $res = $wpdb->get_results($sql);
+                    foreach($res as $post) : ?>
+                    <option><?php echo $post->post_title ?> (<?php echo $post->numero ?>)</option>
+                    <?php endforeach; ?>
+                </select>
+                <button id="buttonPostsRemoveAutodraft"><?php _e('Erase!', 'wp-cleanfix') ?></button>
+            <?php else : ?>
+                <?php if(is_null($mes)) : ?>
+                    <span class="wpcleanfix-ok"><?php _e('None','wp-cleanfix'); ?></span>
+                <?php else : ?>
+                    <span class="wpcleanfix-cleaned"><?php printf( __('%s Rows erased','wp-cleanfix'), $mes ); ?></span>
+                <?php endif; ?>
+            <?php endif;
+        } else {
+			return intval($autodraft);
+		}
+	}
+	// Remove
+	function removeAutodraft() {
+		global $wpdb;
+
+		$sql = "DELETE FROM `$wpdb->posts` WHERE post_status = 'auto-draft'";
+		$mes = $wpdb->query($sql);
+		$this->checkAutodraft( $mes );
 	}
 
 	/**
@@ -92,7 +136,7 @@ class WPCLEANFIX_POSTS {
                 <?php endif; ?>
             <?php endif;
         } else {
-			return ($trash);
+			return intval($trash);
 		}
     }
     // Remove
@@ -103,6 +147,48 @@ class WPCLEANFIX_POSTS {
 		$mes = $wpdb->query($sql);
 		$this->checkTrash( $mes );
 	}
+
+	/**
+	 * Check for Edit Lock meta
+	 *
+	 * @param null $mes
+	 * @param bool $echo
+	 * @return
+	 */
+	function checkPostMetaEditLock($mes = null, $echo = true) {
+		global $wpdb;
+
+        $sql = "SELECT * FROM `$wpdb->postmeta` pm LEFT JOIN `$wpdb->posts` wp ON wp.ID = pm.post_id WHERE wp.ID IS NOT NULL AND pm.meta_key = '_edit_lock'";
+        $res = $wpdb->get_results($sql);
+
+        if($echo) {
+            if(count($res) > 0 ) : ?>
+                <span class="wpcleanfix-warning"><?php echo count($res) ?></span> <select>
+            <?php
+                foreach($res as $row) : ?>
+                    <option><?php echo $row->post_title ?></option>
+                <?php endforeach; ?>
+            ?></select> <button id="buttonPostsRemoveMetaEditLock"><?php _e('Erase!', 'wp-cleanfix') ?></button>
+            <?php else : ?>
+                <?php if(is_null($mes)) : ?>
+                    <span class="wpcleanfix-ok"><?php _e('None','wp-cleanfix'); ?></span>
+                <?php else : ?>
+                    <span class="wpcleanfix-cleaned"><?php printf( __('%s Rows erased','wp-cleanfix'), $mes ); ?></span>
+                <?php endif; ?>
+            <?php endif;
+        } else {
+            return ($res);
+        }
+	}
+	// Remove
+    function removePostMetaEditLock() {
+        global $wpdb;
+
+        $sql = "DELETE pm FROM `$wpdb->postmeta` pm LEFT JOIN `$wpdb->posts` wp ON wp.ID = pm.post_id WHERE wp.ID IS NOT NULL AND (pm.meta_key = '_edit_lock' OR pm.meta_key = '_edit_last')";
+        $mes = $wpdb->query( $sql );
+        $this->checkPostMetaEditLock( $mes );
+    }
+
 
     /**
      * Controlla la presenza di Post Meta non utilizzati
@@ -134,7 +220,7 @@ class WPCLEANFIX_POSTS {
                 <?php endif; ?>
             <?php endif;    
         } else {
-            return ( $res );
+            return ($res);
         }
     }
     // Remove

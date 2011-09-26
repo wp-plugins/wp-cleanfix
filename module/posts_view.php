@@ -32,6 +32,18 @@
             </td>
         </tr>
 
+		<tr>
+            <td><?php $this->button_refresh('buttonPostAutodraftRefresh') ?></td>
+            <td>
+                <strong><?php _e('Auto Draft', 'wp-cleanfix') ?></strong>
+            </td>
+            <td>
+                <div id="posts-autodraft">
+                    <?php $WPCLEANFIX_POSTS->checkAutodraft(); ?>
+                </div>
+            </td>
+        </tr>
+
         <tr>
             <td><?php $this->button_refresh('buttonPostTrashRefresh') ?></td>
             <td>
@@ -52,6 +64,18 @@
             <td>
                 <div id="posts-meta">
                     <?php $WPCLEANFIX_POSTS->checkPostMeta(); ?>
+                </div>
+            </td>
+        </tr>
+
+		<tr>
+            <td><?php $this->button_refresh('buttonPostMetaEditLockRefresh') ?></td>
+            <td>
+                <strong><?php _e('Post Meta Edit Lock', 'wp-cleanfix') ?></strong>
+            </td>
+            <td>
+                <div id="posts-editlock">
+                    <?php $WPCLEANFIX_POSTS->checkPostMetaEditLock(); ?>
                 </div>
             </td>
         </tr>

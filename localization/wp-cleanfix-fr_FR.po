@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP CleanFix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-13 22:35+0100\n"
-"PO-Revision-Date: 2011-09-13 22:35+0100\n"
+"POT-Creation-Date: 2011-09-26 15:02+0100\n"
+"PO-Revision-Date: 2011-09-26 15:02+0100\n"
 "Last-Translator: Valentin Brandt <nitraxer@gmail.com>\n"
 "Language-Team: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "MIME-Version: 1.0\n"
@@ -32,153 +32,163 @@ msgstr "Désolé ! Soyez patient. Ce n'est pas encore implémenté dans cette ve
 msgid "WP CleanFix - Summary Report"
 msgstr "WordPress CleanFix - Informations importantes !"
 
-#: ../wp-cleanfix_admin.php:260
+#: ../wp-cleanfix_admin.php:236
 #, php-format
 msgid "%s Kb tables gain"
 msgstr "%s "
 
-#: ../wp-cleanfix_admin.php:266
-#: ../wp-cleanfix_admin.php:474
+#: ../wp-cleanfix_admin.php:242
+#: ../wp-cleanfix_admin.php:467
 msgid "Database"
 msgstr "Base de données"
 
-#: ../wp-cleanfix_admin.php:279
+#: ../wp-cleanfix_admin.php:255
 #, php-format
 msgid "%s unused User Meta"
 msgstr "%s informations d'utilisateurs inutilisées :"
 
-#: ../wp-cleanfix_admin.php:286
+#: ../wp-cleanfix_admin.php:262
 msgid "User Meta"
 msgstr "Informations d'utilisateurs"
 
-#: ../wp-cleanfix_admin.php:298
+#: ../wp-cleanfix_admin.php:274
 #, php-format
 msgid "%s Post Revisions"
 msgstr "%s Brouillons d'articles"
 
-#: ../wp-cleanfix_admin.php:305
+#: ../wp-cleanfix_admin.php:281
+#, php-format
+msgid "%s Auto Draft"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:288
 #, php-format
 msgid "%s Post in Trash"
 msgstr "%s articles dans votre corbeille"
 
-#: ../wp-cleanfix_admin.php:313
+#: ../wp-cleanfix_admin.php:296
 #, php-format
 msgid "%s unused Post Meta"
 msgstr "%s informations d'articles inutilisées :"
 
-#: ../wp-cleanfix_admin.php:321
+#: ../wp-cleanfix_admin.php:305
+#, php-format
+msgid "%s Post Meta Edit Lock"
+msgstr ""
+
+#: ../wp-cleanfix_admin.php:313
 #, php-format
 msgid "%s unused Tags"
 msgstr "%s informations de mots-clefs inutilisées :"
 
-#: ../wp-cleanfix_admin.php:330
+#: ../wp-cleanfix_admin.php:322
 #, php-format
 msgid "%s Posts without author"
 msgstr "%s articles sans auteur"
 
-#: ../wp-cleanfix_admin.php:339
+#: ../wp-cleanfix_admin.php:331
 #, php-format
 msgid "%s Pages without author"
 msgstr "%s pages sans auteur"
 
-#: ../wp-cleanfix_admin.php:348
+#: ../wp-cleanfix_admin.php:340
 #, php-format
 msgid "%s Attachment unlink"
 msgstr "%s pièces jointes dissociées"
 
-#: ../wp-cleanfix_admin.php:355
-#: ../wp-cleanfix_admin.php:478
+#: ../wp-cleanfix_admin.php:347
+#: ../wp-cleanfix_admin.php:471
 msgid "Posts"
 msgstr "Articles"
 
-#: ../wp-cleanfix_admin.php:368
+#: ../wp-cleanfix_admin.php:360
 #, php-format
 msgid "%s unused Categories"
 msgstr "%s catégories non utilisées"
 
-#: ../wp-cleanfix_admin.php:377
+#: ../wp-cleanfix_admin.php:369
 #, php-format
 msgid "%s terms unlink in taxonomy"
 msgstr "%s conditions non associées dans les taxinomies"
 
-#: ../wp-cleanfix_admin.php:386
+#: ../wp-cleanfix_admin.php:378
 #, php-format
 msgid "%s taxonomy unlink in term"
 msgstr "%s taxinomies non associées dans les conditions"
 
-#: ../wp-cleanfix_admin.php:393
-#: ../wp-cleanfix_admin.php:480
+#: ../wp-cleanfix_admin.php:385
+#: ../wp-cleanfix_admin.php:473
 msgid "Categories"
 msgstr "Catégories"
 
-#: ../wp-cleanfix_admin.php:404
+#: ../wp-cleanfix_admin.php:396
 msgid "Go to Repair"
 msgstr "Démarrer la réparation"
 
-#: ../wp-cleanfix_admin.php:407
+#: ../wp-cleanfix_admin.php:399
 msgid "Nothing to Report"
 msgstr "Rien à raporter"
 
-#: ../wp-cleanfix_admin.php:415
-#: ../wp-cleanfix_admin.php:720
+#: ../wp-cleanfix_admin.php:407
+#: ../wp-cleanfix_admin.php:713
 msgid "Look the new \"CleanFix Tools\" panel for to extend Wordpress features: utility, comodity and tools "
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:440
+#: ../wp-cleanfix_admin.php:433
 msgid "CleanFix Tools"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:449
+#: ../wp-cleanfix_admin.php:442
 msgid "Comodity"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:451
+#: ../wp-cleanfix_admin.php:444
 msgid "Extends Editor"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:453
+#: ../wp-cleanfix_admin.php:446
 msgid "Extends Posts"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:472
+#: ../wp-cleanfix_admin.php:465
 msgid "Important informations"
 msgstr "Informations importantes"
 
-#: ../wp-cleanfix_admin.php:476
+#: ../wp-cleanfix_admin.php:469
 msgid "Users"
 msgstr "Utilisateurs"
 
-#: ../wp-cleanfix_admin.php:482
+#: ../wp-cleanfix_admin.php:475
 msgid "Comments"
 msgstr "Commentaires"
 
-#: ../wp-cleanfix_admin.php:527
-#: ../wp-cleanfix_admin.php:593
+#: ../wp-cleanfix_admin.php:520
+#: ../wp-cleanfix_admin.php:586
 msgid "Your settings have been saved."
 msgstr "Vos paramètres ont été enregistrés."
 
-#: ../wp-cleanfix_admin.php:654
-#: ../wp-cleanfix_admin.php:655
+#: ../wp-cleanfix_admin.php:647
+#: ../wp-cleanfix_admin.php:648
 #: ../module/database_view.php:16
 msgid "Refresh"
 msgstr "Actualiser"
 
-#: ../wp-cleanfix_admin.php:668
-#: ../wp-cleanfix_admin.php:669
+#: ../wp-cleanfix_admin.php:661
+#: ../wp-cleanfix_admin.php:662
 msgid "Refresh All"
 msgstr "Tout actualiser"
 
-#: ../wp-cleanfix_admin.php:689
-#: ../wp-cleanfix_admin.php:714
+#: ../wp-cleanfix_admin.php:682
+#: ../wp-cleanfix_admin.php:707
 msgid "For more info and plugins visit"
 msgstr "Pour plus d'informations et d'extensions visitez"
 
-#: ../wp-cleanfix_admin.php:702
+#: ../wp-cleanfix_admin.php:695
 msgid "Settings"
 msgstr "Paramètres"
 
-#: ../wp-cleanfix_admin.php:714
-msgid "This software is free. You don't need to donate money to supporting it. Just talk about it."
+#: ../wp-cleanfix_admin.php:707
+msgid "This software is free. You don't need to donate money to support it. Just talk about it."
 msgstr ""
 
 #: ../module/category.php:40
@@ -187,11 +197,6 @@ msgstr ""
 #: ../module/comments.php:40
 #: ../module/comments.php:80
 #: ../module/comments.php:120
-#: ../module/posts.php:43
-#: ../module/posts.php:86
-#: ../module/posts.php:128
-#: ../module/posts.php:210
-#: ../module/posts.php:276
 msgid "Erase!"
 msgstr "Supprimer !"
 
@@ -202,12 +207,6 @@ msgstr "Supprimer !"
 #: ../module/comments.php:83
 #: ../module/comments.php:123
 #: ../module/database.php:95
-#: ../module/posts.php:46
-#: ../module/posts.php:89
-#: ../module/posts.php:131
-#: ../module/posts.php:175
-#: ../module/posts.php:233
-#: ../module/posts.php:279
 msgid "None"
 msgstr "Aucun"
 
@@ -278,23 +277,19 @@ msgid "%s Comments erased"
 msgstr "%s commentaires effacés"
 
 #: ../module/comments.php:153
-#: ../module/posts.php:309
 #, php-format
 msgid "%s - found and replaced - "
 msgstr "%s - trouvés et remplacés"
 
 #: ../module/comments.php:155
-#: ../module/posts.php:311
 msgid "Find:"
 msgstr "Trouver:"
 
 #: ../module/comments.php:155
-#: ../module/posts.php:314
 msgid "and replace with:"
 msgstr "et remplacer avec:"
 
 #: ../module/comments.php:155
-#: ../module/posts.php:315
 msgid "Find/Replace"
 msgstr "Trouver/Remplacer"
 
@@ -346,36 +341,38 @@ msgid "WARNING! SOME ACTIONS CAN POTENTIALLY COMPROMISE THE INTEGRITY OF YOUR DA
 msgstr "ATTENTION! CES ACTIONS SONT POTENTIELLEMENT DANGEREUSE POUR VOTRE BLOG ! S'IL VOUS PLAÎT FAITES DES SAUVEGARDES DE VOTRE BASE DE DONNÉES AVANT D'EXÉCUTER DES OPÉRATIONS. TOUTES LES DONNÉES SÉLECTIONNÉES SERONT SUPPRIMÉES, C'EST IRRÉVERSIBLE !"
 
 #: ../module/posts.php:48
-#: ../module/posts.php:91
-#: ../module/posts.php:133
-#: ../module/posts.php:177
+#: ../module/posts.php:92
+#: ../module/posts.php:135
+#: ../module/posts.php:176
+#: ../module/posts.php:219
+#: ../module/posts.php:263
 #, php-format
 msgid "%s Rows erased"
 msgstr "%s lignes effacées"
 
-#: ../module/posts.php:172
+#: ../module/posts.php:258
 msgid "Erased!"
 msgstr "Effacez !"
 
-#: ../module/posts.php:221
+#: ../module/posts.php:307
 msgid "Or link to: "
 msgstr "Ou lier à "
 
-#: ../module/posts.php:230
+#: ../module/posts.php:316
 msgid "Link"
 msgstr "Liens"
 
-#: ../module/posts.php:249
+#: ../module/posts.php:335
 #, php-format
 msgid "%s Posts relinked"
 msgstr "%s articles lier"
 
-#: ../module/posts.php:257
+#: ../module/posts.php:343
 #, php-format
 msgid "%s Posts erased"
 msgstr "%s articles effacés"
 
-#: ../module/posts.php:281
+#: ../module/posts.php:367
 #, php-format
 msgid "%s Attachments erased"
 msgstr "%s pièces jointes effacées"
@@ -385,30 +382,39 @@ msgid "Revisions"
 msgstr "Brouillon"
 
 #: ../module/posts_view.php:38
+msgid "Auto Draft"
+msgstr ""
+
+#: ../module/posts_view.php:50
 msgid "Trash"
 msgstr "Corbeille"
 
-#: ../module/posts_view.php:50
+#: ../module/posts_view.php:62
 msgid "Post Meta"
 msgstr "Données d'articles"
 
-#: ../module/posts_view.php:62
+#: ../module/posts_view.php:74
+#, fuzzy
+msgid "Post Meta Edit Lock"
+msgstr "Données d'articles"
+
+#: ../module/posts_view.php:86
 msgid "Tags"
 msgstr "Mots-clefs"
 
-#: ../module/posts_view.php:74
+#: ../module/posts_view.php:98
 msgid "Posts without author"
 msgstr "Articles sans auteur"
 
-#: ../module/posts_view.php:86
+#: ../module/posts_view.php:110
 msgid "Pages without author"
 msgstr "Page sans auteur"
 
-#: ../module/posts_view.php:98
+#: ../module/posts_view.php:122
 msgid "Attachment without Post"
 msgstr "%s pièces jointes sans articles"
 
-#: ../module/posts_view.php:110
+#: ../module/posts_view.php:134
 msgid "Post Content"
 msgstr "Contenu de l'article"
 

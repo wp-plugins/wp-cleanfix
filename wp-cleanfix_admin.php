@@ -210,31 +210,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 	}
 
 	function countRepair() {
-		global $WPCLEANFIX_USERMETA;
-		global $WPCLEANFIX_POSTS;
-		global $WPCLEANFIX_CATEGORY;
-
-		$tot = 0;
-
-		$check = $WPCLEANFIX_USERMETA->checkUserMeta(null, false);
-
-		$tot += count($check);
-
-		$tot += $WPCLEANFIX_POSTS->checkRevisions(null, false);
-		$tot += $WPCLEANFIX_POSTS->checkTrash(null, false);
-		$tot += count($WPCLEANFIX_POSTS->checkPostMeta(null, false));
-		$tot += count($WPCLEANFIX_POSTS->checkTags(null, false));
-		$tot += count($WPCLEANFIX_POSTS->checkPostsUsers(null, false));
-		$tot += count($WPCLEANFIX_POSTS->checkPostsUsers(null, false, 'page'));
-		$tot += count($WPCLEANFIX_POSTS->checkAttachment(null, false, 'page'));
-
-		$tot += count($WPCLEANFIX_CATEGORY->checkCategory(null, false));
-		$tot += count($WPCLEANFIX_CATEGORY->checkTermInTaxonomy(null, false));
-		$tot += count($WPCLEANFIX_CATEGORY->checkTaxonomyInTerm(null, false));
-
-		$this->options['toRepair'] = $tot;
-		update_option($this->options_key, $this->options);
-
+		require_once('module/badge.inc.php');
 		return $tot;
 	}
 
@@ -299,6 +275,13 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		<?php endif; ?>
 
 	<?php
+		$check = $WPCLEANFIX_POSTS->checkAutodraft(null, false);
+		if ($check > 0) : $almost_one = 3;
+			$tot += $check ?>
+		<p><span class="wpcleanfix-warning"><?php printf(__('%s Auto Draft', 'wp-cleanfix'), $check) ?></span></p>
+		<?php endif; ?>
+
+	<?php
 		 $check = $WPCLEANFIX_POSTS->checkTrash(null, false);
 		if ($check > 0) : $almost_one = 3;
 			$tot += $check ?>
@@ -311,6 +294,15 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 			$tot += count($check) ?>
 		<p><span
 				class="wpcleanfix-warning"><?php printf(__('%s unused Post Meta', 'wp-cleanfix'), count($check)) ?></span>
+		</p>
+		<?php endif; ?>
+
+	<?php
+		 $check = $WPCLEANFIX_POSTS->checkPostMetaEditLock(null, false);
+		if (count($check) > 0) : $almost_one = 3;
+			$tot += count($check) ?>
+		<p><span
+				class="wpcleanfix-warning"><?php printf(__('%s Post Meta Edit Lock', 'wp-cleanfix'), count($check)) ?></span>
 		</p>
 		<?php endif; ?>
 
@@ -411,7 +403,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		update_option($this->options_key, $this->options);
 		?>
 	<p class="wp-cleanfix-copy" style="border-top:1px solid #aaa;padding-top:4px">&copy;copyright <a
-			href="http://www.saidmade.com">saidmade srl</a></p>
+			href="http://www.saidmade.com">saidmade srl</a><br/><strong><?php _e('This software is free. You don\'t need to donate money to support it. Just talk about it.', 'wp-cleanfix') ?></strong></p>
 	<p style="border-top:1px solid #aaa;padding-top:4px;line-height:22px;font-size:12px;font-weight:bold"><?php _e('Look the new "CleanFix Tools" panel for to extend Wordpress features: utility, comodity and tools ', 'wp-cleanfix') ?>
 		<a class="button-primary" href="<?php bloginfo('wpurl') ?>/wp-admin/index.php?page=wp-cleanfixtools">CleanFix
 			Tools</a></p>
@@ -426,7 +418,8 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 	 *
 	 */
 	function plugin_setup() {
-		$tot = $this->countRepair();
+		$this->options['toRepair'] = $this->countRepair();
+		update_option($this->options_key, $this->options);
 		$itemTitle = $this->plugin_name;
 		if ($this->options['toRepair'] != 0) {
 			$itemTitle = sprintf('%s <span id="wpcleanfix_badge"><span class="update-plugins count-%d"><span class="update-count">%d</span></span></span>', $this->plugin_name, $this->options['toRepair'], $this->options['toRepair']);
@@ -711,7 +704,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 	 */
 	function saidmadeHeader($bottom = false) {
 		?><div class="wp_cleanfix_box">
-			<p class="wp_cleanfix_copy_info"><strong><?php _e('This software is free. You don\'t need to donate money to supporting it. Just talk about it.', 'wp-cleanfix') ?></strong><br/><?php _e('For more info and plugins visit', 'wp-cleanfix') ?> <a
+			<p class="wp_cleanfix_copy_info"><strong><?php _e('This software is free. You don\'t need to donate money to support it. Just talk about it.', 'wp-cleanfix') ?></strong><br/><?php _e('For more info and plugins visit', 'wp-cleanfix') ?> <a
 					href="http://en.saidmade.com">Saidmade</a></p>
 			<a class="wp_cleanfix_logo" href="http://en.saidmade.com/products/wordpress/wp-cleanfix/">
 				<?php echo $this->plugin_name ?> ver. <?php echo $this->version ?>

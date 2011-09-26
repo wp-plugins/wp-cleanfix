@@ -4,13 +4,13 @@ Donate link: http://en.saidmade.com/products/wordpress/wp-cleanfix/
 Tags: Database, Post, Page, Categories, Post Meta, Revision, Comments, Compress, Improvements, Manage, Clean, Repair, Optimize, Fix, Tools, Utility
 Requires at least: 2.9.1
 Tested up to: 3.1.2
-Stable tag: 2.2.2
+Stable tag: 2.3
 
 WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
 
 == Description ==
 
-WP CleanFix is a management tool for for check, repair, fix and optimize your Wordpress blog. The Ajax interface allow to manage all status in one only page! Remember: This software is free. You don't need to donate money to supporting it. Just talk about it.
+WP CleanFix is a management tool for for check, repair, fix and optimize your Wordpress blog. The Ajax interface allow to manage all status in one only page! Remember: This software is free. You don't need to donate money to support it. Just talk about it.
 
 **FEATURES**
 
@@ -20,6 +20,8 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 * Database Tables optimization
 * Check/Remove for unused UserMeta
 * Check/Remove for Post Revision and Trash
+* Check/Remove Auto Draft Posts
+* Check/Remove Edit Post Lock
 * Check/Remove for unused Post Meta
 * Check/Remove for unused Tags
 * Check/Remove/Relink for Posts without Authors
@@ -37,7 +39,11 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 
 **RELEASE NOTE**
 
-* Optimized css rules
+= 2.3 =
+* Added Check & Remove Auto Draft Posts
+* Added Check & Remove Edit Post Lock
+* Fixed 'freeze' badge on page refresh
+* Minor improvements
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
@@ -45,13 +51,13 @@ See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "Chan
 
 Check Dashboard
 
-= Related Links =
+== Related Links ==
 
 * [Author's Company](http://www.saidmade.com/ "Saidmade")
 * [Author's Company - english version](http://en.saidmade.com/ "Saidmade")
 * [Author's Personal Blog](http://www.undolog.com/ "Undolog")
 
-For more information on the roadmap for future improvements please e-mail: g.fazioli@saidmade.com
+For more information on the roadmap and the next improvements, please send an e-mail to: [g.fazioli@saidmade.com](mailto:g.fazioli@saidmade.com "g.fazioli@saidmade.com")
 
 == Screenshots ==
 
@@ -61,6 +67,12 @@ For more information on the roadmap for future improvements please e-mail: g.faz
 4. One column version, with only 3 panels
 
 == Changelog ==
+
+= 2.3 =
+* Added Check & Remove Auto Draft Posts
+* Added Check & Remove Edit Post Lock
+* Fixed 'freeze' badge on page refresh
+* Minor improvements
 
 = 2.2.2 =
 * Optimized css rules

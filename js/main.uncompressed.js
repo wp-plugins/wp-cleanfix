@@ -132,8 +132,10 @@ jQuery(document).ready(function($) {
 	// -----------------------------------------------------------------------------------------------------------------
     wp_cleanfix_refresh_all('buttonPostsRefreshAll',
         ['buttonPostRevisionRefresh',
+		  'buttonPostAutodraftRefresh',
           'buttonPostTrashRefresh',
           'buttonPostMetaRefresh',
+          'buttonPostMetaEditLockRefresh',
           'buttonPostTagsRefresh',
           'buttonPostsUsersRefresh',
           'buttonPagesUsersRefresh',
@@ -142,6 +144,12 @@ jQuery(document).ready(function($) {
 
 	// -----------------------------------------------------------------------------------------------------------------
     // Post Revision
+	// -----------------------------------------------------------------------------------------------------------------
+    wp_cleanfix_ajax_command('buttonPostsRemoveAutodraft', '$WPCLEANFIX_POSTS->removeAutodraft();', 'posts-autodraft', true );
+    wp_cleanfix_ajax_command('buttonPostAutodraftRefresh', '$WPCLEANFIX_POSTS->checkAutodraft();', 'posts-autodraft' );
+
+	// -----------------------------------------------------------------------------------------------------------------
+    // Post Autodraft
 	// -----------------------------------------------------------------------------------------------------------------
     wp_cleanfix_ajax_command('buttonPostsRemoveRevision', '$WPCLEANFIX_POSTS->removeRevision();', 'posts-revision', true );
     wp_cleanfix_ajax_command('buttonPostRevisionRefresh', '$WPCLEANFIX_POSTS->checkRevisions();', 'posts-revision' );
@@ -157,6 +165,12 @@ jQuery(document).ready(function($) {
 	// -----------------------------------------------------------------------------------------------------------------
     wp_cleanfix_ajax_command('buttonPostsRemoveMeta', '$WPCLEANFIX_POSTS->removePostMeta();', 'posts-meta', true );
     wp_cleanfix_ajax_command('buttonPostMetaRefresh', '$WPCLEANFIX_POSTS->checkPostMeta();', 'posts-meta' );
+
+	// -----------------------------------------------------------------------------------------------------------------
+    // Post Meta Edit Lock
+	// -----------------------------------------------------------------------------------------------------------------
+    wp_cleanfix_ajax_command('buttonPostsRemoveMetaEditLock', '$WPCLEANFIX_POSTS->removePostMetaEditLock();', 'posts-editlock', true );
+    wp_cleanfix_ajax_command('buttonPostMetaEditLockRefresh', '$WPCLEANFIX_POSTS->checkPostMetaEditLock();', 'posts-editlock' );
 
 	// -----------------------------------------------------------------------------------------------------------------
     // Post Tags
