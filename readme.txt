@@ -45,13 +45,13 @@ See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "Chan
 
 Check Dashboard
 
-= Related Links =
+== Related Links ==
 
 * [Author's Company](http://www.saidmade.com/ "Saidmade")
 * [Author's Company - english version](http://en.saidmade.com/ "Saidmade")
 * [Author's Personal Blog](http://www.undolog.com/ "Undolog")
 
-For more information on the roadmap for future improvements please e-mail: g.fazioli@saidmade.com
+For more information on the roadmap and the next improvements, please send an e-mail to: [g.fazioli@saidmade.com](mailto:g.fazioli@saidmade.com "g.fazioli@saidmade.com")
 
 == Screenshots ==
 
