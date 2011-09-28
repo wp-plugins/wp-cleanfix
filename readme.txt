@@ -35,9 +35,13 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 * Find & Replace on Posts Content
 * Find & Replace on Comments Content
 * Wordpress MU compatibility
-* English, French, German, Turkish and Italian Localization
+* English, French, German, Turkish, Hungarian and Italian Localization
 
 **RELEASE NOTE**
+
+= 2.3.1 =
+* Added Hungarian localization (Győző Farkas alias FYGureout <webmester@wordpress2you.com>)
+* Minor improvements
 
 = 2.3 =
 * Added Check & Remove Auto Draft Posts
@@ -67,6 +71,10 @@ For more information on the roadmap and the next improvements, please send an e-
 4. One column version, with only 3 panels
 
 == Changelog ==
+
+= 2.3.1 =
+* Added Hungarian localization (Győző Farkas alias FYGureout <webmester@wordpress2you.com>)
+* Minor improvements
 
 = 2.3 =
 * Added Check & Remove Auto Draft Posts
@@ -316,6 +324,7 @@ Please download and support :)
 * [Valentin B](http://geekeries.fr/ "Valentin B") (French translation)
 * [rauchmelder](mailto:team@fakten-fiktionen.de "rauchmelder") (German translation)
 * [Baris Unver](mailto:baris.unver@beyn.org "Baris Unver") (Turkish translation)
+* [Győző Farkas alias FYGureout](http://www.wordpress2you.com>) (Hungarian translation)
 
 == Frequently Asked Questions ==
 

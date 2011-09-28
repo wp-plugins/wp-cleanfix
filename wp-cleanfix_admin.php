@@ -127,7 +127,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		 *
 		 * @since 0.1.0
 		 */
-		wp_register_style('wp-cleanfix-style-css', $this->url . "/css/style.css");
+		wp_register_style('wp-cleanfix-style-css', $this->url . '/css/style.css', false, kWPCleanFixVersion);
 
 		$this->countRepair();
 	}
@@ -153,7 +153,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		 *
 		 * @since 2.4.0
 		 */
-		wp_enqueue_script('wp-cleanfix-main-js', $this->url . '/js/main.js', array('jquery'), '1.4', true);
+		wp_enqueue_script('wp-cleanfix-main-js', $this->url . '/js/main.js', array('jquery'), kWPCleanFixVersion, true);
 		wp_localize_script('wp-cleanfix-main-js', 'wpCleanFixJavascriptLocalization', array(
 																			 'ajaxURL' => $this->url_ajax,
 																			 'messageConfirm' => __('Warning!! Are you sure to confirm this operation?', 'wp-cleanfix'),
@@ -179,7 +179,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		 *
 		 * @since 2.0
 		 */
-		wp_enqueue_script('wp-cleanfix-tools-js', $this->url . '/js/tools.js', array('jquery'), '1.4', true);
+		wp_enqueue_script('wp-cleanfix-tools-js', $this->url . '/js/tools.js', array('jquery'), kWPCleanFixVersion, true);
 	}
 
 	/**

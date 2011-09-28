@@ -14,12 +14,10 @@
 define('kWPCleanFixDebug', '0');
 
 // Common
-define('kWPCleanFixVersion', '2.3');
+define('kWPCleanFixVersion', '2.3.1');
 define('kWPCleanFixPluginName', 'WP CleanFix');
 define('kWPCleanFixOptionTitle', kWPCleanFixPluginName);
 define('kWPCleanFixSlugName', 'wp-cleanfix');
-define('kWPCleanFixJQueryVersion', '1.4');
 define('kkWPCleanFixUserCapabilitiy', 'manage_options');
-
 
 ?>

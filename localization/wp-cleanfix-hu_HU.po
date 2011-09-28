@@ -1,0 +1,511 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP CleanFix 2.3 HU\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-26 15:02+0100\n"
+"PO-Revision-Date: 2011-09-28 10:34+0100\n"
+"Last-Translator: FYGureout <webmester@wordpress2you.com>\n"
+"Language-Team: FYGureout <webmester@wordpress2you.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../wp-cleanfix_admin.php:107
+msgid "Cheatin&#8217; uh?"
+msgstr "Csalunk? Ajjajj... :)"
+
+#: ../wp-cleanfix_admin.php:159
+msgid "Warning!! Are you sure to confirm this operation?"
+msgstr "Figyelem! Biztos, hogy végrehajtsuk ezt a műveletet?"
+
+#: ../wp-cleanfix_admin.php:160
+msgid "Sorry! Be patient. Not yet implemented in this beta release"
+msgstr "Elnézést a kellemetlenségért! Ez még nincs beépítve ebbe a verzióba."
+
+#: ../wp-cleanfix_admin.php:207
+msgid "WP CleanFix - Summary Report"
+msgstr "WP CleanFix - Összegzés"
+
+#: ../wp-cleanfix_admin.php:236
+#, php-format
+msgid "%s Kb tables gain"
+msgstr "%s KB tábla-nyereség"
+
+#: ../wp-cleanfix_admin.php:242
+#: ../wp-cleanfix_admin.php:467
+msgid "Database"
+msgstr "Adatbázis"
+
+#: ../wp-cleanfix_admin.php:255
+#, php-format
+msgid "%s unused User Meta"
+msgstr "%s nem használt felhasználói metaadat"
+
+#: ../wp-cleanfix_admin.php:262
+msgid "User Meta"
+msgstr "Felhasználói metaadat"
+
+#: ../wp-cleanfix_admin.php:274
+#, php-format
+msgid "%s Post Revisions"
+msgstr "%s nejegyzés változat"
+
+#: ../wp-cleanfix_admin.php:281
+#, php-format
+msgid "%s Auto Draft"
+msgstr "%s automatikus vázlat"
+
+#: ../wp-cleanfix_admin.php:288
+#, php-format
+msgid "%s Post in Trash"
+msgstr "%s bejegyzés a lomtárban"
+
+#: ../wp-cleanfix_admin.php:296
+#, php-format
+msgid "%s unused Post Meta"
+msgstr "%s nem használt bejegyzés metadata"
+
+#: ../wp-cleanfix_admin.php:305
+#, php-format
+msgid "%s Post Meta Edit Lock"
+msgstr "%s bejegyzés metaadat szerkesztés bezárás"
+
+#: ../wp-cleanfix_admin.php:313
+#, php-format
+msgid "%s unused Tags"
+msgstr "%s nem használt címke"
+
+#: ../wp-cleanfix_admin.php:322
+#, php-format
+msgid "%s Posts without author"
+msgstr "%s bejegyzés szerző nélkül"
+
+#: ../wp-cleanfix_admin.php:331
+#, php-format
+msgid "%s Pages without author"
+msgstr "%s oldal szerző nélkül"
+
+#: ../wp-cleanfix_admin.php:340
+#, php-format
+msgid "%s Attachment unlink"
+msgstr "%s nem hivatkozott csatolmány "
+
+#: ../wp-cleanfix_admin.php:347
+#: ../wp-cleanfix_admin.php:471
+msgid "Posts"
+msgstr "Bejegyzések"
+
+#: ../wp-cleanfix_admin.php:360
+#, php-format
+msgid "%s unused Categories"
+msgstr "%s nem használt kategória"
+
+#: ../wp-cleanfix_admin.php:369
+#, php-format
+msgid "%s terms unlink in taxonomy"
+msgstr "%s kifejezés hivatkozás nélkül a taxonomiában (rendszerezésben)"
+
+#: ../wp-cleanfix_admin.php:378
+#, php-format
+msgid "%s taxonomy unlink in term"
+msgstr "%s rendszertani hivatkozás a kifejezésben"
+
+#: ../wp-cleanfix_admin.php:385
+#: ../wp-cleanfix_admin.php:473
+msgid "Categories"
+msgstr "Kategóriák"
+
+#: ../wp-cleanfix_admin.php:396
+msgid "Go to Repair"
+msgstr "Javítsuk meg!"
+
+#: ../wp-cleanfix_admin.php:399
+msgid "Nothing to Report"
+msgstr "Semmi tennivaló"
+
+#: ../wp-cleanfix_admin.php:407
+#: ../wp-cleanfix_admin.php:713
+msgid "Look the new \"CleanFix Tools\" panel for to extend Wordpress features: utility, comodity and tools "
+msgstr "Nézzük meg az új \"CleanFix Tools\" panelt a bővített WordPress szolgáltatásokhoz; használhatóság, csere és eszközök"
+
+#: ../wp-cleanfix_admin.php:433
+msgid "CleanFix Tools"
+msgstr "CleanFix eszközök"
+
+#: ../wp-cleanfix_admin.php:442
+msgid "Comodity"
+msgstr "Csere"
+
+#: ../wp-cleanfix_admin.php:444
+msgid "Extends Editor"
+msgstr "Szerkesztő bővítése"
+
+#: ../wp-cleanfix_admin.php:446
+msgid "Extends Posts"
+msgstr "Bejegyzések bővítése"
+
+#: ../wp-cleanfix_admin.php:465
+msgid "Important informations"
+msgstr "Fontos információk"
+
+#: ../wp-cleanfix_admin.php:469
+msgid "Users"
+msgstr "Felhasználók"
+
+#: ../wp-cleanfix_admin.php:475
+msgid "Comments"
+msgstr "Hozzászólások"
+
+#: ../wp-cleanfix_admin.php:520
+#: ../wp-cleanfix_admin.php:586
+msgid "Your settings have been saved."
+msgstr "A beállítások elmentve."
+
+#: ../wp-cleanfix_admin.php:647
+#: ../wp-cleanfix_admin.php:648
+#: ../module/database_view.php:16
+msgid "Refresh"
+msgstr "Frissítés"
+
+#: ../wp-cleanfix_admin.php:661
+#: ../wp-cleanfix_admin.php:662
+msgid "Refresh All"
+msgstr "Valamennyi frissítése"
+
+#: ../wp-cleanfix_admin.php:682
+#: ../wp-cleanfix_admin.php:707
+msgid "For more info and plugins visit"
+msgstr "További információk: "
+
+#: ../wp-cleanfix_admin.php:695
+msgid "Settings"
+msgstr "Beállítások"
+
+#: ../wp-cleanfix_admin.php:707
+msgid "This software is free. You don't need to donate money to support it. Just talk about it."
+msgstr "Ez egy ingyenes szoftver. Nem kell a támogatásához pénzt adni, elég meghivatkozni, linkelni.<br /><small>Fordítás: <a href=\"http://www.wordpress2you.com\" target=\"_blank\">FYGureout</a></small>"
+
+#: ../module/category.php:40
+#: ../module/category.php:88
+#: ../module/category.php:124
+#: ../module/comments.php:40
+#: ../module/comments.php:80
+#: ../module/comments.php:120
+msgid "Erase!"
+msgstr "Törlés!"
+
+#: ../module/category.php:43
+#: ../module/category.php:91
+#: ../module/category.php:130
+#: ../module/comments.php:43
+#: ../module/comments.php:83
+#: ../module/comments.php:123
+#: ../module/database.php:95
+msgid "None"
+msgstr "Rendben"
+
+#: ../module/category.php:45
+#, php-format
+msgid "%s Categories erased"
+msgstr "%s kategória törölve"
+
+#: ../module/category.php:64
+msgid "erased external links too"
+msgstr "külső hivatkozások is törölve"
+
+#: ../module/category.php:93
+#, php-format
+msgid "%s Terms erased"
+msgstr "%s kifejezés törölve"
+
+#: ../module/category.php:132
+#, php-format
+msgid "%s Taxonomy erased"
+msgstr "%s taxonómia törölve"
+
+#: ../module/category_view.php:17
+#: ../module/comments_view.php:16
+#: ../module/database_view.php:17
+msgid "Action"
+msgstr "Művelet"
+
+#: ../module/category_view.php:18
+#: ../module/comments_view.php:17
+#: ../module/database_view.php:18
+msgid "Status"
+msgstr "Állapot"
+
+#: ../module/category_view.php:27
+msgid "Unused Categories"
+msgstr "Nem használt kategória"
+
+#: ../module/category_view.php:39
+msgid "Unlink Terms"
+msgstr "Hivatkozás nélküli kifejezés"
+
+#: ../module/category_view.php:51
+msgid "Unlink Taxonomy"
+msgstr "Hivatkozás nélküli taxonómia"
+
+#: ../module/comments.php:36
+#: ../module/comments.php:76
+#: ../module/comments.php:116
+msgid "Quick View"
+msgstr "Gyorsnézet"
+
+#: ../module/comments.php:40
+#: ../module/comments.php:120
+msgid "Check Them"
+msgstr "Ellenőrizzük őket"
+
+#: ../module/comments.php:40
+#: ../module/comments.php:120
+msgid ", or Do you want erase them?"
+msgstr ", vagy inkább töröljük őket?"
+
+#: ../module/comments.php:45
+#: ../module/comments.php:85
+#: ../module/comments.php:125
+#, php-format
+msgid "%s Comments erased"
+msgstr "%s hozzászólás törölve"
+
+#: ../module/comments.php:153
+#, php-format
+msgid "%s - found and replaced - "
+msgstr "%s - fellelve és kicserélve -"
+
+#: ../module/comments.php:155
+msgid "Find:"
+msgstr "Keresés:"
+
+#: ../module/comments.php:155
+msgid "and replace with:"
+msgstr "és kicserél erre:"
+
+#: ../module/comments.php:155
+msgid "Find/Replace"
+msgstr "Keres/Kicserél"
+
+#: ../module/comments_view.php:26
+msgid "Unapproved Comments"
+msgstr "Nem engedélyezett hozzászólások"
+
+#: ../module/comments_view.php:40
+msgid "Comments in Trash"
+msgstr "Hozzászólások a lomtárban"
+
+#: ../module/comments_view.php:54
+msgid "SPAM Comments"
+msgstr "Spam hozzászólás"
+
+#: ../module/comments_view.php:65
+msgid "Tools"
+msgstr "Eszközök"
+
+#: ../module/comments_view.php:67
+msgid "Comment Content"
+msgstr "Hozzászólás tartalom"
+
+#: ../module/database.php:45
+msgid "Internal Error #1: no such DB_NAME setting properly"
+msgstr "1. belső hiba: A DB_NAME beállítások nem helyesek"
+
+#: ../module/database.php:84
+#, php-format
+msgid "%s of %s:"
+msgstr "%s / %s:"
+
+#: ../module/database.php:87
+msgid " if optimized them you gain:"
+msgstr "optimalizálás esetén a nyereség:"
+
+#: ../module/database.php:89
+msgid "Optimize!"
+msgstr "Optimizáljuk!"
+
+#: ../module/database_view.php:27
+msgid "Tables optimize"
+msgstr "Tábla optimalizációja"
+
+#: ../module/info.php:13
+msgid "WARNING! SOME ACTIONS CAN POTENTIALLY COMPROMISE THE INTEGRITY OF YOUR DATABASE. PLEASE BACKUP YOUR DATABASE BEFORE EXECUTING ANY ACTIONS. ALL DELETIONS ARE IRREVERSIBLE!"
+msgstr "FIGYELEM! NÉHÁNY MŰVELET POTENCIÁLISAN VESZÉLYEZTETHETI AZ ADATBÁZIST!<br />BÁRMILYEN ADATBÁZIS-MŰVELET ELVÉGZÉSE ELŐTT MENTÉST KELL KÉSZÍTENI, MERT A TÖRLÉSI MŰVELETEK EREDMÉNYE VISSZAFORDÍTHATATLAN."
+
+#: ../module/posts.php:48
+#: ../module/posts.php:92
+#: ../module/posts.php:135
+#: ../module/posts.php:176
+#: ../module/posts.php:219
+#: ../module/posts.php:263
+#, php-format
+msgid "%s Rows erased"
+msgstr "%s sor törölve!"
+
+#: ../module/posts.php:258
+msgid "Erased!"
+msgstr "Törölve!"
+
+#: ../module/posts.php:307
+msgid "Or link to: "
+msgstr "vagy hivatkozás:"
+
+#: ../module/posts.php:316
+msgid "Link"
+msgstr "Hivatkozás"
+
+#: ../module/posts.php:335
+#, php-format
+msgid "%s Posts relinked"
+msgstr "%s bejegyzés hivatkozása újraépítve"
+
+#: ../module/posts.php:343
+#, php-format
+msgid "%s Posts erased"
+msgstr "%s bejegyzés törölve"
+
+#: ../module/posts.php:367
+#, php-format
+msgid "%s Attachments erased"
+msgstr "%s csatolmány törölve"
+
+#: ../module/posts_view.php:26
+msgid "Revisions"
+msgstr "Előző változatok"
+
+#: ../module/posts_view.php:38
+msgid "Auto Draft"
+msgstr "Automatikus vázlat"
+
+#: ../module/posts_view.php:50
+msgid "Trash"
+msgstr "Lomtár"
+
+#: ../module/posts_view.php:62
+msgid "Post Meta"
+msgstr "Bejegyzés metaadat"
+
+#: ../module/posts_view.php:74
+msgid "Post Meta Edit Lock"
+msgstr "Bejegyzés metaadat szerkesztés lezárás"
+
+#: ../module/posts_view.php:86
+msgid "Tags"
+msgstr "Címke"
+
+#: ../module/posts_view.php:98
+msgid "Posts without author"
+msgstr "Bejegyzés szerző nélkül"
+
+#: ../module/posts_view.php:110
+msgid "Pages without author"
+msgstr "Oldal szerző nélkül"
+
+#: ../module/posts_view.php:122
+msgid "Attachment without Post"
+msgstr "Csatolmány bejegyzés nélkül"
+
+#: ../module/posts_view.php:134
+msgid "Post Content"
+msgstr "Bejegyzés tartalom"
+
+#: ../module/tools_comodity_view.php:22
+msgid "Admin Bar"
+msgstr "Admin sáv"
+
+#: ../module/tools_comodity_view.php:25
+msgid "Show"
+msgstr "Mutat"
+
+#: ../module/tools_comodity_view.php:29
+msgid "Remove"
+msgstr "Eltávolít"
+
+#: ../module/tools_comodity_view.php:33
+msgid "Display bottom"
+msgstr "Mutassa alul"
+
+#: ../module/tools_comodity_view.php:37
+msgid "Add to header:"
+msgstr "Fejrészhez adás:"
+
+#: ../module/tools_comodity_view.php:38
+#: ../module/tools_comodity_view.php:46
+msgid "Clear"
+msgstr "Ürítés"
+
+#: ../module/tools_comodity_view.php:45
+msgid "Add to footer:"
+msgstr "Lábrészhez adás:"
+
+#: ../module/tools_comodity_view.php:54
+#: ../module/tools_editor_view.php:74
+#: ../module/tools_posts_view.php:31
+msgid "Save"
+msgstr "Mentés"
+
+#: ../module/tools_editor_view.php:23
+msgid "Fix HTML editor"
+msgstr "HTML szerkesztő javítása"
+
+#: ../module/tools_editor_view.php:25
+msgid "Font name:"
+msgstr "Betű neve:"
+
+#: ../module/tools_editor_view.php:28
+msgid "(Ex. Monaco, Curier)"
+msgstr "(pl. Monaco, Curier)"
+
+#: ../module/tools_editor_view.php:31
+msgid "Editor's height:"
+msgstr "Szerkesztőfelület magassága:"
+
+#: ../module/tools_editor_view.php:38
+msgid "Text size:"
+msgstr "Szövegméret:"
+
+#: ../module/tools_editor_view.php:45
+msgid "Background color:"
+msgstr "Háttérszín:"
+
+#: ../module/tools_editor_view.php:56
+msgid "Text color:"
+msgstr "Szövegszín:"
+
+#: ../module/tools_editor_view.php:67
+msgid "Extra HTML tags allowed:"
+msgstr "Engedélyezett extra HTML tag-ek:"
+
+#: ../module/tools_posts_view.php:23
+msgid "Limit Excerpt Length"
+msgstr "Kivonat hosszának meghatározása:"
+
+#: ../module/tools_posts_view.php:27
+msgid "Characters"
+msgstr "karakter"
+
+#: ../module/usermeta.php:37
+#, php-format
+msgid "%s User Meta erased"
+msgstr "%s felhasználó metaadat törölve"
+
+#: ../module/usersmeta.php:21
+msgid "unused User Meta:"
+msgstr "Nem használt felhasználói metaadat:"
+
+#: ../module/usersmeta.php:28
+msgid "no unused User Meta"
+msgstr "nincs használaton kívüli felhasználói metaadat"
+
+#: ../module/usersmeta.php:30
+#, php-format
+msgid "%s - User Meta erased"
+msgstr "%s - felhasználói metaadat törölve"
+
