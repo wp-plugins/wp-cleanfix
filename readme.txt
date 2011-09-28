@@ -4,7 +4,7 @@ Donate link: http://en.saidmade.com/products/wordpress/wp-cleanfix/
 Tags: Database, Post, Page, Categories, Post Meta, Revision, Comments, Compress, Improvements, Manage, Clean, Repair, Optimize, Fix, Tools, Utility
 Requires at least: 2.9.1
 Tested up to: 3.1.2
-Stable tag: 2.3
+Stable tag: 2.3.1
 
 WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
 
