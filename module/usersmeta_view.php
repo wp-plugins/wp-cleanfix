@@ -18,6 +18,7 @@ require_once 'usersmeta.php';
             <th scope="col" width="64"><?php _e('Refresh', 'wp-cleanfix') ?></th>
             <th width="200" scope="col"><?php _e('Action', 'wp-cleanfix') ?></th>
             <th scope="col"><?php _e('Status', 'wp-cleanfix') ?></th>
+			<th scope="col"><?php _e('Help/Info', 'wp-cleanfix') ?></th>
         </tr>
     </thead>
 
@@ -33,6 +34,11 @@ require_once 'usersmeta.php';
                     <?php wpcleanfix_show_usersmeta_unlink() ?>
                 </div>
             </td>
+			<td>
+				<div class="wpCleanFixHelper">
+					<span class="wpCleanFixWarning"><?php _e('?', 'wp-cleanfix') ?></span>
+				</div>
+			</td>
         </tr>
 
     </tbody>

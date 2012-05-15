@@ -3,7 +3,7 @@
 Plugin Name: WP CleanFix
 Plugin URI: http://wordpress.org/extend/plugins/wp-cleanfix/
 Description: WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
-Version: 2.3.1
+Version: 2.4
 Author: Giovambattista Fazioli
 Author URI: http://en.saidmade.com
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
@@ -26,18 +26,43 @@ Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
 
 */
 
-require_once('wp-cleanfix_class.php');
+require_once( 'wp-cleanfix_class.php' );
 
-if (@isset($_SERVER['HTTP_X_REQUESTED_WITH']) ) {
-	require_once('wpCleanFixAjax.php');
+add_action( 'admin_init', function() {
+
+    if( get_transient( 'wpxtreme-for-bannerize' ) ) {
+        return;
+    }
+
+    if ( isset( $_POST['wpxtreme_hidden'] ) ) {
+        update_option( 'wpxtreme_cleanfix_hot_news', 2 );
+    }
+
+    $first_time = get_option( 'wpxtreme_cleanfix_hot_news' );
+
+    if ( !$first_time || $first_time == 1 ) {
+
+        set_transient( 'wpxtreme-for-cleanfix', 1, 60 * 1 );
+
+        update_option( 'wpxtreme_cleanfix_hot_news', 1 );
+
+        add_action( 'admin_notices', function() { ?>
+            <script type="text/javascript" src="http://blog.wpxtre.me/widget/?<?php echo time() ?>"></script>
+        <?php
+        } );
+    }
+} );
+
+if ( @isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) ) {
+    require_once( 'wpCleanFixAjax.php' );
 } else {
-	if (is_admin()) {
-		require_once('wp-cleanfix_admin.php');
-		//
-		$wp_cleanfix_admin = new WPCLEANFIX_ADMIN();
-		$wp_cleanfix_admin->register_plugin_settings(__FILE__);
-	}
-	include_once('wp-cleanfix-tools.php');
+    if ( is_admin() ) {
+        require_once( 'wp-cleanfix_admin.php' );
+        //
+        $wp_cleanfix_admin = new WPCLEANFIX_ADMIN();
+        $wp_cleanfix_admin->register_plugin_settings( __FILE__ );
+    }
+    include_once( 'wp-cleanfix-tools.php' );
 }
 
 ?>

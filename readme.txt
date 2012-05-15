@@ -4,13 +4,22 @@ Donate link: http://en.saidmade.com/products/wordpress/wp-cleanfix/
 Tags: Database, Post, Page, Categories, Post Meta, Revision, Comments, Compress, Improvements, Manage, Clean, Repair, Optimize, Fix, Tools, Utility
 Requires at least: 2.9.1
 Tested up to: 3.1.2
-Stable tag: 2.3.1
+Stable tag: 2.4
 
-WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
+WP CleanFix is an all in one tool for check, repair, fix and optimize your WordPress blog.
 
 == Description ==
 
-WP CleanFix is a management tool for for check, repair, fix and optimize your Wordpress blog. The Ajax interface allow to manage all status in one only page! Remember: This software is free. You don't need to donate money to support it. Just talk about it.
+**[HOT NEWS]** WP CleanFix will be part of the new upcoming [wpXtreme](http://www.wpxtre.me "wpXtreme")!
+
+**wpXtreme** is a powerful tool for enhancing your WordPress experience. Downloading one free plugin, you will get:
+
+* a lot of improvements to the WordPress core for free (like a cool backend layout, improved user management, etc)
+* access to the evergrowing wpxPluginStore, where you will be able to download plugins for all your needs
+
+Signup to [wpXtreme](http://www.wpxtre.me "wpXtreme") and win a free licence!
+
+WP CleanFix is a management tool for for check, repair, fix and optimize your WordPress blog. The Ajax interface allow to manage all status in one only page! Remember: This software is free. You don't need to donate money to support it. Just talk about it.
 
 **FEATURES**
 
@@ -34,20 +43,13 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 * Check/Remove for spam comments
 * Find & Replace on Posts Content
 * Find & Replace on Comments Content
-* Wordpress MU compatibility
+* WordPress MU compatibility
 * English, French, German, Turkish, Hungarian and Italian Localization
 
 **RELEASE NOTE**
-
-= 2.3.1 =
-* Added Hungarian localization (Győző Farkas alias FYGureout <webmester@wordpress2you.com>)
-* Minor improvements
-
-= 2.3 =
-* Added Check & Remove Auto Draft Posts
-* Added Check & Remove Edit Post Lock
-* Fixed 'freeze' badge on page refresh
-* Minor improvements
+= 2.4 =
+* Added Help/Info Icon
+* Several improvements
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
@@ -71,6 +73,11 @@ For more information on the roadmap and the next improvements, please send an e-
 4. One column version, with only 3 panels
 
 == Changelog ==
+
+= 2.4 =
+* Added Help/Info Icon
+* Added New Menu/Menu Item
+* Several improvements
 
 = 2.3.1 =
 * Added Hungarian localization (Győző Farkas alias FYGureout <webmester@wordpress2you.com>)
@@ -115,7 +122,7 @@ For more information on the roadmap and the next improvements, please send an e-
 * Added German localization (rauchmelder <team@fakten-fiktionen.de>)
 
 = 1.7.2 =
-* Fixed several "notice" in Wordpress debug mode
+* Fixed several "notice" in WordPress debug mode
 
 = 1.7.1 =
 * Fixed several bugs
@@ -183,7 +190,7 @@ For more information on the roadmap and the next improvements, please send an e-
 * Introducing module class/rev some class
 * Fixed "nowrap" in UI
 * Fixed string length in comment/span preview
-* Fixed undefined function in Wordpress 2.9 previous version
+* Fixed undefined function in WordPress 2.9 previous version
 
 = 1.2.0 =
 * Added Show Post/Page title in Combo Menu for Post Revision/Trash
@@ -309,7 +316,7 @@ Please download and support :)
 1. Upload the entire content of plugin archive to your `/wp-content/plugins/` directory,
    so that everything will remain in a `/wp-content/plugins/wp-cleanfix/` folder
 2. Activate the plugin through the 'Plugins' menu in WordPress (deactivate and reactivate if you're upgrading).
-3. Done. Enjoy. See Wordpress Dashboard
+3. Done. Enjoy. See WordPress Dashboard
 
 
 == Thanks ==
@@ -330,7 +337,7 @@ Please download and support :)
 
 = Is this Plugin Dangerous? =
 
-Could be. Be sure to backup all data from Wordpress database before execute any functions.
+Could be. Be sure to backup all data from WordPress database before execute any functions.
 
 = Can I translate Plugin interface? =
 
@@ -343,4 +350,4 @@ Yes, just edit .POT file in `localization` folder
 * [Undolog](http://www.undolog.com "Undolog")
 * [Saidmade](http://en.saidmade.com "Saidmade")
 
-Aren't you in this list? Please, [let me know your Wordpress site url](mailto:g.fazioli@saidmade.com "let me know your Wordpress site url")
+Aren't you in this list? Please, [let me know your WordPress site url](mailto:g.fazioli@saidmade.com "let me know your WordPress site url")

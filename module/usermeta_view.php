@@ -16,6 +16,7 @@
             <th scope="col" width="64"><?php _e('Refresh', 'wp-cleanfix') ?></th>
             <th scope="col"><?php _e('Action', 'wp-cleanfix') ?></th>
             <th width="100%" scope="col"><?php _e('Status', 'wp-cleanfix') ?></th>
+			<th scope="col"><?php _e('Help/Info', 'wp-cleanfix') ?></th>
         </tr>
     </thead>
 
@@ -31,6 +32,11 @@
                     <?php $WPCLEANFIX_USERMETA->checkUserMeta() ?>
                 </div>
             </td>
+			<td>
+				<div class="wpCleanFixHelper">
+					<span class="wpCleanFixWarning"><?php _e('This function remove unused user meta', 'wp-cleanfix') ?></span>
+				</div>
+			</td>
         </tr>
 
     </tbody>

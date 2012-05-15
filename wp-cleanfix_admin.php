@@ -26,7 +26,8 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		$this->WPCLEANFIX_CLASS();
 
 		// Init
-		$this->init();
+		//$this->init();
+        add_action( 'plugins_loaded', array( $this, 'init' ), 1 );
 	}
 
 	/**
@@ -44,9 +45,9 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 			'wpCleanFixReplaceFontsEditor' => '0', 'wpCleanFixFontEditorName' => 'Monaco',
 			'wpCleanFixEditorHeight' => '500', 'wpCleanFixTextSize' => '14', 'wpCleanFixTextColor' => '888',
 			'wpCleanFixAllowTags' => 'pre[id|name|class|style],iframe[align|longdesc|name|width|height|frameborder|scrolling|marginheight|marginwidth|src]',
-			'wpCleanFixAdminBar' => '0', 'wpCleanFixToolsComodityAddHeader' => '',
+			'wpCleanFixAdminBar' => '0', 'wpCleanFixToolsComodityAddHeader' => '', 'wpCleanFixBackgroundColor' => 0,
 			'wpCleanFixToolsComodityAddFooter' => '', 'wpCleanFixToolsPostsLimitExcerptLength' => '0',
-			'wpCleanFixToolsPostsExcerptLength' => '40'
+			'wpCleanFixActiveDebugger' => '0', 'wpCleanFixToolsPostsExcerptLength' => '40'
 
 		);
 		add_option($this->options_key, $this->options);
@@ -83,6 +84,10 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		 *
 		 */
 		add_action('wp_dashboard_setup', array(&$this, 'add_dashboard_widget'));
+
+		if ($this->options['wpCleanFixActiveDebugger'] == '1') {
+			add_action('wp_dashboard_setup', array(&$this, 'addDashboardDebug'));
+		}
 
 		/**
 		 * Update some changed options
@@ -155,9 +160,9 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		 */
 		wp_enqueue_script('wp-cleanfix-main-js', $this->url . '/js/main.js', array('jquery'), kWPCleanFixVersion, true);
 		wp_localize_script('wp-cleanfix-main-js', 'wpCleanFixJavascriptLocalization', array(
-																			 'ajaxURL' => $this->url_ajax,
-																			 'messageConfirm' => __('Warning!! Are you sure to confirm this operation?', 'wp-cleanfix'),
-																			 'notImplement' => __('Sorry! Be patient. Not yet implemented in this beta release', 'wp-cleanfix')));
+																						   'ajaxURL' => $this->url_ajax,
+																						   'messageConfirm' => __('Warning!! Are you sure to confirm this operation?', 'wp-cleanfix'),
+																						   'notImplement' => __('Sorry! Be patient. Not yet implemented in this beta release', 'wp-cleanfix')));
 	}
 
 	/**
@@ -179,7 +184,8 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		 *
 		 * @since 2.0
 		 */
-		wp_enqueue_script('wp-cleanfix-tools-js', $this->url . '/js/tools.js', array('jquery'), kWPCleanFixVersion, true);
+		wp_enqueue_script('wp-cleanfix-tools-js', $this->url . '/js/tools.js',
+						  array('jquery'), kWPCleanFixVersion, true);
 	}
 
 	/**
@@ -200,18 +206,125 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 	 */
 	function add_dashboard_widget() {
 		// 1.3.3 - Administrator Only
-		if (current_user_can(kkWPCleanFixUserCapabilitiy)) {
+		if (current_user_can(kWPCleanFixUserCapabilitiy)) {
 			add_action('admin_print_scripts', array($this, 'plugin_admin_scripts'));
 			add_action('admin_print_styles', array($this, 'plugin_admin_styles'));
 
-			wp_add_dashboard_widget($this->options_key, __('WP CleanFix - Summary Report', 'wp-cleanfix'),
+			wp_add_dashboard_widget(kWPCleanFixDashboardReportKey, __('WP CleanFix - Summary Report', 'wp-cleanfix'),
 									array(&$this, 'dashboard_widget_function'));
 		}
 	}
 
+	function addDashboardDebug() {
+		// 1.3.3 - Administrator Only
+		if (current_user_can(kWPCleanFixUserCapabilitiy)) {
+			add_action('admin_print_scripts', array($this, 'plugin_admin_scripts'));
+			add_action('admin_print_styles', array($this, 'plugin_admin_styles'));
+
+			if ( (defined('WP_DEBUG') && !WP_DEBUG) ||
+				 (defined('WP_DEBUG_LOG') && !WP_DEBUG_LOG) ||
+				 (defined('WP_DEBUG_DISPLAY') && WP_DEBUG_DISPLAY ) ) {
+				add_action('admin_notices', function() {
+						if (current_user_can('manage_options')) {
+							?><div id="message" class="error"><?php
+						_e('In order to turn on the log file, you must add these "define" in your WordPress wp-config.php file:', 'wp-cleanfix');
+							var_dump(defined('WP_DEBUG_DISPLAY'));
+							?><br/><code>define('WP_DEBUG', true);<br/>define('WP_DEBUG_LOG', true);<br/>
+							define('WP_DEBUG_DISPLAY', false);<br/>
+							ini_set('display_errors', 0);</code></div><?php
+
+						}
+					});
+			}
+
+			wp_add_dashboard_widget(kWPCleanFixDashboardDebuggerKey, __('WP CleanFix - Debug', 'wp-cleanfix'),
+									array(&$this, 'dashboardDebugger'));
+		}
+	}
+
 	function countRepair() {
+		$tot = 0;
 		require_once('module/badge.inc.php');
 		return $tot;
+	}
+
+	function dashboardDebugger() {
+		$logfile = ('../wp-content/debug.log'); // Enter the server path to your logs file here
+		$displayErrorsLimit = 100; // The maximum number of errors to display in the widget
+		$errorLengthLimit = 2300; // The maximum number of characters to display for each error
+		$fileCleared = false;
+		$userCanClearLog = current_user_can('manage_options');
+		// Clear file?
+		if ($userCanClearLog && isset($_GET["system-php-errors"]) && $_GET["system-php-errors"] == "clear") {
+			$handle = fopen($logfile, "w");
+			fclose($handle);
+			$fileCleared = true;
+		}
+		// Read file
+		if (file_exists($logfile)) {
+			$errors = file($logfile);
+			$errors = array_reverse($errors);
+			if ($fileCleared) {
+				echo '<p><em>' . __('File cleared.', 'wp-cleanfix') . '</em></p>';
+			}
+			if ($errors) {
+				if ($errors > 1) {
+					echo '<p>' . count($errors) . ' ' . __('errors found', 'wp-cleanfix');
+				} else {
+					echo '<p>' . count($errors) . ' ' . __('error found', 'wp-cleanfix');
+				}
+				if ($userCanClearLog) {
+					echo' [ <b><a href="' . get_bloginfo('url') .
+						'/wp-admin/?system-php-errors=clear" onclick="return confirm(\'' .
+						__('Are you sure?', 'wp-cleanfix') . '\');">' . __('Clear Log File', 'wp-cleanfix') .
+						'</a></b> ]';
+				}
+				echo '</p>';
+				$filter = '';
+				if (isset($_POST['wpCleanFixFilter']) && $_POST['wpCleanFixFilter'] != '') {
+					$filter = $_POST['wpCleanFixFilter'];
+				}
+				echo '<div id="system-php-errors" style="height:250px;overflow:scroll;padding:2px;background-color:#333;border:1px solid #ccc;">';
+				echo '<ol style="padding:0;margin:0;">';
+				$i = 0;
+				foreach ($errors as $error) {
+					if ($filter != '' && stripos($error, $filter) === false)
+						continue;
+					echo '<li style="padding:2px 4px 6px;border-bottom:1px solid #666;font-family:Monaco;color:#fa0">';
+					$errorOutput = preg_replace('/\[([^\]]+)\]/', '<b>[$1]</b>', $error, 1);
+					if ($filter != '')
+						$errorOutput = str_ireplace($filter,
+													'<span style="color:#fff;font-weight:bold;text-shadow:0 0 2px #fff;margin:0 3px">' .
+													$filter . '</span>', $errorOutput);
+					if (strlen($errorOutput) > $errorLengthLimit) {
+						echo substr($errorOutput, 0, $errorLengthLimit) . ' [...]';
+					} else {
+						echo $errorOutput;
+					}
+					echo '</li>';
+					$i++;
+					if ($i > $displayErrorsLimit) {
+						echo'<li style="padding:2px;border-bottom:2px solid #ccc;"><em>' .
+							__('More than ', 'wp-cleanfix') . ' ' . $displayErrorsLimit . ' ' .
+							__('errors in log...', 'wp-cleanfix') . '</em></li>';
+						break;
+					}
+				}
+				echo '</ol></div>';
+				?>
+			<form style="margin:8px 0 0 0" name="wpCleanFixMonitor" method="post">
+				<input style="width:80%;background:#444;color:#fa0;padding:6px 2px" type="text"
+					   name="wpCleanFixFilter" value="<?php echo $filter ?>"/>
+				<button><?php _e('Filter', 'wp-cleanfix') ?></button>
+			</form>
+				<?php
+
+			} else {
+				echo '<p>' . __('No such errors in log file.', 'wp-cleanfix') . '</p>';
+			}
+		} else {
+			echo '<p><em>' . __('Error while reading the log file.', 'wp-cleanfix') . '</em></p>';
+		}
 	}
 
 	/**
@@ -234,17 +347,17 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		$check = $WPCLEANFIX_DATABASE->checkTables(false);
 		if ($check > 0) : $almost_one = 1 ?>
 		<p><span class="wpcleanfix-warning"><?php printf(__('%s Kb tables gain', 'wp-cleanfix'), $check) ?></span></p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php if ($almost_one == 1) :
+		<?php if ($almost_one == 1) :
 			$o = ob_get_contents();
 			ob_end_clean(); ?>
 		<h4 class="wp-cleanfix-title-dashboard"><?php _e("Database", 'wp-cleanfix') ?></h4>
-		<?php echo $o ?>
-		<?php endif; ?>
+			<?php echo $o ?>
+			<?php endif; ?>
 
-	<?php
- // ---------------------------------------------------------------------
+		<?php
+   // ---------------------------------------------------------------------
 		// User Meta
 		// ---------------------------------------------------------------------
 		ob_start();
@@ -254,17 +367,17 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		<p><span
 				class="wpcleanfix-warning"><?php printf(__('%s unused User Meta', 'wp-cleanfix'), count($check)) ?></span>
 		</p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php if ($almost_one == 2) :
+		<?php if ($almost_one == 2) :
 			$o = ob_get_contents();
 			ob_end_clean(); ?>
 		<h4 class="wp-cleanfix-title-dashboard"><?php _e("User Meta", 'wp-cleanfix') ?></h4>
-		<?php echo $o ?>
-		<?php endif; ?>
+			<?php echo $o ?>
+			<?php endif; ?>
 
-	<?php
- // ---------------------------------------------------------------------
+		<?php
+   // ---------------------------------------------------------------------
 		// Posts
 		// ---------------------------------------------------------------------
 		ob_start();
@@ -272,84 +385,84 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		if ($check > 0) : $almost_one = 3;
 			$tot += $check ?>
 		<p><span class="wpcleanfix-warning"><?php printf(__('%s Post Revisions', 'wp-cleanfix'), $check) ?></span></p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php
-		$check = $WPCLEANFIX_POSTS->checkAutodraft(null, false);
+		<?php
+  		$check = $WPCLEANFIX_POSTS->checkAutodraft(null, false);
 		if ($check > 0) : $almost_one = 3;
 			$tot += $check ?>
 		<p><span class="wpcleanfix-warning"><?php printf(__('%s Auto Draft', 'wp-cleanfix'), $check) ?></span></p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php
-		 $check = $WPCLEANFIX_POSTS->checkTrash(null, false);
+		<?php
+  		 $check = $WPCLEANFIX_POSTS->checkTrash(null, false);
 		if ($check > 0) : $almost_one = 3;
 			$tot += $check ?>
 		<p><span class="wpcleanfix-warning"><?php printf(__('%s Post in Trash', 'wp-cleanfix'), $check) ?></span></p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php
-		 $check = $WPCLEANFIX_POSTS->checkPostMeta(null, false);
+		<?php
+  		 $check = $WPCLEANFIX_POSTS->checkPostMeta(null, false);
 		if (count($check) > 0) : $almost_one = 3;
 			$tot += count($check) ?>
 		<p><span
 				class="wpcleanfix-warning"><?php printf(__('%s unused Post Meta', 'wp-cleanfix'), count($check)) ?></span>
 		</p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php
-		 $check = $WPCLEANFIX_POSTS->checkPostMetaEditLock(null, false);
+		<?php
+  		 $check = $WPCLEANFIX_POSTS->checkPostMetaEditLock(null, false);
 		if (count($check) > 0) : $almost_one = 3;
 			$tot += count($check) ?>
 		<p><span
 				class="wpcleanfix-warning"><?php printf(__('%s Post Meta Edit Lock', 'wp-cleanfix'), count($check)) ?></span>
 		</p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php
-		 $check = $WPCLEANFIX_POSTS->checkTags(null, false);
+		<?php
+  		 $check = $WPCLEANFIX_POSTS->checkTags(null, false);
 		if (count($check) > 0) : $almost_one = 3;
 			$tot += count($check) ?>
 		<p><span class="wpcleanfix-warning"><?php printf(__('%s unused Tags', 'wp-cleanfix'), count($check)) ?></span>
 		</p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php
-		 $check = $WPCLEANFIX_POSTS->checkPostsUsers(null, false);
+		<?php
+  		 $check = $WPCLEANFIX_POSTS->checkPostsUsers(null, false);
 		if (count($check) > 0) : $almost_one = 3;
 			$tot += count($check) ?>
 		<p><span
 				class="wpcleanfix-warning"><?php printf(__('%s Posts without author', 'wp-cleanfix'), count($check)) ?></span>
 		</p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php
-		 $check = $WPCLEANFIX_POSTS->checkPostsUsers(null, false, 'page');
+		<?php
+  		 $check = $WPCLEANFIX_POSTS->checkPostsUsers(null, false, 'page');
 		if (count($check) > 0) : $almost_one = 3;
 			$tot += count($check) ?>
 		<p><span
 				class="wpcleanfix-warning"><?php printf(__('%s Pages without author', 'wp-cleanfix'), count($check)) ?></span>
 		</p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php
-		 $check = $WPCLEANFIX_POSTS->checkAttachment(null, false, 'page');
+		<?php
+  		 $check = $WPCLEANFIX_POSTS->checkAttachment(null, false, 'page');
 		if (count($check) > 0) : $almost_one = 3;
 			$tot += count($check) ?>
 		<p><span
 				class="wpcleanfix-warning"><?php printf(__('%s Attachment unlink', 'wp-cleanfix'), count($check)) ?></span>
 		</p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php if ($almost_one == 3) :
+		<?php if ($almost_one == 3) :
 			$o = ob_get_contents();
 			ob_end_clean(); ?>
 		<h4 class="wp-cleanfix-title-dashboard"><?php _e("Posts", 'wp-cleanfix') ?></h4>
-		<?php echo $o ?>
-		<?php endif; ?>
+			<?php echo $o ?>
+			<?php endif; ?>
 
-	<?php
- // ---------------------------------------------------------------------
+		<?php
+   // ---------------------------------------------------------------------
 		// Category
 		// ---------------------------------------------------------------------
 		ob_start();
@@ -359,55 +472,57 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		<p><span
 				class="wpcleanfix-warning"><?php printf(__('%s unused Categories', 'wp-cleanfix'), count($check)) ?></span>
 		</p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php
-		 $check = $WPCLEANFIX_CATEGORY->checkTermInTaxonomy(null, false);
+		<?php
+  		 $check = $WPCLEANFIX_CATEGORY->checkTermInTaxonomy(null, false);
 		if (count($check) > 0) : $almost_one = 4;
 			$tot += count($check) ?>
 		<p><span
 				class="wpcleanfix-warning"><?php printf(__('%s terms unlink in taxonomy', 'wp-cleanfix'), count($check)) ?></span>
 		</p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php
-		 $check = $WPCLEANFIX_CATEGORY->checkTaxonomyInTerm(null, false);
+		<?php
+  		 $check = $WPCLEANFIX_CATEGORY->checkTaxonomyInTerm(null, false);
 		if (count($check) > 0) : $almost_one = 4;
 			$tot += count($check) ?>
 		<p><span
 				class="wpcleanfix-warning"><?php printf(__('%s taxonomy unlink in term', 'wp-cleanfix'), count($check)) ?></span>
 		</p>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	<?php if ($almost_one == 4) :
+		<?php if ($almost_one == 4) :
 			$o = ob_get_contents();
 			ob_end_clean(); ?>
 		<h4 class="wp-cleanfix-title-dashboard"><?php _e("Categories", 'wp-cleanfix') ?></h4>
-		<?php echo $o ?>
-		<?php endif; ?>
+			<?php echo $o ?>
+			<?php endif; ?>
 
 
-	<?php
- 		// ---------------------------------------------------------------------
+		<?php
+   // ---------------------------------------------------------------------
 		// Report
 		// ---------------------------------------------------------------------
 		if ($almost_one) : ?>
 		<p style="text-align:right"><a class="button rbutton"
-									   href="index.php?page=<?php echo $this->plugin_slug ?>"><?php _e('Go to Repair', 'wp-cleanfix')?></a>
+									   href="admin.php?page=<?php echo $this->plugin_slug ?>-mainshow"><?php _e('Go to Repair', 'wp-cleanfix')?></a>
 		</p>
-		<?php else : ?>
+			<?php else : ?>
 		<p><?php _e('Nothing to Report', 'wp-cleanfix')?></p>
-		<?php endif;
+			<?php endif;
 
 		$this->options['toRepair'] = $tot;
 		update_option($this->options_key, $this->options);
 		?>
 	<p class="wp-cleanfix-copy" style="border-top:1px solid #aaa;padding-top:4px">&copy;copyright <a
-			href="http://www.saidmade.com">saidmade srl</a><br/><strong><?php _e('This software is free. You don\'t need to donate money to support it. Just talk about it.', 'wp-cleanfix') ?></strong></p>
+			href="http://www.saidmade.com">saidmade
+		srl</a>
+	</p>
 	<p style="border-top:1px solid #aaa;padding-top:4px;line-height:22px;font-size:12px;font-weight:bold"><?php _e('Look the new "CleanFix Tools" panel for to extend Wordpress features: utility, comodity and tools ', 'wp-cleanfix') ?>
-		<a class="button-primary" href="<?php bloginfo('wpurl') ?>/wp-admin/index.php?page=wp-cleanfixtools">CleanFix
+		<a class="button-primary" href="<?php bloginfo('wpurl') ?>/wp-admin/admin.php?page=wp-cleanfixtools">CleanFix
 			Tools</a></p>
-	<?php
+		<?php
 
 	}
 
@@ -418,20 +533,32 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 	 *
 	 */
 	function plugin_setup() {
+
+		if (function_exists('add_menu_page')) {
+			$this->plugin_page = add_menu_page($this->plugin_name, $this->plugin_name, kWPCleanFixUserCapabilitiy,
+											   $this->directory . '-mainshow', array(&$this, 'menu'),
+											   $this->uri . "/css/images/wp-cleanfix-16x16.png", 3);
+		}
+
 		$this->options['toRepair'] = $this->countRepair();
 		update_option($this->options_key, $this->options);
 		$itemTitle = $this->plugin_name;
 		if ($this->options['toRepair'] != 0) {
-			$itemTitle = sprintf('%s <span id="wpcleanfix_badge"><span class="update-plugins count-%d"><span class="update-count">%d</span></span></span>', $this->plugin_name, $this->options['toRepair'], $this->options['toRepair']);
+			$itemTitle = sprintf('%s <span id="wpcleanfix_badge"><span class="update-plugins count-%d"><span class="update-count">%d</span></span></span>', __('Clean & Fix', 'wp-cleanfix'), $this->options['toRepair'], $this->options['toRepair']);
 		}
-		$this->plugin_page = add_submenu_page("index.php", $this->plugin_name, $itemTitle, kkWPCleanFixUserCapabilitiy, $this->plugin_slug,
-											  array(&$this, "menu"));
+		$this->plugin_page = add_submenu_page(
+			$this->directory . '-mainshow', $this->plugin_name, $itemTitle, kWPCleanFixUserCapabilitiy,
+			$this->directory . '-mainshow', array(&$this, 'menu'));
+
+
 		add_action('load-' . $this->plugin_page, array($this, 'on_load_page'));
 		add_action('admin_print_scripts-' . $this->plugin_page, array($this, 'plugin_admin_scripts'));
 		add_action('admin_print_styles-' . $this->plugin_page, array($this, 'plugin_admin_styles'));
 
-		$this->tools_page = add_submenu_page("index.php", $this->plugin_name, __('CleanFix Tools', 'wp-cleanfix'), kkWPCleanFixUserCapabilitiy,
-											 $this->plugin_slug . 'tools', array(&$this, "tools"));
+		$this->tools_page = add_submenu_page(
+			$this->directory . '-mainshow', $this->plugin_name, __('Tools', 'wp-cleanfix'), kWPCleanFixUserCapabilitiy,
+			$this->plugin_slug . 'tools', array(&$this, "tools"));
+
 		add_action('load-' . $this->tools_page, array($this, 'on_tools_load_page'));
 		add_action('admin_print_scripts-' . $this->tools_page, array($this, 'plugin_tools_scripts'));
 		add_action('admin_print_styles-' . $this->tools_page, array($this, 'plugin_admin_styles'));
@@ -445,6 +572,8 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 					 array(&$this, 'boxToolsEditor'), $this->tools_page, 'normal', 'core');
 		add_meta_box('wp_cleanfix_tools_posts', __('Extends Posts', 'wp-cleanfix'),
 					 array(&$this, 'boxToolsPosts'), $this->tools_page, 'normal', 'core');
+		add_meta_box('wp_cleanfix_tools_debug', __('Debug', 'wp-cleanfix'),
+					 array(&$this, 'boxToolsDebug'), $this->tools_page, 'normal', 'core');
 	}
 
 	function boxToolsComodity() {
@@ -457,6 +586,10 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 
 	function boxToolsPosts() {
 		require_once ('module/tools_posts_view.php');
+	}
+
+	function boxToolsDebug() {
+		require_once ('module/tools_debug_view.php');
 	}
 
 	// -----------------------------------------------------------------------------------------------------------------
@@ -566,7 +699,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		</script>
 	</div>
 
-	<?php
+		<?php
 
 	}
 
@@ -632,7 +765,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		</script>
 	</div>
 
-	<?php
+		<?php
 
 	}
 
@@ -646,7 +779,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		?>
 	<button title="<?php _e('Refresh', 'wp-cleanfix') ?>" id="<?php echo $id ?>" class="wp-cleanfix-refresh">
 		<span><?php _e('Refresh', 'wp-cleanfix') ?></span></button>
-	<?php
+		<?php
 
 	}
 
@@ -660,7 +793,7 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 		?>
 	<button title="<?php _e('Refresh All', 'wp-cleanfix') ?>" id="<?php echo $id ?>" class="wp-cleanfix-refresh">
 		<span><?php _e('Refresh All', 'wp-cleanfix') ?></span></button>
-	<?php
+		<?php
 
 	}
 
@@ -692,29 +825,31 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 	 * @return array
 	 */
 	function plugin_settings($links) {
-		$settings_link = '<a href="index.php?page=wp-cleanfix">' . __('Settings') . '</a>';
+		$settings_link = '<a href="admin.php?page=wp-cleanfix-mainshow">' . __('Clean & Fix') . '</a>';
 		array_unshift($links, $settings_link);
 		return $links;
 	}
 
-		/**
+	/**
 	 * Comodity: echo saidmade WP Bannerize header
 	 *
 	 * @return void
 	 */
 	function saidmadeHeader($bottom = false) {
-		?><div class="wp_cleanfix_box">
-			<p class="wp_cleanfix_copy_info"><strong><?php _e('This software is free. You don\'t need to donate money to support it. Just talk about it.', 'wp-cleanfix') ?></strong><br/><?php _e('For more info and plugins visit', 'wp-cleanfix') ?> <a
-					href="http://en.saidmade.com">Saidmade</a></p>
-			<a class="wp_cleanfix_logo" href="http://en.saidmade.com/products/wordpress/wp-cleanfix/">
-				<?php echo $this->plugin_name ?> ver. <?php echo $this->version ?>
-			</a>
-			<?php if($bottom) : ?>
-			<p><?php _e('Look the new "CleanFix Tools" panel for to extend Wordpress features: utility, comodity and tools ', 'wp-cleanfix') ?>
-				<a class="button-primary" href="<?php bloginfo('wpurl') ?>/wp-admin/index.php?page=wp-cleanfixtools">CleanFix
-					Tools</a></p>
-			<?php endif; ?>
-		</div><?php
+		?>
+	<div class="wp_cleanfix_box">
+		<div class="wp_cleanfix_copy_info">
+        </div>
+		<a class="wp_cleanfix_logo" href="http://en.saidmade.com/products/wordpress/wp-cleanfix/">
+			<?php echo $this->plugin_name ?> ver. <?php echo $this->version ?>
+		</a>
+		<?php if ($bottom) : ?>
+		<p><?php _e('Look the new "CleanFix Tools" panel for to extend Wordpress features: utility, comodity and tools ', 'wp-cleanfix') ?>
+			<a class="button-primary" href="<?php bloginfo('wpurl') ?>/wp-admin/admin.php?page=wp-cleanfixtools">CleanFix
+				Tools</a></p>
+		<?php endif; ?>
+	</div><?php
+
 	}
 
 } // end of class

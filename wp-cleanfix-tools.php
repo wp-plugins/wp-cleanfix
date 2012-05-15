@@ -2,10 +2,10 @@
 /**
  * Global defines and constant
  *
- * @package         wpCleanFix
- * @subpackage      wp-cleanfix-tools
- * @author          =undo= <g.fazioli@undolog.com>, <g.fazioli@saidmade.com>
- * @copyright       Copyright © 2010-2011 Saidmade Srl
+ * @package		 wpCleanFix
+ * @subpackage	  wp-cleanfix-tools
+ * @author		  =undo= <g.fazioli@undolog.com>, <g.fazioli@saidmade.com>
+ * @copyright	   Copyright © 2010-2011 Saidmade Srl
  *
  */
 

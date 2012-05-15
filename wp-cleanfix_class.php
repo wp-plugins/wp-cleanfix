@@ -96,14 +96,17 @@ class WPCLEANFIX_CLASS {
 	 */
 	var $options = array();
 
-
 	/**
 	 * This plugin url: http://domain.com/wp-content/plugins/wp-cleanfix
 	 *
 	 * @since 0.1.0
 	 * @var string
 	 */
-	var $url = "";
+	var $url = '';
+	var $path = '';
+    var $file = '';
+    var $directory = '';
+    var $uri = '';
 
 	/**
 	 * URL del gateway Ajax
@@ -112,7 +115,7 @@ class WPCLEANFIX_CLASS {
 	 * @var string
 	 */
 
-	var $url_ajax = "";
+	var $url_ajax = '';
 
 	/**
 	 * Standard PHP 4 constructor
@@ -120,40 +123,50 @@ class WPCLEANFIX_CLASS {
 	 * @since 0.1.0
 	 * @global object $wpdb
 	 */
-	function WPCLEANFIX_CLASS() {
-		global $wpdb;
+    function WPCLEANFIX_CLASS() {
+        global $wpdb;
 
-		/**
-		 * Split version for more detail
-		 */
-		$split_version = explode(".", $this->version);
-		$this->release = $split_version[0];
-		$this->minor = $split_version[1];
-		$this->revision = isset($split_version[2]) ? $split_version[2] : '0';
-		/**
-		 * Build the common and usefull path
-		 */
-		$this->url = plugins_url("", __FILE__);
-		//$this->url_ajax = $this->url . '/wp-cleanfix-ajax.php';
-		$protocol = isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://';
-		$this->url_ajax = admin_url( 'admin-ajax.php', $protocol );
+        /**
+         * Split version for more detail
+         */
+        $split_version  = explode( ".", $this->version );
+        $this->release  = $split_version[0];
+        $this->minor    = $split_version[1];
+        $this->revision = isset( $split_version[2] ) ? $split_version[2] : '0';
+        /**
+         * Build the common and usefull path
+         */
 
-		if (!defined('WP_CONTENT_DIR'))
-			define('WP_CONTENT_DIR', ABSPATH . 'wp-content');
+        $this->path      = dirname( __FILE__ );
+        $this->file      = basename( __FILE__ );
+        $this->directory = basename( $this->path );
+        $this->uri       = plugins_url( '', __FILE__ );
 
-		if (!defined('WP_CONTENT_URL'))
-			define('WP_CONTENT_URL', get_option('siteurl') . '/wp-content');
+        $this->url      = plugins_url( '', __FILE__ );
+        $protocol       = isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://';
+        $this->url_ajax = admin_url( 'admin-ajax.php', $protocol );
 
-		if (!defined('WP_ADMIN_URL'))
-			define('WP_ADMIN_URL', get_option('siteurl') . '/wp-admin');
+        if ( !defined( 'WP_CONTENT_DIR' ) ) {
+            define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
+        }
 
-		if (!defined('WP_PLUGIN_DIR'))
-			define('WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins');
+        if ( !defined( 'WP_CONTENT_URL' ) ) {
+            define( 'WP_CONTENT_URL', get_option( 'siteurl' ) . '/wp-content' );
+        }
 
-		if (!defined('WP_PLUGIN_URL'))
-			define('WP_PLUGIN_URL', WP_CONTENT_URL . '/plugins');
+        if ( !defined( 'WP_ADMIN_URL' ) ) {
+            define( 'WP_ADMIN_URL', get_option( 'siteurl' ) . '/wp-admin' );
+        }
 
-	}
+        if ( !defined( 'WP_PLUGIN_DIR' ) ) {
+            define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins' );
+        }
+
+        if ( !defined( 'WP_PLUGIN_URL' ) ) {
+            define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/plugins' );
+        }
+
+    }
 
 } // end of class
 ?>

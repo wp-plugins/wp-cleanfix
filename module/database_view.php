@@ -16,7 +16,8 @@
             <th scope="col"><?php _e('Refresh', 'wp-cleanfix') ?></th>
             <th scope="col"><?php _e('Action', 'wp-cleanfix') ?></th>
             <th width="100%" scope="col"><?php _e('Status', 'wp-cleanfix') ?></th>
-        </tr>
+			<th scope="col"><?php _e('Help/Info', 'wp-cleanfix') ?></th>
+		</tr>
     </thead>
 
     <tbody>
@@ -31,6 +32,11 @@
                     <?php $WPCLEANFIX_DATABASE->checkTables() ?>
                 </div>
             </td>
+			<td>
+				<div class="wpCleanFixHelper">
+					<span class="wpCleanFixSafe"><?php _e('This function run an <strong>OPTIMIZE SQL</strong> command on all Database tables. Usually is a safe action.', 'wp-cleanfix') ?></span>
+				</div>
+			</td>
         </tr>
     </tbody>
 </table>

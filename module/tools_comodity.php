@@ -21,7 +21,7 @@ class WPCLEANFIX_TOOLS_COMODITY {
 	public static function options($value) {
 		global $wp_cleanfix_admin;
 
-		return $wp_cleanfix_admin->options[$value];
+		return isset($wp_cleanfix_admin->options[$value]) ? $wp_cleanfix_admin->options[$value] : false;
 	}
 
 

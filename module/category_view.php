@@ -16,6 +16,7 @@
             <th scope="col"><?php $this->button_refresh_all('buttonCategoryRefreshAll') ?></th>
             <th scope="col"><?php _e('Action', 'wp-cleanfix') ?></th>
             <th width="100%" scope="col"><?php _e('Status', 'wp-cleanfix') ?></th>
+			<th scope="col"><?php _e('Help/Info', 'wp-cleanfix') ?></th>
         </tr>
     </thead>
 
@@ -31,6 +32,11 @@
                     <?php $WPCLEANFIX_CATEGORY->checkCategory() ?>
                 </div>
             </td>
+			<td>
+				<div class="wpCleanFixHelper">
+					<span class="wpCleanFixWarning"><?php _e('This function remove unused category', 'wp-cleanfix') ?></span>
+				</div>
+			</td>
         </tr>
 
         <tr>
@@ -43,6 +49,11 @@
                     <?php $WPCLEANFIX_CATEGORY->checkTermInTaxonomy(); ?>
                 </div>
             </td>
+			<td>
+				<div class="wpCleanFixHelper">
+					<span class="wpCleanFixWarning"><?php _e('This function remove unused term in texonomy', 'wp-cleanfix') ?></span>
+				</div>
+			</td>
         </tr>
 
         <tr>
@@ -55,6 +66,11 @@
                     <?php $WPCLEANFIX_CATEGORY->checkTaxonomyInTerm() ?>
                 </div>
             </td>
+			<td>
+				<div class="wpCleanFixHelper">
+					<span class="wpCleanFixWarning"><?php _e('This function remove unused taxonomy in terms', 'wp-cleanfix') ?></span>
+				</div>
+			</td>
         </tr>
 
     </tbody>

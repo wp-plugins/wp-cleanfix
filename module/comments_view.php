@@ -15,6 +15,7 @@
             <th scope="col"><?php $this->button_refresh_all('buttonCommentsRefreshAll') ?></th>
             <th scope="col"><?php _e('Action', 'wp-cleanfix') ?></th>
             <th width="100%" scope="col"><?php _e('Status', 'wp-cleanfix') ?></th>
+			<th scope="col"><?php _e('Help/Info', 'wp-cleanfix') ?></th>
         </tr>
     </thead>
 
@@ -31,6 +32,11 @@
                     <?php $WPCLEANFIX_COMMENTS->checkComments(); ?>
                 </div>
             </td>
+			<td>
+				<div class="wpCleanFixHelper">
+					<span class="wpCleanFixWarning"><?php _e('This function remove unapproved comments. This is like the WordPress\'s function', 'wp-cleanfix') ?></span>
+				</div>
+			</td>
         </tr>
 
         <tr>
@@ -45,6 +51,11 @@
                     <?php $WPCLEANFIX_COMMENTS->checkTrash(); ?>
                 </div>
             </td>
+			<td>
+				<div class="wpCleanFixHelper">
+					<span class="wpCleanFixWarning"><?php _e('This function remove comment in trash', 'wp-cleanfix') ?></span>
+				</div>
+			</td>
         </tr>
 
         <tr>
@@ -58,6 +69,11 @@
                     <?php $WPCLEANFIX_COMMENTS->checkSpam(); ?>
                 </div>
             </td>
+			<td>
+				<div class="wpCleanFixHelper">
+					<span class="wpCleanFixWarning"><?php _e('This function remove SPAN comment', 'wp-cleanfix') ?></span>
+				</div>
+			</td>
         </tr>
 
 
@@ -71,6 +87,11 @@
                     <?php $WPCLEANFIX_COMMENTS->findAndReplaceUI() ?>
                 </div>
             </td>
+			<td>
+				<div class="wpCleanFixHelper">
+					<span class="wpCleanFixWarning"><?php _e('This function find/replace text in comment content.', 'wp-cleanfix') ?></span>
+				</div>
+			</td>
         </tr>
 
     </tbody>

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP CleanFix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-26 15:03+0100\n"
-"PO-Revision-Date: 2011-09-26 15:03+0100\n"
+"POT-Creation-Date: 2012-02-09 10:48+0100\n"
+"PO-Revision-Date: 2012-02-09 10:48+0100\n"
 "Last-Translator: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "Language-Team: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "MIME-Version: 1.0\n"
@@ -21,180 +21,235 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../wp-cleanfix_admin.php:107
+#: ../wp-cleanfix_admin.php:111
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:159
+#: ../wp-cleanfix_admin.php:163
 msgid "Warning!! Are you sure to confirm this operation?"
 msgstr "Attenzione! Sei sicuro di voler eseguire questa operazione?"
 
-#: ../wp-cleanfix_admin.php:160
+#: ../wp-cleanfix_admin.php:164
 msgid "Sorry! Be patient. Not yet implemented in this beta release"
 msgstr "Spiacente! Si paziente. Non implementata in questa beta release"
 
-#: ../wp-cleanfix_admin.php:207
+#: ../wp-cleanfix_admin.php:212
 msgid "WP CleanFix - Summary Report"
 msgstr "WP CleanFix - Relazione di sintesi"
 
-#: ../wp-cleanfix_admin.php:236
+#: ../wp-cleanfix_admin.php:229
+msgid "In order to turn on the log file, you must add these \"define\" in your WordPress wp-config.php file:"
+msgstr "Per attivare i Log su file devi aggiungere queste definizioni nel file wp-config.php:"
+
+#: ../wp-cleanfix_admin.php:239
+msgid "WP CleanFix - Debug"
+msgstr "WP CleanFix - Debug"
+
+#: ../wp-cleanfix_admin.php:267
+msgid "File cleared."
+msgstr "File pulito."
+
+#: ../wp-cleanfix_admin.php:271
+msgid "errors found"
+msgstr "errori trovati"
+
+#: ../wp-cleanfix_admin.php:273
+msgid "error found"
+msgstr "errore trovato"
+
+#: ../wp-cleanfix_admin.php:278
+msgid "Are you sure?"
+msgstr "Sei sicuro?"
+
+#: ../wp-cleanfix_admin.php:278
+msgid "Clear Log File"
+msgstr "Pulisci file di Log"
+
+#: ../wp-cleanfix_admin.php:307
+msgid "More than "
+msgstr "Più di"
+
+#: ../wp-cleanfix_admin.php:308
+msgid "errors in log..."
+msgstr "errori nel file di Log"
+
+#: ../wp-cleanfix_admin.php:317
+msgid "Filter"
+msgstr "Filtro"
+
+#: ../wp-cleanfix_admin.php:322
+msgid "No such errors in log file."
+msgstr "Nessun error nel file di Log"
+
+#: ../wp-cleanfix_admin.php:325
+msgid "Error while reading the log file."
+msgstr "Errore durante l'apertura del file di Log"
+
+#: ../wp-cleanfix_admin.php:348
 #, php-format
 msgid "%s Kb tables gain"
 msgstr "%s Kb in eccesso"
 
-#: ../wp-cleanfix_admin.php:242
-#: ../wp-cleanfix_admin.php:467
+#: ../wp-cleanfix_admin.php:354
+#: ../wp-cleanfix_admin.php:599
 msgid "Database"
 msgstr "Database"
 
-#: ../wp-cleanfix_admin.php:255
+#: ../wp-cleanfix_admin.php:367
 #, php-format
 msgid "%s unused User Meta"
 msgstr "%s User Meta non utilizzati"
 
-#: ../wp-cleanfix_admin.php:262
+#: ../wp-cleanfix_admin.php:374
 msgid "User Meta"
 msgstr "User Meta"
 
-#: ../wp-cleanfix_admin.php:274
+#: ../wp-cleanfix_admin.php:386
 #, php-format
 msgid "%s Post Revisions"
 msgstr "%s Revisioni Articoli"
 
-#: ../wp-cleanfix_admin.php:281
+#: ../wp-cleanfix_admin.php:393
 #, php-format
 msgid "%s Auto Draft"
 msgstr "%s Auto Draft"
 
-#: ../wp-cleanfix_admin.php:288
+#: ../wp-cleanfix_admin.php:400
 #, php-format
 msgid "%s Post in Trash"
 msgstr "%s Articoli nel Cestino"
 
-#: ../wp-cleanfix_admin.php:296
+#: ../wp-cleanfix_admin.php:408
 #, php-format
 msgid "%s unused Post Meta"
 msgstr "%s Articoli Meta non utilizzati"
 
-#: ../wp-cleanfix_admin.php:305
+#: ../wp-cleanfix_admin.php:417
 #, php-format
 msgid "%s Post Meta Edit Lock"
 msgstr "%s Post Meta Edit Lock"
 
-#: ../wp-cleanfix_admin.php:313
+#: ../wp-cleanfix_admin.php:425
 #, php-format
 msgid "%s unused Tags"
 msgstr "%s Tags non utilizzati"
 
-#: ../wp-cleanfix_admin.php:322
+#: ../wp-cleanfix_admin.php:434
 #, php-format
 msgid "%s Posts without author"
 msgstr "%s Articoli senza Autore"
 
-#: ../wp-cleanfix_admin.php:331
+#: ../wp-cleanfix_admin.php:443
 #, php-format
 msgid "%s Pages without author"
 msgstr "%s Pagine senza Autore"
 
-#: ../wp-cleanfix_admin.php:340
+#: ../wp-cleanfix_admin.php:452
 #, php-format
 msgid "%s Attachment unlink"
 msgstr "%s Allegati non collegati"
 
-#: ../wp-cleanfix_admin.php:347
-#: ../wp-cleanfix_admin.php:471
+#: ../wp-cleanfix_admin.php:459
+#: ../wp-cleanfix_admin.php:603
 msgid "Posts"
 msgstr "Articoli"
 
-#: ../wp-cleanfix_admin.php:360
+#: ../wp-cleanfix_admin.php:472
 #, php-format
 msgid "%s unused Categories"
 msgstr "%s Categorie non utilizzate"
 
-#: ../wp-cleanfix_admin.php:369
+#: ../wp-cleanfix_admin.php:481
 #, php-format
 msgid "%s terms unlink in taxonomy"
 msgstr "%s Termini non collegati a nessuna Taxonomia"
 
-#: ../wp-cleanfix_admin.php:378
+#: ../wp-cleanfix_admin.php:490
 #, php-format
 msgid "%s taxonomy unlink in term"
 msgstr "%s Taxonomie non collegate a nessun Termine"
 
-#: ../wp-cleanfix_admin.php:385
-#: ../wp-cleanfix_admin.php:473
+#: ../wp-cleanfix_admin.php:497
+#: ../wp-cleanfix_admin.php:605
 msgid "Categories"
 msgstr "Categorie"
 
-#: ../wp-cleanfix_admin.php:396
+#: ../wp-cleanfix_admin.php:508
 msgid "Go to Repair"
 msgstr "Ripara"
 
-#: ../wp-cleanfix_admin.php:399
+#: ../wp-cleanfix_admin.php:511
 msgid "Nothing to Report"
 msgstr "Nulla da segnalare"
 
-#: ../wp-cleanfix_admin.php:407
-#: ../wp-cleanfix_admin.php:713
+#: ../wp-cleanfix_admin.php:519
+#: ../wp-cleanfix_admin.php:841
+msgid "This software is free. You don't need to donate money to support it. Just talk about it."
+msgstr "Questo software è gratuito. Non devi donare denaro per supportarlo. Basta che ne parli."
+
+#: ../wp-cleanfix_admin.php:521
+#: ../wp-cleanfix_admin.php:848
 msgid "Look the new \"CleanFix Tools\" panel for to extend Wordpress features: utility, comodity and tools "
 msgstr "Visita il nuovo pannello \"CleanFix Tools\" per estendere le funzionalità di Wordpress"
 
-#: ../wp-cleanfix_admin.php:433
-msgid "CleanFix Tools"
-msgstr ""
+#: ../wp-cleanfix_admin.php:546
+#: ../wp-cleanfix_admin.php:827
+msgid "Clean & Fix"
+msgstr "Pulisci & Ripara"
 
-#: ../wp-cleanfix_admin.php:442
+#: ../wp-cleanfix_admin.php:558
+#: ../module/comments_view.php:81
+msgid "Tools"
+msgstr "Strumenti"
+
+#: ../wp-cleanfix_admin.php:568
 msgid "Comodity"
 msgstr "Comodità"
 
-#: ../wp-cleanfix_admin.php:444
+#: ../wp-cleanfix_admin.php:570
 msgid "Extends Editor"
 msgstr "Estensioni Editor"
 
-#: ../wp-cleanfix_admin.php:446
+#: ../wp-cleanfix_admin.php:572
 msgid "Extends Posts"
 msgstr "Estensioni Post"
 
-#: ../wp-cleanfix_admin.php:465
+#: ../wp-cleanfix_admin.php:574
+msgid "Debug"
+msgstr "Debug"
+
+#: ../wp-cleanfix_admin.php:597
 msgid "Important informations"
 msgstr "Informazioni importanti"
 
-#: ../wp-cleanfix_admin.php:469
+#: ../wp-cleanfix_admin.php:601
 msgid "Users"
 msgstr "Utenti"
 
-#: ../wp-cleanfix_admin.php:475
+#: ../wp-cleanfix_admin.php:607
 msgid "Comments"
 msgstr "Commenti"
 
-#: ../wp-cleanfix_admin.php:520
-#: ../wp-cleanfix_admin.php:586
+#: ../wp-cleanfix_admin.php:652
+#: ../wp-cleanfix_admin.php:718
 msgid "Your settings have been saved."
 msgstr "Le tue impostazioni sono state salvate"
 
-#: ../wp-cleanfix_admin.php:647
-#: ../wp-cleanfix_admin.php:648
+#: ../wp-cleanfix_admin.php:779
+#: ../wp-cleanfix_admin.php:780
 #: ../module/database_view.php:16
 msgid "Refresh"
 msgstr "Aggiorna"
 
-#: ../wp-cleanfix_admin.php:661
-#: ../wp-cleanfix_admin.php:662
+#: ../wp-cleanfix_admin.php:793
+#: ../wp-cleanfix_admin.php:794
 msgid "Refresh All"
 msgstr "Aggiorna tutto"
 
-#: ../wp-cleanfix_admin.php:682
-#: ../wp-cleanfix_admin.php:707
+#: ../wp-cleanfix_admin.php:814
+#: ../wp-cleanfix_admin.php:841
 msgid "For more info and plugins visit"
 msgstr "Per maggiori informazioni e Plugin visita"
-
-#: ../wp-cleanfix_admin.php:695
-msgid "Settings"
-msgstr "Impostazioni"
-
-#: ../wp-cleanfix_admin.php:707
-msgid "This software is free. You don't need to donate money to support it. Just talk about it."
-msgstr "Questo software è gratuito. Non devi donare denaro per supportarlo. Basta che ne parli."
 
 #: ../module/category.php:40
 #: ../module/category.php:88
@@ -246,17 +301,35 @@ msgstr "Azione"
 msgid "Status"
 msgstr "Stato"
 
-#: ../module/category_view.php:27
+#: ../module/category_view.php:19
+#: ../module/comments_view.php:18
+#: ../module/database_view.php:19
+msgid "Help/Info"
+msgstr "Aiuto/Informazioni"
+
+#: ../module/category_view.php:28
 msgid "Unused Categories"
 msgstr "Categorie non utilizzate"
 
-#: ../module/category_view.php:39
+#: ../module/category_view.php:37
+msgid "This function remove unused category"
+msgstr "Questa funzione rimuove le Categorie non utilizzate"
+
+#: ../module/category_view.php:45
 msgid "Unlink Terms"
 msgstr "Termini non collegati"
 
-#: ../module/category_view.php:51
+#: ../module/category_view.php:54
+msgid "This function remove unused term in texonomy"
+msgstr ""
+
+#: ../module/category_view.php:62
 msgid "Unlink Taxonomy"
 msgstr "Taxonomie non collegate"
+
+#: ../module/category_view.php:71
+msgid "This function remove unused taxonomy in terms"
+msgstr ""
 
 #: ../module/comments.php:36
 #: ../module/comments.php:76
@@ -298,25 +371,37 @@ msgstr "e sostituisci con:"
 msgid "Find/Replace"
 msgstr "Trova/Sostituisci"
 
-#: ../module/comments_view.php:26
+#: ../module/comments_view.php:27
 msgid "Unapproved Comments"
 msgstr "Commenti non approvati"
 
-#: ../module/comments_view.php:40
+#: ../module/comments_view.php:37
+msgid "This function remove unapproved comments. This is like the WordPress's function"
+msgstr ""
+
+#: ../module/comments_view.php:46
 msgid "Comments in Trash"
 msgstr "Commenti nel Cestino"
 
-#: ../module/comments_view.php:54
+#: ../module/comments_view.php:56
+msgid "This function remove comment in trash"
+msgstr ""
+
+#: ../module/comments_view.php:65
 msgid "SPAM Comments"
 msgstr "Commenti SPAM"
 
-#: ../module/comments_view.php:65
-msgid "Tools"
-msgstr "Strumenti"
+#: ../module/comments_view.php:74
+msgid "This function remove SPAN comment"
+msgstr ""
 
-#: ../module/comments_view.php:67
+#: ../module/comments_view.php:83
 msgid "Comment Content"
 msgstr "Contenuto Commenti"
+
+#: ../module/comments_view.php:92
+msgid "This function find/replace text in comment content."
+msgstr ""
 
 #: ../module/database.php:45
 msgid "Internal Error #1: no such DB_NAME setting properly"
@@ -335,9 +420,13 @@ msgstr "se le ottimizzi guadagneresti:"
 msgid "Optimize!"
 msgstr "Ottimizza!"
 
-#: ../module/database_view.php:27
+#: ../module/database_view.php:28
 msgid "Tables optimize"
 msgstr "Tabelle da ottimizzare"
+
+#: ../module/database_view.php:37
+msgid "This function run an <strong>OPTIMIZE SQL</strong> command on all Database tables. Usually is a safe action."
+msgstr ""
 
 #: ../module/info.php:13
 msgid "WARNING! SOME ACTIONS CAN POTENTIALLY COMPROMISE THE INTEGRITY OF YOUR DATABASE. PLEASE BACKUP YOUR DATABASE BEFORE EXECUTING ANY ACTIONS. ALL DELETIONS ARE IRREVERSIBLE!"
@@ -380,45 +469,85 @@ msgstr "%s Articoli eliminati"
 msgid "%s Attachments erased"
 msgstr "%s Allegati eliminati"
 
-#: ../module/posts_view.php:26
+#: ../module/posts_view.php:27
 msgid "Revisions"
 msgstr "Revisioni"
 
-#: ../module/posts_view.php:38
+#: ../module/posts_view.php:36
+msgid "This function remove all the post's revisions. Usualy Wordpress makes a lot of revisions for one Post. However the revisions are useful to come back to previous version of post. This operation is not undoable!"
+msgstr ""
+
+#: ../module/posts_view.php:44
 msgid "Auto Draft"
 msgstr ""
 
-#: ../module/posts_view.php:50
+#: ../module/posts_view.php:53
+msgid "This function remove Auto Draft Post. The Auto Draft are auto-generate by Wordpress when start new post or edit a post."
+msgstr ""
+
+#: ../module/posts_view.php:61
 msgid "Trash"
 msgstr "Cestino"
 
-#: ../module/posts_view.php:62
+#: ../module/posts_view.php:70
+msgid "This function remove delete post in trash. In pratic"
+msgstr ""
+
+#: ../module/posts_view.php:78
 msgid "Post Meta"
 msgstr "Post Meta"
 
-#: ../module/posts_view.php:74
+#: ../module/posts_view.php:87
+msgid "This function remove unused Post Meta"
+msgstr "Questa funzione rimuove i Post Meta non utilizzati"
+
+#: ../module/posts_view.php:95
 msgid "Post Meta Edit Lock"
 msgstr "Post Meta Edit Lock"
 
-#: ../module/posts_view.php:86
+#: ../module/posts_view.php:104
+msgid "This function remove the Lock on a Post"
+msgstr ""
+
+#: ../module/posts_view.php:112
 msgid "Tags"
 msgstr "Tags"
 
-#: ../module/posts_view.php:98
+#: ../module/posts_view.php:121
+msgid "This function remove unused Tag"
+msgstr ""
+
+#: ../module/posts_view.php:129
 msgid "Posts without author"
 msgstr "Articoli senza Autore"
 
-#: ../module/posts_view.php:110
+#: ../module/posts_view.php:138
+msgid "This function remove the Posts without an author"
+msgstr "Questa funzione rimuove i Posts senza un autore valido collegato"
+
+#: ../module/posts_view.php:146
 msgid "Pages without author"
 msgstr "Pagine senza Autore"
 
-#: ../module/posts_view.php:122
+#: ../module/posts_view.php:155
+msgid "This function remove the Pages without an author"
+msgstr "Questa funzione rimuove le Pagine senza un autore valido collegato"
+
+#: ../module/posts_view.php:163
 msgid "Attachment without Post"
 msgstr "Allegati senza Autore"
 
-#: ../module/posts_view.php:134
+#: ../module/posts_view.php:172
+msgid "This function remove the attach without valid Posts"
+msgstr ""
+
+#: ../module/posts_view.php:180
 msgid "Post Content"
 msgstr "Contenuto articolo"
+
+#: ../module/posts_view.php:189
+msgid "This function find/replace text in post content"
+msgstr ""
 
 #: ../module/tools_comodity_view.php:22
 msgid "Admin Bar"
@@ -437,23 +566,56 @@ msgid "Display bottom"
 msgstr "Mostra in basso"
 
 #: ../module/tools_comodity_view.php:37
+msgid "Header & Footer"
+msgstr "Intestazione & Piè di pagina"
+
+#: ../module/tools_comodity_view.php:40
 msgid "Add to header:"
 msgstr "Aggiungi all'header:"
 
-#: ../module/tools_comodity_view.php:38
-#: ../module/tools_comodity_view.php:46
+#: ../module/tools_comodity_view.php:42
+#: ../module/tools_comodity_view.php:52
 msgid "Clear"
 msgstr "Pulisci"
 
-#: ../module/tools_comodity_view.php:45
+#: ../module/tools_comodity_view.php:50
 msgid "Add to footer:"
 msgstr "Aggiungi al footer:"
 
-#: ../module/tools_comodity_view.php:54
+#: ../module/tools_comodity_view.php:61
+#: ../module/tools_debug_view.php:72
 #: ../module/tools_editor_view.php:74
 #: ../module/tools_posts_view.php:31
 msgid "Save"
 msgstr "Salva"
+
+#: ../module/tools_debug.php:51
+msgid "Foo posts create succefully"
+msgstr "Posts esempio creati con successo"
+
+#: ../module/tools_debug_view.php:26
+msgid "Active Debugger Window in Dashboard (Insert the lines below in wp-config.php file)"
+msgstr "Attiva la finestra di Debug nella bacheca (inserisci le linee di codice qui sotto nel file wp-config.php)"
+
+#: ../module/tools_debug_view.php:40
+msgid "Foo Posts"
+msgstr "Articoli Esempio"
+
+#: ../module/tools_debug_view.php:42
+msgid "Create:"
+msgstr "Crea:"
+
+#: ../module/tools_debug_view.php:52
+msgid "Pages"
+msgstr "Pagine"
+
+#: ../module/tools_debug_view.php:57
+msgid "With title:"
+msgstr "con titolo:"
+
+#: ../module/tools_debug_view.php:63
+msgid "In category:"
+msgstr "nella categoria:"
 
 #: ../module/tools_editor_view.php:23
 msgid "Fix HTML editor"
@@ -500,6 +662,11 @@ msgstr "Caratteri"
 msgid "%s User Meta erased"
 msgstr "%s User Meta eliminati"
 
+#: ../module/usermeta_view.php:37
+#, fuzzy
+msgid "This function remove unused user meta"
+msgstr "Nessuno User Meta non utilizzati"
+
 #: ../module/usersmeta.php:21
 msgid "unused User Meta:"
 msgstr "%s User Meta non utilizzati:"
@@ -512,6 +679,13 @@ msgstr "Nessuno User Meta non utilizzati"
 #, php-format
 msgid "%s - User Meta erased"
 msgstr "%s User Meta eliminati"
+
+#: ../module/usersmeta_view.php:39
+msgid "?"
+msgstr ""
+
+#~ msgid "Settings"
+#~ msgstr "Impostazioni"
 
 #~ msgid "Remove Frontend Admin Bar"
 #~ msgstr "Rimuove la barra di amministrazione dal Frontend"

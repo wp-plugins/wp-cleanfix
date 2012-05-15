@@ -33,22 +33,29 @@ WPCLEANFIX_TOOLS_COMODITY::update();
 			<label><?php _e('Display bottom', 'wp-cleanfix') ?></label></p>
 	</fieldset>
 
-	<p>
-		<label><?php _e('Add to header:', 'wp-cleanfix') ?></label><a
-			class="button-secondary wpCleanFixClearNextTextarea" href="#"><?php _e('Clear', 'wp-cleanfix') ?></a><br/>
-		<textarea class="wpCleanFixCode" name="wpCleanFixToolsComodityAddHeader" id="wpCleanFixToolsComodityAddHeader"
-				  rows="4"
-				  cols="4"><?php echo stripslashes(WPCLEANFIX_TOOLS_COMODITY::options('wpCleanFixToolsComodityAddHeader')) ?></textarea>
-	</p>
+	<fieldset>
+		<legend><?php _e('Header & Footer', 'wp-cleanfix') ?></legend>
 
-	<p>
-		<label><?php _e('Add to footer:', 'wp-cleanfix') ?></label> <a
-			class="button-secondary wpCleanFixClearNextTextarea" href="#"><?php _e('Clear', 'wp-cleanfix') ?></a><br/>
-		<textarea class="wpCleanFixCode" name="wpCleanFixToolsComodityAddFooter" id="wpCleanFixToolsComodityAddFooter"
-				  rows="4"
-				  cols="4"><?php echo stripslashes(WPCLEANFIX_TOOLS_COMODITY::options('wpCleanFixToolsComodityAddFooter')) ?></textarea>
-	</p>
+		<p>
+			<label><?php _e('Add to header:', 'wp-cleanfix') ?></label><a
+				class="button-secondary wpCleanFixClearNextTextarea"
+				href="#"><?php _e('Clear', 'wp-cleanfix') ?></a><br/>
+			<textarea class="wpCleanFixCode" name="wpCleanFixToolsComodityAddHeader"
+					  id="wpCleanFixToolsComodityAddHeader"
+					  rows="4"
+					  cols="4"><?php echo stripslashes(WPCLEANFIX_TOOLS_COMODITY::options('wpCleanFixToolsComodityAddHeader')) ?></textarea>
+		</p>
 
+		<p>
+			<label><?php _e('Add to footer:', 'wp-cleanfix') ?></label> <a
+				class="button-secondary wpCleanFixClearNextTextarea"
+				href="#"><?php _e('Clear', 'wp-cleanfix') ?></a><br/>
+			<textarea class="wpCleanFixCode" name="wpCleanFixToolsComodityAddFooter"
+					  id="wpCleanFixToolsComodityAddFooter"
+					  rows="4"
+					  cols="4"><?php echo stripslashes(WPCLEANFIX_TOOLS_COMODITY::options('wpCleanFixToolsComodityAddFooter')) ?></textarea>
+		</p>
+	</fieldset>
 
 	<p style="text-align:right"><input type="submit" class="button-secondary"
 									   value="<?php _e('Save', 'wp-cleanfix') ?>"/></p>
