@@ -224,23 +224,26 @@ class WPCLEANFIX_ADMIN extends WPCLEANFIX_CLASS {
 			if ( (defined('WP_DEBUG') && !WP_DEBUG) ||
 				 (defined('WP_DEBUG_LOG') && !WP_DEBUG_LOG) ||
 				 (defined('WP_DEBUG_DISPLAY') && WP_DEBUG_DISPLAY ) ) {
-				add_action('admin_notices', function() {
-						if (current_user_can('manage_options')) {
-							?><div id="message" class="error"><?php
-						_e('In order to turn on the log file, you must add these "define" in your WordPress wp-config.php file:', 'wp-cleanfix');
-							var_dump(defined('WP_DEBUG_DISPLAY'));
-							?><br/><code>define('WP_DEBUG', true);<br/>define('WP_DEBUG_LOG', true);<br/>
-							define('WP_DEBUG_DISPLAY', false);<br/>
-							ini_set('display_errors', 0);</code></div><?php
-
-						}
-					});
+				add_action('admin_notices', array( $this, 'admin_notices'));
 			}
 
 			wp_add_dashboard_widget(kWPCleanFixDashboardDebuggerKey, __('WP CleanFix - Debug', 'wp-cleanfix'),
 									array(&$this, 'dashboardDebugger'));
 		}
 	}
+
+    function admin_notices() {
+        if ( current_user_can( 'manage_options' ) ) {
+            ?>
+        <div id="message" class="error"><?php
+            _e( 'In order to turn on the log file, you must add these "define" in your WordPress wp-config.php file:', 'wp-cleanfix' );
+            var_dump( defined( 'WP_DEBUG_DISPLAY' ) );
+            ?><br/><code>define('WP_DEBUG', true);<br/>define('WP_DEBUG_LOG', true);<br/>
+                         define('WP_DEBUG_DISPLAY', false);<br/>
+                         ini_set('display_errors', 0);</code></div><?php
+
+        }
+    }
 
 	function countRepair() {
 		$tot = 0;
