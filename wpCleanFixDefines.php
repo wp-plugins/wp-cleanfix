@@ -14,7 +14,7 @@
 define('kWPCleanFixDebug', '0');
 
 // Common
-define('kWPCleanFixVersion', '2.4.2');
+define('kWPCleanFixVersion', '2.4.3');
 define('kWPCleanFixPluginName', 'WP CleanFix');
 define('kWPCleanFixOptionTitle', kWPCleanFixPluginName);
 define('kWPCleanFixSlugName', 'wp-cleanfix');

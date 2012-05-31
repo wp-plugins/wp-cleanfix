@@ -9,7 +9,7 @@
  * 
  */
 
-class WPCLEANFIX_DATABASE {
+class WPCLEANFIX_DATABASE extends WPCLEANFIX_MODULE {
 
     /**
      * Class version
@@ -73,7 +73,7 @@ class WPCLEANFIX_DATABASE {
                 if($gain > 0) {
                     $index_count++;
 					$gain_str = sprintf('%6.2f', $gain);
-                    $buffer .=  '<option>' . $row[0] . ' - ' . $gain_str . ' Kb</option>';
+                    $buffer .=  '<option>' . $this->cut_string_at( $row[0] ) . ' - ' . $gain_str . ' Kb</option>';
                 }
             }
 
