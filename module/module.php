@@ -11,20 +11,21 @@
 
 class WPCLEANFIX_MODULE {
 
-	/**
-	 * Cut a string
-	 *
-	 * @param  $s
-	 * @param int $l
-	 * @param string $e
-	 * @return string
-	 */
-	function cut_string_at($s, $l = 32, $e = '...') {
-		if(strlen($s) > (int)$l) {
-			return( substr($s, 0, $l) . $e);
-		}
-		return $s;
-	}
+    /**
+     * Cut a string
+     *
+     * @param        $s
+     * @param int    $l
+     * @param string $e
+     *
+     * @return string
+     */
+    function cut_string_at( $s, $l = 32, $e = '...' ) {
+        if ( strlen( $s ) > absint( $l ) ) {
+            return ( substr( $s, 0, $l ) . $e );
+        }
+        return $s;
+    }
 }
 
 ?>

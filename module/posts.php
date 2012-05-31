@@ -9,7 +9,7 @@
  */
 
 
-class WPCLEANFIX_POSTS {
+class WPCLEANFIX_POSTS extends WPCLEANFIX_MODULE {
 
     /**
      * Class version
@@ -37,7 +37,7 @@ class WPCLEANFIX_POSTS {
                     $sql = "SELECT DISTINCT( COUNT(*) ) AS numero, ID, post_title FROM `$wpdb->posts` WHERE post_type = 'revision' GROUP BY post_title";
                     $res = $wpdb->get_results($sql);
                     foreach($res as $post) : ?>
-                    <option><?php echo $post->post_title ?> (<?php echo $post->numero ?>)</option>
+                    <option><?php echo $this->cut_string_at( $post->post_title ) ?> (<?php echo $post->numero ?>)</option>
                     <?php endforeach; ?>
                 </select>
                 <button id="buttonPostsRemoveRevision"><?php _e('Erase!', 'wp-cleanfix') ?></button>
@@ -81,7 +81,7 @@ class WPCLEANFIX_POSTS {
                     $sql = "SELECT DISTINCT( COUNT(*) ) AS numero, ID, post_title FROM `$wpdb->posts` WHERE post_status = 'auto-draft' GROUP BY post_title";
                     $res = $wpdb->get_results($sql);
                     foreach($res as $post) : ?>
-                    <option><?php echo $post->post_title ?> (<?php echo $post->numero ?>)</option>
+                    <option><?php echo $this->cut_string_at( $post->post_title ) ?> (<?php echo $post->numero ?>)</option>
                     <?php endforeach; ?>
                 </select>
                 <button id="buttonPostsRemoveAutodraft"><?php _e('Erase!', 'wp-cleanfix') ?></button>
@@ -124,7 +124,7 @@ class WPCLEANFIX_POSTS {
                     $sql = "SELECT post_title FROM `$wpdb->posts` WHERE post_status = 'trash'";
                     $res = $wpdb->get_results($sql);
                     foreach($res as $post) : ?>
-                    <option><?php echo $post->post_title ?></option>
+                    <option><?php echo $this->cut_string_at( $post->post_title ) ?></option>
                     <?php endforeach; ?>
                 </select>
                 <button id="buttonPostsRemoveTrash"><?php _e('Erase!', 'wp-cleanfix') ?></button>
@@ -166,7 +166,7 @@ class WPCLEANFIX_POSTS {
                 <span class="wpcleanfix-warning"><?php echo count($res) ?></span> <select>
             <?php
                 foreach($res as $row) : ?>
-                    <option><?php echo $row->post_title ?></option>
+                    <option><?php echo $this->cut_string_at( $row->post_title ) ?></option>
                 <?php endforeach; ?>
             ?></select> <button id="buttonPostsRemoveMetaEditLock"><?php _e('Erase!', 'wp-cleanfix') ?></button>
             <?php else : ?>
@@ -209,7 +209,7 @@ class WPCLEANFIX_POSTS {
                 <span class="wpcleanfix-warning"><?php echo count($res) ?></span> <select>
             <?php
                 foreach($res as $row) : ?>
-                    <option><?php echo $row->meta_key ?> [<?php echo $row->meta_value ?>]</option>
+                    <option><?php echo $this->cut_string_at( $row->meta_key, 16 ) ?> [<?php echo $this->cut_string_at( $row->meta_value, 16 ) ?>]</option>
                 <?php endforeach; ?>
             ?></select> <button id="buttonPostsRemoveMeta"><?php _e('Erase!', 'wp-cleanfix') ?></button>
             <?php else : ?>
@@ -253,7 +253,7 @@ class WPCLEANFIX_POSTS {
                 <span class="wpcleanfix-warning"><?php echo count($res) ?></span> <select>
             <?php
                 foreach($res as $row) : ?>
-                    <option><?php echo $row->name ?></option>
+                    <option><?php echo $this->cut_string_at( $row->name ) ?></option>
                 <?php endforeach; ?>
             </select> <button id="buttonPostsRemoveTag"><?php _e('Erased!', 'wp-cleanfix') ?></button>
             <?php else : ?>
@@ -310,7 +310,7 @@ class WPCLEANFIX_POSTS {
                 $users = $wpdb->get_results( $sql );
                 echo '<select id="wpcleanfix_' . $type . '_author_id">';
                 foreach($users as $user) : ?>
-                    <option value="<?php echo $user->ID ?>"><?php echo $user->user_login . " [" . $user->display_name , "]" ?></option>
+                    <option value="<?php echo $user->ID ?>"><?php echo $this->cut_string_at( $user->user_login ) . " [" . $this->cut_string_at( $user->display_name ) . "]" ?></option>
                 <?php endforeach;
                 echo '</select>';
                 echo ' <button id="button'.$type.'UsersLinkToAuthor">' . __('Link', 'wp-cleanfix') . '</button> ';
@@ -423,5 +423,3 @@ class WPCLEANFIX_POSTS {
 }
 
 $WPCLEANFIX_POSTS = new WPCLEANFIX_POSTS();
-
-?>

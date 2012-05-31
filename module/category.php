@@ -9,7 +9,7 @@
  * 
  */
 
-class WPCLEANFIX_CATEGORY {
+class WPCLEANFIX_CATEGORY extends WPCLEANFIX_MODULE {
 
     /**
      * Class version
@@ -35,7 +35,7 @@ class WPCLEANFIX_CATEGORY {
             if( count($categories) > 0 ) {
                 echo '<span class="wpcleanfix-warning">' . count($categories) . '</span> <select>';
                 foreach($categories as $row) {
-                    echo '<option>'. $row->name . '</option>';
+                    echo '<option>'. $this->cut_string_at( $row->name ) . '</option>';
                 }
                 echo '</select> <button id="buttonCategoryRemoveUnsed">' . __('Erase!', 'wp-cleanfix') . '</button>';
             } else {
@@ -83,7 +83,7 @@ class WPCLEANFIX_CATEGORY {
             if( count($check) > 0 ) {
                 echo '<span class="wpcleanfix-warning">' . count($check) . '</span> <select>';
                 foreach($check as $row) {
-                    echo '<option>'. $row->name . '</option>';
+                    echo '<option>'. $this->cut_string_at( $row->name ) . '</option>';
                 }
                 echo '</select> <button id="buttonTermsUnlinkRemove">' . __('Erase!', 'wp-cleanfix') . '</button>';
             } else {
