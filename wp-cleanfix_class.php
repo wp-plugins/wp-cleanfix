@@ -11,6 +11,22 @@
 
 require_once('wpCleanFixDefines.php');
 
+/* proto WPDK */
+if( !function_exists( '_wpdk_is_ajax') ) {
+    function _wpdk_is_ajax() {
+        if ( defined( 'DOING_AJAX' ) ) {
+            return true;
+        }
+        if ( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) &&
+            strtolower( $_SERVER['HTTP_X_REQUESTED_WITH'] ) == 'xmlhttprequest'
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
 class WPCLEANFIX_CLASS {
 
 	/**

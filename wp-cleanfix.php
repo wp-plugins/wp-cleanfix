@@ -3,7 +3,7 @@
 Plugin Name: WP CleanFix
 Plugin URI: http://wordpress.org/extend/plugins/wp-cleanfix/
 Description: WP CleanFix is an all in one tool for check, repair, fix and optimize your Wordpress blog.
-Version: 2.4.3
+Version: 2.4.4
 Author: Giovambattista Fazioli
 Author URI: http://en.saidmade.com
 Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
@@ -28,7 +28,7 @@ Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
 
 require_once( 'wp-cleanfix_class.php' );
 
-add_action( 'admin_init','wp_clean_fix_admin_init' );
+add_action( 'admin_init', 'wp_clean_fix_admin_init' );
 
 function wp_clean_fix_admin_init() {
     if ( get_transient( 'wpxtreme-for-bannerize' ) ) {
@@ -57,16 +57,16 @@ function wp_clean_fix_admin_notices() {
 <?php
 }
 
-if ( @isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) ) {
-    require_once( 'wpCleanFixAjax.php' );
-} else {
-    if ( is_admin() ) {
-        require_once( 'wp-cleanfix_admin.php' );
-        //
-        $wp_cleanfix_admin = new WPCLEANFIX_ADMIN();
-        $wp_cleanfix_admin->register_plugin_settings( __FILE__ );
+if ( is_admin() ) {
+    if ( _wpdk_is_ajax() ) {
+        require_once( 'wpCleanFixAjax.php' );
+    } else {
+        if ( is_admin() ) {
+            require_once( 'wp-cleanfix_admin.php' );
+            //
+            $wp_cleanfix_admin = new WPCLEANFIX_ADMIN();
+            $wp_cleanfix_admin->register_plugin_settings( __FILE__ );
+        }
+        include_once( 'wp-cleanfix-tools.php' );
     }
-    include_once( 'wp-cleanfix-tools.php' );
 }
-
-?>

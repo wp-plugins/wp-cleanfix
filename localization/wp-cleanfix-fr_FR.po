@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP CleanFix\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-09 10:48+0100\n"
-"PO-Revision-Date: 2012-02-09 10:48+0100\n"
+"POT-Creation-Date: 2011-11-02 14:24+0100\n"
+"PO-Revision-Date: 2011-11-02 14:24+0100\n"
 "Last-Translator: Valentin Brandt <nitraxer@gmail.com>\n"
 "Language-Team: Giovambattista Fazioli <g.fazioli@undolog.com>\n"
 "MIME-Version: 1.0\n"
@@ -16,234 +16,234 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../wp-cleanfix_admin.php:111
+#: ../wp-cleanfix_admin.php:115
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:163
+#: ../wp-cleanfix_admin.php:167
 msgid "Warning!! Are you sure to confirm this operation?"
 msgstr "Attention ! Être-vous sûr de vouloir faire cette opération ?"
 
-#: ../wp-cleanfix_admin.php:164
+#: ../wp-cleanfix_admin.php:168
 msgid "Sorry! Be patient. Not yet implemented in this beta release"
 msgstr "Désolé ! Soyez patient. Ce n'est pas encore implémenté dans cette version beta."
 
-#: ../wp-cleanfix_admin.php:212
+#: ../wp-cleanfix_admin.php:216
 msgid "WP CleanFix - Summary Report"
 msgstr "WordPress CleanFix - Informations importantes !"
 
-#: ../wp-cleanfix_admin.php:229
+#: ../wp-cleanfix_admin.php:233
 msgid "In order to turn on the log file, you must add these \"define\" in your WordPress wp-config.php file:"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:239
+#: ../wp-cleanfix_admin.php:243
 #, fuzzy
 msgid "WP CleanFix - Debug"
 msgstr "WordPress CleanFix - Informations importantes !"
 
-#: ../wp-cleanfix_admin.php:267
+#: ../wp-cleanfix_admin.php:271
 msgid "File cleared."
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:271
+#: ../wp-cleanfix_admin.php:275
 msgid "errors found"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:273
+#: ../wp-cleanfix_admin.php:277
 msgid "error found"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:278
+#: ../wp-cleanfix_admin.php:282
 msgid "Are you sure?"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:278
+#: ../wp-cleanfix_admin.php:282
 msgid "Clear Log File"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:307
+#: ../wp-cleanfix_admin.php:311
 msgid "More than "
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:308
+#: ../wp-cleanfix_admin.php:312
 msgid "errors in log..."
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:317
+#: ../wp-cleanfix_admin.php:321
 msgid "Filter"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:322
+#: ../wp-cleanfix_admin.php:326
 msgid "No such errors in log file."
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:325
+#: ../wp-cleanfix_admin.php:329
 msgid "Error while reading the log file."
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:348
+#: ../wp-cleanfix_admin.php:352
 #, php-format
 msgid "%s Kb tables gain"
 msgstr "%s "
 
-#: ../wp-cleanfix_admin.php:354
-#: ../wp-cleanfix_admin.php:599
+#: ../wp-cleanfix_admin.php:358
+#: ../wp-cleanfix_admin.php:603
 msgid "Database"
 msgstr "Base de données"
 
-#: ../wp-cleanfix_admin.php:367
+#: ../wp-cleanfix_admin.php:371
 #, php-format
 msgid "%s unused User Meta"
 msgstr "%s informations d'utilisateurs inutilisées :"
 
-#: ../wp-cleanfix_admin.php:374
+#: ../wp-cleanfix_admin.php:378
 msgid "User Meta"
 msgstr "Informations d'utilisateurs"
 
-#: ../wp-cleanfix_admin.php:386
+#: ../wp-cleanfix_admin.php:390
 #, php-format
 msgid "%s Post Revisions"
 msgstr "%s Brouillons d'articles"
 
-#: ../wp-cleanfix_admin.php:393
+#: ../wp-cleanfix_admin.php:397
 #, php-format
 msgid "%s Auto Draft"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:400
+#: ../wp-cleanfix_admin.php:404
 #, php-format
 msgid "%s Post in Trash"
 msgstr "%s articles dans votre corbeille"
 
-#: ../wp-cleanfix_admin.php:408
+#: ../wp-cleanfix_admin.php:412
 #, php-format
 msgid "%s unused Post Meta"
 msgstr "%s informations d'articles inutilisées :"
 
-#: ../wp-cleanfix_admin.php:417
+#: ../wp-cleanfix_admin.php:421
 #, php-format
 msgid "%s Post Meta Edit Lock"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:425
+#: ../wp-cleanfix_admin.php:429
 #, php-format
 msgid "%s unused Tags"
 msgstr "%s informations de mots-clefs inutilisées :"
 
-#: ../wp-cleanfix_admin.php:434
+#: ../wp-cleanfix_admin.php:438
 #, php-format
 msgid "%s Posts without author"
 msgstr "%s articles sans auteur"
 
-#: ../wp-cleanfix_admin.php:443
+#: ../wp-cleanfix_admin.php:447
 #, php-format
 msgid "%s Pages without author"
 msgstr "%s pages sans auteur"
 
-#: ../wp-cleanfix_admin.php:452
+#: ../wp-cleanfix_admin.php:456
 #, php-format
 msgid "%s Attachment unlink"
 msgstr "%s pièces jointes dissociées"
 
-#: ../wp-cleanfix_admin.php:459
-#: ../wp-cleanfix_admin.php:603
+#: ../wp-cleanfix_admin.php:463
+#: ../wp-cleanfix_admin.php:607
 msgid "Posts"
 msgstr "Articles"
 
-#: ../wp-cleanfix_admin.php:472
+#: ../wp-cleanfix_admin.php:476
 #, php-format
 msgid "%s unused Categories"
 msgstr "%s catégories non utilisées"
 
-#: ../wp-cleanfix_admin.php:481
+#: ../wp-cleanfix_admin.php:485
 #, php-format
 msgid "%s terms unlink in taxonomy"
 msgstr "%s conditions non associées dans les taxinomies"
 
-#: ../wp-cleanfix_admin.php:490
+#: ../wp-cleanfix_admin.php:494
 #, php-format
 msgid "%s taxonomy unlink in term"
 msgstr "%s taxinomies non associées dans les conditions"
 
-#: ../wp-cleanfix_admin.php:497
-#: ../wp-cleanfix_admin.php:605
+#: ../wp-cleanfix_admin.php:501
+#: ../wp-cleanfix_admin.php:609
 msgid "Categories"
 msgstr "Catégories"
 
-#: ../wp-cleanfix_admin.php:508
+#: ../wp-cleanfix_admin.php:512
 msgid "Go to Repair"
 msgstr "Démarrer la réparation"
 
-#: ../wp-cleanfix_admin.php:511
+#: ../wp-cleanfix_admin.php:515
 msgid "Nothing to Report"
 msgstr "Rien à raporter"
 
-#: ../wp-cleanfix_admin.php:519
-#: ../wp-cleanfix_admin.php:841
+#: ../wp-cleanfix_admin.php:523
+#: ../wp-cleanfix_admin.php:845
 msgid "This software is free. You don't need to donate money to support it. Just talk about it."
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:521
-#: ../wp-cleanfix_admin.php:848
+#: ../wp-cleanfix_admin.php:525
+#: ../wp-cleanfix_admin.php:852
 msgid "Look the new \"CleanFix Tools\" panel for to extend Wordpress features: utility, comodity and tools "
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:546
-#: ../wp-cleanfix_admin.php:827
+#: ../wp-cleanfix_admin.php:550
+#: ../wp-cleanfix_admin.php:831
 msgid "Clean & Fix"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:558
+#: ../wp-cleanfix_admin.php:562
 #: ../module/comments_view.php:81
 msgid "Tools"
 msgstr "Outils"
 
-#: ../wp-cleanfix_admin.php:568
+#: ../wp-cleanfix_admin.php:572
 msgid "Comodity"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:570
+#: ../wp-cleanfix_admin.php:574
 msgid "Extends Editor"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:572
+#: ../wp-cleanfix_admin.php:576
 msgid "Extends Posts"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:574
+#: ../wp-cleanfix_admin.php:578
 msgid "Debug"
 msgstr ""
 
-#: ../wp-cleanfix_admin.php:597
+#: ../wp-cleanfix_admin.php:601
 msgid "Important informations"
 msgstr "Informations importantes"
 
-#: ../wp-cleanfix_admin.php:601
+#: ../wp-cleanfix_admin.php:605
 msgid "Users"
 msgstr "Utilisateurs"
 
-#: ../wp-cleanfix_admin.php:607
+#: ../wp-cleanfix_admin.php:611
 msgid "Comments"
 msgstr "Commentaires"
 
-#: ../wp-cleanfix_admin.php:652
-#: ../wp-cleanfix_admin.php:718
+#: ../wp-cleanfix_admin.php:656
+#: ../wp-cleanfix_admin.php:722
 msgid "Your settings have been saved."
 msgstr "Vos paramètres ont été enregistrés."
 
-#: ../wp-cleanfix_admin.php:779
-#: ../wp-cleanfix_admin.php:780
+#: ../wp-cleanfix_admin.php:783
+#: ../wp-cleanfix_admin.php:784
 #: ../module/database_view.php:16
 msgid "Refresh"
 msgstr "Actualiser"
 
-#: ../wp-cleanfix_admin.php:793
-#: ../wp-cleanfix_admin.php:794
+#: ../wp-cleanfix_admin.php:797
+#: ../wp-cleanfix_admin.php:798
 msgid "Refresh All"
 msgstr "Tout actualiser"
 
-#: ../wp-cleanfix_admin.php:814
-#: ../wp-cleanfix_admin.php:841
+#: ../wp-cleanfix_admin.php:818
+#: ../wp-cleanfix_admin.php:845
 msgid "For more info and plugins visit"
 msgstr "Pour plus d'informations et d'extensions visitez"
 
