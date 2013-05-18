@@ -4,7 +4,7 @@ CleanFix is a tool for keep clean and fix your WordPress installation
 
 ## Requirements
 
-* wpXtreme Framework 1.0.0.b4 or higher (last version is suggest)
+* WPDK Framework 1.1.0 or higher (last version is suggest)
 * Wordpress 3.4 or higher (last version is suggest)
 * PHP version 5.2.4 or greater
 * MySQL version 5.0 or greater
