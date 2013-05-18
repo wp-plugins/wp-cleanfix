@@ -10,7 +10,7 @@ WP CleanFix is an all in one tool for check, repair, fix and optimize your WordP
 
 == Description ==
 
-This is a **DEMO** version. Please, install for free [wpXtreme](https://wpxtre.me "wpXtreme") and get latest CleanFix free version
+This is a **PROMO** version. Please, install for free [wpXtreme](https://wpxtre.me "wpXtreme") and get latest CleanFix free version
 
 **wpXtreme** is a powerful tool for enhancing your WordPress experience. Downloading one free plugin, you will get:
 
