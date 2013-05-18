@@ -1,23 +1,23 @@
 === WP CleanFix ===
 Contributors: gfazioli
-Donate link: http://en.saidmade.com/products/wordpress/wp-cleanfix/
+Donate link: https://wpxtre.me/
 Tags: Database, Post, Page, Categories, Post Meta, Revision, Comments, Compress, Improvements, Manage, Clean, Repair, Optimize, Fix, Tools, Utility
-Requires at least: 2.9.1
-Tested up to: 3.1.2
-Stable tag: 2.4.4
+Requires at least: 3.5.1
+Tested up to: 3.5.1
+Stable tag: 3.0.0
 
 WP CleanFix is an all in one tool for check, repair, fix and optimize your WordPress blog.
 
 == Description ==
 
-**[HOT NEWS]** WP CleanFix will be part of the new upcoming [wpXtreme](http://www.wpxtre.me "wpXtreme")!
+This is a **DEMO** version. Please, install for free [wpXtreme](https://wpxtre.me "wpXtreme") and get latest CleanFix free version
 
 **wpXtreme** is a powerful tool for enhancing your WordPress experience. Downloading one free plugin, you will get:
 
 * a lot of improvements to the WordPress core for free (like a cool backend layout, improved user management, etc)
 * access to the evergrowing wpxPluginStore, where you will be able to download plugins for all your needs
 
-Signup to [wpXtreme](http://www.wpxtre.me "wpXtreme") and win a free licence!
+Signup to [wpXtreme](https://wpxtre.me "wpXtreme") and win a free licence!
 
 WP CleanFix is a management tool for for check, repair, fix and optimize your WordPress blog. The Ajax interface allow to manage all status in one only page! Remember: This software is free. You don't need to donate money to support it. Just talk about it.
 
