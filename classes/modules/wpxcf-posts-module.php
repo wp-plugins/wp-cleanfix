@@ -357,7 +357,8 @@ SQL;
     global $wpdb;
 
     $sql = <<< SQL
-SELECT *, posts.ID AS post_id FROM `$wpdb->posts` posts
+SELECT *, posts.ID AS post_id
+FROM `$wpdb->posts` posts
 LEFT JOIN `$wpdb->users` users ON users.ID = posts.post_author
 WHERE posts.post_status = 'publish'
 AND users.ID IS NULL

@@ -4,7 +4,7 @@ Donate link: https://wpxtre.me/
 Tags: Database, Post, Page, Categories, Post Meta, Revision, Comments, Compress, Improvements, Manage, Clean, Repair, Optimize, Fix, Tools, Utility
 Requires at least: 3.5.1
 Tested up to: 3.5.1
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 
 WP CleanFix is an all in one tool for check, repair, fix and optimize your WordPress blog.
 
@@ -47,6 +47,11 @@ WP CleanFix is a management tool for for check, repair, fix and optimize your Wo
 * English, French, German, Turkish, Hungarian and Italian Localization
 
 **RELEASE NOTE**
+
+= 3.0.1 =
+
+* PROMO version for [wpXtreme](https://wpxtre.me "wpXtreme")
+* Minor fixes
 
 = 2.4.4 =
 * Fixed Ajax, Thanks to (Enrico Zogno <enrizo@gmail.com>)
