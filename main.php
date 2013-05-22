@@ -4,7 +4,7 @@
  * Plugin Name: WP CleanFix
  * Plugin URI: https://wpxtre.me
  * Description: Clean and fix tools! Repair corrupted data and clean up your database
- * Version: 3.0.1
+ * Version: 3.0.2
  * Author: wpXtreme, Inc.
  * Author URI: https://wpxtre.me
  * Text Domain: wpx-cleanfix
