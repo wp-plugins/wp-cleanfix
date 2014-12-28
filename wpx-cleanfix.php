@@ -1,29 +1,28 @@
 <?php
+
 /**
  * Main CleanFix class
  *
  * @class              WPXCleanFix
  * @author             =undo= <info@wpxtre.me>
- * @copyright          Copyright (C) 2012-2013 wpXtreme Inc. All Rights Reserved.
- * @date               2013-02-06
- * @version            1.0.5
+ * @copyright          Copyright (C) 2012-2014 wpXtreme Inc. All Rights Reserved.
+ * @date               2014-10-03
+ * @version            1.1.0
  */
-final class WPXCleanFix extends WPDKWordPressPlugin {
+final class WPXCleanFix extends WPXPlugin {
 
   /**
-   * Create and return a singleton instance of WPXCleanFix class
-   *
-   * @brief Init
+   * Create and return a singleton instance of WPXCleanFix class.
    *
    * @param string $file The main file of this plugin. Usually __FILE__ (main.php)
    *
    * @return WPXCleanFix
    */
-  public static function boot( $file ) {
+  public static function boot( $file = null )
+  {
     static $instance = null;
-    if ( is_null( $instance ) ) {
-      $instance = new WPXCleanFix( $file );
-      do_action( __CLASS__ );
+    if ( is_null( $instance ) && ( !empty( $file ) ) ) {
+      $instance = new self( $file );
     }
     return $instance;
   }
@@ -31,137 +30,178 @@ final class WPXCleanFix extends WPDKWordPressPlugin {
   /**
    * Create an instance of WPXCleanFix class
    *
-   * @brief Construct
-   *
    * @param string $file The main file of this plugin. Usually __FILE__ (main.php)
    *
    * @return WPXCleanFix
    */
-  public function __construct( $file ) {
+  public function __construct( $file = null )
+  {
     parent::__construct( $file );
 
-    $this->defines();
-    $this->registerClasses();
+    // Filter the registered CleanFix modules.
+    add_filter( 'wpxcf_modules', array( $this, 'wpxcf_modules' ) );
 
-    WPXCleanFixModules::init();
-
+    // Init the modules controller
+    add_action( 'init', array( 'WPXCleanFixModulesController', 'init' ), 50 );
   }
 
   /**
-   * Dynamic defines
+   * Filter the registered CleanFix modules.
    *
-   * @brief Set defines
+   * @param array $modules Registered modules.
    */
-  private function defines() {
-    require_once( 'defines.php' );
+  public function wpxcf_modules( $modules )
+  {
+    $embed_modules = array(
+      'WPXCFDatabaseModule',
+			'WPXCFCommentsModule',
+			'WPXCFPostsModule',
+			'WPXCFTaxonomiesModule',
+			'WPXCFUsersModule',
+			'WPXCFOptionsModule',
+    );
+
+    return array_merge( $modules, $embed_modules );
   }
 
   /**
    * Register all autoload classes
-   *
-   * @brief Autoload classes
    */
-  private function registerClasses() {
+  public function classesAutoload()
+  {
+		$includes = array(
+			$this->classesPath . 'admin/wpxcf-admin.php' => 'WPXCleanFixAdmin',
 
-    $includes = array(
-      $this->classesPath . 'admin/wpx-cleanfix-main-vc.php'           => array(
-        'WPXCleanFixMainViewController',
-        'WPXCleanFixMainView'
-      ),
-      $this->classesPath . 'admin/wpx-cleanfix-admin.php'    => 'WPXCleanFixAdmin',
-      $this->classesPath . 'admin/wpx-cleanfix-about-vc.php' => 'WPXCleanFixAboutViewController',
-      $this->classesPath . 'core/wpxcf-ajax.php'             => 'WPXCleanFixAjax',
-      $this->classesPath . 'modules/wpxcf-modules.php'       => 'WPXCleanFixModules',
+			$this->classesPath . 'admin/wpxcf-main-viewcontroller.php' => array(
+				'WPXCleanFixMainViewController',
+				'WPXCleanFixMainView'
+				),
 
-      $this->classesPath . 'modules/wpxcf-module-view.php'     => array(
-        'WPXCleanFixModuleView',
-        'WPXCleanFixModuleButtonActionType'
-      ),
+			$this->classesPath . 'core/wpxcf-ajax.php' => 'WPXCleanFixAjax',
 
-      $this->classesPath . 'modules/wpxcf-module-response.php' => array(
-        'WPXCleanFixModuleResponseStatus',
-        'WPXCleanFixModuleResponse'
-      ),
-    );
+			$this->classesPath . 'embedded-modules/comments/wpxcf-comments-module.php' => array(
+				'WPXCFCommentsModule',
+				'WPXCFCommentsModuleUnapprovedSlot',
+				'WPXCFCommentsModuleTrashSlot',
+				'WPXCFCommentsModuleSpamSlot'
+				),
 
-    /* Admin backend area. */
-    $this->registerAutoloadClass( $includes );
+			$this->classesPath . 'embedded-modules/database/wpxcf-database-module.php' => array(
+				'WPXCFDatabaseModule',
+				'WPXCFDatabaseModuleOptimizationSlot',
+				'WPXCFDatabaseModuleOptimizeSlotDetailView'
+				),
 
+			$this->classesPath . 'embedded-modules/database/wpxcf-database-preferences-view.php' => 'WPXCleanFixPreferencesDatabaseView',
+
+			$this->classesPath . 'embedded-modules/database/wpxcf-database-preferences.php' => 'WPXCleanFixPreferencesDatabase',
+
+			$this->classesPath . 'embedded-modules/options/wpxcf-options-module.php' => array(
+				'WPXCFOptionsModule',
+				'WPXCFOptionsModuleExpiredSiteTransientSlot',
+				'WPXCFOptionsModuleExpiredTransientsSlot'
+				),
+
+			$this->classesPath . 'embedded-modules/options/wpxcf-preferences-options-view.php' => 'WPXCleanFixPreferencesOptionsView',
+
+			$this->classesPath . 'embedded-modules/options/wpxcf-preferences-options.php' => 'WPXCleanFixPreferencesOptions',
+
+			$this->classesPath . 'embedded-modules/posts/wpxcf-posts-module.php' => array(
+				'WPXCFPostsModule',
+				'WPXCFPostsModuleRevisionsSlot',
+				'WPXCFPostsModuleAutodraftSlot',
+				'WPXCFPostsModuleTrashSlot',
+				'WPXCFPostsModulePostsWithoutAuthorSlot',
+				'WPXCleanFixSelectControlForPostsWithoutAuthor',
+				'WPXCFPostsModuleOrphanPostMetaSlot',
+				'WPXCFPostsModuleTemporaryPostMetaSlot',
+				'WPXCFPostsModuleOrphanAttachmentsSlot'
+				),
+
+			$this->classesPath . 'embedded-modules/taxonomies/wpxcf-taxonomies-module.php' => array(
+				'WPXCFTaxonomiesModule',
+				'WPXCFTaxonomiesModuleConsistentTermsSlot',
+				'WPXCFTaxonomiesModuleConsistentTaxonomiesSlot',
+				'WPXCFTaxonomiesModuleRelationshipsSlot',
+				'WPXCFTaxonomiesModuleOrphanPostTagsSlot',
+				'WPXCFTaxonomiesModuleOrphanCategoriesSlot',
+				'WPXCFTaxonomiesModuleOrphanTermsSlot'
+				),
+
+			$this->classesPath . 'embedded-modules/users/wpxcf-users-module.php' => array(
+				'WPXCFUsersModule',
+				'WPXCFUsersModuleOrphanUserMetaSlot',
+				'WPXCFUsersModuleExpiredTransientSlot'
+				),
+
+			$this->classesPath . 'modules/wpxcf-module-view.php' => array(
+				'WPXCleanFixModuleView',
+				'WPXCleanFixSelectControl',
+				'WPXCleanFixLabelControl',
+				'WPXCleanFixButtonFixControlType',
+				'WPXCleanFixButtonFixControl',
+				'WPXCleanFixButtonRefreshControl'
+				),
+
+			$this->classesPath . 'modules/wpxcf-module.php' => array(
+				'WPXCleanFixModule',
+				'WPXCleanFixSlot',
+				'WPXCleanFixModuleResponseStatus',
+				'WPXCleanFixModuleResponse'
+				),
+
+			$this->classesPath . 'modules/wpxcf-modules-controller.php' => 'WPXCleanFixModulesController',
+
+			$this->classesPath . 'preferences/wpxcf-preferences-view-controller.php' => array(
+				'WPXCleanFixPreferencesViewController',
+				'WPXCleanFixPreferencesGeneralView'
+				),
+
+			$this->classesPath . 'preferences/wpxcf-preferences.php' => 'WPXCleanFixPreferences',
+
+			);
+
+		return $includes;
   }
-
-  // -----------------------------------------------------------------------------------------------------------------
-  // Methods to overwrite
-  // -----------------------------------------------------------------------------------------------------------------
 
   /**
    * Called when Ajax
-   *
-   * @brief Ajax
    */
-  public function ajax() {
+  public function ajax()
+  {
     WPXCleanFixAjax::init();
   }
 
   /**
    * Called when admin
-   *
-   * @brief Admin
    */
-  public function admin() {
-    $admin = new WPXCleanFixAdmin( $this );
-  }
-
-  /**
-   * Called when we are in frontend
-   *
-   * @brief Theme frontend
-   */
-  public function theme() {
-    /* To overwrite. */
+  public function admin()
+  {
+    WPXCleanFixAdmin::init();
   }
 
   /**
    * Called when the plugin is activate
-   *
-   * @brief Activation
    */
-  public function activation() {
-    /* To overwrite. */
+  public function activation()
+  {
+    WPXCleanFixPreferences::init()->delta();
   }
 
   /**
    * Called when the plugin is deactivated
-   *
-   * @brief Deactivation
    */
-  public function deactivation() {
-    /* To overwrite. */
+  public function deactivation()
+  {
+    WPXCleanFixPreferences::init()->delta();
   }
 
   /**
    * Init your own configuration settings
-   *
-   * @brief Configuration
    */
-  public function configuration() {
-    /* To overwrite */
-  }
-
-  /**
-   * Do log in easy way
-   *
-   * @brief Helper for log
-   *
-   * @param mixed  $txt
-   * @param string $title Optional. Any free string text to context the log
-   *
-   */
-  public static function log( $txt, $title = '' ) {
-    /**
-     * @var WPXCleanFix $me
-     */
-    $me = $GLOBALS[__CLASS__];
-    $me->log->log( $txt, $title );
+  public function preferences()
+  {
+    WPXCleanFixPreferences::init();
   }
 
 }

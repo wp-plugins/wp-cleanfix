@@ -2,72 +2,70 @@
 Contributors: gfazioli
 Donate link: https://wpxtre.me/
 Tags: Database, Post, Page, Categories, Post Meta, Revision, Comments, Compress, Improvements, Manage, Clean, Repair, Optimize, Fix, Tools, Utility
-Requires at least: 3.5.1
-Tested up to: 3.5.1
-Stable tag: 3.0.2
+Requires at least: 3.8.0
+Tested up to: 4.1
+Stable tag: 4.0.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WP CleanFix is an all in one tool for check, repair, fix and optimize your WordPress blog.
+The all in one tool for check, repair, fix and optimize your WordPress blog.
 
 == Description ==
 
-This is a **PROMO** version. Please, install for free [wpXtreme](https://wpxtre.me "wpXtreme") and get latest CleanFix free version
+WPX CleanFix Light is the "light" version of wpXtreme [CleanFix](https://wpxtre.me/product/cleanfix).
+CleanFix is a plugin born to improve the core features within your WordPress installation and keep clean your databases with ease
+This plugin is the perfect fit for anybody who needs to get rid of the annoyances database management which regularly rises and for those who need to literally clean their WordPress up from missing categories, users, meta, etc.
 
-**wpXtreme** is a powerful tool for enhancing your WordPress experience. Downloading one free plugin, you will get:
+CleanFix embodies several functions, which normally are provided as single plugins, and make them all quickly and easily available through a clean dashboard for the website management (for specific information see the features tab).
 
-* a lot of improvements to the WordPress core for free (like a cool backend layout, improved user management, etc)
-* access to the evergrowing wpxPluginStore, where you will be able to download plugins for all your needs
+A clean and simple UI lets you enable/disable every single feature quickly and smoothly with just a click. Since CleanFix takes advantage of Ajax, you’ll be able to perform simultaneously multiple actions without refreshing your page.
 
-Signup to [wpXtreme](https://wpxtre.me "wpXtreme") and win a free licence!
+CleanFix, you’ve never been happier to clean stuff.
 
-WP CleanFix is a management tool for for check, repair, fix and optimize your WordPress blog. The Ajax interface allow to manage all status in one only page! Remember: This software is free. You don't need to donate money to support it. Just talk about it.
+http://www.youtube.com/watch?v=QfhsDWtEen4
+
+In this "light" version you can:
 
 **FEATURES**
 
-* CleanFix Tools
-* Extends HTML Editor: fontname, size, color, extra tags
-* Remove Frontend admin bar
-* Database Tables optimization
-* Check/Remove for unused UserMeta
-* Check/Remove for Post Revision and Trash
-* Check/Remove Auto Draft Posts
-* Check/Remove Edit Post Lock
-* Check/Remove for unused Post Meta
-* Check/Remove for unused Tags
-* Check/Remove/Relink for Posts without Authors
-* Check/Remove/Relink for Pages without Authors
-* Check/Remove for Attachments without Post/Page
-* Check/Remove for unused Categories
-* Check/Remove for unlink Categories (terms)
-* Check/Remove for unlink Categories Taxonomy
-* Check/Remove for unapproved and Trash comments
-* Check/Remove for spam comments
-* Find & Replace on Posts Content
-* Find & Replace on Comments Content
-* WordPress MU compatibility
-* English, French, German, Turkish, Hungarian and Italian Localization
+= Database =
+
+* Optimise database tables, MyISAM and InnoDB
+* Reset auto-increment preferences
+
+= Options =
+
+* Check/Remove expired transient
+* Transient preferences
+
+= Posts, Pages and Custom Post Types =
+
+* Check/Remove Post Revision, post in trash, auto-draft
+* Check/Remove Post Meta, Orphans Media attachments, Orphans Post Tags and Orphans Post Categories
+* Check/Repair Post without valid user linked
+
+= Terms and taxonomies =
+
+* Check/Repair Terms, Terms Taxonomies and Terms Relationships
+* Check/Remove Orphans generic Terms
+
+= Users =
+
+* Check/Remove expired user transient
+* Check/Remove user meta
+
+= Comments =
+
+* Check/Remove Unapproved, SPAM and Trash Comments
+* Compact index tool for comment meta table
+
+for more features visit wpXtreme [CleanFix](https://wpxtre.me/product/cleanfix)
 
 **RELEASE NOTE**
 
-= 3.0.1 =
+= 4.0.0 =
 
-* PROMO version for [wpXtreme](https://wpxtre.me "wpXtreme")
-* Minor fixes
-
-= 2.4.4 =
-* Fixed Ajax, Thanks to (Enrico Zogno <enrizo@gmail.com>)
-
-= 2.4.3 =
-* Fixed string length database too
-
-= 2.4.2 =
-* Fixed string length
-
-= 2.4.1 =
-* Fixed anonymous functions for php 5.3 < compatibility
-
-= 2.4 =
-* Added Help/Info Icon
-* Several improvements
+* New branch from [CleanFix](https://wpxtre.me/product/cleanfix)
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
@@ -77,20 +75,69 @@ Check Dashboard
 
 == Related Links ==
 
-* [Author's Company](http://www.saidmade.com/ "Saidmade")
-* [Author's Company - english version](http://en.saidmade.com/ "Saidmade")
-* [Author's Personal Blog](http://www.undolog.com/ "Undolog")
-
-For more information on the roadmap and the next improvements, please send an e-mail to: [g.fazioli@saidmade.com](mailto:g.fazioli@saidmade.com "g.fazioli@saidmade.com")
+* [wpXtreme website](https://wpxtre.me)
+* [WPDK on GitHub](https://github.com/wpXtreme/wpdk)
+* [Full Version](https://wpxtre.me/product/server)
+* [Forums](https://wpxtre.me/forums/)
+* [FAQ](https://wpxtre.me/faq/)
+* [Blog](https://wpxtre.me/blog/)
 
 == Screenshots ==
 
-1. Dashboard Summary Report
-2. Options
-3. New Setting Tab Slide for choose column number and show/hide panel
-4. One column version, with only 3 panels
+1. Database - optimize
+2. Database - preferences
+3. Options - cleanup
+4. Posts - clean and fix
+5. Taxonomies - clean and fix
+6. Users - fix
+7. Comments - clean trash and spam
+
+
+== Installation ==
+
+1. Upload the entire content of plugin archive to your `/wp-content/plugins/` directory,
+   so that everything will remain in a `/wp-content/plugins/wp-cleanfix/` folder
+2. Activate the plugin through the 'Plugins' menu in WordPress (deactivate and reactivate if you're upgrading).
+3. Install and activate wpXtreme framework (if you're not before)
+4. Done. Enjoy.
+
+
+== Frequently Asked Questions ==
+
+= What is wpXtreme framework ? =
+
+wpXtreme is a simple plugin (autoinstalled) that provides a framework API layer ([WPDK WordPress Development Kit](http://wpdk.io)) used by several plugins and themes.
+
+= Where can I try the complete version ? =
+
+You can try the complete version on wpXtreme [CleanFix](https://wpxtre.me/product/cleanfix)
+
+ 1. Register for FREE
+ 2. Activate the 10 days TRIAL period
+ 3. Download all complete plugins for FREE
+
+= Can I get a support ? =
+
+You can get the support only when you [purchase a license](https://wpxtre.me/pricing/). You can choose:
+
+1. Single plugin license
+2. [Subscription](https://wpxtre.me/pricing/) plugin license in order to download and get support for all wpXtreme plugins
+
+= What happen when install the complete version? =
+
+If you TRY or buy the complete version of this plugin, the light version will automatically disabled.
+You can delete the light version in any time.
+
+= Is this Plugin Dangerous? =
+
+Some clean procedure could be. In order to avoid human error be sure to backup all data from WordPress database before execute any functions.
+Could be useful [Database Manager](https://wpxtre.me/product/database-manager).
 
 == Changelog ==
+
+= 4.0.0 =
+
+* New branch from [CleanFix](https://wpxtre.me/product/cleanfix)
 
 = 3.0.1 =
 
@@ -162,7 +209,7 @@ For more information on the roadmap and the next improvements, please send an e-
 = 1.5.0 =
 * Fixed critical Ajax call!
 * Improved Javascript
-* Improved UI response 
+* Improved UI response
 
 = 1.4.4 =
 * Fixed/Improved check and remove unused Tag
@@ -303,6 +350,10 @@ For more information on the roadmap and the next improvements, please send an e-
 
 == Upgrade Notice ==
 
+= 4.0.0 =
+
+* Update now for new branch
+
 = 2.2 =
 Fixed Ajax Engine. Upgrade immediately
 
@@ -332,45 +383,3 @@ Major "stable" release. Upgrade immediately
 
 = 0.1.0 =
 Please download and support :)
-
-
-== Installation ==
-
-1. Upload the entire content of plugin archive to your `/wp-content/plugins/` directory,
-   so that everything will remain in a `/wp-content/plugins/wp-cleanfix/` folder
-2. Activate the plugin through the 'Plugins' menu in WordPress (deactivate and reactivate if you're upgrading).
-3. Done. Enjoy. See WordPress Dashboard
-
-
-== Thanks ==
-
-**Bugs report and beta testing**
-
-* [Lazy79](http://wordpress.org/support/profile/231784 "Lazy79") for beta testing
-* [Baris Unver](http://beyn.org/ "Baris Unver")
-
-**Localization**
-
-* [Valentin B](http://geekeries.fr/ "Valentin B") (French translation)
-* [rauchmelder](mailto:team@fakten-fiktionen.de "rauchmelder") (German translation)
-* [Baris Unver](mailto:baris.unver@beyn.org "Baris Unver") (Turkish translation)
-* [Győző Farkas alias FYGureout](http://www.wordpress2you.com>) (Hungarian translation)
-
-== Frequently Asked Questions ==
-
-= Is this Plugin Dangerous? =
-
-Could be. Be sure to backup all data from WordPress database before execute any functions.
-
-= Can I translate Plugin interface? =
-
-Yes, just edit .POT file in `localization` folder
-
-== Who's using WP CleanFix? ==
-
-* [Elio e le Storie Tese](http://www.elioelestorietese.it "Elio e le Storie Tese")
-* [Artribune](http://www.artribune.com/ "Artribune")
-* [Undolog](http://www.undolog.com "Undolog")
-* [Saidmade](http://en.saidmade.com "Saidmade")
-
-Aren't you in this list? Please, [let me know your WordPress site url](mailto:g.fazioli@saidmade.com "let me know your WordPress site url")

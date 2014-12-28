@@ -4,39 +4,26 @@
  * Plugin Name: WP CleanFix
  * Plugin URI: https://wpxtre.me
  * Description: Clean and fix tools! Repair corrupted data and clean up your database
- * Version: 3.0.2
+ * Version: 4.0.0
  * Author: wpXtreme, Inc.
  * Author URI: https://wpxtre.me
  * Text Domain: wpx-cleanfix
  * Domain Path: localization
  *
  * WPX PHP Min: 5.2.4
- * WPX WP Min: 3.5
+ * WPX WP Min: 3.8
  * WPX MySQL Min: 5.0
- * WPX wpXtreme Min: 1.0.0.b4
+ * WPX wpXtreme Min: 1.4.8
  *
  */
 // @endcond
 
-/* Avoid directly access. */
+// Avoid directly access
 if ( !defined( 'ABSPATH' ) ) {
   exit;
 }
 
-/* Start. */
-add_action( 'WPDK', 'wpx_cleanfix_boot' );
+// wpXtreme kickstart logic
+require_once( trailingslashit( dirname( __FILE__ ) ) . 'wp_kickstart.php' );
 
-/* Load WPDK. */
-require_once( trailingslashit( dirname( __FILE__ ) ) . 'wpdk/wpdk.php' );
-
-/**
- * Start the plugin
- *
- * @brief Let's dance
- */
-function wpx_cleanfix_boot()
-{
-  /* Load CleanFix. */
-  require_once( trailingslashit( dirname( __FILE__ ) ) . 'wpx-cleanfix.php' );
-  $GLOBALS['WPXCleanFix'] = WPXCleanFix::boot( __FILE__ );
-}
+wpxtreme_wp_kickstart( __FILE__, 'wpx-cleanfix_00002e', 'WPXCleanFix', 'wpx-cleanfix.php' );

@@ -8,11 +8,11 @@ if ( wpdk_is_ajax() ) {
    *
    * @class              WPXCleanFixAjax
    * @author             =undo= <info@wpxtre.me>
-   * @copyright          Copyright (C) 2012-2013 wpXtreme Inc. All Rights Reserved.
-   * @date               2013-01-23
-   * @version            1.0.2
+   * @copyright          Copyright (C) 2012-2014 wpXtreme Inc. All Rights Reserved.
+   * @date               2014-07-18
+   * @version            1.0.3
    */
-  class WPXCleanFixAjax extends WPDKAjax {
+  final class WPXCleanFixAjax extends WPDKAjax {
 
     /**
      * Create or return a singleton instance of WPXCleanFixAjax
@@ -21,10 +21,11 @@ if ( wpdk_is_ajax() ) {
      *
      * @return WPXCleanFixAjax
      */
-    public static function getInstance() {
+    public static function getInstance()
+    {
       static $instance = null;
       if ( is_null( $instance ) ) {
-        $instance = new WPXCleanFixAjax();
+        $instance = new self();
       }
       return $instance;
     }
@@ -32,17 +33,22 @@ if ( wpdk_is_ajax() ) {
     /**
      * Alias of getInstance();
      *
-     * @brief Init the ajax register
-     *
      * @return WPXCleanFixAjax
      */
-    public static function init() {
+    public static function init()
+    {
+      if ( isset( $_POST['action'] ) && !empty( $_POST['action'] ) ) {
+
+        /**
+         * Fires when an Ajax action.
+         *
+         * The dynamic portion of the hook name, $action, refers to the 'action' post parameters.
+         */
+        do_action( 'wpxcf_ajax-' . $_POST['action'] );
+      }
+
       return self::getInstance();
     }
-
-    // -------------------------------------------------------------------------------------------------------------
-    // Statics: method array to register
-    // -------------------------------------------------------------------------------------------------------------
 
     /**
      * Return the array with the list of ajax allowed methods
@@ -51,135 +57,164 @@ if ( wpdk_is_ajax() ) {
      *
      * @return array
      */
-    protected function actions() {
-
+    protected function actions()
+    {
       $actionsMethods = array(
-        'wpxcf_action'              => true,
-        'wpxcf_action_update_badge' => true
+        'wpxcf_action_update_badge' => false,
+        'wpxcf_action'              => false,
       );
       return $actionsMethods;
     }
 
     /**
-     * Return TRUE if the class_name in input param is a registered modules, else die!
-     * This check is for security reason.
-     *
-     * @param string $class_name The class name of a registered module
-     *
-     * @return bool
-     */
-    private function allowedModules( $class_name ) {
-      $modules = WPXCleanFixModules::getInstance()->modules;
-      foreach ( $modules as $module ) {
-        if ( $module['class_name'] == $class_name ) {
-          return true;
-        }
-      }
-      die( -1 );
-    }
-
-    // -------------------------------------------------------------------------------------------------------------
-    // Private internal
-    // -------------------------------------------------------------------------------------------------------------
-
-    /**
      * Return a standanrd response
      *
-     * @brief Prepare response for common mathods
-     *
-     * @param WPXCleanFixModuleResponse $result
+     * @param WP_Error|WPXCleanFixModuleResponse $result
      *
      * @return array
      */
-    private function prepareResponse( $result ) {
+    private function response( $result )
+    {
       if ( is_wp_error( $result ) ) {
         $error  = sprintf( __( 'An error occourred! Code: %s Description: %s', WPXCLEANFIX_TEXTDOMAIN ), $result->get_error_code(), $result->get_error_message() );
         $result = array(
-          'message' => $error,
-          'status'  => '',
-          'content' => '',
-          'actions' => '',
+          'error'            => $result->get_error_code(),
+          'errorDescription' => $error,
+          'status'           => '',
+          'content'          => '',
+          'actions'          => '',
         );
       }
       else {
         $result = array(
-          'status'  => $result->statusDescription,
-          'content' => $result->detail,
-          'actions' => $result->actions
+          'error'            => 0,
+          'errorDescription' => '',
+          'warning'          => ( $result->status == WPXCleanFixModuleResponseStatus::OK ) ? 0 : 1,
+          'status'           => sprintf( '<span class="wpdk-has-tooltip wpxcf-status-%s" title="%s"></span>', $result->status, $result->description ),
+          'content'          => !empty( $result->detail ) ? $result->detail->html() : '',
+          'actions'          => !empty( $result->cleanFix ) ? $result->cleanFix->html() : ''
         );
       }
-      return $result;
+
+      wp_die( json_encode( $result ) );
     }
 
-    // -------------------------------------------------------------------------------------------------------------
-    // Actions methods
-    // -------------------------------------------------------------------------------------------------------------
 
     /**
-     * Get from Post the class name and method for a module. This action is potential dangerous but the class and
-     * the methods must exsists and the main class must be a subclass of WPXCleanFixModuleView.
-     *
-     * @brief Process a comand action
-     *
-     * @return string JSON output
+     * Perform a refresh or fix/clean action.
      */
-    public function wpxcf_action() {
-
-      /* Security check */
+    public function wpxcf_action()
+    {
+      // Security check
       check_ajax_referer();
 
-      $class_name  = esc_attr( $_POST['class_name'] );
-      $action_name = esc_attr( $_POST['action_name'] );
-      $parameters  = $_POST['parameters'];
+      // Get method, default refresh
+      $method = isset( $_POST['method'] ) ? $_POST['method'] : 'refresh';
 
-      /* Check allowed modules. If the modules doesn't exists die(). */
-      $pass = $this->allowedModules( $class_name );
-
-      /* Added more check from subclass WPXCleanFixModuleView */
-      if ( true === $pass && class_exists( $class_name ) && is_subclass_of( $class_name, 'WPXCleanFixModuleView' ) &&
-        method_exists( $class_name, $action_name )
-      ) {
-        $instance = new $class_name;
-        $result   = $this->prepareResponse( call_user_func( array(
-                                                                 $instance,
-                                                                 $action_name
-                                                            ), $parameters ) );
-      }
-      else {
-        $result = array(
-          'message' => __( 'SEVERE internal error!', WPXCLEANFIX_TEXTDOMAIN ),
-          'status'  => '',
-          'content' => '',
-          'actions' => ''
-        );
+      // Error method
+      if ( ! in_array( $method, array( 'refresh', 'fix' ) ) ) {
+        $this->response( new WP_Error( 'guru', __( 'Method not allowed!', WPXCLEANFIX_TEXTDOMAIN ) ) );
       }
 
-      echo json_encode( $result );
+      // Get module
+      $module_key = isset( $_POST['module'] ) ? sanitize_title( $_POST['module'] ) : '';
+
+      // Error module
+      if ( empty( $module_key ) ) {
+        $this->response( new WP_Error( 'guru', __( 'Module Missing!', WPXCLEANFIX_TEXTDOMAIN ) ) );
+      }
+
+      // Get slot
+      $slot_key = isset( $_POST['slot'] ) ? sanitize_title( $_POST['slot'] ) : '';
+
+      // Error slot
+      if ( empty( $slot_key ) ) {
+        $this->response( new WP_Error( 'guru', __( 'Slot Missing!', WPXCLEANFIX_TEXTDOMAIN ) ) );
+      }
+
+      // Get module list
+      $modules = WPXCleanFixModulesController::init()->modules;
+
+      // Error
+      if ( ! isset( $modules[ $module_key ] ) ) {
+        $this->response( new WP_Error( 'guru', __( 'Module not allowed!', WPXCLEANFIX_TEXTDOMAIN ) ) );
+      }
+
+      /**
+       * @var WPXCleanFixModule $module
+       */
+      $module = $modules[ $module_key ];
+
+      /**
+       * @var WPXCleanFixSlot $slot
+       */
+      $slot = $module->initSlot( $slot_key );
+
+      // Error
+      if ( empty( $slot ) ) {
+        $this->response( new WP_Error( 'guru', __( 'Slot not allowed!', WPXCLEANFIX_TEXTDOMAIN ) ) );
+      }
+
+      switch ( $method ) {
+        case 'refresh':
+          $this->response( $slot->check() );
+          break;
+        case 'fix':
+          $this->response( $slot->cleanFix() );
+          break;
+      }
+
+      die();
+    }
+
+    /**
+     * Updated the transient badge value.
+     *
+     * @since 1.2.90
+     *
+     * @return string jSON output
+     */
+    public function wpxcf_action_update_badge()
+    {
+      // Get badge value
+      $warnings = isset( $_POST['warnings'] ) ? $_POST['warnings'] : false;
+
+      // If false delete
+      if( empty( $warnings ) ) {
+        delete_site_transient( WPXCleanFixModulesController::BADGE_TRANSIENT );
+        die();
+      }
+
+      set_site_transient( WPXCleanFixModulesController::BADGE_TRANSIENT, $warnings, ( 12 * HOUR_IN_SECONDS ) );
       die();
     }
 
     /**
      * Used to update the badge count
      *
-     * @brief Update badge
+     * @todo  Renamed from `wpxcf_action_update_badge` and not used from 1.2.90
      *
      * @return string jSON output
      */
-    public function wpxcf_action_update_badge() {
-      $count = WPXCleanFixModules::init()->countWarning();
+    public function wpxcf_action_get_badge()
+    {
+      $count = WPXCleanFixModulesController::init()->issues();
+
       if ( empty( $count ) ) {
         $result = array(
+          'error' => 0,
           'count' => $count
         );
       }
       else {
         $result = array(
+          'error' => 0,
           'count' => $count,
           'badge' => WPDKUI::badge( $count, 'wpxcf-badge' )
         );
       }
-      echo json_encode( $result );
-      die();
+
+      wp_die( json_encode( $result ) );
     }
 
   }

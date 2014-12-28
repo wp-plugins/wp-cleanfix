@@ -1,208 +1,297 @@
 <?php
+
 /**
- * Base class used to display a single module view.
+ * Base class used to display a single module view and its slot-row.
  *
  * @class              WPXCleanFixModuleView
  * @author             =undo= <info@wpxtre.me>
- * @copyright          Copyright (C) 2012-2013 wpXtreme Inc. All Rights Reserved.
- * @date               05/06/12
+ * @copyright          Copyright (C) 2012-2014 wpXtreme Inc. All Rights Reserved.
+ * @date               2014-10-02
  * @version            1.0.0
  */
-
 class WPXCleanFixModuleView extends WPDKView {
 
-  private $_id;
-  private $_title;
-  private $_rows;
-
+  /**
+   * Current module.
+   *
+   * @var WPXCleanFixModule $module
+   */
+  public $module;
 
   /**
+   * Create an instance of WPXCleanFixModuleView class
    *
-   * @brief Construct
-   *
-   * @param string $id    Id usato per la tabella
-   * @param string $title Tiolo prima colonna
-   * @param array  $rows  Elenco delle righe di controllo per questo modulo
+   * @param WPXCleanFixModule $module The module instance.
    *
    */
-  public function __construct( $id, $title, $rows ) {
-    $this->_id    = sanitize_key( $id );
-    $this->_title = $title;
-    $this->_rows  = $rows;
+  public function __construct( $module )
+  {
+    // Save module
+    $this->module = $module;
 
-    parent::__construct( $this->_id );
+    // Create the view
+    parent::__construct( get_class( $this->module ) . '-module-view', 'wpxcf_module_view' );
   }
 
   /**
-   * Drawing view
-   *
-   * @brief Draw
+   * Drawing the main module view and its slot.
    *
    * @return string
    */
-  public function draw() {
+  public function draw()
+  {
 
-    $title_button = __( 'Refresh', WPXCLEANFIX_TEXTDOMAIN );
-    $html_rows    = '';
+    ?>
+    <table id="<?php $this->module->id ?>" class="wpxcf-table" cellpadding="0" cellspacing="0" width="100%">
+      <tbody>
+      <?php
 
-    foreach ( $this->_rows as $data ) {
+      // Get list of slots
+      $slots_list = $this->module->slots();
 
-      $title       = $data['title'];
-      $description = $data['description'];
+      // Loop into the class name list
+      foreach( $slots_list as $class ) {
 
-      $class_name  = get_class( $data['callback'][0] );
-      $action_name = $data['callback'][1];
+        /**
+         * @var WPXCleanFixSlot $slot
+         */
+        $slot = call_user_func( array( $class, 'init' ), $this->module );
 
-      $response = $this->$action_name();
+        /**
+         * @var WPXCleanFixModuleResponse $response
+         */
+        $response = $slot->check();
 
-      $status  = $response->statusDescription;
-      $detail  = $response->detail;
-      $actions = $response->actions;
+        // Increments warnings count
+        $warning = ( $response->status == WPXCleanFixModuleResponseStatus::OK ) ? 0 : 1;
 
-      $html_rows .= <<< HTML
-    <tr>
-        <td class="wpxcf-column-refresh"><button title="{$title_button}" class="wpxcf-button-action wpxcf-button-action-refresh" data-class_name="{$class_name}" data-action_name="{$action_name}"></button></td>
-        <td class="wpxcf-column-title"><span data-placement="right" title="{$description}" class="wpdk-tooltip">{$title}</span></td>
-        <td class="wpxcf-column-status">{$status}</td>
-        <td class="wpxcf-column-content">{$detail}</td>
-        <td class="wpxcf-column-actions">{$actions}</td>
-    </tr>
-HTML;
-    }
+        ?>
+        <tr data-warning="<?php echo $warning ?>" class="<?php echo $slot->id ?>">
 
-    $html = <<< HTML
-<table id="{$this->_id}" class="wpxcf-table" cellpadding="0" cellspacing="0" width="100%">
-    <tbody>
-        {$html_rows}
-    </tbody>
-</table>
-HTML;
-    echo $html;
+          <td class="wpxcf-column-hidle">
+            <?php WPDKGlyphIcons::display( WPDKGlyphIcons::SPIN3 ) ?>
+          </td>
 
+          <td class="wpxcf-column-refresh">
+            <?php
+            $refresh = new WPXCleanFixButtonRefreshControl( $slot );
+            $refresh->display(); ?>
+          </td>
+
+          <td class="wpxcf-column-title">
+          <span data-placement="right"
+                title="<?php echo $slot->description ?>"
+                class="wpdk-has-tooltip"><?php echo $slot->title ?>
+          </span>
+          </td>
+
+          <td class="wpxcf-column-status">
+          <span class="wpdk-has-tooltip wpxcf-status-<?php echo $response->status ?>"
+                title="<?php echo $response->description ?>">
+          </span>
+          </td>
+
+          <td class="wpxcf-column-content">
+            <?php
+            if( !empty( $response->detail ) ) {
+              $response->detail->display();
+            } ?>
+          </td>
+
+          <td class="wpxcf-column-actions">
+            <?php
+            if( !empty( $response->cleanFix ) ) {
+              $response->cleanFix->display();
+            }
+            ?>
+          </td>
+        </tr>
+
+      <?php } ?>
+      </tbody>
+    </table>
+  <?php
   }
+}
+
+/**
+ * Utility control to display a combo information
+ *
+ * @class           WPXCleanFixSelectControl
+ * @author          =undo= <info@wpxtre.me>
+ * @copyright       Copyright (C) 2012-2013 wpXtreme Inc. All Rights Reserved.
+ * @date            2013-07-02
+ * @version         1.0.0
+ *
+ */
+class WPXCleanFixSelectControl extends WPDKHTMLTagSelect {
 
   /**
-   * Return the number of warning for badge
+   * Create an instance of WPXCleanFixSelectControl class
    *
-   * @brief Get the number of warning
+   * @param array $items   Array of items to display in combo select.
+   * @param array $columns Name/id f column.
    *
-   * @return int
+   * @return WPXCleanFixSelectControl
    */
-  public function countWarning() {
-    $count = 0;
-    if ( !empty( $this->_rows ) ) {
-      foreach ( $this->_rows as $data ) {
-        $response = call_user_func( $data['callback'] );
-        if ( $response->isWarning ) {
-          $count++;
+  public function __construct( $items, $columns )
+  {
+    $options = array();
+    foreach( $items as $item ) {
+      $stack = array();
+      foreach( $columns as $column_name => $format ) {
+        if( isset( $item->$column_name ) ) {
+
+          // TODO doc
+          $stack[ ] = apply_filters( 'wpxcf_select_control_' . $column_name, sprintf( $format, $item->{$column_name} ), $format, $item );
         }
       }
+      $options[ ] = implode( ' ', $stack );
     }
-    return $count;
-  }
+    parent::__construct( $options );
 
-  /**
-   * Restituisce l'HTML markup per un bottone azione
-   *
-   * @param string $type        Tipo clean, fix
-   * @param array  $callback    Callback per la chiamata al metodo
-   * @param string $description Descrizione nel titolo proposta come tooltip
-   * @param string $confirm     Se presente aprirà un confirm Javascript prima di eseguire l'azione. Se viene passato
-   *                            il boolean TRUE verrà usata una stringa di conferma di default.
-   *
-   * @return string
-   */
-  public function actions( $type, $callback, $description, $confirm = '', $custom_check = '' ) {
-
-    $data_attributes = array(
-      'placement'   => 'left',
-      'class_name'  => get_class( $callback[0] ),
-      'action_name' => $callback[1]
-    );
-
-    if ( !empty( $confirm ) ) {
-      if ( is_bool( $confirm ) && true === $confirm ) {
-        $confirm = __( 'WARNING!! Are you sure you want to permanently delete these data? This action is not undoable.', WPXCLEANFIX_TEXTDOMAIN );
-      }
-      else {
-        $data_attributes['confirm'] = $confirm;
-      }
-    }
-
-    if ( !empty( $custom_check ) ) {
-      $data_attributes['custom_check'] = $custom_check;
-    }
-
-    /* Build the data- attributes. */
-    $datas = array();
-    foreach ( $data_attributes as $data => $value ) {
-      $datas[] = sprintf( 'data-%s="%s"', $data, $value );
-    }
-    $data = implode( ' ', $datas );
-
-    $html = <<< HTML
-<button title="{$description}" {$data} class="wpdk-tooltip wpxcf-button-action wpxcf-button-action-{$type}"></button>
-HTML;
-    return $html;
-  }
-
-  /**
-   * Return the HTML markup for select control used to display more info.
-   *
-   * @param array  $items
-   * @param string $column   Column name
-   * @param array  $more     An array with extra column name
-   *
-   * @return string
-   */
-  public function select( $items, $column, $more = array() ) {
-    $options = '';
-    foreach ( $items as $item ) {
-      $more_info = '';
-      if ( !empty( $more ) ) {
-        $stack = array();
-        foreach ( $more as $column_name ) {
-          $stack[] = $item->$column_name;
-        }
-        $more_info = sprintf( ' (%s)', implode( ',', $stack ) );
-      }
-      $options .= sprintf( '<option>%s%s</option>', $item->$column, $more_info );
-    }
-
-    $html = <<< HTML
-<select class="wpdk-form-select wpxcf-select-info">
-{$options}
-</select>
-HTML;
-    return $html;
+    $this->class = 'wpdk-form-select wpdk-ui-control';
   }
 
 }
 
+/**
+ * Utility control to display a label information
+ *
+ * @class           WPXCleanFixLabelControl
+ * @author          =undo= <info@wpxtre.me>
+ * @copyright       Copyright (C) 2012-2013 wpXtreme Inc. All Rights Reserved.
+ * @date            2013-07-10
+ * @version         1.0.0
+ *
+ */
+class WPXCleanFixLabelControl extends WPDKHTMLTagLabel {
+
+  /**
+   * Create an instance of WPXCleanFixLabelControl class
+   *
+   * @param string $label
+   *
+   * @return WPXCleanFixLabelControl
+   */
+  public function __construct( $label )
+  {
+    parent::__construct( $label );
+  }
+}
 
 
 /**
- * Button actions
+ * Repair button control type
  *
- * @class              WPXCleanFixModuleView
+ * @class              WPXCleanFixButtonFixControlType
  * @author             =undo= <info@wpxtre.me>
  * @copyright          Copyright (C) 2012-2013 wpXtreme Inc. All Rights Reserved.
- * @date               05/06/12
- * @version            1.0.0
+ * @date               2013-07-01
+ * @version            1.0.1
  */
-class WPXCleanFixModuleButtonActionType {
+class WPXCleanFixButtonFixControlType {
 
-  /**
-   * Action Button to clean unused data
-   *
-   * @brief Clean action
-   */
+  // Action Button to clean unused data
   const CLEAN = 'clean';
 
-  /**
-   * Action Button to repair and fix data
-   *
-   * @brief Fix action
-   */
+  // Action Button to repair and fix data
   const FIX = 'fix';
+}
+
+
+/**
+ * Button control used to repair
+ *
+ * @class           WPXCleanFixButtonFixControl
+ * @author          =undo= <info@wpxtre.me>
+ * @copyright       Copyright (C) 2012-2013 wpXtreme Inc. All Rights Reserved.
+ * @date            2013-07-02
+ * @version         1.0.0
+ *
+ */
+class WPXCleanFixButtonFixControl extends WPDKHTMLTagButton {
+
+  /**
+   * Create an instance of WPXCleanFixButtonFixControl class
+   *
+   * @param WPXCleanFixSlot $slot An instance of WPXCleanFixSlot class
+   * @param string          $type Optional. Type of button
+   *
+   * @return WPXCleanFixButtonFixControl
+   */
+  public function __construct( $slot, $type = WPXCleanFixButtonFixControlType::CLEAN )
+  {
+    parent::__construct();
+
+    // Data atribute.
+    $this->data = array(
+      'module'    => get_class( $slot->module ),
+      'slot'      => get_class( $slot ),
+      'placement' => 'left',
+      'confirm'   => ''
+    );
+
+    // Additional class.
+    $classes     = array(
+      'wpdk-has-tooltip',
+      'wpxcf-button-action',
+      'wpxcf-button-action-' . $type
+    );
+    $this->class = implode( ' ', $classes );
+  }
+
+  /**
+   * Helper method to display a confirm message
+   *
+   * @param null|string $confirm Optional. Confirm message
+   */
+  public function confirm( $confirm = null )
+  {
+    $confirm                 = is_null( $confirm ) ? __( 'WARNING!! Are you sure you want to permanently delete these data? This action is not undoable.', WPXCLEANFIX_TEXTDOMAIN ) : $confirm;
+    $this->data[ 'confirm' ] = $confirm;
+  }
+}
+
+/**
+ * Button control used to refresh/check
+ *
+ * @class           WPXCleanFixButtonRefreshControl
+ * @author          =undo= <info@wpxtre.me>
+ * @copyright       Copyright (C) 2012-2013 wpXtreme Inc. All Rights Reserved.
+ * @date            2013-07-02
+ * @version         1.0.0
+ *
+ */
+class WPXCleanFixButtonRefreshControl extends WPDKHTMLTagButton {
+
+  /**
+   * Create an instance of WPXCleanFixButtonRefreshControl class
+   *
+   * @param WPXCleanFixSlot $slot An instance of WPXCleanFixSlot class
+   *
+   * @return WPXCleanFixButtonRefreshControl
+   */
+  public function __construct( $slot )
+  {
+    parent::__construct();
+
+    // Data atribute.
+    $this->data = array(
+      'module' => get_class( $slot->module ),
+      'slot'   => get_class( $slot ),
+    );
+
+    // Title.
+    $this->title = __( 'Refresh', WPXCLEANFIX_TEXTDOMAIN );
+
+    // Additional class.
+    $classes = array(
+      'wpxcf-button-action',
+      'wpxcf-button-action-refresh'
+    );
+
+    $this->class = implode( ' ', $classes );
+  }
+
 }
