@@ -12,7 +12,7 @@ The all in one tool for check, repair, fix and optimize your WordPress blog.
 
 == Description ==
 
-WPX CleanFix Light is the "light" version of wpXtreme [CleanFix](https://wpxtre.me/product/cleanfix).
+WPX CleanFix Light is the "light" version of wpXtreme [CleanFix](https://wpxtre.me/product/wpx-cleanfix).
 CleanFix is a plugin born to improve the core features within your WordPress installation and keep clean your databases with ease
 This plugin is the perfect fit for anybody who needs to get rid of the annoyances database management which regularly rises and for those who need to literally clean their WordPress up from missing categories, users, meta, etc.
 
@@ -59,13 +59,13 @@ In this "light" version you can:
 * Check/Remove Unapproved, SPAM and Trash Comments
 * Compact index tool for comment meta table
 
-for more features visit wpXtreme [CleanFix](https://wpxtre.me/product/cleanfix)
+for more features visit wpXtreme [CleanFix](https://wpxtre.me/product/wpx-cleanfix)
 
 **RELEASE NOTE**
 
 = 4.0.0 =
 
-* New branch from [CleanFix](https://wpxtre.me/product/cleanfix)
+* New branch from [CleanFix](https://wpxtre.me/product/wpx-cleanfix)
 
 See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
 
@@ -77,7 +77,7 @@ Check Dashboard
 
 * [wpXtreme website](https://wpxtre.me)
 * [WPDK on GitHub](https://github.com/wpXtreme/wpdk)
-* [Full Version](https://wpxtre.me/product/server)
+* [Full Version](https://wpxtre.me/product/wpx-cleanfix)
 * [Forums](https://wpxtre.me/forums/)
 * [FAQ](https://wpxtre.me/faq/)
 * [Blog](https://wpxtre.me/blog/)
@@ -110,7 +110,7 @@ wpXtreme is a simple plugin (autoinstalled) that provides a framework API layer 
 
 = Where can I try the complete version ? =
 
-You can try the complete version on wpXtreme [CleanFix](https://wpxtre.me/product/cleanfix)
+You can try the complete version on wpXtreme [CleanFix](https://wpxtre.me/product/wpx-cleanfix)
 
  1. Register for FREE
  2. Activate the 10 days TRIAL period
@@ -137,7 +137,7 @@ Could be useful [Database Manager](https://wpxtre.me/product/database-manager).
 
 = 4.0.0 =
 
-* New branch from [CleanFix](https://wpxtre.me/product/cleanfix)
+* New branch from [CleanFix](https://wpxtre.me/product/wpx-cleanfix)
 
 = 3.0.1 =
 
