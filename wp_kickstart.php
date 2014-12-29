@@ -9,6 +9,7 @@
  * @copyright  Copyright (C) 2013-2014 wpXtreme Inc. All Rights Reserved.
  * @date       2014-12-23
  * @version    1.0.0
+ * @note       You can found the latest version of this file on https://gist.github.com/gfazioli/e4c4dafdc83768098781
  *
  */
 
@@ -31,10 +32,9 @@ if ( !function_exists( 'wpxtreme_wp_kickstart' ) ) {
    */
   function wpxtreme_wp_kickstart( $sMainFile, $wpxtreme_store_slug, $sMainClassName, $sMainClassFile, $sClassParent = 'WPXtreme' )
   {
-    // Check if get_plugins() function exists. This is required on the front end of the
-    // site, since it is in a file that is normally only loaded in the admin.
-    if ( ! function_exists( 'get_plugins' ) ) {
-    	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    // Check if get_plugins() function exists. This is required on the front end of the site, since it is in a file that is normally only loaded in the admin.
+    if( !function_exists( 'get_plugin_data' ) ) {
+      require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
     }
     $plugins = get_plugins();
 
