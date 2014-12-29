@@ -31,7 +31,11 @@ if ( !function_exists( 'wpxtreme_wp_kickstart' ) ) {
    */
   function wpxtreme_wp_kickstart( $sMainFile, $wpxtreme_store_slug, $sMainClassName, $sMainClassFile, $sClassParent = 'WPXtreme' )
   {
-    // Get current plugins
+    // Check if get_plugins() function exists. This is required on the front end of the
+    // site, since it is in a file that is normally only loaded in the admin.
+    if ( ! function_exists( 'get_plugins' ) ) {
+    	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    }
     $plugins = get_plugins();
 
     // Loop into the active plugins
