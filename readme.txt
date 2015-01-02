@@ -24,9 +24,15 @@ CleanFix, you’ve never been happier to clean stuff.
 
 http://www.youtube.com/watch?v=QfhsDWtEen4
 
-In this "light" version you can:
+== Full Version ==
 
-**FEATURES**
+Why purchase a full version license ?
+
+1. Full support
+2. Updates
+3. More features
+
+In this "light" version you can:
 
 = Database =
 
@@ -110,7 +116,7 @@ wpXtreme is a simple plugin (autoinstalled) that provides a framework API layer 
 
 = Where can I try the complete version ? =
 
-You can try the complete version on wpXtreme [CleanFix](https://wpxtre.me/product/wpx-cleanfix)
+You can try the full version on wpXtreme [CleanFix](https://wpxtre.me/product/wpx-cleanfix)
 
  1. Register for FREE
  2. Activate the 10 days TRIAL period
