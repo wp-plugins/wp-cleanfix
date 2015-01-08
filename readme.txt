@@ -30,20 +30,15 @@ For updates/support please visit [full version](https://wpxtre.me/product/wpx-cl
 
 * Optimise database tables, MyISAM and InnoDB
 * Reset auto-increment preferences
-
 * Check/Remove expired transient
 * Transient preferences
-
 * Check/Remove Post Revision, post in trash, auto-draft
 * Check/Remove Post Meta, Orphans Media attachments, Orphans Post Tags and Orphans Post Categories
 * Check/Repair Post without valid user linked
-
 * Check/Repair Terms, Terms Taxonomies and Terms Relationships
 * Check/Remove Orphans generic Terms
-
 * Check/Remove expired user transient
 * Check/Remove user meta
-
 * Check/Remove Unapproved, SPAM and Trash Comments
 * Compact index tool for comment meta table
 
