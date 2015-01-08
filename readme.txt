@@ -1,7 +1,7 @@
 === WP CleanFix ===
 Contributors: gfazioli
 Donate link: https://wpxtre.me/
-Tags: Database, Post, Page, Categories, Post Meta, Revision, Comments, Compress, Improvements, Manage, Clean, Repair, Optimize, Fix, Tools, Utility
+Tags: admin, administration, database, posts, page, categories, post meta, revision, comments, compress, improvements, manage, clean, repair, optimize, fix, taxonomies, options, tools, utility, spam, orphans, draft
 Requires at least: 3.8.0
 Tested up to: 4.1
 Stable tag: 4.0.0
@@ -17,69 +17,37 @@ CleanFix is a plugin born to improve the core features within your WordPress ins
 This plugin is the perfect fit for anybody who needs to get rid of the annoyances database management which regularly rises and for those who need to literally clean their WordPress up from missing categories, users, meta, etc.
 
 CleanFix embodies several functions, which normally are provided as single plugins, and make them all quickly and easily available through a clean dashboard for the website management (for specific information see the features tab).
-
 A clean and simple UI lets you enable/disable every single feature quickly and smoothly with just a click. Since CleanFix takes advantage of Ajax, you’ll be able to perform simultaneously multiple actions without refreshing your page.
-
 CleanFix, you’ve never been happier to clean stuff.
 
 http://www.youtube.com/watch?v=QfhsDWtEen4
 
-== Full Version ==
+= Full version =
 
-Why purchase a full version license ?
+For updates/support please visit [full version](https://wpxtre.me/product/wpx-cleanfix)
 
-1. Full support
-2. Updates
-3. More features
-
-In this "light" version you can:
-
-= Database =
+= Features =
 
 * Optimise database tables, MyISAM and InnoDB
 * Reset auto-increment preferences
 
-= Options =
-
 * Check/Remove expired transient
 * Transient preferences
-
-= Posts, Pages and Custom Post Types =
 
 * Check/Remove Post Revision, post in trash, auto-draft
 * Check/Remove Post Meta, Orphans Media attachments, Orphans Post Tags and Orphans Post Categories
 * Check/Repair Post without valid user linked
 
-= Terms and taxonomies =
-
 * Check/Repair Terms, Terms Taxonomies and Terms Relationships
 * Check/Remove Orphans generic Terms
-
-= Users =
 
 * Check/Remove expired user transient
 * Check/Remove user meta
 
-= Comments =
-
 * Check/Remove Unapproved, SPAM and Trash Comments
 * Compact index tool for comment meta table
 
-for more features visit wpXtreme [CleanFix](https://wpxtre.me/product/wpx-cleanfix)
-
-**RELEASE NOTE**
-
-= 4.0.0 =
-
-* New branch from [CleanFix](https://wpxtre.me/product/wpx-cleanfix)
-
-See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
-
-**HOW TO**
-
-Check Dashboard
-
-== Related Links ==
+= Related Links =
 
 * [wpXtreme website](https://wpxtre.me)
 * [WPDK on GitHub](https://github.com/wpXtreme/wpdk)
@@ -87,6 +55,16 @@ Check Dashboard
 * [Forums](https://wpxtre.me/forums/)
 * [FAQ](https://wpxtre.me/faq/)
 * [Blog](https://wpxtre.me/blog/)
+
+
+= RELEASE NOTE =
+
+= 4.0.0 =
+
+* New branch from [CleanFix](https://wpxtre.me/product/wpx-cleanfix)
+
+See [ChangeLog](http://wordpress.org/extend/plugins/wp-cleanfix/changelog/ "ChangeLog") for full history version
+
 
 == Screenshots ==
 
@@ -116,7 +94,7 @@ wpXtreme is a simple plugin (autoinstalled) that provides a framework API layer 
 
 = Where can I try the complete version ? =
 
-You can try the full version on wpXtreme [CleanFix](https://wpxtre.me/product/wpx-cleanfix)
+You can try the complete version on wpXtreme [CleanFix](https://wpxtre.me/product/wpx-cleanfix)
 
  1. Register for FREE
  2. Activate the 10 days TRIAL period
